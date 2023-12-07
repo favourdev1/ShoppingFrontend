@@ -1,35 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
    
-<!-- Mirrored from freshcart.codescandy.com/pages/404error.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Dec 2023 01:18:00 GMT -->
-<head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta content="Codescandy" name="author" />
-      <title>404 Error eCommerce HTML Template - FreshCart</title>
-
-      <!-- Favicon icon-->
-      <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico" />
-
-      <!-- Libs CSS -->
-      <link href="../assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
-      <link href="../assets/libs/feather-webfont/dist/feather-icons.css" rel="stylesheet" />
-      <link href="../assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet" />
-
-      <!-- Theme CSS -->
-      <link rel="stylesheet" href="../assets/css/theme.min.css" />
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
-      <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag() {
-            dataLayer.push(arguments);
-         }
-         gtag("js", new Date());
-
-         gtag("config", "G-M8S4MT3EYG");
-      </script>
-   </head>
+   
+<?php 
+$pageName="Error 404 - Sosmart Online shopping and more";
+include_once('header.php')
+?>
 
    <body>
       <main>
@@ -60,7 +36,7 @@
                                  <i class="feather-icon icon-arrow-right"></i>
                               </a>
                               <!-- btn -->
-                              <a href="../index-2.html" class="btn btn-primary ms-2">Back to home</a>
+                              <a href="../index.php" class="btn btn-primary ms-2">Back to home</a>
                            </div>
                         </div>
                         <div class="col-md-6">
