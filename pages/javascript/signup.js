@@ -39,30 +39,31 @@ signupForm.addEventListener("submit", function (event) {
 
 
             setTimeout(() => {
-                window.location.href="signin.php"
+                window.location.href = "signin.php"
             }, 1000);
 
         })
         .catch(error => {
 
 
-           
+
             if (error.response) {
-
-                const errors =error.response.data.errors;
-                var errorResp=""
-                Object.values(errors).forEach(errorArray => {
-                    errorArray.forEach(errorMessage => {
-                        errorResp +=errorMessage+" <br> "
-                        console.log(errorMessage);
+                if (error.response.data.errors) {
+                    const errors = error.response.data.errors;
+                    var errorResp = ""
+                    Object.values(errors).forEach(errorArray => {
+                        errorArray.forEach(errorMessage => {
+                            errorResp += errorMessage + " <br> "
+                            console.log(errorMessage);
+                        });
                     });
-                });
 
+                    errorEl.innerHTML = errorResp
+                    errorEl.style.display = "block"
 
+                }
 
-                console.error("Error Status:", error.response);
-                errorEl.innerHTML = errorResp
-                errorEl.style.display = "block"
+              
                 alertHub.showAlert({
                     title: "",
                     description: error.response.data.message + "    ",
