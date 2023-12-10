@@ -126,12 +126,10 @@
                         <span id="copyright">
                            -
                            <script>
-                              document.getElementById("copyright").appendChild(document.createTextNode(new Date().getFullYear()));
+                              document.getElementById("copyright");
                            </script>
                         </span>
-                        FreshCart eCommerce HTML Template. All rights reserved. Powered by
-                        <a href="https://codescandy.com/">Codescandy</a>
-                        .
+                        <strong>Sosmart Online Shopping </strong> 
                      </span>
                   </div>
                   <div class="col-md-6">

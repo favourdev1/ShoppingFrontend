@@ -2,7 +2,8 @@
 <html lang="en">
    
 
-<?php  include_once('header.php')?>
+<?php $pageName="Signin -Sosmart online shopping and more!";
+ include_once('header.php')?>
 
    <body>
       <!-- navigation -->
@@ -26,25 +27,22 @@
             <div class="container">
                <!-- row -->
                <div class="row justify-content-center align-items-center">
-                  <div class="col-12 col-md-6 col-lg-4 order-lg-1 order-2">
-                     <!-- img -->
-                     <img src="../assets/images/svg-graphics/signin-g.svg" alt="" class="img-fluid" />
-                  </div>
+                  
                   <!-- col -->
                   <div class="col-12 col-md-6 offset-lg-1 col-lg-4 order-lg-2 order-1">
-                     <div class="mb-lg-9 mb-5">
+                     <div class="mb-lg-9 mb-5 text-center">
                         <h1 class="mb-1 h2 fw-bold">Sign in to FreshCart</h1>
-                        <p>Welcome back to FreshCart! Enter your email to get started.</p>
+                        <p>Welcome back to Sosmart! Enter your email to get started.</p>
                      </div>
 
-                     <form class="needs-validation" novalidate>
+                     <form id="loginForm" class="needs-validation" novalidate>
                         <div class="row g-3">
                            <!-- row -->
 
                            <div class="col-12">
                               <!-- input -->
                               <label for="formSigninEmail" class="form-label visually-hidden">Email address</label>
-                              <input type="email" class="form-control" id="formSigninEmail" placeholder="Email" required />
+                              <input type="email" class="form-control" id="formSigninEmail" name="email" placeholder="Email" required />
                               <div class="invalid-feedback">Please enter name.</div>
                            </div>
                            <div class="col-12">
@@ -52,7 +50,7 @@
                               <div class="password-field position-relative">
                                  <label for="formSigninPassword" class="form-label visually-hidden">Password</label>
                                  <div class="password-field position-relative">
-                                    <input type="password" class="form-control fakePassword" id="formSigninPassword" placeholder="*****" required />
+                                    <input type="password" class="form-control fakePassword" id="formSigninPassword" name="password" placeholder="*****" required />
                                     <span><i class="bi bi-eye-slash passwordToggler"></i></span>
                                     <div class="invalid-feedback">Please enter password.</div>
                                  </div>
@@ -61,11 +59,11 @@
                            <div class="d-flex justify-content-between">
                               <!-- form check -->
                               <div class="form-check">
-                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                 <input class="form-check-input small" type="checkbox" value="" id="flexCheckDefault" />
                                  <!-- label -->
-                                 <label class="form-check-label" for="flexCheckDefault">Remember me</label>
+                                 <label class="form-check-label small" for="flexCheckDefault">Remember me</label>
                               </div>
-                              <div>
+                              <div class="small">
                                  Forgot password?
                                  <a href="forgot-password.php">Reset It</a>
                               </div>
@@ -73,7 +71,7 @@
                            <!-- btn -->
                            <div class="col-12 d-grid"><button type="submit" class="btn btn-primary">Sign In</button></div>
                            <!-- link -->
-                           <div>
+                           <div class="text-center">
                               Don’t have an account?
                               <a href="signup.php">Sign Up</a>
                            </div>
@@ -267,6 +265,8 @@
 
       <script src="../assets/js/vendors/password.js"></script>
       <script src="../assets/js/vendors/validation.js"></script>
+      <script src="javascript/login.js"></script>
+
    </body>
 
 

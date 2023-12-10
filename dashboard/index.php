@@ -39,7 +39,7 @@
                      <div class="row flex-nowrap pb-3 pb-lg-0">
                         <div class="col-lg-4 col-12 mb-6">
                            <!-- card -->
-                           <div class="card h-100 card-lg">
+                           <div class="card h-100 card-lg shadow-0 border">
                               <!-- card body -->
                               <div class="card-body p-6">
                                  <!-- heading -->
@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-lg-4 col-12 mb-6">
                            <!-- card -->
-                           <div class="card h-100 card-lg">
+                           <div class="card h-100 card-lg shadow-0 border">
                               <!-- card body -->
                               <div class="card-body p-6">
                                  <!-- heading -->
@@ -86,7 +86,7 @@
                         </div>
                         <div class="col-lg-4 col-12 mb-6">
                            <!-- card -->
-                           <div class="card h-100 card-lg">
+                           <div class="card h-100 card-lg shadow-0 border">
                               <!-- card body -->
                               <div class="card-body p-6">
                                  <!-- heading -->
@@ -116,7 +116,7 @@
                   <div class="row">
                      <div class="col-xl-8 col-lg-6 col-md-12 col-12 mb-6">
                         <!-- card -->
-                        <div class="card h-100 card-lg">
+                        <div class="card h-100 card-lg shadow-0 border">
                            <div class="card-body p-6">
                               <!-- heading -->
                               <div class="d-flex justify-content-between">
@@ -142,7 +142,7 @@
                      </div>
                      <div class="col-xl-4 col-lg-6 col-12 mb-6">
                         <!-- card -->
-                        <div class="card h-100 card-lg">
+                        <div class="card h-100 card-lg shadow-0 border">
                            <!-- card body -->
                            <div class="card-body p-6">
                               <!-- heading -->
@@ -197,7 +197,7 @@
                   <div class="row">
                      <div class="col-xl-6 col-lg-6 col-md-12 col-12 mb-6">
                         <!-- card -->
-                        <div class="card h-100 card-lg">
+                        <div class="card h-100 card-lg shadow-0 border">
                            <!-- card body -->
                            <div class="card-body p-6">
                               <h3 class="mb-0 fs-5">Sales Overview</h3>
@@ -327,7 +327,7 @@
                   <!-- row -->
                   <div class="row">
                      <div class="col-xl-12 col-lg-12 col-md-12 col-12 mb-6">
-                        <div class="card h-100 card-lg">
+                        <div class="card h-100 card-lg shadow-0 border">
                            <!-- heading -->
                            <div class="p-6">
                               <h3 class="mb-0 fs-5">Recent Order</h3>

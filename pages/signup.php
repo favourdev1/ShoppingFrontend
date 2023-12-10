@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php $pageName=''?>
-    <?php  include_once('header.php')?>
-
+<?php $pageName="Create an account -Sosmart online shopping and more!";
+ include_once('header.php')?>
 
     <body>
         <!-- navigation -->
@@ -27,61 +26,64 @@
             </nav>
         </div>
 
-        <main>
+        <main class="border-bottom">
             <!-- section -->
 
-            <section class="my-lg-14 my-8">
+            <section class="my-lg-14 my-8 ">
                 <!-- container -->
                 <div class="container">
                     <!-- row -->
                     <div class="row justify-content-center align-items-center">
-                        <div class="col-12 col-md-6 col-lg-4 order-lg-1 order-2">
-                            <!-- img -->
-                            <img
-                                src="../assets/images/svg-graphics/signup-g.svg"
-                                alt=""
-                                class="img-fluid"
-                            />
-                        </div>
+                      
                         <!-- col -->
-                        <div class="col-12 col-md-6 offset-lg-1 col-lg-4 order-lg-2 order-1">
-                            <div class="mb-lg-9 mb-5">
+                        <div class="col-12 col-md-6 col-lg-5 offset-lg-1 col-lg-4 order-lg-2 order-1 ">
+                            <div class="mb-lg-9 mb-5 text-center">
                                 <h1 class="mb-1 h2 fw-bold">Get Start Shopping</h1>
-                                <p>Welcome to FreshCart! Enter your email to get started.</p>
+                                <p>Welcome to Sosmart! Enter your email to get started.</p>
                             </div>
                             <!-- form -->
+
+                            <div class="alert alert-warning small text-center " id="error"role="alert">
+
+</div>
+
+
+
                             <form
+                            id="signupform"
                                 class="needs-validation"
                                 novalidate
                             >
-                                <div class="row g-3">
+                                <div class="row  g-3">
                                     <!-- col -->
-                                    <div class="col">
+                                    <div class="col-12">
                                         <!-- input -->
                                         <label
                                             for="formSignupfname"
-                                            class="form-label visually-hidden"
+                                            class="form-label small"
                                         >First Name</label>
                                         <input
                                             type="text"
-                                            class="form-control"
+                                            name="firstname"
+                                            class="form-control rounded-1"
                                             id="formSignupfname"
-                                            placeholder="First Name"
+                                            placeholder="Enter lastname"
                                             required
                                         />
                                         <div class="invalid-feedback">Please enter first name.</div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-12">
                                         <!-- input -->
                                         <label
                                             for="formSignuplname"
-                                            class="form-label visually-hidden"
+                                            class="form-label small"
                                         >Last Name</label>
                                         <input
                                             type="text"
-                                            class="form-control"
+                                            name="lastname"
+                                            class="form-control rounded-1"
                                             id="formSignuplname"
-                                            placeholder="First Name"
+                                            placeholder="Enter lastname..."
                                             required
                                         />
                                         <div class="invalid-feedback">Please enter last name.</div>
@@ -90,29 +92,33 @@
                                         <!-- input -->
                                         <label
                                             for="formSignupEmail"
-                                            class="form-label visually-hidden"
+                                            class="form-label small"
                                         >Email address</label>
                                         <input
                                             type="email"
-                                            class="form-control"
+                                            class="form-control rounded-1"
                                             id="formSignupEmail"
+                                            name="email"
                                             placeholder="Email"
                                             required
                                         />
                                         <div class="invalid-feedback">Please enter email.</div>
+
+                               
                                     </div>
                                     <div class="col-12">
                                         <div class="password-field position-relative">
                                             <label
                                                 for="formSignupPassword"
-                                                class="form-label visually-hidden"
+                                                class="form-label small"
                                             >Password</label>
                                             <div class="password-field position-relative">
                                                 <input
                                                     type="password"
-                                                    class="form-control fakePassword"
+                                                    class="form-control rounded-1 fakePassword"
                                                     id="formSignupPassword"
                                                     placeholder="*****"
+                                                    name="password"
                                                     required
                                                 />
                                                 <span><i class="bi bi-eye-slash passwordToggler"></i></span>
@@ -121,14 +127,14 @@
                                         </div>
                                     </div>
                                     <!-- btn -->
-                                    <div class="col-12 d-grid"><button
+                                    <div class="col-12 d-grid mt-5"><button
                                             type="submit"
                                             class="btn btn-primary"
-                                        >Register</button></div>
+                                        >Create New Account </button></div>
 
                                     <!-- text -->
-                                    <p>
-                                        <small>
+                                    <p class="text-center">
+                                        <small class="text-center">
                                             By continuing, you agree to our
                                             <a href="#!">Terms of Service</a>
                                             &
@@ -159,6 +165,7 @@
         <script src="../assets/js/vendors/password.js"></script>
 
         <script src="../assets/js/vendors/validation.js"></script>
+        <script src="javascript/signup.js"></script>
     </body>
 
 

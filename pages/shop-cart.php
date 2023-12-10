@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <?php include_once('header.php')?>
-
+<?php $pageName="Shopping Cart | Sosmart online shopping and more!";
+ include_once('header.php')?>
     <body>
         <!-- navbar -->
         <?php include_once('navbar.php')?>

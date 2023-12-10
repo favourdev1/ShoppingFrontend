@@ -2,7 +2,7 @@
       <!-- Required meta tags -->
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta content="Codescandy" name="author" />
+      <meta content="Sosmart" name="author" />
       <title><?php echo  $pageName?></title>
 
       <link href="assets/libs/slick-carousel/slick/slick.css" rel="stylesheet" />
