@@ -5,7 +5,8 @@ require_once __DIR__.'/../../../vendor/autoload.php';
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
-
+// print_r($_POST);
+// die;
 // Initialize Guzzle client
 $client = new Client();
 if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' ) {

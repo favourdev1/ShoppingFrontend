@@ -17,7 +17,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' ) {
         
         $response = $client->post( $apiUrl . '/category/add/' , [
             'headers' => [
-                'Accept' => '*/*',
+                'Accept' => 'application/json',
                 'Cookie' => 'access_token=' . $token,
                 'Authorization' => 'Bearer ' . $token,
             ],
@@ -33,11 +33,11 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' ) {
         print_r( $updatedCategory );
     } catch ( RequestException $e ) {
         $error = 'Unexpected Error: ' . $e->getMessage();
-        header('Location: ../../add-category.php?error=Unexpected error'.$error);
+        // header('Location: ../../add-category.php?error=Unexpected error'.$error);
         echo $error;
     } catch ( \Exception $e ) {
         $error = 'Unexpected Error: ' . $e->getMessage();
-        header('Location: ../../add-category.php?error=Unexpected error'.$error);
+        // header('Location: ../../add-category.php?error=Unexpected error'.$error);
         echo $error;
     }
 }

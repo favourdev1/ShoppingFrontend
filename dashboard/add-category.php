@@ -136,7 +136,7 @@
                                                 <input
                                                     type="text"
                                                     class="form-control"
-                                                    name="categoryName"
+                                                    name="category_name"
                                                     placeholder="Category Name"
                                                     value="<?php echo   $isUpdating ?  $name:'' ?>"
                                                     required
@@ -181,8 +181,8 @@
                                                 >
                                                 <input
                                                     type="text"
-                                                    hidden
-                                                    name="category_img"
+                                                    value="<?php echo   $isUpdating ?  $categoryImg:'' ?>"
+                                                    name="category_image"
                                                     id="categoryImagetext"
                                                 />
                                             </div>

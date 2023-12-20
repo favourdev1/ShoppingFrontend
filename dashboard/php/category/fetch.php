@@ -24,7 +24,7 @@ if ( isset( $_GET[ 'id' ] ) ) {
         ] );
 
         // Decode the JSON response
-        $category = json_decode( $response->getBody(), true )[ 'data' ];
+        $category = json_decode( $response->getBody(), true )[ 'data' ]['category'];
 
         // Print or use the retrieved category data
         print_r( $category );
@@ -34,12 +34,12 @@ if ( isset( $_GET[ 'id' ] ) ) {
 
             // Get the category id, name, slug, description, status, and created_at fields
             $id = $category[ 'id' ];
-            $name = $category[ 'categoryName' ];
+            $name = $category[ 'category_name' ];
             $slug = $category[ 'slug' ];
             $description = $category[ 'description' ];
             $status = $category[ 'status' ];
             $created_at = $category[ 'created_at' ];
-            $categoryImg = $category[ 'category_img' ];
+            $categoryImg = $category[ 'category_image' ];
         }
     } catch ( RequestException $e ) {
         // Handle request exception ( e.g., network error, HTTP error )

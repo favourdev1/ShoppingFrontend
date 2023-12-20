@@ -20,7 +20,7 @@ try {
 
     // Decode the JSON response
     $Allcategories = json_decode($response->getBody(), true);
-    $Allcategories = $Allcategories['data'];
+    $Allcategories = $Allcategories['data']['categories'];
 
     // Output or process the categories as needed
     // print_r($Allcategories);

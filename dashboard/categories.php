@@ -118,15 +118,16 @@ if(count($Allcategories)>0){
     // Loop through the categories array
     foreach($Allcategories as  $category){
         // Get the category id, name, slug, description, status, and created_at fields
+       
         $id = $category['id'];
-        $name = $category['categoryName'];
+        $name = $category['category_name'];
         $slug = $category['slug'];
         $description = $category['description'];
         $status = $category['status'];
         $created_at = $category['created_at'];
 		
         // Use the category name as the image file name
-        $categoryImg = $category[ 'category_img' ];
+        $categoryImg = $category[ 'category_image' ];
 
         // Format the created_at date as dd/mm/yyyy
         $date = date("d/m/Y", strtotime($created_at));
