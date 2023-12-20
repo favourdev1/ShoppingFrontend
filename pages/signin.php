@@ -5,6 +5,13 @@
 <?php $pageName="Signin -Sosmart online shopping and more!";
  include_once('header.php')?>
 
+<?php include_once('php/checkAuth.php'); ?>
+    <?php 
+        if(if_Authenticated()){
+            header('Location: ../index.php');
+            exit;
+        }
+?>
    <body>
       <!-- navigation -->
       <div class="border-bottom shadow-sm">

@@ -10,6 +10,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
     const formData = new FormData(event.target);
 
+
     axios.post(apiUrl + "login", formData, {
         headers: {
             'Accept': 'application/json',
@@ -18,9 +19,29 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
         .then(response => {
             // console.log("Response Data:", response.data);
             var message = response.data.message
-            var token = response.data.token
+            var token = response.data.data.token
+            var userId = response.data.data.userId
+            var isAdmin = response.data.data.isAdmin ?? false;
 
-            sessionStorage.setItem('token', token)
+
+            // Calculate the expiration date for one day from now
+            const expirationDate = new Date();
+            expirationDate.setDate(expirationDate.getDate() + 1);
+
+            // Format the expiration date in the required UTC format
+            const formattedExpiration = expirationDate.toUTCString();
+            try {
+                // Set the cookie with the calculated expiration date
+                document.cookie = "token=" + token + "; expires=" + formattedExpiration + "; path=/";
+                document.cookie = "userId=" + userId + "; expires=" + formattedExpiration + "; path=/";
+                document.cookie = "isAdmin=" + isAdmin + "; expires=" + formattedExpiration + "; path=/";
+
+                // Log the current document.cookie value for debugging
+                console.log("Cookies set:", document.cookie);
+
+            } catch (error) {
+                console.log(error)
+            }
 
             alertHub.showAlert({
                 title: "",
@@ -33,9 +54,14 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
                 animation: "fade-in", // Choose an animation: fade-in, slide-in, slide-in-right, slide-in-left (optional)
             });
 
-
+            console.log(isAdmin)
+            console.log("Cookies set:", document.cookie);
             setTimeout(() => {
-                window.location.href="../index.php"
+                if (isAdmin) {
+                    window.location.href = "../dashboard/index.php"
+                } else {
+                    window.location.href = "../index.php"
+                }
             }, 1000);
 
         })

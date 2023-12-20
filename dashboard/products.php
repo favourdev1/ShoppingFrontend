@@ -3,7 +3,7 @@
 
 
     <?php include_once('header.php')?>
-
+  <!-- <script src="./js/products.js"></script> -->
     <body>
         <!-- main wrapper-->
 
@@ -29,7 +29,8 @@
                                 <!-- button -->
                                 <div>
                                     <a
-                                        href="add-product.html"
+                                        href="add-product.php
+                                        "
                                         class="btn btn-primary"
                                     >Add Product</a>
                                 </div>

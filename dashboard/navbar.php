@@ -114,13 +114,13 @@
 					</li>
 					<li class="dropdown ms-4">
 						<a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<img src="../assets/images/avatar/avatar-1.jpg" alt="" class="avatar avatar-md rounded-circle" />
+							<img src="<?php echo $profile?>" alt="" class="avatar avatar-md rounded-circle" />
 						</a>
 
 						<div class="dropdown-menu dropdown-menu-end p-0">
 							<div class="lh-1 px-5 py-4 border-bottom">
-								<h5 class="mb-1 h6">Sosmat Admin</h5>
-								<small>admindemo@email.com</small>
+								<h5 class="mb-1 h6"><?php echo $username;?></h5>
+								<small><?php echo $email;?></small>
 							</div>
 
 							<ul class="list-unstyled px-2 py-3">

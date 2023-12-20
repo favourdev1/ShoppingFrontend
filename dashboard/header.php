@@ -1,3 +1,4 @@
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -32,21 +33,6 @@
         rel="stylesheet"
     >
 
-    <!-- Bulma CSS -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
-    >
-
-    <!-- Bulma Toast CSS -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma-toast@0.9.2/dist/css/bulma-toast.min.css"
-    >
-
-    <!-- Bulma Toast JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bulma-toast@0.9.2/dist/js/bulma-toast.min.js"></script>
-
 
     <!-- Theme CSS -->
     <link
@@ -58,4 +44,35 @@
         box-shadow: none !important;
     }
     </style>
+
+
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+<?php include_once('php/auth.php')?>
+
+
+
+    <script>
+    var apiUrl = 'http://localhost:8000/api/admin'
+    </script>
+
+    <script src="../pages/javascript/cookie.js"></script>
+    <script src="../pages/javascript/checkAuth.js"></script>
+    <link
+        rel="stylesheet"
+        href="../node_modules/alerthub/dist/css/Alerthub.min.css"
+    >
+    <script src="../node_modules/alerthub/dist/js/alerthub.min.js"></script>
+
+
+    <script>
+    if (!authStatus) {
+        window.location.href = "../pages/signin.php"
+    } else {
+        console.log("user is loggedin ")
+    }
+    </script>
+
+
+<?php include_once('php/profileDetails.php')?>
+
 </head>

@@ -52,28 +52,34 @@
         href="../assets/css/theme.min.css"
     />
 
-  
+
     <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css"
-  />
-  <!-- or -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
-  />
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css"
+    />
+    <!-- or -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
     <!-- Bulma Toast JavaScript -->
     <script src="../node_modules/bulma-toast/dist/bulma-toast.min.js"></script>
 
 
     <script src="../node_modules/axios/dist/axios.min.js"></script>
 
-
-
-
-    <link rel="stylesheet" href="../node_modules/alerthub/dist/css/Alerthub.min.css">
+    <link
+        rel="stylesheet"
+        href="../node_modules/alerthub/dist/css/Alerthub.min.css"
+    >
     <script src="../node_modules/alerthub/dist/js/alerthub.min.js"></script>
+
+
+    <script>
+    var apiUrl = 'http://localhost:8000/api/'
+    </script>
+
+
+
+    <script src="javascript/cookie.js"></script>
 </head>
-<script>
-      var apiUrl = 'http://localhost:8000/api/'
-</script>

@@ -43,9 +43,9 @@
                <div class="row">
                   <div class="col-lg-8 col-12">
                      <!-- card -->
-                     <div class="card mb-6 card-lg">
+                     <div class="mb-6 border rounded-4 ">
                         <!-- card body -->
-                        <div class="card-body p-6">
+                        <div class="p-6">
                            <h4 class="mb-4 h5">Product Information</h4>
                            <div class="row">
                               <!-- input -->
@@ -84,7 +84,7 @@
                                     <h4 class="mb-3 h5">Product Images</h4>
 
                                     <!-- input -->
-                                    <div id="my-dropzone" class="dropzone mt-4 border-dashed rounded-2 min-h-0"></div>
+                                    <div id="myDropzone" class="dropzone mt-4 border-dashed rounded-2 min-h-0"></div>
                                  </div>
                               </div>
                               <!-- input -->
@@ -98,9 +98,9 @@
                   </div>
                   <div class="col-lg-4 col-12">
                      <!-- card -->
-                     <div class="card mb-6 card-lg">
+                     <div class="mb-6 border rounded-4 ">
                         <!-- card body -->
-                        <div class="card-body p-6">
+                        <div class=" p-6">
                            <!-- input -->
                            <div class="form-check form-switch mb-4">
                               <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchStock" checked />
@@ -136,9 +136,9 @@
                         </div>
                      </div>
                      <!-- card -->
-                     <div class="card mb-6 card-lg">
+                     <div class="mb-6 border rounded-4 ">
                         <!-- card body -->
-                        <div class="card-body p-6">
+                        <div class=" p-6">
                            <h4 class="mb-4 h5">Product Price</h4>
                            <!-- input -->
                            <div class="mb-3">

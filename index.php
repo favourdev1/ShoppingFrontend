@@ -177,7 +177,7 @@
                      <a href="pages/shop-grid.php" class="text-decoration-none text-inherit">
                         <div class="card card-product mb-lg-4">
                            <div class="card-body text-center py-8">
-                              <img src="assets/images/category/category-dairy-bread-eggs.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" />
+                              <img src="https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/19/8636501/1.jpg?2920" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" />
                               <div class="text-truncate">Dairy, Bread & Eggs</div>
                            </div>
                         </div>
@@ -1285,6 +1285,9 @@
       <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
       <script src="assets/libs/simplebar/dist/simplebar.min.js"></script>
 
+      <script src="../node_modules/axios/dist/axios.min.js"></script>
+
+
       <!-- Theme JS -->
       <script src="assets/js/theme.min.js"></script>
 
@@ -1293,8 +1296,12 @@
       <script src="assets/libs/slick-carousel/slick/slick.min.js"></script>
       <script src="assets/js/vendors/slick-slider.js"></script>
       <script src="assets/libs/tiny-slider/dist/min/tiny-slider.js"></script>
+      <script src="node_modules/axios/dist/axios.min.js"></script>
       <script src="assets/js/vendors/tns-slider.js"></script>
       <script src="assets/js/vendors/zoom.js"></script>
+      <script src="pages/javascript/checkAuth.js">
+
+   </script>
    </body>
 
 </html>
