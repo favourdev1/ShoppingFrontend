@@ -23,6 +23,7 @@
             <!-- navbar vertical -->
             <!-- navbar -->
             <?php include_once('sidebar.php') ?>
+            <?php include_once('php/products/store.php') ?>
 
 
             <!-- main -->
