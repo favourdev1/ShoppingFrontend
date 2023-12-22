@@ -1,4 +1,6 @@
 <head>
+
+<?php $apiUrl = "http://localhost:8000/api" ?>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -9,7 +11,7 @@
         content="Sosmart"
         name="author"
     />
-    <title><?php echo  $pageName?></title>
+    <title><?php echo $pageName ?></title>
 
     <link
         href="assets/libs/slick-carousel/slick/slick.css"
@@ -50,6 +52,8 @@
         rel="stylesheet"
         href="assets/css/theme.min.css"
     />
+
+   
     <script>
     var apiUrl = 'http://localhost:8000/api/'
     </script>
@@ -57,25 +61,22 @@
 
 
     <script src="pages/javascript/cookie.js"></script>
+    
+
     <script src="pages/javascript/checkAuth.js">
 
     </script>
-    <script>
-    // if (!checkAuth) {
-    //     window.location.href = "login.php"
-    // }
+    
 
+    <?php include_once('pages/php/checkAuth.php'); ?>
 
-    </script>
-
-<?php include_once('pages/php/checkAuth.php'); ?>
-    <?php 
-        if(!if_Authenticated()){
-            setcookie('userId', '', time() - 3600, '/');
-            setcookie('token', '', time() - 3600, '/');
-            setcookie('isAdmin', '', time() - 3600, '/');
-            header('Location: pages/signin.php?error="user not logged in "');
-            exit;
-        }
-?>
+    <?php
+    if (!if_Authenticated()) {
+        setcookie('userId', '', time() - 3600, '/');
+        setcookie('token', '', time() - 3600, '/');
+        setcookie('isAdmin', '', time() - 3600, '/');
+        header('Location: pages/signin.php?error="user not logged in "');
+        exit;
+    }
+    ?>
 </head>

@@ -3,9 +3,17 @@
 require '../vendor/autoload.php'; // Include Composer's autoloader
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
+$isauthenticated = false;
+
+if(!isset($userId) || !isset($token) ){
+
+    header("Location: ../pages/signin.php");
+}
 
 
-
+try{
 // Create a new Guzzle client
 $client = new Client();
 
@@ -37,11 +45,19 @@ if ($response->getStatusCode() == 200) {
     $city = $profileDetails['city'];
     $country=$profileDetails['country'];
     $address = $profileDetails['address']; 
-   
+    $isauthenticated = true;
 } else {
 
    
-    // Handle error
-    echo 'Error fetching products: ' . $response->getStatusCode();
+
+}
+
+}catch(RequestException $e){
+    setcookie('userId', '', time() - 3600, '/');
+    setcookie('token', '', time() - 3600, '/');
+    setcookie('isAdmin', '', time() - 3600, '/');
+  
+    header("Location: ../pages/signin.php");
+    die;
 }
 

@@ -47,7 +47,7 @@
 
 
     <script src="../node_modules/axios/dist/axios.min.js"></script>
-<?php include_once('php/auth.php')?>
+<?php //include_once('php/auth.php')?>
 
 
 
@@ -55,22 +55,16 @@
     var apiUrl = 'http://localhost:8000/api/admin'
     </script>
 
-    <script src="../pages/javascript/cookie.js"></script>
-    <script src="../pages/javascript/checkAuth.js"></script>
+    <!-- <script src="../pages/javascript/cookie.js"></script> -->
+    <!-- <script src="../pages/javascript/checkAuth.js"></script> -->
     <link
         rel="stylesheet"
         href="../node_modules/alerthub/dist/css/Alerthub.min.css"
     >
     <script src="../node_modules/alerthub/dist/js/alerthub.min.js"></script>
 
-
-    <script>
-    if (!authStatus) {
-        window.location.href = "../pages/signin.php"
-    } else {
-        console.log("user is loggedin ")
-    }
-    </script>
+<?php include_once('php/auth.php')?>
+    
 
 
 <?php include_once('php/profileDetails.php')?>
