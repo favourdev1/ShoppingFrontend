@@ -15,7 +15,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' ) {
 
    
         
-        $response = $client->post( $apiUrl . '/category/add/' , [
+        $response = $client->post( $apiUrl . '/product/add/' , [
             'headers' => [
                 'Accept' => 'application/json',
                 'Cookie' => 'access_token=' . $token,
@@ -25,19 +25,19 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' ) {
         ] );
 
         // Decode the JSON response
-        $updatedCategory = json_decode( $response->getBody(), true );
+        $productResponse = json_decode( $response->getBody(), true );
 
 
-        header('Location: ../../categories.php?success=Category Successfully updated');
-        // Print or use the updated category data
-        print_r( $updatedCategory );
+        // header('Location: ../../categories.php?success=product Successfully updated');
+        // Print or use the updated product data
+        print_r( $productResponse );
     } catch ( RequestException $e ) {
         $error = 'Unexpected Error: ' . $e->getMessage();
-        // header('Location: ../../add-category.php?error=Unexpected error'.$error);
+        // header('Location: ../../add-product.php?error=Unexpected error'.$error);
         echo $error;
     } catch ( \Exception $e ) {
         $error = 'Unexpected Error: ' . $e->getMessage();
-        // header('Location: ../../add-category.php?error=Unexpected error'.$error);
+        // header('Location: ../../add-product.php?error=Unexpected error'.$error);
         echo $error;
     }
 }
