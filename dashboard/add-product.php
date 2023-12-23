@@ -51,7 +51,7 @@
                     </div>
                     <!-- row -->
 
-                    <form action="php/products/store.php">
+                    <form action="php/products/store.php" method="post">
                         <div class="row">
                             <div class="col-lg-8 col-12">
                                 <!-- card -->
@@ -66,6 +66,7 @@
                                                 <input
                                                     type="text"
                                                     class="form-control"
+                                                    name="product_name"
                                                     placeholder="Product Name"
                                                     required
                                                 />
@@ -73,7 +74,8 @@
                                             <!-- input -->
                                             <div class="mb-3 col-lg-6">
                                                 <label class="form-label">Product Category</label>
-                                                <select class="form-select">
+                                                <select class="form-select"
+                                                name="category_id">
                                                     <option selected>Product Category</option>
                                                     <?php
                                                 foreach ($Allcategories as $category) { ?>
@@ -97,10 +99,11 @@
                                             </div>
                                             <!-- input -->
                                             <div class="mb-3 col-lg-6">
-                                                <label class="form-label">Quantity</label>
+                                                <label class="form-label" >Quantity</label>
                                                 <input
                                                     type="number"
                                                     class="form-control"
+                                                    name="quantity"
                                                     placeholder="enter quantity"
                                                 />
                                             </div>
@@ -218,6 +221,7 @@
                                         class="py-2 border-0"
                                         placeholder="type here"
                                         style="height:300px"
+                                        name="description"
                                         id="editor"
                                     ></div>
                                 </div>
@@ -249,6 +253,7 @@
                                                 <label class="form-label">Product Code</label>
                                                 <input
                                                     type="text"
+                                                    name="product_code"
                                                     class="form-control"
                                                     placeholder="Enter Product Title"
                                                 />
@@ -312,6 +317,7 @@
                                             <label class="form-label">Regular Price</label>
                                             <input
                                                 type="number"
+                                                name="regular_price"
                                                 class="form-control"
                                                 placeholder="$0.00"
                                             />
@@ -321,6 +327,7 @@
                                             <label class="form-label">Sale Price</label>
                                             <input
                                                 type="number"
+                                                name="sales_price"
                                                 class="form-control"
                                                 placeholder="$0.00"
                                             />
@@ -337,6 +344,7 @@
                                             <label class="form-label">Meta Title</label>
                                             <input
                                                 type="text"
+                                                name="meta_title"
                                                 class="form-control"
                                                 placeholder="Title"
                                             />
@@ -347,7 +355,8 @@
                                             <label class="form-label">Meta Description</label>
                                             <textarea
                                                 class="form-control"
-                                                rows="3"
+                                                rows="4"
+                                                name="meta-description"
                                                 placeholder="Meta Description"
                                             ></textarea>
                                         </div>
