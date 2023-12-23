@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 
 <head>
     <!-- Required meta tags -->
@@ -47,7 +48,7 @@
 
 
     <script src="../node_modules/axios/dist/axios.min.js"></script>
-<?php //include_once('php/auth.php')?>
+    <?php //include_once('php/auth.php')?>
 
 
 
@@ -63,10 +64,11 @@
     >
     <script src="../node_modules/alerthub/dist/js/alerthub.min.js"></script>
 
-<?php include_once('php/auth.php')?>
-    
+    <?php include_once('php/auth.php') ?>
 
 
-<?php include_once('php/profileDetails.php')?>
+    <?php include_once('php/profileDetails.php') ?>
 
 </head>
+
+
