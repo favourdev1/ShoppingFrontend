@@ -462,7 +462,7 @@
         <?php
         $arr = $_SESSION;
         print_r($arr);
-        if (isset($_SESSION['error']) && !empty($_SESSION['error'])) { ?>
+        if (isset($_SESSION['status']) && !empty($_SESSION['message'])) { ?>
 
             <script>
             const alertHub = new AlertHub();
@@ -480,7 +480,7 @@
             </script>
 
             <?php
-            unset($_SESSION['error']);
+            unset($_SESSION['status'],$_SESSION['message']);
         }
 
         ?>

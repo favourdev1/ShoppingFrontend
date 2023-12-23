@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo $errorMessage;
         // header("Location: ../../product.php");
     
-        
+        exit();
     } else {
         $errorMessage = str_replace(',', '\n', $responseData->message);
         $_SESSION['message'] = $errorMessage;
