@@ -2,7 +2,7 @@
 
 include_once __DIR__ . '/../../php/auth.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';
-session_start();
+
 use Httpful\Request;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
