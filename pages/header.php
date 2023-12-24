@@ -1,5 +1,5 @@
 <head>
-    <?php $apiUrl="localhost:8080/"?>
+    <?php $apiUrl = "localhost:8080/" ?>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -79,7 +79,9 @@
     var apiUrl = 'http://localhost:8000/api/'
     </script>
 
-
+    <?php include_once('php/auth.php') ?>
 
     <script src="javascript/cookie.js"></script>
+
+    <?php include_once('php/checkAuth.php'); ?>
 </head>

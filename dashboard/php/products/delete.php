@@ -1,44 +1,40 @@
 <?php
-include_once __DIR__.'/../../php/auth.php';
-require_once __DIR__.'/../../../vendor/autoload.php';
-// Include the Guzzle library
+session_start();
+include_once __DIR__ . '/../../php/auth.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
+use Httpful\Request;
 
-// Initialize Guzzle client
-$client = new Client();
-// if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' ) {
-    // && $_SERVER[ 'REQUEST_URI' ] === '/your-server-endpoint' ) {
+$productID = $_GET['id'];
 
-    try {
+$response = Request::delete($apiUrl . '/products/delete/' . $productID)
+    ->sendsJson()
+    ->addHeaders([
+        'Accept' => '*application/json',
+        'Cookie' => 'access_token=' . $token,
+        'Authorization' => 'Bearer ' . $token,
+    ])
+    ->send();
 
-   
-        $categoryID = $_GET[ 'id' ];
-        
-        $response = $client->delete( $apiUrl . '/category/delete/' . $categoryID, [
-             'headers' => [
-                'Accept' => '*/*',
-                'Cookie' => 'access_token=' . $token,
-                'Authorization' => 'Bearer ' . $token,
-            ],
-            
-        ] );
+// Check the HTTP status code
+$statusCode = $response->code;
 
-        // Decode the JSON response
-        $updatedCategory = json_decode( $response->getBody(), true );
+$responseData = $response->body;
+if ($statusCode === 200) {
+    // Success, handle the data
+    $message =  json_decode(json_encode($responseData))->message;
+    $_SESSION['message'] = $message;
+    $_SESSION['status'] = "success";
+    // echo $message;
+    header("Location: ../../products.php");
 
+    exit();
+} else {
+    $errorMessage =  json_decode(json_encode($responseData))->message;
+    $_SESSION['message'] = $errorMessage;
+    $_SESSION['status'] = "error";
+    // print_r($errorMessage);
+    header("Location: ../../products.php");
+    exit();
+}
 
-        header('Location: ../../categories.php?success=Category Successfully deleted'. $categoryID);
-        // Print or use the updated category data
-        print_r( $updatedCategory );
-    } catch ( RequestException $e ) {
-        $error = 'Unexpected Error: ' . $e->getMessage();
-        header('Location: ../../add-category.php?error=Unexpected error'.$error);
-        echo $error;
-    } catch ( \Exception $e ) {
-        $error = 'Unexpected Error: ' . $e->getMessage();
-        header('Location: ../../add-category.php?error=Unexpected error'.$error);
-        echo $error;
-    }
-// }

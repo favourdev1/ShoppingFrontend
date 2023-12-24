@@ -1,45 +1,54 @@
 <?php
-include_once __DIR__.'/../../php/auth.php';
-require_once __DIR__.'/../../../vendor/autoload.php';
-// Include the Guzzle library
+session_start();
+include_once __DIR__ . '/../../php/auth.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
-// print_r($_POST);
-// die;
-// Initialize Guzzle client
-$client = new Client();
-if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' ) {
-    // && $_SERVER[ 'REQUEST_URI' ] === '/your-server-endpoint' ) {
+use Httpful\Request;
 
-    try {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Initialize your data and headers
 
-        // Specify the category ID you want to update
-        $categoryID = $_POST[ 'id' ];
-        
-        $response = $client->put( $apiUrl . '/category/update/' . $categoryID, [
-            'headers' => [
-                'Accept' => '*/*',
-                'Cookie' => 'access_token=' . $token,
-                'Authorization' => 'Bearer ' . $token,
-            ],
-            'json' => $_POST,
-        ] );
+    $headers = [
+        'Accept' => 'application/json',
+        'Cookie' => 'access_token=' . $token,
+        'Authorization' => 'Bearer ' . $token,
+    ];
 
-        // Decode the JSON response
-        $updatedCategory = json_decode( $response->getBody(), true );
+    $data = $_POST;
+
+    $productID = $_POST['id'];
+
+    $response = Request::put($apiUrl . '/products/'.$productID)
+        ->sendsJson()
+        ->addHeaders($headers)
+        ->body(json_encode($data))
+        ->send();
 
 
-        header('Location: ../../categories.php?success=Category Successfully updated');
-        // Print or use the updated category data
-        print_r( $updatedCategory );
-    } catch ( RequestException $e ) {
-        $error = 'Unexpected Error: ' . $e->getMessage();
-        header('Location: ../../add-category.php?error=Unexpected error'.$error.'+id='.$categoryID);
-        echo $error;
-    } catch ( \Exception $e ) {
-        $error = 'Unexpected Error: ' . $e->getMessage();
-        header('Location: ../../add-category.php?error=Unexpected error'.$error.'+id='.$categoryID);
-        echo $error;
+    $statusCode = $response->code;
+
+
+    $responseData = $response->body;
+
+
+    if ($statusCode >= 200 && $statusCode < 300) {
+        // Success, handle the data
+        $message = str_replace(',', '\n', $responseData->message);
+
+        $message = json_decode(json_encode($responseData))->message;
+        $_SESSION['message'] = $message;
+        $_SESSION['status'] = "success";
+        header("Location: ../../products.php");
+
+        exit();
+    } else {
+        $errorMessage = str_replace(',', '\n', $responseData->message);
+        $_SESSION['message'] = $errorMessage;
+        $_SESSION['status'] = "error";
+        // echo $errorMessage;
+        header("Location: ../../add-product.php?id=".$productID);
+        exit();
     }
+
+
 }

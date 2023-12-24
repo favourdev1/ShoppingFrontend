@@ -4,9 +4,9 @@
 
 
     <?php
-    session_start();
-     include_once('header.php');
-    include_once __DIR__.'/php/auth.php';?>
+
+    include_once('header.php');
+    include_once __DIR__ . '/php/auth.php'; ?>
 
     <link
         rel="stylesheet"
@@ -19,22 +19,22 @@
         <!-- main -->
         <!-- navbar -->
 
-        <?php include_once('navbar.php');?>
+        <?php include_once('navbar.php'); ?>
 
-        <?php include_once('php/category/fetch.php')?>
-        <?php include_once('php/category/fetchAll.php')?>
+        <?php include_once('php/category/fetch.php') ?>
+        <?php include_once('php/category/fetchAll.php') ?>
         <?php
-         if($isUpdating){
-            $endPoint  = "php/category/update.php";
+        if ($isUpdating) {
+            $endPoint = "php/category/update.php";
 
-         }else{
+        } else {
             $endPoint = "php/category/store.php";
-         }
-         ?>
+        }
+        ?>
         <div class="main-wrapper">
             <!-- navbar vertical -->
             <!-- navbar -->
-            <?php include_once('sidebar.php')?>
+            <?php include_once('sidebar.php') ?>
 
             <!-- main -->
             <main class="main-content-wrapper">
@@ -63,7 +63,7 @@
 
 
                     <form
-                        action="<?php echo $endPoint?>"
+                        action="<?php echo $endPoint ?>"
                         method="post"
                         enctype="multipart/form-data"
                         id="form"
@@ -80,18 +80,18 @@
                                                 <img
                                                     class="image icon-shape icon-xxxl bg-light rounded-4 border"
                                                     src="<?php
-                                                    if($isUpdating){
-                                                      if(empty($categoryImg)||$categoryImg == null){
-                                                         echo "../assets/images/icons/bakery.svg";
-                                                      }else{
-                                                         echo $categoryImg;
+                                                    if ($isUpdating) {
+                                                        if (empty($categoryImg) || $categoryImg == null) {
+                                                            echo "../assets/images/icons/bakery.svg";
+                                                        } else {
+                                                            echo $categoryImg;
 
-                                                      }
-                                                    }else{
-                                                      echo "../assets/images/icons/bakery.svg";
+                                                        }
+                                                    } else {
+                                                        echo "../assets/images/icons/bakery.svg";
                                                     }
-                                                    
-                                                    
+
+
                                                     ?>"
                                                     alt="Image"
                                                 />
@@ -99,6 +99,7 @@
                                                     <input
                                                         id="pickImage"
                                                         type="file"
+                                                        accept=".jepg,.png,.jpeg"
                                                         name="image"
                                                         class="file-input"
                                                     />
@@ -138,7 +139,7 @@
                                                     class="form-control"
                                                     name="category_name"
                                                     placeholder="Category Name"
-                                                    value="<?php echo   $isUpdating ?  $name:'' ?>"
+                                                    value="<?php echo $isUpdating ? $name : '' ?>"
                                                     required
                                                 />
                                             </div>
@@ -150,7 +151,7 @@
                                                     type="text"
                                                     class="form-control"
                                                     placeholder="Slug"
-                                                    value="<?php echo   $isUpdating ?  $slug:'' ?>"
+                                                    value="<?php echo $isUpdating ? $slug : '' ?>"
                                                     required
                                                 />
                                             </div>
@@ -177,11 +178,12 @@
                                                     type="text"
                                                     name="description"
                                                     id="description"
-                                                    value="<?php echo   $isUpdating ?  $description:'' ?>"
+                                                    value="<?php echo $isUpdating ? $description : '' ?>"
                                                 >
                                                 <input
+                                                hidden
                                                     type="text"
-                                                    value="<?php echo   $isUpdating ?  $categoryImg:'' ?>"
+                                                    value="<?php echo $isUpdating ? $categoryImg : '' ?>"
                                                     name="category_image"
                                                     id="categoryImagetext"
                                                 />
@@ -203,11 +205,14 @@
                                                         name="status"
                                                         id="inlineRadio1"
                                                         value="active"
-                                                        <?php 
-                                                                        if($isUpdating){
-                                                                           if($status =="active"){
-                                                                           echo "checked";
-                                                                        } } ?>
+                                                        <?php
+                                                        if ($isUpdating) {
+                                                            if ($status == "active") {
+                                                                echo "checked";
+                                                            }
+                                                        } else {
+                                                            echo "checked";
+                                                        } ?>
                                                     />
                                                     <label
                                                         class="form-check-label"
@@ -222,11 +227,12 @@
                                                         name="status"
                                                         id="inlineRadio2"
                                                         value="inactive"
-                                                        <?php 
-                                    if($isUpdating){
-                                       if($status =="inactive"){
-                                       echo "checked";
-                                    } }?>
+                                                        <?php
+                                                        if ($isUpdating) {
+                                                            if ($status == "inactive") {
+                                                                echo "checked";
+                                                            }
+                                                        } ?>
                                                     />
                                                     <label
                                                         class="form-check-label"
@@ -239,13 +245,13 @@
                                                 type="text"
                                                 hidden
                                                 name="id"
-                                                value="<?php echo $_GET['id']??''?>"
+                                                value="<?php echo $_GET['id'] ?? '' ?>"
                                             />
 
                                             <div class="col-lg-12">
                                                 <input
                                                     type="submit"
-                                                    value="<?php echo   $isUpdating ?  'Update Category':'Create New Category' ?>"
+                                                    value="<?php echo $isUpdating ? 'Update Category' : 'Create New Category' ?>"
                                                     class="btn btn-primary"
                                                 />
 
@@ -293,7 +299,7 @@
             formData.append('image', file);
 
 
-            var token = "<?php echo $token?>"
+            var token = "<?php echo $token ?>"
             var headers = {
                 Accept: "application/json",
                 Cookie: "access_token=" + token,

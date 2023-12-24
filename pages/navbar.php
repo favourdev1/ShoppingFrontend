@@ -948,7 +948,7 @@
                             <li class="nav-item w-100 w-lg-auto">
                                 <a
                                     class="nav-link"
-                                    href="dashboard/index.php"
+                                    href="../dashboard/index.php"
                                 >Admin Dashboard</a>
                             </li>
 
@@ -957,7 +957,7 @@
                             <li class="nav-item w-100 w-lg-auto">
                                 <a
                                     class="nav-link"
-                                    href="login.php"
+                                    href="signin.php"
                                 >Login</a>
                             </li>
 

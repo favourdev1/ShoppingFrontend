@@ -68,7 +68,11 @@
 
 
     <?php include_once('php/profileDetails.php') ?>
-
+<style>
+    .cursor-pointer{
+        cursor:pointer;
+    }
+</style>
 </head>
 
 

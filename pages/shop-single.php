@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-   
-<?php include_once('header.php')?>
+   <?php
+
+   $productName =$_GET['productName'] ?? 'Product Details';
+   $pageName = $productName. " | Sosmart Online shopping and more! ";
+   ?>
+<?php include_once('header.php') ?>
 
    <body>
       <!-- navbar -->
-      <?php include_once('navbar.php')?>
+      <?php include_once('navbar.php') ?>
       <!-- Modal -->
       <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-dialog-centered">
@@ -50,7 +54,7 @@
          </div>
       </div>
       <!-- OffCart Canvas -->
-      <?php include_once('offcart.php')?>
+      <?php include_once('offcart.php') ?>
      
       <!-- Modal -->
       <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
@@ -1144,7 +1148,7 @@
          </section>
       </main>
         <!-- footer -->
-        <?php include_once('footer.php')?>
+        <?php include_once('footer.php') ?>
 
       <!-- modal -->
       <!-- Modal -->

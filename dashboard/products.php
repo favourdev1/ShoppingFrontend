@@ -3,13 +3,14 @@
 
 
     <?php include_once('header.php') ?>
-  <!-- <script src="./js/products.js"></script> -->
+    <!-- <script src="./js/products.js"></script> -->
+
     <body>
         <!-- main wrapper-->
 
         <!-- navbar -->
         <?php include_once('navbar.php'); ?>
-<?php include_once('php/products/fetchAll.php') ?>
+        <?php include_once('php/products/fetchAll.php') ?>
         <div class="main-wrapper">
             <!-- navbar vertical -->
             <!-- navbar -->
@@ -24,7 +25,7 @@
                             <div class="d-md-flex justify-content-between align-items-center">
                                 <div>
                                     <h2>Products</h2>
-                                 
+
                                 </div>
                                 <!-- button -->
                                 <div>
@@ -91,7 +92,8 @@
                                             </thead>
                                             <tbody>
 
-                                            <?php $i=1; foreach ($allProducts as $product) { ?>
+                                                <?php $i = 1;
+                                                foreach ($allProducts as $product) { ?>
 
                                                     <?php
                                                     $id = $product['id'];
@@ -102,26 +104,26 @@
                                                     $price = $product['regular_price'];
                                                     $image1 = $product['product_img1'];
                                                     ?>
-                                                    <tr>
-                                                       <td><?php echo $i++?></td>
+                                                    <tr >
+                                                        <td><?php echo $i++ ?></td>
                                                         <td>
-                                                            <a href="#!"><img
-                                                                    src="<?php $image1 ?>"
+                                                            <a href="#!"><?php $image1 ?><img
+                                                                    src="<?php echo $image1 ?>"
                                                                     alt=""
                                                                     class="icon-shape icon-md"
                                                                 /></a>
                                                         </td>
                                                         <td><a
-                                                                href="#"
-                                                                class="text-reset"
+                                                        onclick="openProduct('../pages/shop-single.php?id=<?php echo $id. '&productName='.$productName ?>')"
+                                                                class="text-reset cursor-pointer"
                                                             ><?php echo $productName ?></a></td>
-                                                            <td><?php echo $category ?></td>
-                                                            <td><?php echo $quantity ?></td>
+                                                        <td><?php echo $category ?></td>
+                                                        <td><?php echo $quantity ?></td>
 
                                                         <td>
-                                                        <small
-                                                            class="badge  <?php echo $status=='active' ? 'bg-light-success text-dark-success':'bg-light-danger text-dark-danger';?> "
-                                                        ><?php echo ucfirst($status); ?></small>
+                                                            <small
+                                                                class="badge  <?php echo $status == 'active' ? 'bg-light-success text-dark-success' : 'bg-light-danger text-dark-danger'; ?> "
+                                                            ><?php echo ucfirst($status); ?></small>
                                                         </td>
                                                         <td><?php echo $price ?></td>
                                                         <td><?php $date = date("d/m/Y", strtotime($product['created_at']));
@@ -137,11 +139,11 @@
                                                                     <i class="feather-icon icon-more-vertical fs-5"></i>
                                                                 </a>
                                                                 <ul class="dropdown-menu">
-                                                                   
-                                                                <li>
+
+                                                                    <li>
                                                                         <a
                                                                             class="dropdown-item"
-                                                                            href="#"
+                                                                            href="../pages/shop-single.php?id=<?php echo $id. "&productName=".$productName?>"
                                                                         >
                                                                             <i class="bi bi-trash me-3"></i>
                                                                             View Product
@@ -151,7 +153,7 @@
                                                                     <li>
                                                                         <a
                                                                             class="dropdown-item"
-                                                                            href="#"
+                                                                            href="add-product.php?id=<?php echo $id. '&productName='.$productName ?>"
                                                                         >
                                                                             <i class="bi bi-pencil-square me-3"></i>
                                                                             Edit
@@ -161,7 +163,7 @@
                                                                     <li>
                                                                         <a
                                                                             class="dropdown-item"
-                                                                            href="#"
+                                                                            href="php/products/delete.php?id=<?php echo $id; ?>"
                                                                         >
                                                                             <i class="bi bi-trash me-3"></i>
                                                                             Delete
@@ -171,7 +173,7 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                              <?php } ?>  
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -217,9 +219,15 @@
 
         <!-- Theme JS -->
         <script src="../assets/js/theme.min.js"></script>
+        <?php include_once('footer.php') ?>
 
+        <script>
+            function openProduct(productLink){
+                window.location.href =productLink
+            }
+        </script>
     </body>
 
-   
+
 
 </html>

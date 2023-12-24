@@ -1,54 +1,72 @@
 <?php
 
 require_once '../vendor/autoload.php';
-// Include the Guzzle library
+use Httpful\Request;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
+if (isset($_GET['id'])) {
+    // Specify the product ID you want to retrieve
+    $productID = $_GET['id'];
 
-// Initialize Guzzle client
-$client = new Client();
-if ( isset( $_GET[ 'id' ] ) ) {
-    try {
-        // Specify the category ID you want to retrieve
+    // Make a GET request to your API endpoint for a specific product
+    $response = Request::get($apiUrl . '/products/' . $productID)
+        ->addHeaders([
+            'Accept' => '*application/json*',
+            'Cookie' => 'access_token=' . $token,
+            'Authorization' => 'Bearer ' . $token,
+        ])
+        ->send();
 
-        $categoryID = $_GET[ 'id' ];
+    // Check the HTTP status code
+  
+    $statusCode = $response->code;
 
-        // Make a GET request to your API endpoint for a specific category
-        $response = $client->get( $apiUrl . '/category/' . $categoryID, [
-            'headers' => [
-                'Accept' => '*/*',
-                'Cookie' => 'access_token=' . $token,
-                'Authorization' => 'Bearer ' . $token,
-            ],
-        ] );
 
+    $responseData = $response->body;
+
+    if ($statusCode === 200) {
         // Decode the JSON response
-        $category = json_decode( $response->getBody(), true )[ 'data' ]['category'];
+        $product = json_decode(json_encode($responseData),true)['data'];
+        // // Print or use the retrieved product data
+        // echo "<pre>";
 
-        // Print or use the retrieved category data
-        print_r( $category );
+        // var_dump($product);
+        // echo "</pre>";
         $isUpdating = true;
-        if ( count( $category )>0 ) {
-            // Loop through the categories array
+// die;
+        if (count($product) > 0) {
+        
 
-            // Get the category id, name, slug, description, status, and created_at fields
-            $id = $category[ 'id' ];
-            $name = $category[ 'category_name' ];
-            $slug = $category[ 'slug' ];
-            $description = $category[ 'description' ];
-            $status = $category[ 'status' ];
-            $created_at = $category[ 'created_at' ];
-            $categoryImg = $category[ 'category_image' ];
+            $id = $product['id'];
+            $productName = $product['product_name'];
+            $categoryId = $product['category_id'];
+            $description = $product['description'];
+            $regularPrice = $product['regular_price'];
+            $brand = $product['brand'];
+            $productImg1 = $product['product_img1'];
+            $productImg2 = $product['product_img2'];
+            $productImg3 = $product['product_img3'];
+            $productImg4 = $product['product_img4'];
+            $productImg5 = $product['product_img5'];
+            $weight = $product['weight'];
+            $quantityInStock = $product['quantity_in_stock'];
+            $tags = $product['tags'];
+            $refundable = $product['refundable'];
+            $status = $product['status'];
+            $salesPrice = $product['sales_price'];
+            $metaTitle = $product['meta_title'];
+            $metaDescription = $product['meta_description'];
+            $createdAt = $product['created_at'];
+            
+        
         }
-    } catch ( RequestException $e ) {
-        // Handle request exception ( e.g., network error, HTTP error )
-        echo 'Error: ' . $e->getMessage();
-    } catch ( \Exception $e ) {
-        // Handle other exceptions
-        echo 'Unexpected Error: ' . $e->getMessage();
+    } else {
+        $errorMessage = str_replace(',', '\n', $responseData->message);
+        $_SESSION['message'] = $errorMessage;
+        $_SESSION['status']="error";
+        // echo $errorMessage;
+        header("Location: ../../products.php");
+        exit();
     }
-
 } else {
     $isUpdating = false;
 }

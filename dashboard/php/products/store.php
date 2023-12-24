@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once __DIR__ . '/../../php/auth.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-
     $response = Request::post($apiUrl . '/products/add')
         ->sendsJson()
         ->addHeaders($headers)
@@ -34,18 +33,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($statusCode >= 200 && $statusCode < 300) {
         // Success, handle the data
-        $_SESSION['message'] = $errorMessage;
-        $_SESSION['status']="error";
-        echo $errorMessage;
-        // header("Location: ../../product.php");
+        $message = str_replace(',', '\n', $responseData->message);
+
+        $message =  json_decode(json_encode($responseData))->message;
+        $_SESSION['message'] = $message;
+        $_SESSION['status'] = "success";
+        header("Location: ../../products.php");
     
         exit();
     } else {
         $errorMessage = str_replace(',', '\n', $responseData->message);
         $_SESSION['message'] = $errorMessage;
         $_SESSION['status']="error";
-        echo $errorMessage;
-        // header("Location: ../../add-product.php");
+        // echo $errorMessage;
+        header("Location: ../../add-product.php");
         exit();
     }
 
