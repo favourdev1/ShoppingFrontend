@@ -1,45 +1,31 @@
 <?php
 
 
-
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
+use Httpful\Request;
 
 try {
-    // Initialize Guzzle client
-    $client = new Client();
-
     // Make a GET request to your API endpoint
-    $response = $client->get($apiUrl . '/category/', [
-        'headers' => [
+    $response = Request::get($apiUrl . '/category/')
+        ->addHeaders([
             'Accept' => '*/*',
             'Cookie' => 'access_token=' . $token,
             'Authorization' => 'Bearer ' . $token,
-        ],
-    ]);
+        ])
+        ->send();
 
     // Decode the JSON response
-    $Allcategories = json_decode($response->getBody(), true);
+    $Allcategories = json_decode(json_encode($response->body), true);
     $Allcategories = $Allcategories['data']['categories'];
 
-    // Output or process the categories as needed
-    // print_r($Allcategories);
-    // foreach($Allcategories as $category) {
-    //     print_r($category);
-    // }
 
-} catch (RequestException $e) {
-    // Guzzle request exception
-    if ($e->hasResponse()) {
-        $statusCode = $e->getResponse()->getStatusCode();
-        $errorBody = json_decode($e->getResponse()->getBody(), true);
-        // Handle specific error cases
-        echo "Error Status Code: $statusCode\n";
-        echo "Error Message: {$errorBody['message']}\n";
-    } else {
-        // Handle other request exceptions
-        echo "Request Exception: " . $e->getMessage() . "\n";
-    }
+} catch (HttpException $e) {
+    // Httpful request exception
+    $statusCode = $e->getCode();
+    $errorBody = json_decode($e->getBody(), true);
+
+    // Handle specific error cases
+    echo "Error Status Code: $statusCode\n";
+    echo "Error Message: {$errorBody['message']}\n";
 
 } catch (Exception $e) {
     // Handle general exceptions
