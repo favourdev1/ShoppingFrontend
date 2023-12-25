@@ -3,44 +3,39 @@
 
 
 
-    <?php include_once('header.php')?>
+    <?php include_once('header.php') ?>
 
     <body>
         <!-- main -->
         <!-- navbar -->
 
-        <?php include_once('navbar.php');?>
+        <?php include_once('navbar.php'); ?>
+        <?php include_once('php/profile/fetchAll.php'); ?>
 
 
         <div class="main-wrapper">
             <!-- navbar vertical -->
             <!-- navbar -->
-            <?php include_once('sidebar.php')?>
-
+            <?php include_once('sidebar.php') ?>
 
             <main class="main-content-wrapper">
-                <div class="container">
+                <div class="">
                     <div class="row mb-8">
                         <div class="col-md-12">
                             <div
                                 class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-4">
                                 <div>
-                                    <h2>Customers</h2>
+                                    <h2>Users</h2>
                                     <!-- breacrumb -->
-                                   
+
                                 </div>
-                                <div>
-                                    <a
-                                        href="#!"
-                                        class="btn btn-primary"
-                                    >Add New Customer</a>
-                                </div>
+
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-12 col-12 mb-5">
-                            <div class="card h-100 card-lg">
+                            <div class=" h-100 rounded-4 border">
                                 <div class="p-6">
                                     <div class="row justify-content-between">
                                         <div class="col-md-4 col-12">
@@ -59,9 +54,9 @@
                                     </div>
                                 </div>
                                 <div class="card-body p-0">
-                                    <div class="table-responsive">
+                                    <div class="table-responsive h-100">
                                         <table
-                                            class="table table-centered table-hover table-borderless mb-0 table-with-checkbox text-nowrap"
+                                            class="table table-centered table-hover table-borderless mb-0 table-with-checkbox text-nowrap h-100"
                                         >
                                             <thead class="bg-light">
                                                 <tr>
@@ -79,16 +74,42 @@
                                                             ></label>
                                                         </div>
                                                     </th>
-                                                    <th>Name</th>
+                                                    <th>Fullname</th>
                                                     <th>Email</th>
-                                                    <th>Purchase Date</th>
-                                                    <th>Phone</th>
-                                                    <th>Spent</th>
+                                                    <th>admin</th>
+                                                    <th>phone_number</th>
+                                                    <th>Status</th>
 
-                                                    <th></th>
+                                                    <th>Date Created</th>
+
+                                                    <!-- <th>Spent</th> -->
+
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+
+                                                <?php
+                                                foreach ($users as $user) {
+                                                    $status = 'active';
+                                                    $usersName = $user['firstname'] . ' ' . $user['lastname'];
+                                                    $id = $user['id'];
+                                                    $firstname = $user['firstname'];
+                                                    $lastname = $user['lastname'];
+                                                    $address = $user['address'];
+                                                    $country = $user['country'];
+                                                    $city = $user['city'];
+                                                    $phone_number = $user['phone_number'];
+                                                    $profile_img = $user['profile_img'];
+                                                    $is_admin = $user['is_admin'];
+                                                    $email = $user['email'];
+                                                    $email_verified_at = $user['email_verified_at'];
+                                                    $created_at = date("d/m/Y", strtotime($user['created_at']));
+                                                    $updated_at = $user['updated_at'];
+                                                }
+                                                ?>
+
+
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">
@@ -116,750 +137,51 @@
                                                                 <a
                                                                     href="#"
                                                                     class="text-inherit"
-                                                                >Bonnie Howe</a>
+                                                                ><?php echo $usersName ?></a>
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td>bonniehowe@gmail.com</td>
+                                                    <td><?php echo $email ?></td>
 
-                                                    <td>17 May, 2023 at 3:18pm</td>
-                                                    <td>-</td>
-                                                    <td>$49.00</td>
-
+                                                    <td><?php echo strval($is_admin) ?></td>
+                                                    <td><?php echo $phone_number ?></td>
                                                     <td>
-                                                        <div class="dropdown">
-                                                            <a
-                                                                href="#"
-                                                                class="text-reset"
-                                                                data-bs-toggle="dropdown"
-                                                                aria-expanded="false"
-                                                            >
-                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-trash me-3"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-pencil-square me-3"></i>
-                                                                        Edit
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
+                                                        <small
+                                                            class="badge  <?php echo $status == 'active' ? 'bg-light-success text-dark-success' : 'bg-light-danger text-dark-danger'; ?> "
+                                                        ><?php echo ucfirst($status); ?></small>
                                                     </td>
-                                                </tr>
 
-                                                <tr>
-                                                    <td class="pe-0">
-                                                        <div class="form-check">
-                                                            <input
-                                                                class="form-check-input"
-                                                                type="checkbox"
-                                                                value=""
-                                                                id="customerTwo"
-                                                            />
-                                                            <label
-                                                                class="form-check-label"
-                                                                for="customerTwo"
-                                                            ></label>
-                                                        </div>
-                                                    </td>
+                                                    <td><?php echo $created_at; ?></td>
 
                                                     <td>
                                                         <div class="d-flex align-items-center">
-                                                            <img
-                                                                src="../assets/images/avatar/avatar-2.jpg"
-                                                                alt=""
-                                                                class="avatar avatar-xs rounded-circle"
-                                                            />
-                                                            <div class="ms-2">
-                                                                <a
-                                                                    href="#"
-                                                                    class="text-inherit"
-                                                                >Judy Nelson</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>judynelson@gmail.com</td>
+                                                            <form>
+                                                                <div class="form-check form-switch mb-4">
+                                                                    <input
+                                                                        class="form-check-input"
+                                                                        type="checkbox"
+                                                                        role="switch"
+                                                                        id="flexSwitchStock"
+                                                                        checked
+                                                                    />
 
-                                                    <td>27 April, 2023 at 2:47pm</td>
-                                                    <td>435-239-6436</td>
-                                                    <td>$490.00</td>
-
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a
-                                                                href="#"
-                                                                class="text-reset"
-                                                                data-bs-toggle="dropdown"
-                                                                aria-expanded="false"
-                                                            >
-                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-trash me-3"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-pencil-square me-3"></i>
-                                                                        Edit
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
+                                                                </div>
+                                                            </form>
+                                                        
+                                                            <script>
+      // With the above scripts loaded, you can call `tippy()` with a CSS
+      // selector and a `content` prop:
+      tippy('#flexSwitchStock', {
+        content: 'disable/enable user !',
+        animation: 'fade',
+      });
+    </script>
+                                                        
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="pe-0">
-                                                        <div class="form-check">
-                                                            <input
-                                                                class="form-check-input"
-                                                                type="checkbox"
-                                                                value=""
-                                                                id="customerThree"
-                                                            />
-                                                            <label
-                                                                class="form-check-label"
-                                                                for="customerThree"
-                                                            ></label>
-                                                        </div>
-                                                    </td>
 
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            <img
-                                                                src="../assets/images/avatar/avatar-3.jpg"
-                                                                alt=""
-                                                                class="avatar avatar-xs rounded-circle"
-                                                            />
-                                                            <div class="ms-2">
-                                                                <a
-                                                                    href="#"
-                                                                    class="text-inherit"
-                                                                >John Mattox</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>johnmattox@gmail.com</td>
 
-                                                    <td>27 April, 2023 at 2:47pm</td>
-                                                    <td>347-424-9526</td>
-                                                    <td>$29.00</td>
-
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a
-                                                                href="#"
-                                                                class="text-reset"
-                                                                data-bs-toggle="dropdown"
-                                                                aria-expanded="false"
-                                                            >
-                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-trash me-3"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-pencil-square me-3"></i>
-                                                                        Edit
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pe-0">
-                                                        <div class="form-check">
-                                                            <input
-                                                                class="form-check-input"
-                                                                type="checkbox"
-                                                                value=""
-                                                                id="customerFour"
-                                                            />
-                                                            <label
-                                                                class="form-check-label"
-                                                                for="customerFour"
-                                                            ></label>
-                                                        </div>
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            <img
-                                                                src="../assets/images/avatar/avatar-4.jpg"
-                                                                alt=""
-                                                                class="avatar avatar-xs rounded-circle"
-                                                            />
-                                                            <div class="ms-2">
-                                                                <a
-                                                                    href="#"
-                                                                    class="text-inherit"
-                                                                >Wayne Rossman</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>waynerossman@gmail.com</td>
-
-                                                    <td>27 April, 2023 at 2:47pm</td>
-                                                    <td>-</td>
-                                                    <td>$39.00</td>
-
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a
-                                                                href="#"
-                                                                class="text-reset"
-                                                                data-bs-toggle="dropdown"
-                                                                aria-expanded="false"
-                                                            >
-                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-trash me-3"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-pencil-square me-3"></i>
-                                                                        Edit
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pe-0">
-                                                        <div class="form-check">
-                                                            <input
-                                                                class="form-check-input"
-                                                                type="checkbox"
-                                                                value=""
-                                                                id="customerFive"
-                                                            />
-                                                            <label
-                                                                class="form-check-label"
-                                                                for="customerFive"
-                                                            ></label>
-                                                        </div>
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            <img
-                                                                src="../assets/images/avatar/avatar-5.jpg"
-                                                                alt=""
-                                                                class="avatar avatar-xs rounded-circle"
-                                                            />
-                                                            <div class="ms-2">
-                                                                <a
-                                                                    href="#"
-                                                                    class="text-inherit"
-                                                                >Rhonda Pinson</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>rhondapinson@gmail.com</td>
-
-                                                    <td>18 March, 2023 at 2:47pm</td>
-                                                    <td>304-471-8451</td>
-                                                    <td>$213.00</td>
-
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a
-                                                                href="#"
-                                                                class="text-reset"
-                                                                data-bs-toggle="dropdown"
-                                                                aria-expanded="false"
-                                                            >
-                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-trash me-3"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-pencil-square me-3"></i>
-                                                                        Edit
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pe-0">
-                                                        <div class="form-check">
-                                                            <input
-                                                                class="form-check-input"
-                                                                type="checkbox"
-                                                                value=""
-                                                                id="customerSix"
-                                                            />
-                                                            <label
-                                                                class="form-check-label"
-                                                                for="customerSix"
-                                                            ></label>
-                                                        </div>
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            <img
-                                                                src="../assets/images/avatar/avatar-6.jpg"
-                                                                alt=""
-                                                                class="avatar avatar-xs rounded-circle"
-                                                            />
-                                                            <div class="ms-2">
-                                                                <a
-                                                                    href="#"
-                                                                    class="text-inherit"
-                                                                >John Mattox</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>johnmattox@gmail.com</td>
-
-                                                    <td>18 March, 2023 at 2:47pm</td>
-                                                    <td>410-636-2682</td>
-                                                    <td>$490.00</td>
-
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a
-                                                                href="#"
-                                                                class="text-reset"
-                                                                data-bs-toggle="dropdown"
-                                                                aria-expanded="false"
-                                                            >
-                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-trash me-3"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-pencil-square me-3"></i>
-                                                                        Edit
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pe-0">
-                                                        <div class="form-check">
-                                                            <input
-                                                                class="form-check-input"
-                                                                type="checkbox"
-                                                                value=""
-                                                                id="customerSeven"
-                                                            />
-                                                            <label
-                                                                class="form-check-label"
-                                                                for="customerSeven"
-                                                            ></label>
-                                                        </div>
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            <img
-                                                                src="../assets/images/avatar/avatar-7.jpg"
-                                                                alt=""
-                                                                class="avatar avatar-xs rounded-circle"
-                                                            />
-                                                            <div class="ms-2">
-                                                                <a
-                                                                    href="#"
-                                                                    class="text-inherit"
-                                                                >Wayne Rossman</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>waynerossman@gmail.com</td>
-
-                                                    <td>18 March, 2023 at 2:47pm</td>
-                                                    <td>845-294-6681</td>
-                                                    <td>$39.00</td>
-
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a
-                                                                href="#"
-                                                                class="text-reset"
-                                                                data-bs-toggle="dropdown"
-                                                                aria-expanded="false"
-                                                            >
-                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-trash me-3"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-pencil-square me-3"></i>
-                                                                        Edit
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pe-0">
-                                                        <div class="form-check">
-                                                            <input
-                                                                class="form-check-input"
-                                                                type="checkbox"
-                                                                value=""
-                                                                id="customerEight"
-                                                            />
-                                                            <label
-                                                                class="form-check-label"
-                                                                for="customerEight"
-                                                            ></label>
-                                                        </div>
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            <img
-                                                                src="../assets/images/avatar/avatar-8.jpg"
-                                                                alt=""
-                                                                class="avatar avatar-xs rounded-circle"
-                                                            />
-                                                            <div class="ms-2">
-                                                                <a
-                                                                    href="#"
-                                                                    class="text-inherit"
-                                                                >Richard Shelton</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>richarddhelton@jourrapide.com</td>
-
-                                                    <td>12 March, 2023 at 9:47am</td>
-                                                    <td>313-887-8495</td>
-                                                    <td>$19.00</td>
-
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a
-                                                                href="#"
-                                                                class="text-reset"
-                                                                data-bs-toggle="dropdown"
-                                                                aria-expanded="false"
-                                                            >
-                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-trash me-3"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-pencil-square me-3"></i>
-                                                                        Edit
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pe-0">
-                                                        <div class="form-check">
-                                                            <input
-                                                                class="form-check-input"
-                                                                type="checkbox"
-                                                                value=""
-                                                                id="customerNine"
-                                                            />
-                                                            <label
-                                                                class="form-check-label"
-                                                                for="customerNine"
-                                                            ></label>
-                                                        </div>
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            <img
-                                                                src="../assets/images/avatar/avatar-9.jpg"
-                                                                alt=""
-                                                                class="avatar avatar-xs rounded-circle"
-                                                            />
-                                                            <div class="ms-2">
-                                                                <a
-                                                                    href="#"
-                                                                    class="text-inherit"
-                                                                >Stephanie Morales</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>stephaniemorales@gmail.com</td>
-
-                                                    <td>22 Feb, 2023 at 9:47pm</td>
-                                                    <td>812-682-1588</td>
-                                                    <td>$250.00</td>
-
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a
-                                                                href="#"
-                                                                class="text-reset"
-                                                                data-bs-toggle="dropdown"
-                                                                aria-expanded="false"
-                                                            >
-                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-trash me-3"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-pencil-square me-3"></i>
-                                                                        Edit
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pe-0">
-                                                        <div class="form-check">
-                                                            <input
-                                                                class="form-check-input"
-                                                                type="checkbox"
-                                                                value=""
-                                                                id="customerTen"
-                                                            />
-                                                            <label
-                                                                class="form-check-label"
-                                                                for="customerTen"
-                                                            ></label>
-                                                        </div>
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            <img
-                                                                src="../assets/images/avatar/avatar-10.jpg"
-                                                                alt=""
-                                                                class="avatar avatar-xs rounded-circle"
-                                                            />
-                                                            <div class="ms-2">
-                                                                <a
-                                                                    href="#"
-                                                                    class="text-inherit"
-                                                                >Stephanie Morales</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>stephaniemorales@gmail.com</td>
-
-                                                    <td>22 Feb, 2023 at 9:47pm</td>
-                                                    <td>812-682-1588</td>
-                                                    <td>$250.00</td>
-
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a
-                                                                href="#"
-                                                                class="text-reset"
-                                                                data-bs-toggle="dropdown"
-                                                                aria-expanded="false"
-                                                            >
-                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-trash me-3"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-pencil-square me-3"></i>
-                                                                        Edit
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pe-0">
-                                                        <div class="form-check">
-                                                            <input
-                                                                class="form-check-input"
-                                                                type="checkbox"
-                                                                value=""
-                                                                id="customerEleven"
-                                                            />
-                                                            <label
-                                                                class="form-check-label"
-                                                                for="customerEleven"
-                                                            ></label>
-                                                        </div>
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            <img
-                                                                src="../assets/images/avatar/avatar-11.jpg"
-                                                                alt=""
-                                                                class="avatar avatar-xs rounded-circle"
-                                                            />
-                                                            <div class="ms-2">
-                                                                <a
-                                                                    href="#"
-                                                                    class="text-inherit"
-                                                                >Pasquale Kidd</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>pasqualekidd@rhyta.com</td>
-
-                                                    <td>22 Feb, 2023 at 9:47pm</td>
-                                                    <td>336-396-0658</td>
-                                                    <td>$159.00</td>
-
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a
-                                                                href="#"
-                                                                class="text-reset"
-                                                                data-bs-toggle="dropdown"
-                                                                aria-expanded="false"
-                                                            >
-                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-trash me-3"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        class="dropdown-item"
-                                                                        href="#"
-                                                                    >
-                                                                        <i class="bi bi-pencil-square me-3"></i>
-                                                                        Edit
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>

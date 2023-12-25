@@ -79,9 +79,11 @@
     var apiUrl = 'http://localhost:8000/api/'
     </script>
 
-    <?php include_once('php/auth.php') ?>
 
     <script src="javascript/cookie.js"></script>
 
-    <?php include_once('php/checkAuth.php'); ?>
+    <?php 
+    include_once('php/checkAuth.php');
+    require_once '../vendor/autoload.php'; 
+    ?>
 </head>

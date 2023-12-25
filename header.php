@@ -68,7 +68,10 @@
     </script>
     
 
-    <?php include_once('pages/php/checkAuth.php'); ?>
+    <?php 
+    include_once('pages/php/checkAuth.php');
+    require_once 'vendor/autoload.php'; 
+     ?>
 
     <?php
     if (!if_Authenticated()) {
@@ -76,7 +79,7 @@
         setcookie('token', '', time() - 3600, '/');
         setcookie('isAdmin', '', time() - 3600, '/');
         header('Location: pages/signin.php?error="user not logged in "');
-        exit;
+        // exit;
     }
     ?>
 </head>

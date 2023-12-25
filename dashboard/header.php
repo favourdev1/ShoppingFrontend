@@ -64,6 +64,13 @@
     >
     <script src="../node_modules/alerthub/dist/js/alerthub.min.js"></script>
 
+
+
+    <!-- <link rel="stylesheet" href="../node_modules/tippy.js/dist/tippy.css"/>
+    <script src="../node_modules/tippy.js/dist/tippy.umd.js"> -->
+    <script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6.3.4/dist/tippy-bundle.umd.min.js"></script>
+    <!-- </script> -->
     <?php include_once('php/auth.php') ?>
 
 
