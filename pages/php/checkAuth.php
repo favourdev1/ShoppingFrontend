@@ -1,4 +1,18 @@
 <?php
+
+// Set predefined values for auth variables 
+$token = $_COOKIE['token']??null;
+$userId=$_COOKIE['userId']??null;
+$is_admin = false ;
+
+// checck if user is already loggedin , if yes, alter the values 
+if (isset($_COOKIE['token']) && $_COOKIE['token'] != null && isset($_COOKIE['userId']) && $_COOKIE['userId'] != null) {
+    $token = $_COOKIE['token'];
+    $userId = $_COOKIE['userId'];
+    $isAdmin = $_COOKIE['isAdmin'];
+
+}
+
 function if_Authenticated()
 {
     // Retrieve user ID and token from cookies
