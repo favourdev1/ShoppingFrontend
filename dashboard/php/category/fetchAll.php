@@ -1,25 +1,21 @@
 <?php
 
-require_once '../vendor/autoload.php'; // Include the Guzzle library
+require_once '../vendor/autoload.php';
+use Httpful\Request;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
+// Make a GET request to your API endpoint
+$response = Request::get($apiUrl . '/category/')
+    ->addHeaders([
+        'Accept' => '*/*',
+        'Cookie' => 'access_token=' . $token,
+        'Authorization' => 'Bearer ' . $token,
+    ])
+    ->send();
 
-try {
-    // Initialize Guzzle client
-    $client = new Client();
-
-    // Make a GET request to your API endpoint
-    $response = $client->get($apiUrl . '/category/', [
-        'headers' => [
-            'Accept' => '*/*',
-            'Cookie' => 'access_token=' . $token,
-            'Authorization' => 'Bearer ' . $token,
-        ],
-    ]);
-
+// Check the HTTP status code
+if ($response->code < 300) {
     // Decode the JSON response
-    $Allcategories = json_decode($response->getBody(), true);
+    $Allcategories = json_decode(json_encode($response->body), true);
     $Allcategories = $Allcategories['data']['categories'];
 
     // Output or process the categories as needed
@@ -27,24 +23,14 @@ try {
     // foreach($Allcategories as $category) {
     //     print_r($category);
     // }
+} else {
+    // Decode the JSON error response
+    $errorBody = json_decode(json_encode($response->body), true);
 
-} catch (RequestException $e) {
-    // Guzzle request exception
-    if ($e->hasResponse()) {
-        $statusCode = $e->getResponse()->getStatusCode();
-        $errorBody = json_decode($e->getResponse()->getBody(), true);
-        // Handle specific error cases
-        echo "Error Status Code: $statusCode\n";
-        echo "Error Message: {$errorBody['message']}\n";
-    } else {
-        // Handle other request exceptions
-        echo "Request Exception: " . $e->getMessage() . "\n";
-    }
-
-} catch (Exception $e) {
-    // Handle general exceptions
-    echo "Exception: " . $e->getMessage() . "\n";
+    // Output the error details
+    echo "Error Status Code: {$response->code}\n";
+    echo "Error Message: {$errorBody['message']}\n";
 }
 
-// Additional code after the try-catch block
+// Additional code after the if-else block
 ?>

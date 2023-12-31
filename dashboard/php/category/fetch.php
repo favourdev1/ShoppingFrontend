@@ -27,7 +27,7 @@ if ( isset( $_GET[ 'id' ] ) ) {
         $category = json_decode( $response->getBody(), true )[ 'data' ]['category'];
 
         // Print or use the retrieved category data
-        print_r( $category );
+        // print_r( $category );
         $isUpdating = true;
         if ( count( $category )>0 ) {
             // Loop through the categories array

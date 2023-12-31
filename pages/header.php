@@ -1,5 +1,9 @@
 <head>
-    <?php $apiUrl = "localhost:8080/" ?>
+    <?php $apiUrl = "localhost:8000/api" ?>
+    <?php
+    include_once('php/config.php');
+
+    ?>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -7,7 +11,7 @@
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta
-        content="Codescandy"
+        content="Sosmart"
         name="author"
     />
     <title><?php echo $pageName ?></title>

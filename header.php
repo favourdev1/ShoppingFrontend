@@ -66,6 +66,7 @@
     <script src="pages/javascript/checkAuth.js">
 
     </script>
+    <script src="pages/javascript/config.js"></script>
     
 
     <?php 

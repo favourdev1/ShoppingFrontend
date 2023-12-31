@@ -56,7 +56,7 @@ if (isset($_GET['id'])) {
             $metaTitle = $product['meta_title'];
             $metaDescription = $product['meta_description'];
             $createdAt = $product['created_at'];
-            
+            $categoryName  = $product['category'];
         
         }
     } else {

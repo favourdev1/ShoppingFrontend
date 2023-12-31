@@ -1,6 +1,6 @@
 <?php
         $arr = $_SESSION;
-        print_r($arr);
+        // print_r($arr);
         if (isset($_SESSION['status']) && !empty($_SESSION['message'])) { ?>
 
             <script>
