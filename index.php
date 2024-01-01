@@ -9,7 +9,7 @@
         <?php include_once('pages/php/products/fetchAll.php'); ?>
         <?php include_once('pages/php/category/fetchAll.php'); ?>
         <?php include_once('navbar.php') ?>
-
+<?php include_once('pages/php/cart/fetchAll.php')?>
         <!-- Modal -->
         <div
             class="modal fade"
@@ -425,7 +425,7 @@
 
         </main>
 
-<?php include_once('pages/php/components/quickview.php') ?>
+<?php include_once('pages/components/quickview.php') ?>
         
 
         <!-- footer -->

@@ -1,6 +1,6 @@
 <head>
 
-<?php $apiUrl = "http://localhost:8000/api" ?>
+    <?php $apiUrl = "http://localhost:8000/api" ?>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -53,7 +53,7 @@
         href="assets/css/theme.min.css"
     />
 
-   
+
     <script>
     var apiUrl = 'http://localhost:8000/api/'
     </script>
@@ -61,19 +61,38 @@
 
 
     <script src="pages/javascript/cookie.js"></script>
-    
+
 
     <script src="pages/javascript/checkAuth.js">
 
     </script>
     <script src="pages/javascript/config.js"></script>
-    
+
 
     <?php 
     include_once('pages/php/checkAuth.php');
     require_once 'vendor/autoload.php'; 
      ?>
 
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap"
+        rel="stylesheet"
+    >
+    <style>
+    body {
+        font-family: 'Nunito', sans-serif !important;
+    }
+    </style>
     <?php
     if (!if_Authenticated()) {
         setcookie('userId', '', time() - 3600, '/');

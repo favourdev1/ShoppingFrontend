@@ -11,7 +11,7 @@
         content="Codescandy"
         name="author"
     >
-    <title>Dashboard eCommerce HTML Template - FreshCart</title>
+    <title>Sosmart Admin</title>
     <!-- Favicon icon-->
     <link
         rel="shortcut icon"
@@ -69,17 +69,35 @@
     <!-- <link rel="stylesheet" href="../node_modules/tippy.js/dist/tippy.css"/>
     <script src="../node_modules/tippy.js/dist/tippy.umd.js"> -->
     <script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://unpkg.com/tippy.js@6.3.4/dist/tippy-bundle.umd.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.4/dist/tippy-bundle.umd.min.js"></script>
     <!-- </script> -->
     <?php include_once('php/auth.php') ?>
 
 
-    <?php include_once('php/profileDetails.php') ?>
-<style>
-    .cursor-pointer{
-        cursor:pointer;
+
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap"
+        rel="stylesheet"
+    >
+    <style>
+    body {
+        font-family: 'Nunito', sans-serif !important;
     }
-</style>
+    </style>
+    <?php include_once('php/profileDetails.php') ?>
+    <style>
+    .cursor-pointer {
+        cursor: pointer;
+    }
+    </style>
 </head>
-
-

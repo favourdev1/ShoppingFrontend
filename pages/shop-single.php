@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+   <?php 
+require_once 'vendor/autoload.php'; ?>
     <?php $productName = $_GET['productName'] ?? 'Product Details';
     $pageName = $productName . " | Sosmart Online shopping and more! "; ?>
     <?php include_once('header.php') ?>
@@ -68,7 +70,7 @@
             <section class="mt-8">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <!-- img slide -->
                             <div
                                 class="product"
@@ -94,7 +96,7 @@
                                     >
                                         <!-- img -->
                                         <img
-                                            src="<?php echo $productImg1 ?>"
+                                            src="<?php echo $productImg2 ?>"
                                             alt=""
                                         />
                                     </div>
@@ -171,7 +173,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <div class="ps-lg-10 mt-6 mt-md-0">
                                 <!-- content -->
                                 <a
@@ -180,6 +182,17 @@
                                 ><?php echo $categoryName ?></a>
                                 <!-- heading -->
                                 <h1 class="mb-1"><?php echo $productName ?></h1>
+                                <small class="text-muted d-flex align-items-center" >
+                                 <span class="text-muted fw-bold">Tags:</span>
+                                    <div class="d-flex align-items-center justify-content-start">
+                                        <?php foreach ($tags as $tag): ?>
+                                        <a href="shop-grid.php?search=<?= $tag->value ?>" class="ps-2 text-muted text-decoration-underline">
+                                            <?= $tag->value ?>
+                                        </a>
+                                        <?php endforeach; ?>
+
+                                    </div>
+                                </small>
                                 <div class="mb-4">
                                     <!-- rating -->
                                     <!-- rating -->
@@ -195,15 +208,15 @@
                                         class="ms-2"
                                     >(0 reviews)</a>
                                 </div>
-                                <div class="fs-4">
+                                <div class="fs-4 fw-bold">
                                     <!-- price -->
                                     <?php if (!empty($regularPrice)) { ?>
 
                                     <span
-                                        class="text-decoration-line-through text-muted"><?php echo CURRENCY.number_format($regularPrice) ?></span>
+                                        class="text-decoration-line-through text-muted"><?php echo CURRENCY . number_format($regularPrice) ?></span>
 
                                     <?php } ?>
-                                    <span class="text-dark"><?php echo CURRENCY.number_format($salesPrice) ?></span>
+                                    <span class="text-dark"><?php echo CURRENCY . number_format($salesPrice) ?></span>
 
                                 </div>
                                 <!-- hr -->
@@ -226,7 +239,7 @@
                                 </div>
                                 <div>
                                     <!-- input -->
-                                    <div class="input-group input-spinner">
+                                    <div class="input-group input-spinner ">
                                         <input
                                             type="button"
                                             value="-"
@@ -247,6 +260,7 @@
                                             class="button-plus btn btn-sm"
                                             data-field="quantity"
                                         />
+                                        <p class="ps-3 text-muted pb-0">(<?php echo $quantityInStock; ?> available)</p>
                                     </div>
                                 </div>
                                 <div class="mt-3 row justify-content-start g-2 align-items-center">
@@ -280,25 +294,25 @@
                                     </div>
                                 </div>
                                 <!-- hr -->
-                                <hr class="my-6" />
+                                <hr class="my-6 mb-3" />
                                 <div>
                                     <!-- table -->
-                                    <table class="table table-borderless mb-0">
-                                        <tbody>
+                                    <table class="table table-borderless mb-0 ps-0">
+                                        <tbody class="ps-0">
                                             <tr>
-                                                <td>Product Code:</td>
-                                                <td>FBB00255</td>
+                                                <td class="ps-0">Brand:</td>
+                                                <td><?php echo $brand ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Availability:</td>
+                                                <td class="ps-0">Availability:</td>
                                                 <td>In Stock</td>
                                             </tr>
                                             <tr>
-                                                <td>Type:</td>
+                                                <td class="ps-0">Type:</td>
                                                 <td>Fruits</td>
                                             </tr>
                                             <tr>
-                                                <td>Shipping:</td>
+                                                <td class="ps-0">Shipping:</td>
                                                 <td>
                                                     <small>
                                                         01 day shipping.
@@ -385,7 +399,7 @@
                                     </button>
                                 </li>
                                 <!-- nav item -->
-                             
+
                                 <!-- nav item -->
                                 <li
                                     class="nav-item"
@@ -406,25 +420,7 @@
                                     </button>
                                 </li>
                                 <!-- nav item -->
-                                <li
-                                    class="nav-item"
-                                    role="presentation"
-                                >
-                                    <!-- btn -->
-                                    <button
-                                        class="nav-link"
-                                        id="sellerInfo-tab"
-                                        data-bs-toggle="tab"
-                                        data-bs-target="#sellerInfo-tab-pane"
-                                        type="button"
-                                        role="tab"
-                                        aria-controls="sellerInfo-tab-pane"
-                                        aria-selected="false"
-                                        disabled
-                                    >
-                                        Seller Info
-                                    </button>
-                                </li>
+                               
                             </ul>
                             <!-- tab content -->
                             <div
@@ -440,41 +436,11 @@
                                     tabindex="0"
                                 >
                                     <div class="my-8">
-                                        <div class="mb-5">
-                                            <!-- text -->
-                                            <h4 class="mb-1">Nutrient Value & Benefits</h4>
-                                            <p class="mb-0">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi, tellus
-                                                iaculis urna bibendum in lacus, integer. Id imperdiet vitae varius sed
-                                                magnis eu nisi nunc
-                                                sit. Vel, varius habitant ornare ac rhoncus. Consequat risus facilisis
-                                                ante ipsum netus risus adipiscing sagittis sed. Lorem ipsum dolor sit
-                                                amet, consectetur
-                                                adipiscing elit.
-                                            </p>
-                                        </div>
-                                        <div class="mb-5">
-                                            <h5 class="mb-1">Storage Tips</h5>
-                                            <p class="mb-0">
-                                                Nisi, tellus iaculis urna bibendum in lacus, integer. Id imperdiet vitae
-                                                varius sed magnis eu nisi nunc sit. Vel, varius habitant ornare ac
-                                                rhoncus. Consequat risus
-                                                facilisis ante ipsum netus risus adipiscing sagittis sed.Lorem ipsum
-                                                dolor sit amet, consectetur adipiscing elit.
-                                            </p>
-                                        </div>
-                                        <!-- content -->
-                                        <div class="mb-5">
-                                            <h5 class="mb-1">Unit</h5>
-                                            <p class="mb-0">3 units</p>
-                                        </div>
-                                        <div class="mb-5">
-                                            <h5 class="mb-1">Seller</h5>
-                                            <p class="mb-0">DMart Pvt. LTD</p>
-                                        </div>
-                                        <div>
-                                            <h5 class="mb-1">Disclaimer</h5>
-                                            <p class="mb-0">
+                                       <?= $description?>
+                                        <div class=" alert alert-warning" style=""
+">
+                                            <h5 class="mb-1 small">Disclaimer</h5>
+                                            <p class="mb-0 small">
                                                 Image shown is a representation and may slightly vary from the actual
                                                 product. Every effort is made to maintain accuracy of all information
                                                 displayed.
@@ -482,7 +448,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                                               <div
+                                <div
                                     class="tab-pane fade"
                                     id="reviews-tab-pane"
                                     role="tabpanel"
@@ -955,14 +921,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- tab pane -->
-                                <div
-                                    class="tab-pane fade"
-                                    id="sellerInfo-tab-pane"
-                                    role="tabpanel"
-                                    aria-labelledby="sellerInfo-tab"
-                                    tabindex="0"
-                                >...</div>
+                             
                             </div>
                         </div>
                     </div>
@@ -1097,6 +1056,214 @@
                             </div>
                         </div>
                         <!-- col -->
+                        <div class="col">
+                            <div class="card card-product">
+                                <div class="card-body">
+                                    <!-- badge -->
+                                    <div class="text-center position-relative">
+                                        <a href="#!"><img
+                                                src="../assets/images/products/product-img-2.jpg"
+                                                alt="Grocery Ecommerce Template"
+                                                class="mb-3 img-fluid"
+                                            /></a>
+                                        <!-- action btn -->
+                                        <div class="card-product-action">
+                                            <a
+                                                href="#!"
+                                                class="btn-action"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#quickViewModal"
+                                            >
+                                                <i
+                                                    class="bi bi-eye"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-html="true"
+                                                    title="Quick View"
+                                                ></i>
+                                            </a>
+                                            <a
+                                                href="shop-wishlist.php"
+                                                class="btn-action"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-html="true"
+                                                title="Wishlist"
+                                            ><i class="bi bi-heart"></i></a>
+                                            <a
+                                                href="#!"
+                                                class="btn-action"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-html="true"
+                                                title="Compare"
+                                            ><i class="bi bi-arrow-left-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <!-- heading -->
+                                    <div class="text-small mb-1">
+                                        <a
+                                            href="#!"
+                                            class="text-decoration-none text-muted"
+                                        ><small>Bakery & Biscuits</small></a>
+                                    </div>
+                                    <h2 class="fs-6"><a
+                                            href="#!"
+                                            class="text-inherit text-decoration-none"
+                                        >NutriChoice Digestive</a></h2>
+                                    <div class="text-warning">
+                                        <small>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                        </small>
+                                        <span class="text-muted small">4.5 (25)</span>
+                                    </div>
+                                    <!-- price -->
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <div><span class="text-dark">$24</span></div>
+                                        <!-- btn -->
+                                        <div>
+                                            <a
+                                                href="#!"
+                                                class="btn btn-primary btn-sm"
+                                            >
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="16"
+                                                    height="16"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    class="feather feather-plus"
+                                                >
+                                                    <line
+                                                        x1="12"
+                                                        y1="5"
+                                                        x2="12"
+                                                        y2="19"
+                                                    ></line>
+                                                    <line
+                                                        x1="5"
+                                                        y1="12"
+                                                        x2="19"
+                                                        y2="12"
+                                                    ></line>
+                                                </svg>
+                                                Add
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card card-product">
+                                <div class="card-body">
+                                    <!-- badge -->
+                                    <div class="text-center position-relative">
+                                        <a href="#!"><img
+                                                src="../assets/images/products/product-img-2.jpg"
+                                                alt="Grocery Ecommerce Template"
+                                                class="mb-3 img-fluid"
+                                            /></a>
+                                        <!-- action btn -->
+                                        <div class="card-product-action">
+                                            <a
+                                                href="#!"
+                                                class="btn-action"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#quickViewModal"
+                                            >
+                                                <i
+                                                    class="bi bi-eye"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-html="true"
+                                                    title="Quick View"
+                                                ></i>
+                                            </a>
+                                            <a
+                                                href="shop-wishlist.php"
+                                                class="btn-action"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-html="true"
+                                                title="Wishlist"
+                                            ><i class="bi bi-heart"></i></a>
+                                            <a
+                                                href="#!"
+                                                class="btn-action"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-html="true"
+                                                title="Compare"
+                                            ><i class="bi bi-arrow-left-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <!-- heading -->
+                                    <div class="text-small mb-1">
+                                        <a
+                                            href="#!"
+                                            class="text-decoration-none text-muted"
+                                        ><small>Bakery & Biscuits</small></a>
+                                    </div>
+                                    <h2 class="fs-6"><a
+                                            href="#!"
+                                            class="text-inherit text-decoration-none"
+                                        >NutriChoice Digestive</a></h2>
+                                    <div class="text-warning">
+                                        <small>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                        </small>
+                                        <span class="text-muted small">4.5 (25)</span>
+                                    </div>
+                                    <!-- price -->
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <div><span class="text-dark">$24</span></div>
+                                        <!-- btn -->
+                                        <div>
+                                            <a
+                                                href="#!"
+                                                class="btn btn-primary btn-sm"
+                                            >
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="16"
+                                                    height="16"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    class="feather feather-plus"
+                                                >
+                                                    <line
+                                                        x1="12"
+                                                        y1="5"
+                                                        x2="12"
+                                                        y2="19"
+                                                    ></line>
+                                                    <line
+                                                        x1="5"
+                                                        y1="12"
+                                                        x2="19"
+                                                        y2="12"
+                                                    ></line>
+                                                </svg>
+                                                Add
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col">
                             <div class="card card-product">
                                 <div class="card-body">
@@ -1529,7 +1696,7 @@
         <?php include_once('footer.php') ?>
 
         <!-- QUick view modal -->
-<?php include_once('php/components/quickview.php') ?>
+        <?php include_once('components/quickview.php') ?>
 
         <!-- Javascript-->
         <script src="../assets/libs/rater-js/index.js"></script>

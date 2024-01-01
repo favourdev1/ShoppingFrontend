@@ -49,7 +49,7 @@ if (isset($_GET['id'])) {
             $productImg5 = $product['product_img5'];
             $weight = $product['weight'];
             $quantityInStock = $product['quantity_in_stock'];
-            $tags = $product['tags'];
+            $tags = json_decode($product['tags']);
             $refundable = $product['refundable'];
             $status = $product['status'];
             $salesPrice = $product['sales_price'];
