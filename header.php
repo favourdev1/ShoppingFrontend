@@ -1,6 +1,7 @@
 <head>
 
     <?php $apiUrl = "http://localhost:8000/api" ?>
+    <?php include_once('pages/php/config.php')?>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -92,13 +93,23 @@
     body {
         font-family: 'Nunito', sans-serif !important;
     }
+ 
+        .title-container {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 5em; /* Adjust the height as needed */
+        }
+    
     </style>
     <?php
     if (!if_Authenticated()) {
         setcookie('userId', '', time() - 3600, '/');
         setcookie('token', '', time() - 3600, '/');
         setcookie('isAdmin', '', time() - 3600, '/');
-        header('Location: pages/signin.php?error="user not logged in "');
+        // header('Location: pages/signin.php?error="user not logged in "');
         // exit;
     }
     ?>
