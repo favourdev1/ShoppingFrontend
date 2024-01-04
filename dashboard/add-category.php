@@ -155,16 +155,7 @@
                                                     required
                                                 />
                                             </div>
-                                            <!-- input -->
-                                            <div class="mb-3 col-lg-6">
-                                                <label class="form-label">Parent Category</label>
-                                                <select class="form-select">
-                                                    <option selected>Category Name</option>
-                                                    <option value="Dairy, Bread & Eggs">Dairy, Bread & Eggs</option>
-                                                    <option value="Snacks & Munchies">Snacks & Munchies</option>
-                                                    <option value="Fruits & Vegetables">Fruits & Vegetables</option>
-                                                </select>
-                                            </div>
+                                           
 
                                             <div></div>
                                             <!-- input -->
