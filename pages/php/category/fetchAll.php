@@ -6,11 +6,7 @@ use Httpful\Request;
 try {
     // Make a GET request to your API endpoint
     $response = Request::get($apiUrl . '/category/')
-        ->addHeaders([
-            'Accept' => '*/*',
-            'Cookie' => 'access_token=' . $token,
-            'Authorization' => 'Bearer ' . $token,
-        ])
+        ->addHeaders($payloadRequest)
         ->send();
 
     // Decode the JSON response

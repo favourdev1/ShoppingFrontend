@@ -3,13 +3,11 @@
 
 use Httpful\Request;
 
+
+
 // Make a GET request to your API endpoint
 $response = Request::get($apiUrl . '/products/')
-    ->addHeaders([
-        'Accept' => '*/*',
-        'Cookie' => 'access_token=' . $token,
-        'Authorization' => 'Bearer ' . $token,
-    ])
+    ->addHeaders($payloadRequest)
     ->send();
 
 // Check the HTTP status code
@@ -28,11 +26,13 @@ if ($response->code < 300) {
     // die;
 } else {
     // Decode the JSON error response
-    $errorBody = json_decode($response->body, true);
+    $responseBody = $response->body;
+    // $errorBody = json_decode($response->body, true);
 
     // Output the error details
-    echo "Error Status Code: {$response->code}\n";
-    echo "Error Message: {$errorBody['message']}\n";
+    // echo "Error Status Code: {$response->code}\n";
+   print_r($responseBody);
+   exit;
 }
 
 
