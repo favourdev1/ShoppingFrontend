@@ -286,11 +286,7 @@
                         <div class="list-inline-item me-5 me-lg-0">
                             <a
                                 class="text-muted position-relative"
-                                data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasRight"
-                                href="#offcanvasExample"
-                                role="button"
-                                aria-controls="offcanvasRight"
+                                href="pages/shop-cart.php"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -316,8 +312,8 @@
                                 <span
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
                                 >
-                                    1
-                                    <span class="visually-hidden">unread messages</span>
+                                   <?php echo count($cartItems)?>
+                                   
                                 </span>
                             </a>
                         </div>
@@ -614,7 +610,7 @@
                             <li class="nav-item w-100 w-lg-auto">
                                 <a
                                     class="nav-link"
-                                    href="login.php"
+                                    href="pages/signin.php"
                                 >Login</a>
                             </li>
 
