@@ -8,8 +8,9 @@
         <!-- navbar -->
         <?php include_once('pages/php/products/fetchAll.php'); ?>
         <?php include_once('pages/php/category/fetchAll.php'); ?>
-        <?php include_once('navbar.php') ?>
-<?php include_once('pages/php/cart/fetchAll.php')?>
+        <?php include_once('pages/php/cart/fetchAll.php') ?>
+          <?php include_once('navbar.php') ?>
+        
         <!-- Modal -->
         <div
             class="modal fade"
@@ -103,7 +104,7 @@
         </div>
 
         <!-- OffCart Canvas -->
-        <?php include_once('offcart.php') ?>
+        <?php //include_once('offcart.php') ?>
 
 
 
@@ -273,7 +274,7 @@
                         </div>
                     </div>
 
-                    <div class="row g-4 row-cols-lg-5 row-cols-2 row-cols-md-3">
+                    <div class="row g-2 row-cols-lg-5 row-cols-2 row-cols-md-3">
 
 
                         <?php
@@ -346,17 +347,33 @@
                                                         ><i class="bi bi-arrow-left-right"></i></a>
                                                     </div>
                                                 </div>
-                                                <div class="text-small mb-1">
+                                                <div class="text-small mb-1 text-center">
                                                     <a
                                                         href="<?php echo "pages/shop-single.php?id=" . $id ?>"
-                                                        class="text-decoration-none text-muted"
+                                                        class="text-decoration-none text-muted text-center title-container"
                                                     ><small><?php echo $productName ?></small></a>
                                                 </div>
-                                                <h2 class="fs-6"><a
-                                                        href="<?php echo "pages/shop-single.php?id=" . $id ?>"
+                                            
+                                                <!-- <h2 class="fs-6"><a
+                                                        href="<?php //echo "pages/shop-single.php?id=" . $id ?>"
                                                         class="text-inherit text-decoration-none"
-                                                    ><?php echo $productCategory ?></a></h2>
-                                                <div>
+                                                    ><?php // echo $productCategory ?></a></h2> -->
+                                                
+                                                <div class="d-block justify-content-between align-items-center  text-center fs-6 fw-bold">
+                                                    <div>
+                                                        <?php if (!empty($regularPrice)) { ?>
+
+                                                            <span class="text-dark"><?php echo CURRENCY.number_format($salesPrice) ?></span>
+
+                                                            <span
+                                                                class="text-decoration-line-through text-muted small fw-100"><?php echo CURRENCY.number_format($regularPrice) ?></span>
+
+                                                        <?php } ?>
+                                                    
+
+                                                    </div>
+
+                                                    <div>
                                                     <small class="text-warning">
                                                         <i class="bi bi-star-fill"></i>
                                                         <i class="bi bi-star-fill"></i>
@@ -366,22 +383,15 @@
                                                     </small>
                                                     <span class="text-muted small">4.5(149)</span>
                                                 </div>
-                                                <div class="d-flex justify-content-between align-items-center mt-3">
                                                     <div>
-                                                        <?php if (!empty($regularPrice)) { ?>
+                                                    
 
-                                                            <span
-                                                                class="text-decoration-line-through text-muted"><?php echo number_format($regularPrice) ?></span>
-
-                                                        <?php } ?>
-                                                        <span class="text-dark"><?php echo number_format($salesPrice) ?></span>
-
-                                                    </div>
-                                                    <div>
                                                         <a
-                                                            href="#!"
-                                                            class="btn btn-primary btn-sm"
-                                                        >
+                                                            href="#"
+                                                            data-product-details='<?php echo json_encode($product); ?>'
+                                                            onclick="showQuickView(this)"
+                                                            class="btn btn-primary btn-sm w-100 mt-4"
+                                                          > 
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                 width="16"
@@ -407,7 +417,7 @@
                                                                     y2="12"
                                                                 ></line>
                                                             </svg>
-                                                            Add
+                                                            Add to cart
                                                         </a>
                                                     </div>
                                                 </div>
@@ -425,8 +435,20 @@
 
         </main>
 
-<?php include_once('pages/components/quickview.php') ?>
-        
+        <script>
+        // function submitCartForm(event) {
+        //     event.preventDefault(); // Prevents the default behavior of the anchor tag (navigating to a new page)
+
+        //     // Get the form element
+        //     var form = document.getElementById('cartForm');
+
+        //     // Submit the form
+        //     form.submit();
+        // }
+        // </script>
+
+        <?php include_once('pages/components/quickview.php') ?>
+
 
         <!-- footer -->
         <?php include_once('footer.php') ?>

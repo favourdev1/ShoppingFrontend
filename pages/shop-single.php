@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <?php 
-require_once 'vendor/autoload.php'; ?>
+// require_once 'vendor/autoload.php'; ?>
     <?php $productName = $_GET['productName'] ?? 'Product Details';
     $pageName = $productName . " | Sosmart Online shopping and more! "; ?>
     <?php include_once('header.php') ?>
@@ -20,9 +20,7 @@ require_once 'vendor/autoload.php'; ?>
         <!-- navbar -->
         <?php include_once('navbar.php') ?>
 
-        <!-- OffCart Canvas -->
-        <?php include_once('offcart.php') ?>
-
+        
         <!-- Modal -->
         <div
             class="modal fade"

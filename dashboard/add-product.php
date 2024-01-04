@@ -90,12 +90,12 @@
                                             <?php
 
                                             if ($isUpdating) { ?>
-                                                    <input
-                                                        hidden
-                                                        name="id"
-                                                        value='<?php echo $_GET['id'] ?>'
-                                                    >
-                                                    <?php
+                                            <input
+                                                hidden
+                                                name="id"
+                                                value='<?php echo $_GET['id'] ?>'
+                                            >
+                                            <?php
                                             }
                                             ?>
                                             <!-- input -->
@@ -105,21 +105,21 @@
                                                     class="form-select"
                                                     name="category_id"
                                                 >
-                                                    <option <?php echo !$isUpdating ? 'selected' : '' ?>
-                                                    >Product Category
+                                                    <option <?php echo !$isUpdating ? 'selected' : '' ?>>Product
+                                                        Category
                                                     </option>
                                                     <?php
                                                     foreach ($Allcategories as $category) { ?>
 
-                                                            <option
-                                                                value="<?php echo $category['id'] ?>"
-                                                                <?php if ($isUpdating) {
-                                                                    if ($categoryId == $category['id']) {
-                                                                        echo "selected";
-                                                                    }
-                                                                } ?>
-                                                            >
-                                                                <?php echo $category['category_name'] ?></option>
+                                                    <option
+                                                        value="<?php echo $category['id'] ?>"
+                                                        <?php if ($isUpdating) {
+                                                                if ($categoryId == $category['id']) {
+                                                                    echo "selected";
+                                                                }
+                                                            } ?>
+                                                    >
+                                                        <?php echo $category['category_name'] ?></option>
                                                     <?php }
                                                     ?>
 
@@ -180,50 +180,49 @@
 
                                                             ?>
 
-                                                                <div
-                                                                    class="position-relative mx-2"
-                                                                    style="width:max-content"
-                                                                >
-                                                                    <img
-                                                                        class="image icon-shape icon-xxxl bg-light rounded-4 border"
-                                                                        src="<?php echo $categoryImg ?: "../assets/images/icons/placeholder.webp"; ?>"
-                                                                        alt="<?php echo $uniqueAlt; ?>"
-                                                                    />
-                                                                    <div
-                                                                        class="file-upload position-absolute end-0 top-0 mt-n2 me-n1">
-                                                                        <input
-                                                                            id="<?php echo $uniqueId; ?>"
-                                                                            accept=".jpg, .jpeg, .png, .webpg"
-                                                                            type="file"
-                                                                            
-                                                                            name="<?php echo $uniqueId; ?>"
-                                                                            class="file-input"
+                                                        <div
+                                                            class="position-relative mx-2"
+                                                            style="width:max-content"
+                                                        >
+                                                            <img
+                                                                class="image icon-shape icon-xxxl bg-light rounded-4 border"
+                                                                src="<?php echo $categoryImg ?: "../assets/images/icons/placeholder.webp"; ?>"
+                                                                alt="<?php echo $uniqueAlt; ?>"
+                                                            />
+                                                            <div
+                                                                class="file-upload position-absolute end-0 top-0 mt-n2 me-n1">
+                                                                <input
+                                                                    id="<?php echo $uniqueId; ?>"
+                                                                    accept=".jpg, .jpeg, .png, .webpg"
+                                                                    type="file"
+                                                                    name="<?php echo $uniqueId; ?>"
+                                                                    class="file-input"
+                                                                />
+                                                                <input
+                                                                    hidden
+                                                                    id="<?php echo $productImageName; ?>"
+                                                                    type="text"
+                                                                    value="<?php echo $categoryImg ?>"
+                                                                    name="<?php echo $productImageName; ?>"
+                                                                    class=""
+                                                                />
+                                                                <span
+                                                                    class="icon-shape icon-sm rounded-circle bg-white">
+                                                                    <svg
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        width="12"
+                                                                        height="12"
+                                                                        fill="currentColor"
+                                                                        class="bi bi-pencil-fill text-muted"
+                                                                        viewBox="0 0 16 16"
+                                                                    >
+                                                                        <path
+                                                                            d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
                                                                         />
-                                                                        <input
-                                                                            hidden
-                                                                            id="<?php echo $productImageName; ?>"
-                                                                            type="text"
-                                                                            value="<?php echo $categoryImg ?>"
-                                                                            name="<?php echo $productImageName; ?>"
-                                                                            class=""
-                                                                        />
-                                                                        <span
-                                                                            class="icon-shape icon-sm rounded-circle bg-white">
-                                                                            <svg
-                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                width="12"
-                                                                                height="12"
-                                                                                fill="currentColor"
-                                                                                class="bi bi-pencil-fill text-muted"
-                                                                                viewBox="0 0 16 16"
-                                                                            >
-                                                                                <path
-                                                                                    d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-                                                                                />
-                                                                            </svg>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
+                                                                    </svg>
+                                                                </span>
+                                                            </div>
+                                                        </div>
 
                                                         <?php } ?>
 
@@ -282,10 +281,147 @@
                                         <?php echo $isUpdating ? $description : '' ?>
                                     </div>
                                 </div>
+
+                                <!-- card -->
+                                <div class="mb-6 border rounded-4">
+                                    <!-- card body -->
+                                    <div class=" p-6 ">
+                                        <h4 class="mb-4 h5">SEO Meta Data</h4>
+                                        <!-- input -->
+                                        <div class="mb-3">
+                                            <label class="form-label">Meta Title</label>
+                                            <input
+                                                required
+                                                type="text"
+                                                value="<?php echo $isUpdating ? $metaTitle : '' ?>"
+                                                name="meta_title"
+                                                class="form-control"
+                                                placeholder="Title"
+                                            />
+                                        </div>
+
+                                        <!-- input -->
+                                        <div class="mb-3">
+                                            <label class="form-label">Meta Description</label>
+                                            <textarea
+                                                class="form-control"
+                                                rows="4"
+                                                name="meta_description"
+                                                placeholder="Meta Description"
+                                            ><?php echo $isUpdating ? $metaDescription : '' ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- button -->
                             </div>
 
-
+                            <!--########### Side content  ##############-->
                             <div class="col-lg-4 col-12">
+
+
+
+
+                                <!-- Shipping Card -->
+                                <div class="mb-6 border rounded-4 ">
+                                    <!-- card body -->
+                                    <div class=" p-6">
+                                        <!-- input -->
+                                        <div class="mb-4">
+
+                                            <label
+                                                class="form-check-label"
+                                                for="shipping_switch"
+                                            >Shipping Configuration</label>
+                                        </div>
+                                        <!-- input -->
+                                        <div>
+                                            <div
+                                                class="d-flex align-items-center justify-content-between form-check form-switch  mb-3 p-0">
+                                                <label class="form-label ms-0 p-0">Free Shipping</label>
+                                                <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    role="switch"
+                                                    name="free_shipping"
+                                                    id="shipping_switch"
+                                                    checked
+                                                />
+                                            </div>
+                                            <!-- input -->
+                                            <div
+                                                class="mb-3"
+                                                id="shipping_cost"
+                                                hidden
+                                            >
+                                                <label class="form-label">Shipping Cost</label>
+                                                <input
+                                                    name="shipping_cost"
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="0"
+                                                />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="mb-6 border rounded-4 ">
+                                    <!-- card body -->
+                                    <div class=" p-6">
+                                        <!-- input -->
+                                        <div class="mb-4">
+
+                                            <label
+                                                class="form-check-label"
+                                                for="cash_on_delivery"
+                                            >Cash On Delivery</label>
+                                        </div>
+                                        <!-- input -->
+                                        <div>
+                                            <div
+                                                class="d-flex align-items-center justify-content-between form-check form-switch  mb-3 p-0">
+                                                <label class="form-label ms-0 p-0">Status</label>
+                                                <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    role="switch"
+                                                    name="cash_on_delivery"
+                                                    id="cash_on_delivery_switch"
+                                                    checked
+                                                />
+                                            </div>
+                                            <!-- input -->
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 <!-- card -->
                                 <div class="mb-6 border rounded-4 ">
                                     <!-- card body -->
@@ -408,38 +544,54 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- card -->
-                                <div class="mb-6 border rounded-4">
-                                    <!-- card body -->
-                                    <div class=" p-6 ">
-                                        <h4 class="mb-4 h5">Meta Data</h4>
-                                        <!-- input -->
-                                        <div class="mb-3">
-                                            <label class="form-label">Meta Title</label>
-                                            <input
-                                                required
-                                                type="text"
-                                                value="<?php echo $isUpdating ? $metaTitle : '' ?>"
-                                                name="meta_title"
-                                                class="form-control"
-                                                placeholder="Title"
-                                            />
-                                        </div>
 
+                                <!-- Tax Card -->
+                                <div class="mb-6 border rounded-4 ">
+                                    <!-- card body -->
+                                    <div class=" p-6">
                                         <!-- input -->
-                                        <div class="mb-3">
-                                            <label class="form-label">Meta Description</label>
-                                            <textarea
-                                                class="form-control"
-                                                rows="4"
-                                                name="meta_description"
-                                                placeholder="Meta Description"
-                                            ><?php echo $isUpdating ? $metaDescription : '' ?></textarea>
+                                        <div class="mb-4">
+
+                                            <label
+                                                class="form-check-label fw-bold"
+                                                for="tax-switch"
+                                            >Vat & Tax</label>
+                                        </div>
+                                        <!-- input -->
+                                        <div>
+                                            <div
+                                                class="d-flex align-items-center justify-content-between form-check form-switch  mb-3 p-0">
+                                                <label class="form-label ms-0 p-0">Tax</label>
+                                                <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    role="switch"
+                                                    name="tax"
+                                                    id="tax_switch"
+                                                    checked
+                                                />
+
+                                            </div>
+                                            <small class="text-muted">If you won't want to charge customers tax, keep it turned off</small>
+                                            <!-- input -->
+                                            <div
+                                                class="mb-3"
+                                                id="tax_cost_continer"
+                                                hidden
+                                            >
+                                                <label class="form-label">Tax Cost</label>
+                                                <input
+                                                    id="tax_input"
+                                                    name="tax"
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="0"
+                                                />
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
-                                <!-- button -->
-
                             </div>
                         </div>
                         <div class="col col-md-8">
@@ -553,6 +705,39 @@
         </script>
 
         <?php include_once('footer.php'); ?>
+
+        <script>
+        // tax variables 
+        const tax_cost_container = document.getElementById('tax_cost_container')
+        const tax_input = document.getElementById('tax_input')
+        const tax_switch = document.getElementById('tax-switch')
+        tax_switch.addEventListener('change', function() {
+            if (tax_switch.checked == true) {
+                tax_cost_container.hidden = false
+            } else {
+                tax_cost_container.hidden = true
+            }
+        })
+
+        if ((tax_switch.checked == true && tax_input=="") || !tax_input >0) {
+
+        }
+ 
+
+
+        const shipping_cost = document.getElementById('shipping_cost')
+        const shipping_switch = document.getElementById("shipping_switch")
+
+        shipping_switch.addEventListener("change", function() {
+
+
+            if (shipping_switch.checked) {
+                shipping_cost.hidden = true
+            } else {
+                shipping_cost.hidden = false
+            }
+        });
+        </script>
     </body>
 
 </html>

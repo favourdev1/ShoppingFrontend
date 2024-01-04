@@ -23,12 +23,12 @@ use Httpful\Request;
         // Decode the JSON response
         $product = json_decode(json_encode($responseData), true)['data'];
         // Print or use the retrieved product data
-        echo "<pre>";
+        // echo "<pre>";
 
-        var_dump($product);
-        echo "</pre>";
+        // var_dump($product);
+        // echo "</pre>";
 
-        die;
+        // die;
         if (count($product) > 0) {
 
 

@@ -101,7 +101,9 @@
         font-family: 'Nunito', sans-serif !important;
     }
 </style>
+<link rel="stylesheet" href="../node_modules/tippy.js/dist/tippy.css">
 
+<script src="../node_modules/tippy.js/dist/tippy.umd.js"></script>
 
 
     <script src="pages/javascript/config.js"></script>

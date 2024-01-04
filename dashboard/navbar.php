@@ -34,10 +34,8 @@
 
                     <li class="dropdown ms-4 me-3">
                         <a
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
+                            href="../index.php"
+                            
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

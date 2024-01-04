@@ -294,7 +294,7 @@
                                 </svg>
                             </a>
                         </div>
-                        <div class="list-inline-item me-5 me-lg-0">
+                        <div class="list-inline-item me-5 me-lg-0" id= "cartIcon">
                             <a
                                 class="text-muted position-relative"
                                 data-bs-toggle="offcanvas"
@@ -332,6 +332,12 @@
                                 </span>
                             </a>
                         </div>
+
+                        <script>
+                            tippy('#cartIcon', {
+  content: "I'm a Tippy tooltip!",
+});
+                        </script>
                         <div class="list-inline-item d-inline-block d-lg-none">
                             <!-- Button -->
                             <button

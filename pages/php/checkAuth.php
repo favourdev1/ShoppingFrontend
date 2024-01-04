@@ -5,11 +5,26 @@ $token = $_COOKIE['token']??null;
 $userId=$_COOKIE['userId']??null;
 $is_admin = false ;
 
-// checck if user is already loggedin , if yes, alter the values 
+
+
+// Payload data to be sent if user is logged in 
+$payloadRequest=[];
+
+
+
+
+
+// check if user is already loggedin , if yes, alter the values 
 if (isset($_COOKIE['token']) && $_COOKIE['token'] != null && isset($_COOKIE['userId']) && $_COOKIE['userId'] != null) {
     $token = $_COOKIE['token'];
     $userId = $_COOKIE['userId'];
     $isAdmin = $_COOKIE['isAdmin'];
+
+    $payloadRequest= [
+        'Accept' => 'application/json',
+        'Cookie' => 'access_token=' . $token,
+        'Authorization' => 'Bearer ' . $token,
+    ];
 
 }
 
