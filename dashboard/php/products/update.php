@@ -38,16 +38,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = json_decode(json_encode($responseData))->message;
         $_SESSION['message'] = $message;
         $_SESSION['status'] = "success";
-        header("Location: ../../products.php");
-
-        exit();
+        // header("Location: ../../products.php");
+echo $message;
+        // exit();
     } else {
         $errorMessage = str_replace(',', '\n', $responseData->message);
         $_SESSION['message'] = $errorMessage;
         $_SESSION['status'] = "error";
+        echo $errorMessage;
         // echo $errorMessage;
-        header("Location: ../../add-product.php?id=".$productID);
-        exit();
+        // header("Location: ../../add-product.php?id=".$productID);
+        // exit();
     }
 
 

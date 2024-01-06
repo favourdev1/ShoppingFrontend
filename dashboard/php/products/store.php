@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $data = $_POST;
 
-
-
+print_r($data);
+// die;
     $response = Request::post($apiUrl . '/products/add')
         ->sendsJson()
         ->addHeaders($headers)
@@ -36,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = str_replace(',', '\n', $responseData->message);
 
         $message =  json_decode(json_encode($responseData))->message;
-        // $_SESSION['message'] = $message;
-        // $_SESSION['status'] = "success";
+        $_SESSION['message'] = $message;
+        $_SESSION['status'] = "success";
         // header("Location: ../../products.php");
     echo $message;
         // exit();

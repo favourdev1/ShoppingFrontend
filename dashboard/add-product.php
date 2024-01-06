@@ -29,7 +29,7 @@
             $endPoint = "php/products/store.php";
         }
         ?>
-        <div class="main-wrapper">
+        <div class="main-wrapper position-relative vh-100">
             <!-- navbar vertical -->
             <!-- navbar -->
             <?php include_once('sidebar.php') ?>
@@ -127,7 +127,8 @@
                                             </div>
                                             <!-- input -->
                                             <div class="mb-3 col-lg-6">
-                                                <label class="form-label">Weight</label>
+                                                <label class="form-label">Weight <span
+                                                        class="text-muted">(optional)</span></label>
                                                 <input
                                                     type="text"
                                                     class="form-control"
@@ -138,7 +139,7 @@
                                             </div>
                                             <!-- input -->
                                             <div class="mb-3 col-lg-6">
-                                                <label class="form-label">Quantity</label>
+                                                <label class="form-label">Quantity in stock</label>
                                                 <input
                                                     type="number"
                                                     class="form-control"
@@ -155,7 +156,8 @@
                                                     <!-- heading -->
                                                     <h4 class="mb-3 h5">Product Images</h4>
 
-                                                    <div class="d-flex align-items-center overflow-x-scroll">
+                                                    <div
+                                                        class="d-flex align-items-center overflow-x-scroll hide-scrollbar">
                                                         <?php
                                                         // for ($i = 1; $i <= 4; $i++) {
                                                         //     $uniqueAlt = "Image" . $i;
@@ -281,6 +283,7 @@
                                     <input
                                         type="text"
                                         name="description"
+                                        style="display:none"
                                         id="descriptionInput"
                                     />
                                 </div>
@@ -358,6 +361,7 @@
                                             >
                                                 <label class="form-label">Shipping Cost</label>
                                                 <input
+                                                    id="shipping_cost_switch"
                                                     name="shipping_cost"
                                                     type="number"
                                                     class="form-control"
@@ -378,17 +382,37 @@
                                     <div class=" p-6">
                                         <!-- input -->
                                         <div class="mb-4">
-
+                                            <!-- 
                                             <label
                                                 class="form-check-label"
                                                 for="cash_on_delivery"
-                                            >Cash On Delivery</label>
+                                            >Cash On Delivery</label> -->
+                                        </div>
+
+
+
+                                        <!-- Refundable -->
+                                        <div class="form-check form-switch mb-4 justify-content-between p-0">
+
+                                            <label
+                                                class="form-check-label p-0"
+                                                for="flexSwitchStock"
+                                            >Refundable</label>
+
+                                            <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                name="refundable"
+                                                role="switch"
+                                                id="refundable"
+                                                checked
+                                            />
                                         </div>
                                         <!-- input -->
                                         <div>
                                             <div
                                                 class="d-flex align-items-center justify-content-between form-check form-switch  mb-3 p-0">
-                                                <label class="form-label ms-0 p-0">Status</label>
+                                                <label class="form-check-label ms-0 p-0">Cash on delivery</label>
                                                 <input
                                                     class="form-check-input"
                                                     type="checkbox"
@@ -405,24 +429,8 @@
 
 
 
-                                        
-<!-- Refundable -->
-                                    <div class="form-check form-switch mb-4 justify-content-between p-0">
-                                        
-                                        <label
-                                            class="form-check-label p-0"
-                                            for="flexSwitchStock"
-                                        >Refundable</label>
 
-                                        <input
-                                            class="form-check-input"
-                                            type="checkbox"
-                                            name="refundable"
-                                            role="switch"
-                                            id="flexSwitchStock"
-                                            checked
-                                        />
-                                    </div>
+
                                     </div>
 
                                 </div>
@@ -453,10 +461,11 @@
                                     <div class=" p-6">
                                         <!-- input -->
                                         <label
-                                                class="form-check-label fw-bold mb-3"
-                                                for="shipping_switch">Product Specifications
-                                            </label>
-                                        
+                                            class="form-check-label fw-bold mb-3"
+                                            for="shipping_switch"
+                                        >Product Specifications
+                                        </label>
+
                                         <!-- input -->
                                         <div>
                                             <div class="mb-3">
@@ -479,7 +488,7 @@
                                                 />
                                             </div>
 
-                                           
+
                                             <!-- input -->
                                             <div class="mb-3">
                                                 <label
@@ -626,13 +635,22 @@
                         </div>
                     </form>
                 </div>
+
+
             </main>
+
+
         </div>
+
+
+        <?php include_once('footer.php'); ?>
+
 
         <!-- Libs JS -->
         <!-- <script src="../assets/libs/jquery/dist/jquery.min.js"></script> -->
 
 
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
         <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
@@ -642,7 +660,6 @@
 
         <script src="../assets/libs/quill/dist/quill.min.js"></script>
         <script src="../assets/js/vendors/editor.js"></script>
-
 
 
 
@@ -660,6 +677,7 @@
         const image3 = document.getElementById('image3')
         const image4 = document.getElementById('image4')
 
+      
 
         image1.addEventListener('change', function(event) {
             handleFileSelect('product_img1', event)
@@ -728,7 +746,6 @@
         }
         </script>
 
-        <?php include_once('footer.php'); ?>
 
         <script>
         // tax variables 
@@ -749,52 +766,75 @@
 
 
 
-        const shipping_cost = document.getElementById('shipping_cost')
-        const shipping_switch = document.getElementById("shipping_switch")
 
-        shipping_switch.addEventListener("change", function() {
+        document.addEventListener("DOMContentLoaded", function() {
+
+            var form = document.getElementById('form');
+            const editor = document.getElementById('editor');
+            const descriptionInput = document.getElementById('descriptionInput');
+            const cash_on_delivery_switch = document.getElementById('cash_on_delivery_switch')
+            const shipping_cost = document.getElementById('shipping_cost')
+            const shipping_switch = document.getElementById("shipping_switch")
+            const shipping_cost_switch = document.getElementById('shipping_cost_switch')
+            const refundable = document.getElementById('refundable')
 
 
-            if (shipping_switch.checked) {
-                shipping_cost.hidden = true
-            } else {
-                shipping_cost.hidden = false
-            }
-        });
-        </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var form = document.getElementById('form');
-        const editor = document.getElementById('editor');
-        const descriptionInput = document.getElementById('descriptionInput');
-        
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
+            shipping_switch.addEventListener("change", function() {
+                if (shipping_switch.checked) {
+                    shipping_cost.hidden = true
+                } else {
+                    shipping_cost.hidden = false
+                }
+            });
 
-            // Manually update the hidden input with the content of the div
-            descriptionInput.value = editor.innerHTML;
 
-            // Log the FormData object directly for complete form data
-            var data = new FormData(form);
-            console.log(data);
+            const alertHub = new AlertHub();
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
 
-            axios({
-                method: 'post',
-                url: "<?php echo $endPoint ?>",
-                data: data
-            })
-            .then(function(response) {
-                // Handle successful response
-                console.log(response.data);
-            })
-            .catch(function(error) {
-                // Handle failed request
-                console.error("Error:", error);
+                // Manually update the hidden input with the content of the div
+                descriptionInput.value = editor.innerHTML;
+                cash_on_delivery_switch.value = cash_on_delivery_switch.checked ? 'true' : 'false'
+                refundable.value = refundable.checked ? 'true' : 'false'
+                if (shipping_switch.checked) {
+                    shipping_switch.value = 'true'
+                    shipping_cost_switch.value = 0
+
+                } else {
+                    shipping_switch.value = 'false'
+                }
+
+                // Log the FormData object directly for complete form data
+                var data = new FormData(form);
+                hideDialog(false)
+                axios({
+                        method: 'post',
+                        url: "<?php echo $endPoint ?>",
+                        data: data
+                    })
+                    .then(function(response) {
+                      window.location.href='products.php'
+                    })
+                    .catch(function(error) {
+
+                        alertHub.showAlert({
+                            title: "",
+                            description: error,
+                            position: "top-right",
+                            type: "danger",
+                            timeout: 7,
+                            closeButton: false,
+                            closeButtonSize: 20,
+                            animation: "fade-in",
+                        });
+                    })
+                    .finally(function() {
+                        hideDialog(true)
+                    })
             });
         });
-    });
-</script>
+        </script>
 
     </body>
 

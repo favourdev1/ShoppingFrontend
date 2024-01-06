@@ -95,9 +95,20 @@
     }
     </style>
     <?php include_once('php/profileDetails.php') ?>
+
+    
     <style>
     .cursor-pointer {
         cursor: pointer;
     }
+
+
+    /* Hide the horizontal scrollbar line */
+    .hide-scrollbar::-webkit-scrollbar {
+        height: 0;
+        /* Hide the horizontal scrollbar */
+    }
+
+
     </style>
 </head>
