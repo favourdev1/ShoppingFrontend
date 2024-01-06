@@ -63,7 +63,6 @@
 
                     <form
                         id="form"
-                        action="<?php echo $endPoint; ?>"
                         method="post"
                         enctype="multipart/form-data"
                     >
@@ -275,11 +274,15 @@
                                         class="py-2 border-0"
                                         placeholder="type here"
                                         style="height:300px"
-                                        name="description"
                                         id="editor"
                                     >
                                         <?php echo $isUpdating ? $description : '' ?>
                                     </div>
+                                    <input
+                                        type="text"
+                                        name="description"
+                                        id="descriptionInput"
+                                    />
                                 </div>
 
                                 <!-- card -->
@@ -371,7 +374,7 @@
 
 
                                 <div class="mb-6 border rounded-4 ">
-                                    <!-- card body -->
+                                    <!-- Cash on delivery  -->
                                     <div class=" p-6">
                                         <!-- input -->
                                         <div class="mb-4">
@@ -399,7 +402,29 @@
 
 
                                         </div>
+
+
+
+                                        
+<!-- Refundable -->
+                                    <div class="form-check form-switch mb-4 justify-content-between p-0">
+                                        
+                                        <label
+                                            class="form-check-label p-0"
+                                            for="flexSwitchStock"
+                                        >Refundable</label>
+
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            name="refundable"
+                                            role="switch"
+                                            id="flexSwitchStock"
+                                            checked
+                                        />
                                     </div>
+                                    </div>
+
                                 </div>
 
 
@@ -427,19 +452,11 @@
                                     <!-- card body -->
                                     <div class=" p-6">
                                         <!-- input -->
-                                        <div class="form-check form-switch mb-4">
-                                            <input
-                                                class="form-check-input"
-                                                type="checkbox"
-                                                role="switch"
-                                                id="flexSwitchStock"
-                                                checked
-                                            />
-                                            <label
-                                                class="form-check-label"
-                                                for="flexSwitchStock"
-                                            >In Stock</label>
-                                        </div>
+                                        <label
+                                                class="form-check-label fw-bold mb-3"
+                                                for="shipping_switch">Product Specifications
+                                            </label>
+                                        
                                         <!-- input -->
                                         <div>
                                             <div class="mb-3">
@@ -456,14 +473,17 @@
                                                 <label class="form-label">Product SKU</label>
                                                 <input
                                                     type="text"
+                                                    name="sku"
                                                     class="form-control"
                                                     placeholder="Enter Product Title"
                                                 />
                                             </div>
+
+                                           
                                             <!-- input -->
                                             <div class="mb-3">
                                                 <label
-                                                    class="form-label"
+                                                    class="form-label fw-bold"
                                                     id="productSKU"
                                                 >Status</label>
                                                 <br />
@@ -510,6 +530,9 @@
                                                 </div>
                                                 <!-- input -->
                                             </div>
+
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -572,11 +595,12 @@
                                                 />
 
                                             </div>
-                                            <small class="text-muted">If you won't want to charge customers tax, keep it turned off</small>
+                                            <small class="text-muted">If you won't want to charge customers tax, keep it
+                                                turned off</small>
                                             <!-- input -->
                                             <div
                                                 class="mb-3"
-                                                id="tax_cost_continer"
+                                                id="tax_cost_container"
                                                 hidden
                                             >
                                                 <label class="form-label">Tax Cost</label>
@@ -710,7 +734,7 @@
         // tax variables 
         const tax_cost_container = document.getElementById('tax_cost_container')
         const tax_input = document.getElementById('tax_input')
-        const tax_switch = document.getElementById('tax-switch')
+        const tax_switch = document.getElementById('tax_switch')
         tax_switch.addEventListener('change', function() {
             if (tax_switch.checked == true) {
                 tax_cost_container.hidden = false
@@ -719,10 +743,10 @@
             }
         })
 
-        if ((tax_switch.checked == true && tax_input=="") || !tax_input >0) {
+        if ((tax_switch.checked == true && tax_input == "") || !tax_input > 0) {
 
         }
- 
+
 
 
         const shipping_cost = document.getElementById('shipping_cost')
@@ -738,6 +762,40 @@
             }
         });
         </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var form = document.getElementById('form');
+        const editor = document.getElementById('editor');
+        const descriptionInput = document.getElementById('descriptionInput');
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Manually update the hidden input with the content of the div
+            descriptionInput.value = editor.innerHTML;
+
+            // Log the FormData object directly for complete form data
+            var data = new FormData(form);
+            console.log(data);
+
+            axios({
+                method: 'post',
+                url: "<?php echo $endPoint ?>",
+                data: data
+            })
+            .then(function(response) {
+                // Handle successful response
+                console.log(response.data);
+            })
+            .catch(function(error) {
+                // Handle failed request
+                console.error("Error:", error);
+            });
+        });
+    });
+</script>
+
     </body>
 
 </html>
