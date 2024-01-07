@@ -3,8 +3,8 @@
 // Set predefined values for auth variables 
 $token = $_COOKIE['token']??null;
 $userId=$_COOKIE['userId']??null;
-$is_admin = false ;
 
+$isAdmin=false;
 
 
 // Payload data to be sent if user is logged in 
@@ -25,7 +25,6 @@ if (isset($_COOKIE['token']) && $_COOKIE['token'] != null && isset($_COOKIE['use
         'Cookie' => 'access_token=' . $token,
         'Authorization' => 'Bearer ' . $token,
     ];
-
 }
 
 function if_Authenticated()
