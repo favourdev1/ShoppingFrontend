@@ -1,7 +1,7 @@
 <head>
 
     <?php $apiUrl = "http://localhost:8000/api" ?>
-    <?php include_once('pages/php/config.php')?>
+    <?php include_once('pages/php/config.php') ?>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -70,10 +70,10 @@
     <script src="pages/javascript/config.js"></script>
 
 
-    <?php 
+    <?php
     include_once('pages/php/checkAuth.php');
-    require_once 'vendor/autoload.php'; 
-     ?>
+    require_once 'vendor/autoload.php';
+    ?>
 
 
     <link
@@ -89,20 +89,43 @@
         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap"
         rel="stylesheet"
     >
+
+    <!-- Add jQuery (Slick requires jQuery) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Add the Slick library -->
+
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+
+    <!-- Add Slick theme CSS file (optional) -->
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+
+    <script src="pages\javascript\product\product-slider.js"></script>
+    <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    ></script>
     <style>
     body {
         font-family: 'Nunito', sans-serif !important;
     }
- 
-        .title-container {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-height: 5em; /* Adjust the height as needed */
-        }
-    
+
+    .title-container {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 5em;
+        /* Adjust the height as needed */
+    }
     </style>
     <?php
     if (!if_Authenticated()) {
@@ -113,4 +136,8 @@
         // exit;
     }
     ?>
+
+
+
+    <?php include_once('pages/php/functions.php')?>
 </head>

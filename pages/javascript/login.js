@@ -10,7 +10,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
     const formData = new FormData(event.target);
 
-
+    hideDialog(false)
     axios.post(apiUrl + "login", formData, {
         headers: {
             'Accept': 'application/json',
@@ -85,5 +85,9 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
                 // The request was made, but no response was received
                 console.error("No response received");
             }
+        })
+        .finally(function (){
+            hideDialog(true)
         });
+        
 })

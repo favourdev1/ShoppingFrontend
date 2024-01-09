@@ -2,7 +2,7 @@
 
 
 use Httpful\Request;
-
+$Allcategories=[];
 try {
     // Make a GET request to your API endpoint
     $response = Request::get($apiUrl . '/category/')

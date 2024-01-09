@@ -8,123 +8,13 @@
    <body>
       <!-- navbar -->
 <?php include_once('navbar.php')?>
-      <!-- Modal -->
-      <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-4">
-               <div class="modal-header border-0">
-                  <h5 class="modal-title fs-3 fw-bold" id="userModalLabel">Sign Up</h5>
-
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-               <div class="modal-body">
-                  <form class="needs-validation" novalidate>
-                     <div class="mb-3">
-                        <label for="fullName" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Enter Your Name" required />
-                        <div class="invalid-feedback">Please enter name.</div>
-                     </div>
-                     <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter Email address" required />
-                        <div class="invalid-feedback">Please enter email.</div>
-                     </div>
-                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter Password" required />
-                        <div class="invalid-feedback">Please enter password.</div>
-                        <small class="form-text">
-                           By Signup, you agree to our
-                           <a href="#!">Terms of Service</a>
-                           &
-                           <a href="#!">Privacy Policy</a>
-                        </small>
-                     </div>
-
-                     <button type="submit" class="btn btn-primary" type="submit">Sign Up</button>
-                  </form>
-               </div>
-               <div class="modal-footer border-0 justify-content-center">
-                  Already have an account?
-                  <a href="#">Sign in</a>
-               </div>
-            </div>
-         </div>
-      </div>
+     
 
      <!-- OffCart Canvas -->
      <?php include_once('offcart.php')?>
 
 
-      <!-- Modal -->
-      <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-sm modal-dialog-centered">
-            <div class="modal-content">
-               <div class="modal-body p-6">
-                  <div class="d-flex justify-content-between align-items-start">
-                     <div>
-                        <h5 class="mb-1" id="locationModalLabel">Choose your Delivery Location</h5>
-                        <p class="mb-0 small">Enter your address and we will specify the offer you area.</p>
-                     </div>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="my-5">
-                     <input type="search" class="form-control" placeholder="Search your area" />
-                  </div>
-                  <div class="d-flex justify-content-between align-items-center mb-2">
-                     <h6 class="mb-0">Select Location</h6>
-                     <a href="#" class="btn btn-outline-gray-400 text-muted btn-sm">Clear All</a>
-                  </div>
-                  <div>
-                     <div data-simplebar style="height: 300px">
-                        <div class="list-group list-group-flush">
-                           <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action active">
-                              <span>Alabama</span>
-                              <span>Min:$20</span>
-                           </a>
-                           <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                              <span>Alaska</span>
-                              <span>Min:$30</span>
-                           </a>
-                           <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                              <span>Arizona</span>
-                              <span>Min:$50</span>
-                           </a>
-                           <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                              <span>California</span>
-                              <span>Min:$29</span>
-                           </a>
-                           <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                              <span>Colorado</span>
-                              <span>Min:$80</span>
-                           </a>
-                           <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                              <span>Florida</span>
-                              <span>Min:$90</span>
-                           </a>
-                           <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                              <span>Arizona</span>
-                              <span>Min:$50</span>
-                           </a>
-                           <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                              <span>California</span>
-                              <span>Min:$29</span>
-                           </a>
-                           <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                              <span>Colorado</span>
-                              <span>Min:$80</span>
-                           </a>
-                           <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                              <span>Florida</span>
-                              <span>Min:$90</span>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
+   
 
       <script src="../assets/js/vendors/validation.js"></script>
 
@@ -138,451 +28,15 @@
                <!-- row -->
                <div class="row gx-10">
                   <!-- col -->
-                  <aside class="col-lg-3 col-md-4 mb-6 mb-md-0">
-                     <div class="offcanvas offcanvas-start offcanvas-collapse w-md-50" tabindex="-1" id="offcanvasCategory" aria-labelledby="offcanvasCategoryLabel">
-                        <div class="offcanvas-header d-lg-none">
-                           <h5 class="offcanvas-title" id="offcanvasCategoryLabel">Filter</h5>
-                           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body ps-lg-2 pt-lg-0">
-                           <div class="mb-8">
-                              <!-- title -->
-                              <h5 class="mb-3">Categories</h5>
-                              <!-- nav -->
-                              <ul class="nav nav-category" id="categoryCollapseMenu">
-                                 <li class="nav-item border-bottom w-100">
-                                    <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#categoryFlushOne" aria-expanded="false" aria-controls="categoryFlushOne">
-                                       Dairy, Bread & Eggs
-                                       <i class="feather-icon icon-chevron-right"></i>
-                                    </a>
-                                    <!-- accordion collapse -->
-                                    <div id="categoryFlushOne" class="accordion-collapse collapse" data-bs-parent="#categoryCollapseMenu">
-                                       <div>
-                                          <!-- nav -->
-
-                                          <ul class="nav flex-column ms-3">
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Milk</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Milk Drinks</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Curd & Yogurt</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Eggs</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Bread</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Buns & Bakery</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Butter & More</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Cheese</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Paneer & Tofu</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Cream & Whitener</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Condensed Milk</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Vegan Drinks</a></li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <!-- nav item -->
-                                 <li class="nav-item border-bottom w-100">
-                                    <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                       Snacks & Munchies
-                                       <i class="feather-icon icon-chevron-right"></i>
-                                    </a>
-
-                                    <!-- collapse -->
-                                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#categoryCollapseMenu">
-                                       <div>
-                                          <ul class="nav flex-column ms-3">
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Chips & Crisps</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Nachos</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Popcorn</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Bhujia & Mixtures</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Namkeen Snacks</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Healthy Snacks</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Cakes & Rolls</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Energy Bars</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Papad & Fryums</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Rusks & Wafers</a></li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="nav-item border-bottom w-100">
-                                    <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                       Fruits & Vegetables
-                                       <i class="feather-icon icon-chevron-right"></i>
-                                    </a>
-
-                                    <!-- collapse -->
-                                    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#categoryCollapseMenu">
-                                       <div>
-                                          <ul class="nav flex-column ms-3">
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page" href="#!">Fresh Vegetables</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Herbs & Seasonings</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Fresh Fruits</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Organic Fruits & Vegetables</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Cuts & Sprouts</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Exotic Fruits & Veggies</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Flower Bouquets, Bunches</a>
-                                             </li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="nav-item border-bottom w-100">
-                                    <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                                       Cold Drinks & Juices
-                                       <i class="feather-icon icon-chevron-right"></i>
-                                    </a>
-
-                                    <!-- collapse -->
-                                    <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#categoryCollapseMenu">
-                                       <div>
-                                          <ul class="nav flex-column ms-3">
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Soft Drinks</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Fruit Juices</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Coldpress</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Energy Drinks</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Water & Ice Cubes</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Soda & Mixers</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Concentrates & Syrups</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Detox & Energy Drinks</a></li>
-                                             <!-- nav item -->
-                                             <li class="nav-item"><a href="#!" class="nav-link">Juice Collection</a></li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </li>
-
-                                 <li class="nav-item border-bottom w-100">
-                                    <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                                       Breakfast & Instant Food
-                                       <i class="feather-icon icon-chevron-right"></i>
-                                    </a>
-
-                                    <!-- collapse -->
-                                    <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#categoryCollapseMenu">
-                                       <div>
-                                          <ul class="nav flex-column ms-3">
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page" href="#!">Batter</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Breakfast Cereal</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Noodles, Pasta & Soup</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Frozen Non-Veg Snackss</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Frozen Veg</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Vermicelli</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Instant Mixes</a>
-                                             </li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="nav-item border-bottom w-100">
-                                    <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
-                                       Bakery & Biscuits
-                                       <i class="feather-icon icon-chevron-right"></i>
-                                    </a>
-
-                                    <!-- collapse -->
-                                    <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#categoryCollapseMenu">
-                                       <div>
-                                          <ul class="nav flex-column ms-3">
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page" href="#!">Cookies</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Glucose & Marie</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Sweet & Salty</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Healthy & Digestive</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Cream Biscuits</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Rusks & Wafers</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Cakes & Rolls</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Buns & Bakery</a>
-                                             </li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li class="nav-item border-bottom w-100">
-                                    <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
-                                       Chicken, Meat & Fish
-                                       <i class="feather-icon icon-chevron-right"></i>
-                                    </a>
-
-                                    <!-- collapse -->
-                                    <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#categoryCollapseMenu">
-                                       <div>
-                                          <ul class="nav flex-column ms-3">
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page" href="#!">Chicken</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Sausage, Salami & Ham</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Exotic Meat</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Eggs</a>
-                                             </li>
-                                             <!-- nav item -->
-                                             <li class="nav-item">
-                                                <a class="nav-link" href="#!">Frozen Non-Veg Snacks</a>
-                                             </li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </li>
-                              </ul>
-                           </div>
-
-                           <div class="mb-8">
-                              <h5 class="mb-3">Stores</h5>
-                              <div class="my-4">
-                                 <!-- input -->
-                                 <input type="search" class="form-control" placeholder="Search by store" />
-                              </div>
-                              <!-- form check -->
-                              <div class="form-check mb-2">
-                                 <!-- input -->
-                                 <input class="form-check-input" type="checkbox" value="" id="eGrocery" checked />
-                                 <label class="form-check-label" for="eGrocery">E-Grocery</label>
-                              </div>
-                              <!-- form check -->
-                              <div class="form-check mb-2">
-                                 <!-- input -->
-                                 <input class="form-check-input" type="checkbox" value="" id="DealShare" />
-                                 <label class="form-check-label" for="DealShare">DealShare</label>
-                              </div>
-                              <!-- form check -->
-                              <div class="form-check mb-2">
-                                 <!-- input -->
-                                 <input class="form-check-input" type="checkbox" value="" id="Dmart" />
-                                 <label class="form-check-label" for="Dmart">DMart</label>
-                              </div>
-                              <!-- form check -->
-                              <div class="form-check mb-2">
-                                 <!-- input -->
-                                 <input class="form-check-input" type="checkbox" value="" id="Blinkit" />
-                                 <label class="form-check-label" for="Blinkit">Blinkit</label>
-                              </div>
-                              <!-- form check -->
-                              <div class="form-check mb-2">
-                                 <!-- input -->
-                                 <input class="form-check-input" type="checkbox" value="" id="BigBasket" />
-                                 <label class="form-check-label" for="BigBasket">BigBasket</label>
-                              </div>
-                              <!-- form check -->
-                              <div class="form-check mb-2">
-                                 <!-- input -->
-                                 <input class="form-check-input" type="checkbox" value="" id="StoreFront" />
-                                 <label class="form-check-label" for="StoreFront">StoreFront</label>
-                              </div>
-                              <!-- form check -->
-                              <div class="form-check mb-2">
-                                 <!-- input -->
-                                 <input class="form-check-input" type="checkbox" value="" id="Spencers" />
-                                 <label class="form-check-label" for="Spencers">Spencers</label>
-                              </div>
-                              <!-- form check -->
-                              <div class="form-check mb-2">
-                                 <!-- input -->
-                                 <input class="form-check-input" type="checkbox" value="" id="onlineGrocery" />
-                                 <label class="form-check-label" for="onlineGrocery">Online Grocery</label>
-                              </div>
-                           </div>
-                           <div class="mb-8">
-                              <!-- price -->
-                              <h5 class="mb-3">Price</h5>
-                              <div>
-                                 <!-- range -->
-                                 <div id="priceRange" class="mb-3"></div>
-                                 <small class="text-muted">Price:</small>
-                                 <span id="priceRange-value" class="small"></span>
-                              </div>
-                           </div>
-                           <!-- rating -->
-                           <div class="mb-8">
-                              <h5 class="mb-3">Rating</h5>
-                              <div>
-                                 <!-- form check -->
-                                 <div class="form-check mb-2">
-                                    <!-- input -->
-                                    <input class="form-check-input" type="checkbox" value="" id="ratingFive" />
-                                    <label class="form-check-label" for="ratingFive">
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                    </label>
-                                 </div>
-                                 <!-- form check -->
-                                 <div class="form-check mb-2">
-                                    <!-- input -->
-                                    <input class="form-check-input" type="checkbox" value="" id="ratingFour" checked />
-                                    <label class="form-check-label" for="ratingFour">
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star text-warning"></i>
-                                    </label>
-                                 </div>
-                                 <!-- form check -->
-                                 <div class="form-check mb-2">
-                                    <!-- input -->
-                                    <input class="form-check-input" type="checkbox" value="" id="ratingThree" />
-                                    <label class="form-check-label" for="ratingThree">
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star text-warning"></i>
-                                       <i class="bi bi-star text-warning"></i>
-                                    </label>
-                                 </div>
-                                 <!-- form check -->
-                                 <div class="form-check mb-2">
-                                    <!-- input -->
-                                    <input class="form-check-input" type="checkbox" value="" id="ratingTwo" />
-                                    <label class="form-check-label" for="ratingTwo">
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star text-warning"></i>
-                                       <i class="bi bi-star text-warning"></i>
-                                       <i class="bi bi-star text-warning"></i>
-                                    </label>
-                                 </div>
-                                 <!-- form check -->
-                                 <div class="form-check mb-2">
-                                    <!-- input -->
-                                    <input class="form-check-input" type="checkbox" value="" id="ratingOne" />
-                                    <label class="form-check-label" for="ratingOne">
-                                       <i class="bi bi-star-fill text-warning"></i>
-                                       <i class="bi bi-star text-warning"></i>
-                                       <i class="bi bi-star text-warning"></i>
-                                       <i class="bi bi-star text-warning"></i>
-                                       <i class="bi bi-star text-warning"></i>
-                                    </label>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="mb-8 position-relative">
-                              <!-- Banner Design -->
-                              <!-- Banner Content -->
-                              <div class="position-absolute p-5 py-8">
-                                 <h3 class="mb-0">Fresh Fruits</h3>
-                                 <p>Get Upto 25% Off</p>
-                                 <a href="#" class="btn btn-dark">
-                                    Shop Now
-                                    <i class="feather-icon icon-arrow-right ms-1"></i>
-                                 </a>
-                              </div>
-                              <!-- Banner Content -->
-                              <!-- Banner Image -->
-                              <!-- img -->
-                              <img src="../assets/images/banner/assortment-citrus-fruits.png" alt="" class="img-fluid rounded" />
-                              <!-- Banner Image -->
-                           </div>
-                        </div>
-                     </div>
-                  </aside>
+                <?php include_once('components/search/filter-view.php');?>
                   <section class="col-lg-9 col-md-12">
                      <!-- card -->
-                     <div class="card mb-4 bg-light border-0">
-                        <!-- card body -->
+                     <!-- <div class="card mb-4 bg-light border-0">
+                      
                         <div class="card-body p-9">
                            <h2 class="mb-0 fs-1">Snacks & Munchies</h2>
                         </div>
-                     </div>
+                     </div> -->
                      <!-- list icon -->
                      <div class="d-lg-flex justify-content-between align-items-center">
                         <div class="mb-3 mb-lg-0">
@@ -644,32 +98,36 @@
                         <!-- col -->
                         <div class="col">
                            <!-- card -->
-                           <div class="card card-product">
-                              <div class="card-body">
+                           <div class="card card-product border-0 shadow-none">
+                              <div class="card-body px-1">
                                  <!-- badge -->
                                  <div class="text-center position-relative">
-                                    <div class="position-absolute top-0 start-0">
+                                    <!-- <div class="position-absolute top-0 start-0">
                                        <span class="badge bg-danger">Sale</span>
-                                    </div>
+                                    </div> -->
                                     <a href="shop-single.php">
                                        <!-- img -->
-                                       <img src="../assets/images/products/product-img-1.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" />
+                                       <img src="https://ae01.alicdn.com/kf/S9df670a34d7e40d9bc60ec9ff5ee4607f/E7S-TWS-Wireless-Headphones-Bluetooth-earphone-Control-Sport-Headset-Waterproof-Microphone-Music-Earphone-Work-On-All.jpg_350x350xz.jpg_.webp" alt="Grocery Ecommerce Template" class="mb-3 img-fluid rounded-4 w-100" />
                                     </a>
                                     <!-- action btn -->
-                                    <div class="card-product-action">
+                                    <div class="card-product-action bottom-0 mb-3">
                                        <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal">
                                           <i class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i>
                                        </a>
+
                                        <a href="shop-wishlist.php" class="btn-action" data-bs-toggle="tooltip" data-bs-html="true" title="Wishlist"><i class="bi bi-heart"></i></a>
-                                       <a href="#!" class="btn-action" data-bs-toggle="tooltip" data-bs-html="true" title="Compare"><i class="bi bi-arrow-left-right"></i></a>
+
+
+                                       <a href="#!" class="btn-action" data-bs-toggle="tooltip" data-bs-html="true" title="cart"><i class="bi bi-cart"></i></a>
                                     </div>
                                  </div>
                                  <!-- heading -->
-                                 <div class="text-small mb-1">
+                                 <div class="text-small ">
                                     <a href="#!" class="text-decoration-none text-muted"><small>Snack & Munchies</small></a>
                                  </div>
-                                 <h2 class="fs-6"><a href="shop-single.php" class="text-inherit text-decoration-none">Haldiram's Sev Bhujia</a></h2>
-                                 <div>
+                                 <h2 class="fs-6 mb-0">
+                                    <a href="shop-single.php" class="text-inherit text-decoration-none">Haldiram's Sev Bhujia</a></h2>
+                                 <div class="pt-0">
                                     <!-- rating -->
                                     <small class="text-warning">
                                        <i class="bi bi-star-fill"></i>
@@ -678,7 +136,7 @@
                                        <i class="bi bi-star-fill"></i>
                                        <i class="bi bi-star-half"></i>
                                     </small>
-                                    <span class="text-muted small">4.5(149)</span>
+                                    <span class="text-muted small">(149) sold</span>
                                  </div>
                                  <!-- price -->
                                  <div class="d-flex justify-content-between align-items-center mt-3">
@@ -686,8 +144,9 @@
                                        <span class="text-dark">$18</span>
                                        <span class="text-decoration-line-through text-muted">$24</span>
                                     </div>
+                                    
                                     <!-- btn -->
-                                    <div>
+                                    <!-- <div>
                                        <a href="#!" class="btn btn-primary btn-sm">
                                           <svg
                                              xmlns="http://www.w3.org/2000/svg"
@@ -705,11 +164,49 @@
                                           </svg>
                                           Add
                                        </a>
-                                    </div>
+                                    </div> -->
                                  </div>
+                                 <div class="">
+                                       <span class="badge bg-danger small">Free Shipping</span>
+                                    </div>
                               </div>
                            </div>
                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        
                         <!-- col -->
                         <div class="col">
                            <!-- card -->

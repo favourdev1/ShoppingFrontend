@@ -1,3 +1,5 @@
+<?php include_once('php/category/fetchAll.php')?>
+
 <div class="border-bottom">
     <div class="bg-light py-1">
         <div class="container">
@@ -181,17 +183,17 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-xxl-5 col-lg-5 d-none d-lg-block">
-                    <form action="#">
-                        <div class="input-group">
+                <div class="col-xxl  col-lg-5 d-none d-lg-block">
+                    <form action="shop-grid.php">
+                        <div class="input-group border rounded-pill overflow-hidden">
                             <input
-                                class="form-control rounded"
+                                class="form-control border-0 "
                                 type="search"
                                 placeholder="Search for products"
                             />
-                            <span class="input-group-append">
+                            <!-- <span class="input-group-append">
                                 <button
-                                    class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end"
+                                    class="btn bg-white  border-start-0  rounded-pill"
                                     type="button"
                                 >
                                     <svg
@@ -219,13 +221,13 @@
                                         ></line>
                                     </svg>
                                 </button>
-                            </span>
+                            </span> -->
                         </div>
                     </form>
                 </div>
-                <div class="col-md-2 col-xxl-3 d-none d-lg-block">
-                    <!-- Button trigger modal -->
-                    <button
+                <!-- <div class="col-md-2 col-xxl-3 d-none d-lg-block"> -->
+                <!-- Button trigger modal -->
+                <!-- <button
                         type="button"
                         class="btn btn-outline-gray-400 text-muted"
                         data-bs-toggle="modal"
@@ -233,8 +235,8 @@
                     >
                         <i class="feather-icon icon-map-pin me-2"></i>
                         Location
-                    </button>
-                </div>
+                    </button> -->
+                <!-- </div> -->
                 <div class="col-lg-2 col-xxl-2 text-end col-md-6 col-7">
                     <div class="list-inline">
                         <div class="list-inline-item me-5">
@@ -294,7 +296,10 @@
                                 </svg>
                             </a>
                         </div>
-                        <div class="list-inline-item me-5 me-lg-0" id= "cartIcon">
+                        <div
+                            class="list-inline-item me-5 me-lg-0"
+                            id="cartIcon"
+                        >
                             <a
                                 class="text-muted position-relative"
                                 data-bs-toggle="offcanvas"
@@ -334,9 +339,9 @@
                         </div>
 
                         <script>
-                            tippy('#cartIcon', {
-  content: "I'm a Tippy tooltip!",
-});
+                        tippy('#cartIcon', {
+                            content: "I'm a Tippy tooltip!",
+                        });
                         </script>
                         <div class="list-inline-item d-inline-block d-lg-none">
                             <!-- Button -->
@@ -501,47 +506,30 @@
                         >
                             <div class="card card-body">
                                 <ul class="mb-0 list-unstyled">
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-grid.php"
-                                        >Dairy, Bread & Eggs</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-grid.php"
-                                        >Snacks & Munchies</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-grid.php"
-                                        >Fruits & Vegetables</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-grid.php"
-                                        >Cold Drinks & Juices</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-grid.php"
-                                        >Breakfast & Instant Food</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-grid.php"
-                                        >Bakery & Biscuits</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-grid.php"
-                                        >Chicken, Meat & Fish</a></li>
+                                <div class="px-2 py-2 text-dark rounded-0 border-bottom fw-bold">
+                                All Categories 
+                            </div>
+                            <li>
+                                <?php foreach($Allcategories as $category){?>
+                            <li><a
+                                    class="dropdown-item mt-2"
+                                    href="shop-grid.php"
+                                ><?php print_r($category['category_name'])?></a>
+                            </li>
+                           <?php }?>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="dropdown me-3 d-none d-lg-block">
                         <button
-                            class="btn btn-primary px-6"
+                            class="btn btn-primary rounded-pill px-6 w-100"
                             type="button"
                             id="dropdownMenuButton1"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
-                            <span class="me-1">
+                            <span class="me-5">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="16"
@@ -583,37 +571,21 @@
                             All Categories
                         </button>
                         <ul
-                            class="dropdown-menu"
+                            class="dropdown-menu rounded-4 list-unstyled"
                             aria-labelledby="dropdownMenuButton1"
                         >
+
+                            <div class="px-2 py-2 text-dark rounded-0 border-bottom fw-bold">
+                                All Categories 
+                            </div>
+                            <li>
+                                <?php foreach($Allcategories as $category){?>
                             <li><a
-                                    class="dropdown-item"
+                                    class="dropdown-item mt-2"
                                     href="shop-grid.php"
-                                >Dairy, Bread & Eggs</a></li>
-                            <li><a
-                                    class="dropdown-item"
-                                    href="shop-grid.php"
-                                >Snacks & Munchies</a></li>
-                            <li><a
-                                    class="dropdown-item"
-                                    href="shop-grid.php"
-                                >Fruits & Vegetables</a></li>
-                            <li><a
-                                    class="dropdown-item"
-                                    href="shop-grid.php"
-                                >Cold Drinks & Juices</a></li>
-                            <li><a
-                                    class="dropdown-item"
-                                    href="shop-grid.php"
-                                >Breakfast & Instant Food</a></li>
-                            <li><a
-                                    class="dropdown-item"
-                                    href="shop-grid.php"
-                                >Bakery & Biscuits</a></li>
-                            <li><a
-                                    class="dropdown-item"
-                                    href="shop-grid.php"
-                                >Chicken, Meat & Fish</a></li>
+                                ><?php print_r($category['category_name'])?></a>
+                            </li>
+                           <?php }?>
                         </ul>
                     </div>
                     <div>
@@ -968,7 +940,7 @@
                             </li>
 
                             <?php }else{?>
-                              <li class="nav-item w-100 w-lg-auto">
+                            <li class="nav-item w-100 w-lg-auto">
                                 <a
                                     class="nav-link"
                                     href="php/logout.php"

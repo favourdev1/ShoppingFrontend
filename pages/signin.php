@@ -16,6 +16,8 @@
       exit;
    }
    ?>
+
+   <?php include_once('components/loadingDialog.php')?>
         <!-- navigation -->
         <div class="border-bottom shadow-sm">
             <nav class="navbar navbar-light py-2">

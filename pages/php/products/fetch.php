@@ -31,6 +31,7 @@ if (isset($_GET['id'])) {
 
         // var_dump($product);
         // echo "</pre>";
+        // die;
         $isUpdating = true;
 // die;
         if (count($product) > 0) {
@@ -49,6 +50,7 @@ if (isset($_GET['id'])) {
             $productImg5 = $product['product_img5'];
             $weight = $product['weight'];
             $quantityInStock = $product['quantity_in_stock'];
+            
             $tags = json_decode($product['tags']);
             $refundable = $product['refundable'];
             $status = $product['status'];
