@@ -95,7 +95,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
     body{
         font-family: 'Nunito', sans-serif !important;
@@ -106,5 +106,8 @@
 <script src="../node_modules/tippy.js/dist/tippy.umd.js"></script>
 
 
-    <script src="pages/javascript/config.js"></script>
+    <script src="javascript/config.js"></script>
+
+    <?php $isHomePath = false;?>
+
 </head>
