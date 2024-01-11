@@ -164,7 +164,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 mb-6">
-                            <h3 class="mb-0">Featured Categories</h3>
+                            <h3 class="mb-0">Shop By Categories</h3>
                         </div>
                     </div>
                     <div class="category-slider">
@@ -194,13 +194,14 @@
                                 href="pages/shop-grid.php"
                                 class="text-decoration-none text-inherit"
                             >
-                                <div class="card card-product mb-lg-4">
+                                <div class="card border-0 shadow-none card-product mb-lg-4">
                                     <div class="card-body text-center py-8">
                                         <img
                                             src="<?php echo $categoryImg ?>"
-                                            alt="Grocery Ecommerce Template"
-                                            class="mb-3 img-fluid"
+                                            alt="<?=$categoryName?>"
+                                            class="mb-3 img-fluid rounded-circle card-product border-2 border-muted card"
                                             loading="lazy"
+                                            style="object-fit:cover"
                                         />
                                         <div class="text-truncate"><?php echo $categoryName ?> </div>
                                     </div>
@@ -218,6 +219,12 @@
                     </div>
                 </div>
             </section>
+
+
+
+
+
+
             <!-- Category Section End-->
             <section>
                 <div class="container">
@@ -226,7 +233,7 @@
                             <div>
                                 <div
                                     class="py-10 px-8 rounded"
-                                    style="background: url(assets/images/banner/grocery-banner.png) no-repeat; background-size: cover; background-position: center"
+                                    style="background: url(https://ae01.alicdn.com/kf/Sa24f41ac53234b6ea52a15062a3c2517J/Air-Conditioner-Mini-Fan-Cooler-Portable-Air-Cooler-AC-Air-Conditioning-3-Gear-Speed-Air-Cooling.jpg_350x350xz.jpg_.webp) no-repeat; background-size: cover; background-position: center"
                                 >
                                     <div>
                                         <h3 class="fw-bold mb-1">Fruits & Vegetables</h3>
@@ -269,8 +276,8 @@
             </section>
 
 
-            <!-- Top Deals  -->
-            <!-- Category Section Start-->
+            <!-- Top Deals  Section-->
+
             <section class="mb-lg-10 mt-lg-14 my-8">
                 <div class="container">
                     <div class="row">
@@ -307,7 +314,7 @@
                                 href="pages/shop-grid.php"
                                 class="text-decoration-none text-inherit"
                             >
-                            <?php include('pages/components/discount-card.php') ?>
+                                <?php include('pages/components/discount-card.php') ?>
                             </a>
                         </div>
 
@@ -322,7 +329,11 @@
                 </div>
             </section>
 
-        
+
+            <!-- divider Container -->
+            <section class="my-lg-14 my-8">
+           <?php include_once('pages/components/bannerview.php')?>
+            </section>
 
             <!-- Popular Products Start-->
             <section class="my-lg-14 my-8">
@@ -377,6 +388,9 @@
             </section>
 
         </main>
+        <script src='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.min.js'>
+</script>
+
 
         <script>
         // function submitCartForm(event) {
