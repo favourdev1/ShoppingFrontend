@@ -106,8 +106,17 @@
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
     />
+    <!-- Box icons library -->
+    <link
+        rel="stylesheet"
+        href="node_modules\boxicons\css\boxicons.min.css"
+    >
+    <script src="node_modules\boxicons\dist\boxicons.js"></script>
+
 
     <script src="pages\javascript\product\product-slider.js"></script>
+
+    <!-- Slick carousel library -->
     <script
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
@@ -140,4 +149,7 @@
 
 
     <?php include_once('pages/php/functions.php')?>
+
+    <?php $isHomePath = true;?>
+
 </head>
