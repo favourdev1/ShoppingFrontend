@@ -414,31 +414,37 @@ function showQuickView(element) {
     })
 
 }
+<?php if ($isHomePath) {
+    $cartPage = "pages/php/cart/store.php";
+    $loginPath = "pages/signin.php";
+} else {
+    $cartPage = "php/cart/store.php";
+    $loginPath = "signin.php";
+
+} ?>
 
 function submitModalForm(productId) {
     // Construct the data as an object
-    var formData = {
-        product_id: productId,
-        quantity: $('#modal_quantity').val()
+    var formData = new FormData();
+    formData.append('product_id', productId);
+    formData.append('quantity', $('#modal_quantity').val());
 
-    };
+    console.log(formData);
 
-    console.log(formData)
-    $.ajax({
-        type: "POST",
-        url: "pages/php/cart/store.php?redirect=<?php echo HOMEPAGE ?>",
-        data: formData,
-        success: function(response) {
+    axios.post('<?php echo $cartPage ?>', formData)
+        .then(response => {
             // Handle the success response
             console.log(response);
-        },
-        error: function(error) {
+        })
+        .catch(error => {
             // Handle the error
-            console.error("Error submitting data:", error);
-        }
-    });
-}
+            if (error.response && error.response.status === 401) {
+                window.location = "<?php echo $loginPath ?>"
+            }
+        });
 
+
+}
 
 function updateBackgroundImage(imageSrc, id) {
     // Update the background image dynamically
@@ -447,10 +453,3 @@ function updateBackgroundImage(imageSrc, id) {
     zoomedImage.style.backgroundRepeat = 'no-repeat';;
 }
 </script>
-
-
-
-
-
-<!-- // Call the submitForm function when needed
-    submitForm(); -->

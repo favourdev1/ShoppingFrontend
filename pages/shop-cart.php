@@ -17,6 +17,7 @@
         }
         ?>
         <!-- navbar -->
+        <?php include_once('php/category/fetchAll.php'); ?>
         <?php include_once('php/cart/fetchAll.php') ?>
         <?php include_once('navbar.php') ?>
 
@@ -246,7 +247,7 @@
                                                     <div class="fw-bold">Subtotal</div>
                                                 </div>
                                                 <span
-                                                    class="fw-bold"><?php echo CURRENCY . number_format($subTotalPrice) ?></span>
+                                                    class="fw-bold"><?php echo CURRENCY . number_format($subTotalPrice+$totalShippingFee+$totalTax) ?></span>
                                             </li>
                                         </ul>
                                     </div>
@@ -260,7 +261,7 @@
 
                                             Go to Checkout
                                             <span
-                                                class="fw-bold"><?php echo CURRENCY . number_format($subTotalPrice) ?></span>
+                                                class="fw-bold"><?php echo CURRENCY . number_format($subTotalPrice+$totalShippingFee+$totalTax) ?></span>
                                         </a>
                                     </div>
 

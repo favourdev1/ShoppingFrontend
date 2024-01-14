@@ -1,5 +1,5 @@
 <head>
-    <?php $apiUrl = "localhost:8000/api" ?>
+    <?php $apiUrl = "http://localhost:8000/api" ?>
     <?php
     include_once('php/config.php');
 
@@ -86,28 +86,41 @@
 
     <script src="javascript/cookie.js"></script>
 
-    <?php 
+    <?php
     include_once('php/checkAuth.php');
-    require_once '../vendor/autoload.php'; 
+    require_once '../vendor/autoload.php';
     ?>
 
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap" rel="stylesheet"/>
-<style>
-    body{
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap"
+        rel="stylesheet"
+    />
+    <style>
+    body {
         font-family: 'Nunito', sans-serif !important;
     }
-</style>
-<link rel="stylesheet" href="../node_modules/tippy.js/dist/tippy.css">
+    </style>
+    <link
+        rel="stylesheet"
+        href="../node_modules/tippy.js/dist/tippy.css"
+    >
 
-<script src="../node_modules/tippy.js/dist/tippy.umd.js"></script>
+    <script src="../node_modules/tippy.js/dist/tippy.umd.js"></script>
 
 
     <script src="javascript/config.js"></script>
 
-    <?php $isHomePath = false;?>
+    <?php $isHomePath = false; ?>
 
 </head>

@@ -166,7 +166,7 @@
                     >
                         <img
                             src="assets/images/logo/freshcart-logo.svg"
-                            alt="eCommerce HTML Template"
+                            alt="Sosmart Logo"
                         />
                     </a>
                     <div class="d-flex justify-content-between w-100 d-lg-none">
@@ -176,7 +176,7 @@
                         >
                             <img
                                 src="assets/images/logo/freshcart-logo.svg"
-                                alt="eCommerce HTML Template"
+                                alt="Sosmart Logo"
                             />
                         </a>
                     </div>
@@ -361,7 +361,7 @@
                 <div class="offcanvas-header pb-1">
                     <a href="index-2.html"><img
                             src="assets/images/logo/freshcart-logo.svg"
-                            alt="eCommerce HTML Template"
+                            alt="Sosmart Logo"
                         /></a>
                     <button
                         type="button"

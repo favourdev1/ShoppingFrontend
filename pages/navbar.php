@@ -1,5 +1,3 @@
-<?php include_once('php/category/fetchAll.php')?>
-
 <div class="border-bottom">
     <div class="bg-light py-1">
         <div class="container">
@@ -160,7 +158,7 @@
     </div>
     <div class="py-5">
         <div class="container">
-            <div class="row w-100 align-items-center gx-lg-2 gx-0">
+            <div class="row w-100 align-items-center justify-content-between gx-lg-2 gx-0">
                 <div class="col-xxl-2 col-lg-3 col-md-6 col-5">
                     <a
                         class="navbar-brand d-none d-lg-block"
@@ -168,7 +166,7 @@
                     >
                         <img
                             src="assets/images/logo/freshcart-logo.svg"
-                            alt="eCommerce HTML Template"
+                            alt="Sosmart Logo"
                         />
                     </a>
                     <div class="d-flex justify-content-between w-100 d-lg-none">
@@ -178,22 +176,22 @@
                         >
                             <img
                                 src="assets/images/logo/freshcart-logo.svg"
-                                alt="eCommerce HTML Template"
+                                alt="Sosmart Logo"
                             />
                         </a>
                     </div>
                 </div>
-                <div class="col-xxl  col-lg-5 d-none d-lg-block">
-                    <form action="shop-grid.php">
-                        <div class="input-group border rounded-pill overflow-hidden">
+                <div class="col-xxl-5 col-lg-5 d-none d-lg-block">
+                    <form action="#">
+                        <div class="input-group">
                             <input
-                                class="form-control border-0 "
+                                class="form-control rounded"
                                 type="search"
                                 placeholder="Search for products"
                             />
-                            <!-- <span class="input-group-append">
+                            <span class="input-group-append">
                                 <button
-                                    class="btn bg-white  border-start-0  rounded-pill"
+                                    class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end"
                                     type="button"
                                 >
                                     <svg
@@ -221,22 +219,11 @@
                                         ></line>
                                     </svg>
                                 </button>
-                            </span> -->
+                            </span>
                         </div>
                     </form>
                 </div>
-                <!-- <div class="col-md-2 col-xxl-3 d-none d-lg-block"> -->
-                <!-- Button trigger modal -->
-                <!-- <button
-                        type="button"
-                        class="btn btn-outline-gray-400 text-muted"
-                        data-bs-toggle="modal"
-                        data-bs-target="#locationModal"
-                    >
-                        <i class="feather-icon icon-map-pin me-2"></i>
-                        Location
-                    </button> -->
-                <!-- </div> -->
+
                 <div class="col-lg-2 col-xxl-2 text-end col-md-6 col-7">
                     <div class="list-inline">
                         <div class="list-inline-item me-5">
@@ -296,17 +283,10 @@
                                 </svg>
                             </a>
                         </div>
-                        <div
-                            class="list-inline-item me-5 me-lg-0"
-                            id="cartIcon"
-                        >
+                        <div class="list-inline-item me-5 me-lg-0">
                             <a
                                 class="text-muted position-relative"
-                                data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasRight"
-                                href="#offcanvasExample"
-                                role="button"
-                                aria-controls="offcanvasRight"
+                                href="shop-cart.php"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -332,17 +312,11 @@
                                 <span
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
                                 >
-                                    1
-                                    <span class="visually-hidden">unread messages</span>
+                                    <?php echo count($cartItems) ?>
+
                                 </span>
                             </a>
                         </div>
-
-                        <script>
-                        tippy('#cartIcon', {
-                            content: "I'm a Tippy tooltip!",
-                        });
-                        </script>
                         <div class="list-inline-item d-inline-block d-lg-none">
                             <!-- Button -->
                             <button
@@ -387,7 +361,7 @@
                 <div class="offcanvas-header pb-1">
                     <a href="../index.php"><img
                             src="assets/images/logo/freshcart-logo.svg"
-                            alt="eCommerce HTML Template"
+                            alt="Sosmart Logo"
                         /></a>
                     <button
                         type="button"
@@ -396,7 +370,7 @@
                         aria-label="Close"
                     ></button>
                 </div>
-                <div class="offcanvas-body">
+                <div class="offcanvas-body justify-content-between">
                     <div class="d-block d-lg-none mb-4">
                         <form action="#">
                             <div class="input-group">
@@ -438,17 +412,7 @@
                                 </span>
                             </div>
                         </form>
-                        <div class="mt-2">
-                            <button
-                                type="button"
-                                class="btn btn-outline-gray-400 text-muted w-100"
-                                data-bs-toggle="modal"
-                                data-bs-target="#locationModal"
-                            >
-                                <i class="feather-icon icon-map-pin me-2"></i>
-                                Pick Location
-                            </button>
-                        </div>
+
                     </div>
                     <div class="d-block d-lg-none mb-4">
                         <a
@@ -505,31 +469,53 @@
                             id="collapseExample"
                         >
                             <div class="card card-body">
-                                <ul class="mb-0 list-unstyled">
-                                <div class="px-2 py-2 text-dark rounded-0 border-bottom fw-bold">
-                                All Categories 
-                            </div>
-                            <li>
-                                <?php foreach($Allcategories as $category){?>
-                            <li><a
-                                    class="dropdown-item mt-2"
-                                    href="shop-grid.php"
-                                ><?php print_r($category['category_name'])?></a>
-                            </li>
-                           <?php }?>
+                                <ul
+                                    class="mb-0 list-unstyled"
+                                    aria-labelledby="dropdownMenuButton1"
+                                >
+                                    <?php
+                                    // Check if the categories array is not empty
+                                    if (count($Allcategories) > 0) {
+                                        // Loop through the categories array
+                                        foreach ($Allcategories as $category) {
+                                            // Get the category id, name, slug, description, status, and created_at fields
+                                    
+                                            $id = $category['id'];
+                                            $categoryName = $category['category_name'];
+                                            $slug = $category['slug'];
+                                            $description = $category['description'];
+                                            $status = $category['status'];
+                                            $created_at = $category['created_at'];
+
+                                            // Use the category name as the image file name
+                                            $categoryImg = $category['category_image'];
+
+                                            // Format the created_at date as dd/mm/yyyy
+                                            $date = date("d/m/Y", strtotime($created_at));
+
+                                            // Display the table row for each category
+                                            ?>
+                                            <li><a
+                                                    class="dropdown-item"
+                                                    href="shop-grid.php?category=<?php echo $categoryName ?>"
+                                                ><?php echo $categoryName ?></a>
+                                            </li>
+
+                                        <?php }
+                                    } ?>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="dropdown me-3 d-none d-lg-block">
                         <button
-                            class="btn btn-primary rounded-pill px-6 w-100"
+                            class="btn btn-primary px-6"
                             type="button"
                             id="dropdownMenuButton1"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
-                            <span class="me-5">
+                            <span class="me-1">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="16"
@@ -570,382 +556,71 @@
                             </span>
                             All Categories
                         </button>
+
+
                         <ul
-                            class="dropdown-menu rounded-4 list-unstyled"
+                            class="dropdown-menu"
                             aria-labelledby="dropdownMenuButton1"
                         >
+                            <?php
+                            // Check if the categories array is not empty
+                            if (count($Allcategories) > 0) {
+                                // Loop through the categories array
+                                foreach ($Allcategories as $category) {
+                                    // Get the category id, name, slug, description, status, and created_at fields
+                            
+                                    $id = $category['id'];
+                                    $categoryName = $category['category_name'];
+                                    $slug = $category['slug'];
+                                    $description = $category['description'];
+                                    $status = $category['status'];
+                                    $created_at = $category['created_at'];
 
-                            <div class="px-2 py-2 text-dark rounded-0 border-bottom fw-bold">
-                                All Categories 
-                            </div>
-                            <li>
-                                <?php foreach($Allcategories as $category){?>
-                            <li><a
-                                    class="dropdown-item mt-2"
-                                    href="shop-grid.php"
-                                ><?php print_r($category['category_name'])?></a>
-                            </li>
-                           <?php }?>
+                                    // Use the category name as the image file name
+                                    $categoryImg = $category['category_image'];
+
+                                    // Format the created_at date as dd/mm/yyyy
+                                    $date = date("d/m/Y", strtotime($created_at));
+
+                                    // Display the table row for each category
+                                    ?>
+                                    <li><a
+                                            class="dropdown-item"
+                                            href="shop-grid.php?category=<?php echo $categoryName ?>"
+                                        ><?php echo $categoryName ?></a></li>
+
+                                <?php }
+                            } ?>
                         </ul>
                     </div>
-                    <div>
+                    <div class="">
                         <ul class="navbar-nav align-items-center">
-                            <li class="nav-item dropdown w-100 w-lg-auto">
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >Home</a>
-                                <ul class="dropdown-menu">
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="../index.php"
-                                        >Home 1</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="../index.php"
-                                        >Home 2</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="index-3.php"
-                                        >Home 3</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="index-4.php"
-                                        >Home 4</a></li>
-                                    <li>
-                                        <a
-                                            class="dropdown-item"
-                                            href="index-5.php"
-                                        >Home 5</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown w-100 w-lg-auto">
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >Shop</a>
-                                <ul class="dropdown-menu">
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-grid.php"
-                                        >Shop Grid - Filter</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-grid-3-column.php"
-                                        >Shop Grid - 3 column</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-list.php"
-                                        >Shop List - Filter</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-filter.php"
-                                        >Shop - Filter</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-fullwidth.php"
-                                        >Shop Wide</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-single.php"
-                                        >Shop Single</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-../single.php"
-                                        >Shop Single v2</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-wishlist.php"
-                                        >Shop Wishlist</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-cart.php"
-                                        >Shop Cart</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-checkout.php"
-                                        >Shop Checkout</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown w-100 w-lg-auto">
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >Stores</a>
-                                <ul class="dropdown-menu">
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="store-list.php"
-                                        >Store List</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="store-grid.php"
-                                        >Store Grid</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="store-single.php"
-                                        >Store Single</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown w-100 w-lg-auto dropdown-fullwidth">
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >Mega menu</a>
-                                <div class="dropdown-menu pb-0">
-                                    <div class="row p-2 p-lg-4">
-                                        <div class="col-lg-3 col-12 mb-4 mb-lg-0">
-                                            <h6 class="text-primary ps-3">Dairy, Bread & Eggs</h6>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Butter</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Milk Drinks</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Curd & Yogurt</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Eggs</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Buns & Bakery</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Cheese</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Condensed Milk</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Dairy Products</a>
-                                        </div>
-                                        <div class="col-lg-3 col-12 mb-4 mb-lg-0">
-                                            <h6 class="text-primary ps-3">Breakfast & Instant Food</h6>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Breakfast Cereal</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Noodles, Pasta & Soup</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Frozen Veg Snacks</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Frozen Non-Veg Snacks</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Vermicelli</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Instant Mixes</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Batter</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Fruit and Juices</a>
-                                        </div>
-                                        <div class="col-lg-3 col-12 mb-4 mb-lg-0">
-                                            <h6 class="text-primary ps-3">Cold Drinks & Juices</h6>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Soft Drinks</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Fruit Juices</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Coldpress</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Water & Ice Cubes</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Soda & Mixers</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Health Drinks</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Herbal Drinks</a>
-                                            <a
-                                                class="dropdown-item"
-                                                href="shop-grid.php"
-                                            >Milk Drinks</a>
-                                        </div>
-                                        <div class="col-lg-3 col-12 mb-4 mb-lg-0">
-                                            <div class="card border-0">
-                                                <img
-                                                    src="assets/images/banner/menu-banner.jpg"
-                                                    alt="eCommerce HTML Template"
-                                                    class="img-fluid"
-                                                />
-                                                <div class="position-absolute ps-6 mt-8">
-                                                    <h5 class="mb-0">
-                                                        Dont miss this
-                                                        <br />
-                                                        offer today.
-                                                    </h5>
-                                                    <a
-                                                        href="#"
-                                                        class="btn btn-primary btn-sm mt-3"
-                                                    >Shop Now</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown w-100 w-lg-auto">
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >Pages</a>
-                                <ul class="dropdown-menu">
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="blog.php"
-                                        >Blog</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="blog-single.php"
-                                        >Blog Single</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="blog-category.php"
-                                        >Blog Category</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="about.php"
-                                        >About us</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="404error.php"
-                                        >404 Error</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="contact.php"
-                                        >Contact</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown w-100 w-lg-auto">
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >Account</a>
-                                <ul class="dropdown-menu">
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="signin.php"
-                                        >Sign in</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="signup.php"
-                                        >Signup</a></li>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="forgot-password.php"
-                                        >Forgot Password</a></li>
-                                    <li class="dropdown-submenu dropend">
-                                        <a
-                                            class="dropdown-item dropdown-list-group-item dropdown-toggle"
-                                            href="#"
-                                        >My Account</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a
-                                                    class="dropdown-item"
-                                                    href="account-orders.php"
-                                                >Orders</a></li>
-                                            <li><a
-                                                    class="dropdown-item"
-                                                    href="account-settings.php"
-                                                >Settings</a></li>
-                                            <li><a
-                                                    class="dropdown-item"
-                                                    href="account-address.php"
-                                                >Address</a></li>
-                                            <li><a
-                                                    class="dropdown-item"
-                                                    href="account-payment-method.php"
-                                                >Payment Method</a></li>
-                                            <li><a
-                                                    class="dropdown-item"
-                                                    href="account-notification.php"
-                                                >Notification</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
 
-                            <?php if(!$isAdmin){?>
-                            <li class="nav-item w-100 w-lg-auto">
-                                <a
-                                    class="nav-link"
-                                    href="../dashboard/index.php"
-                                >Admin Dashboard</a>
-                            </li>
+
+                            <?php if (isAdmin() || isAdmin() != null) { ?>
+                                <li class="nav-item w-100 w-lg-auto">
+                                    <a
+                                        class="nav-link"
+                                        href="dashboard/index.php"
+                                    >Admin Dashboard</a>
+                                </li>
 
                             <?php } ?>
-                            <?php if(!if_Authenticated()){?>
-                            <li class="nav-item w-100 w-lg-auto">
-                                <a
-                                    class="nav-link"
-                                    href="signin.php"
-                                >Login</a>
-                            </li>
+                            <?php if (!if_Authenticated()) { ?>
+                                <li class="nav-item w-100 w-lg-auto">
+                                    <a
+                                        class="nav-link"
+                                        href="signin.php"
+                                    >Login</a>
+                                </li>
 
-                            <?php }else{?>
-                            <li class="nav-item w-100 w-lg-auto">
-                                <a
-                                    class="nav-link"
-                                    href="php/logout.php"
-                                >Logout</a>
-                            </li>
+                            <?php } else { ?>
+                                <li class="nav-item w-100 w-lg-auto">
+                                    <a
+                                        class="nav-link"
+                                        href="logout.php"
+                                    >Logout</a>
+                                </li>
 
                             <?php } ?>
 
