@@ -165,7 +165,7 @@
                         href="index-2.html"
                     >
                         <img
-                            src="assets/images/logo/freshcart-logo.svg"
+                            src="assets/images/logo/"
                             alt="Sosmart Logo"
                         />
                     </a>
@@ -175,24 +175,31 @@
                             href="index-2.html"
                         >
                             <img
-                                src="assets/images/logo/freshcart-logo.svg"
+                                src="assets/images/logo/"
                                 alt="Sosmart Logo"
                             />
                         </a>
                     </div>
                 </div>
-                <div class="col-xxl-5 col-lg-5 d-none d-lg-block">
-                    <form action="#">
-                        <div class="input-group">
+                <div class="col-xxl-7 col-lg-5 d-none d-lg-block">
+                    <form action="pages/shop-grid.php">
+                        <div class="input-group rounded-pill border overflow-hidden">
                             <input
-                                class="form-control rounded"
+                                class="form-control border-0"
                                 type="search"
-                                placeholder="Search for products"
+                                name="query"
+                                value="<?php echo $_GET['query'] ?? '' ?>"
+                                placeholder="Search for products, brands or categories"
+                                style="background-color:#eeeeee50 !important"
                             />
-                            <span class="input-group-append">
+                            <span
+                                class="input-group-append border-0"
+                                style="background-color:#eeeeee50 !important"
+                            >
                                 <button
-                                    class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end"
+                                    class="btn bg-white border-0 border-start-0 ms-n10 rounded-0 rounded-end"
                                     type="button"
+                                    style="background-color:#eeeeee50 !important"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -223,44 +230,24 @@
                         </div>
                     </form>
                 </div>
-                
+
                 <div class="col-lg-2 col-xxl-2 text-end col-md-6 col-7">
                     <div class="list-inline">
-                        <div class="list-inline-item me-5">
+                        
+                        <div class="list-inline-item me-5 dropdown"
+                        id="userDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false">
                             <a
-                                href="pages/shop-wishlist.html"
-                                class="text-muted position-relative"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="feather feather-heart"
-                                >
-                                    <path
-                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                    ></path>
-                                </svg>
-                                <span
-                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
-                                >
-                                    5
-                                    <span class="visually-hidden">unread messages</span>
-                                </span>
-                            </a>
-                        </div>
-                        <div class="list-inline-item me-5">
-                            <a
-                                href="#!"
-                                class="text-muted"
-                                data-bs-toggle="modal"
-                                data-bs-target="#userModal"
+                                href="#"
+                                class="text-dark dropdown-toggle"
+                                id="userDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -273,6 +260,7 @@
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
                                     class="feather feather-user"
+                                    style="vertical-align:middle"
                                 >
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                     <circle
@@ -281,11 +269,39 @@
                                         r="4"
                                     ></circle>
                                 </svg>
+                                <span class="d-none d-md-inline"><?php echo "Hi " . $userFirstname ?></span>
                             </a>
+                            <div
+                                class="dropdown-menu py-4 px-2"
+                                aria-labelledby="userDropdown"
+                            >
+                                <a
+                                    class="dropdown-item fs-6"
+                                    href="pages/account-settings.php"
+                                >My Account</a>
+                                <a
+                                    class="dropdown-item fs-6"
+                                    href="#"
+                                >Orders</a>
+                                <a
+                                    class="dropdown-item fs-6"
+                                    href="#"
+                                >Inbox</a>
+                                <a
+                                    class="dropdown-item fs-6"
+                                    href="#"
+                                >Saved Items</a>
+                                <hr>
+                                <a
+                                    class="dropdown-item fs-6"
+                                    href="logout.php"
+                                >Logout</a>
+                            </div>
                         </div>
+
                         <div class="list-inline-item me-5 me-lg-0">
                             <a
-                                class="text-muted position-relative"
+                                class="text-dark position-relative"
                                 href="pages/shop-cart.php"
                             >
                                 <svg
@@ -312,10 +328,12 @@
                                 <span
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
                                 >
-                                   <?php echo count($cartItems)?>
-                                   
+                                    <?php echo count($cartItems) ?>
+
                                 </span>
+
                             </a>
+                            <span class="d-none d-md-inline">Cart</span>
                         </div>
                         <div class="list-inline-item d-inline-block d-lg-none">
                             <!-- Button -->
@@ -360,7 +378,7 @@
             >
                 <div class="offcanvas-header pb-1">
                     <a href="index-2.html"><img
-                            src="assets/images/logo/freshcart-logo.svg"
+                            src="assets/images/logo/"
                             alt="Sosmart Logo"
                         /></a>
                     <button
@@ -373,15 +391,20 @@
                 <div class="offcanvas-body justify-content-between">
                     <div class="d-block d-lg-none mb-4">
                         <form action="#">
-                            <div class="input-group">
+                            <div
+                                class="input-group rounded-pill border overflow-hidden "
+                                style="background-color:#eeeeee50 !important"
+                            >
                                 <input
-                                    class="form-control rounded"
+                                    class="form-control border-0"
                                     type="search"
-                                    placeholder="Search for products"
+                                    name="query"
+                                    value="<?php echo $_GET['query'] ?? '' ?>"
+                                    placeholder="Search for products, brands or categories"
                                 />
-                                <span class="input-group-append">
+                                <span class="input-group-append border-0">
                                     <button
-                                        class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end"
+                                        class="btn bg-white border-0 border-start-0 ms-n10 rounded-0 rounded-end"
                                         type="button"
                                     >
                                         <svg
@@ -412,7 +435,7 @@
                                 </span>
                             </div>
                         </form>
-                       
+
                     </div>
                     <div class="d-block d-lg-none mb-4">
                         <a
@@ -474,35 +497,35 @@
                                     aria-labelledby="dropdownMenuButton1"
                                 >
                                     <?php
-                        // Check if the categories array is not empty
-                        if (count($Allcategories) > 0) {
-                           // Loop through the categories array
-                           foreach ($Allcategories as $category) {
-                              // Get the category id, name, slug, description, status, and created_at fields
-                        
-                              $id = $category['id'];
-                              $categoryName = $category['category_name'];
-                              $slug = $category['slug'];
-                              $description = $category['description'];
-                              $status = $category['status'];
-                              $created_at = $category['created_at'];
+                                    // Check if the categories array is not empty
+                                    if (count($Allcategories) > 0) {
+                                        // Loop through the categories array
+                                        foreach ($Allcategories as $category) {
+                                            // Get the category id, name, slug, description, status, and created_at fields
+                                    
+                                            $id = $category['id'];
+                                            $categoryName = $category['category_name'];
+                                            $slug = $category['slug'];
+                                            $description = $category['description'];
+                                            $status = $category['status'];
+                                            $created_at = $category['created_at'];
 
-                              // Use the category name as the image file name
-                              $categoryImg = $category['category_image'];
+                                            // Use the category name as the image file name
+                                            $categoryImg = $category['category_image'];
 
-                              // Format the created_at date as dd/mm/yyyy
-                              $date = date("d/m/Y", strtotime($created_at));
+                                            // Format the created_at date as dd/mm/yyyy
+                                            $date = date("d/m/Y", strtotime($created_at));
 
-                              // Display the table row for each category
-                              ?>
+                                            // Display the table row for each category
+                                            ?>
                                     <li><a
                                             class="dropdown-item"
                                             href="pages/shop-grid.php?category=<?php echo $categoryName ?>"
                                         ><?php echo $categoryName ?></a>
-                                       </li>
+                                    </li>
 
                                     <?php }
-                        } ?>
+                                    } ?>
                                 </ul>
                             </div>
                         </div>
@@ -563,34 +586,34 @@
                             aria-labelledby="dropdownMenuButton1"
                         >
                             <?php
-                        // Check if the categories array is not empty
-                        if (count($Allcategories) > 0) {
-                           // Loop through the categories array
-                           foreach ($Allcategories as $category) {
-                              // Get the category id, name, slug, description, status, and created_at fields
-                        
-                              $id = $category['id'];
-                              $categoryName = $category['category_name'];
-                              $slug = $category['slug'];
-                              $description = $category['description'];
-                              $status = $category['status'];
-                              $created_at = $category['created_at'];
+                            // Check if the categories array is not empty
+                            if (count($Allcategories) > 0) {
+                                // Loop through the categories array
+                                foreach ($Allcategories as $category) {
+                                    // Get the category id, name, slug, description, status, and created_at fields
+                            
+                                    $id = $category['id'];
+                                    $categoryName = $category['category_name'];
+                                    $slug = $category['slug'];
+                                    $description = $category['description'];
+                                    $status = $category['status'];
+                                    $created_at = $category['created_at'];
 
-                              // Use the category name as the image file name
-                              $categoryImg = $category['category_image'];
+                                    // Use the category name as the image file name
+                                    $categoryImg = $category['category_image'];
 
-                              // Format the created_at date as dd/mm/yyyy
-                              $date = date("d/m/Y", strtotime($created_at));
+                                    // Format the created_at date as dd/mm/yyyy
+                                    $date = date("d/m/Y", strtotime($created_at));
 
-                              // Display the table row for each category
-                              ?>
+                                    // Display the table row for each category
+                                    ?>
                             <li><a
                                     class="dropdown-item"
                                     href="pages/shop-grid.php?category=<?php echo $categoryName ?>"
                                 ><?php echo $categoryName ?></a></li>
 
                             <?php }
-                        } ?>
+                            } ?>
                         </ul>
                     </div>
                     <div class="">
@@ -631,3 +654,18 @@
         </div>
     </nav>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('.dropdown-item').on('click', function(e) {
+            // Prevent the default behavior of the dropdown item
+            e.preventDefault();
+            
+            // Get the href attribute of the clicked dropdown item
+            var href = $(this).attr('href');
+            
+            // Navigate to the specified URL
+            window.location.href = href;
+        });
+    });
+</script>

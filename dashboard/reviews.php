@@ -21,7 +21,7 @@
 	<div class="navbar-vertical">
 		<div class="px-4 py-5 d-flex justify-content-between align-items-center">
 			<a href="../index-2.html" class="navbar-brand">
-				<img src="../assets/images/logo/freshcart-logo.svg" alt="" />
+				<img src="../assets/images/logo/Sosmart-logo.svg" alt="" />
 			</a>
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 		</div>
@@ -149,7 +149,7 @@
 					<a class="nav-link disabled" href="#!">
 						<div class="d-flex align-items-center">
 							<span class="nav-link-icon"><i class="bi bi-infinity"></i></span>
-							<span class="nav-link-text">How FreshCart Works</span>
+							<span class="nav-link-text">How Sosmart Works</span>
 						</div>
 					</a>
 				</li>
@@ -796,5 +796,5 @@
 
 	</body>
 
-<!-- Mirrored from freshcart.codescandy.com/dashboard/reviews.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Dec 2023 01:18:33 GMT -->
+<!-- Mirrored from Sosmart.codescandy.com/dashboard/reviews.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Dec 2023 01:18:33 GMT -->
 </html>

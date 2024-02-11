@@ -7,6 +7,8 @@
 
     <body>
         <!-- navbar -->
+        <?php include_once('php/profile/fetchAll.php'); ?>
+
         <?php include_once('php/category/fetchAll.php'); ?>
         <?php include_once('php/cart/fetchAll.php') ?>
         <?php include_once('navbar.php')?>

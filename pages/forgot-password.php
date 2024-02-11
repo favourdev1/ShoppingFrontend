@@ -11,7 +11,7 @@
          <nav class="navbar navbar-light py-2">
             <div class="container justify-content-center justify-content-lg-between">
                <a class="navbar-brand" href="../index.php">
-                  <img src="../assets/images/logo/freshcart-logo.svg" alt="" class="d-inline-block align-text-top" />
+                  <img src="../assets/images/logo/" alt="" class="d-inline-block align-text-top" />
                </a>
                <span class="navbar-text">
                   Already have an account?

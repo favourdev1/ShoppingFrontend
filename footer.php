@@ -169,13 +169,13 @@
                         </ul>
                     </div>
                     <div class="col-6 col-sm-6 col-md-3">
-                        <h6 class="mb-4">Freshcart programs</h6>
+                        <h6 class="mb-4">Sosmart programs</h6>
                         <ul class="nav flex-column">
                             <!-- list -->
                             <li class="nav-item mb-2"><a
                                     href="#!"
                                     class="nav-link"
-                                >Freshcart programs</a></li>
+                                >Sosmart programs</a></li>
                             <li class="nav-item mb-2"><a
                                     href="#!"
                                     class="nav-link"
@@ -187,7 +187,7 @@
                             <li class="nav-item mb-2"><a
                                     href="#!"
                                     class="nav-link"
-                                >Freshcart Ads</a></li>
+                                >Sosmart Ads</a></li>
                             <li class="nav-item mb-2"><a
                                     href="#!"
                                     class="nav-link"
@@ -236,7 +236,7 @@
                 </div>
                 <div class="col-lg-7 mt-4 mt-md-0">
                     <ul class="list-inline mb-0 text-lg-end text-center">
-                        <li class="list-inline-item mb-2 mb-md-0 text-dark">Get deliveries with FreshCart</li>
+                        <li class="list-inline-item mb-2 mb-md-0 text-dark">Get deliveries with Sosmart</li>
                         <li class="list-inline-item ms-4">
                             <a href="#!"><img
                                     src="assets/images/appbutton/appstore-btn.svg"
@@ -267,7 +267,7 @@
                                 .getFullYear()));
                             </script>
                         </span>
-                        FreshCart eCommerce HTML Template. All rights reserved. Powered by
+                        Sosmart eCommerce HTML Template. All rights reserved. Powered by
                         <a href="https://codescandy.com/">Codescandy</a>
                         .
                     </span>
@@ -338,4 +338,6 @@
         </div>
     </div>
 </footer>
+
+<script src="../assets/js/theme.min.js"></script>
 

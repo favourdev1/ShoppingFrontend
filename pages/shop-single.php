@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-   <?php 
-// require_once 'vendor/autoload.php'; ?>
+    <?php
+    // require_once 'vendor/autoload.php'; ?>
     <?php $productName = $_GET['productName'] ?? 'Product Details';
     $pageName = $productName . " | Sosmart Online shopping and more! "; ?>
     <?php include_once('header.php') ?>
-    <?php
-    if(!isset($_GET['id'])){
-        header('Location: 404error.php');
-    }
-    $getId = $_GET['id'];
-    include_once('php/products/fetchSimilar.php');?>
-    <?php include_once('php/products/fetch.php'); ?>
-    <?php
 
 
+
+    <?php
     $pageName = $productName . " | Sosmart Online shopping and more! ";
     ?>
 
@@ -22,11 +16,22 @@
         <script>
         document.title = " <?php echo $pageName ?>"
         </script>
+        <!-- files   -->
+        <?php
+        if (!isset($_GET['id'])) {
+            header('Location: 404error.php');
+        }
+        $getId = $_GET['id'];?>
+        <?php include_once('php/profile/fetchAll.php'); ?>
 
+        <?php include_once('php/category/fetchAll.php'); ?>
+        <?php include_once('php/products/fetchSimilar.php'); ?>
+        <?php include_once('php/products/fetch.php'); ?>
+        <?php include_once('php/cart/fetchAll.php') ?>
         <!-- navbar -->
         <?php include_once('navbar.php') ?>
 
-        
+
         <!-- Modal -->
         <div
             class="modal fade"
@@ -186,15 +191,19 @@
                                 ><?php echo $categoryName ?></a>
                                 <!-- heading -->
                                 <h1 class="mb-1"><?php echo $productName ?></h1>
-                                <small class="text-muted d-flex align-items-center" >
+                                <small class="text-muted d-flex align-items-center">
                                     <div class="d-flex align-items-center justify-content-start">
-                                        <?php if(is_array($tags)){?>
+                                        <?php if (is_array($tags)) { ?>
                                             <span class="text-muted fw-bold">Tags:</span>
-                                        <?php foreach ($tags as $tag): ?>
-                                        <a href="shop-grid.php?search=<?= $tag->value ?>" class="ps-2 text-muted text-decoration-underline">
-                                            <?= $tag->value ?>
-                                        </a>
-                                        <?php endforeach; }?>
+                                            <?php foreach ($tags as $tag): ?>
+                                                <a
+                                                    href="shop-grid.php?search=<?= $tag->value ?>"
+                                                    class="ps-2 text-muted text-decoration-underline"
+                                                >
+                                                    <?= $tag->value ?>
+                                                </a>
+                                            <?php endforeach;
+                                        } ?>
 
                                     </div>
                                 </small>
@@ -217,8 +226,8 @@
                                     <!-- price -->
                                     <?php if (!empty($regularPrice)) { ?>
 
-                                    <span
-                                        class="text-decoration-line-through text-muted"><?php echo CURRENCY . number_format($regularPrice) ?></span>
+                                        <span
+                                            class="text-decoration-line-through text-muted"><?php echo CURRENCY . number_format($regularPrice) ?></span>
 
                                     <?php } ?>
                                     <span class="text-dark"><?php echo CURRENCY . number_format($salesPrice) ?></span>
@@ -425,7 +434,7 @@
                                     </button>
                                 </li>
                                 <!-- nav item -->
-                               
+
                             </ul>
                             <!-- tab content -->
                             <div
@@ -441,10 +450,14 @@
                                     tabindex="0"
                                 >
                                     <div class="my-8">
-                                       <?= $description?>
-                                        <div class=" alert alert-warning" style=""
-">
-                                            <h5 class="mb-1 small">Disclaimer</h5>
+                                        <?= $description ?>
+                                        <div
+                                            class=" alert alert-warning"
+                                            style="" ">
+                                            <h5 class="
+                                            mb-1
+                                            small"
+                                        >Disclaimer</h5>
                                             <p class="mb-0 small">
                                                 Image shown is a representation and may slightly vary from the actual
                                                 product. Every effort is made to maintain accuracy of all information
@@ -660,7 +673,7 @@
                                                                 Product quality is good. But, weight seemed less than
                                                                 1kg. Since it is being sent in open package, there is a
                                                                 possibility of pilferage in between.
-                                                                FreshCart sends the veggies and fruits through sealed
+                                                                Sosmart sends the veggies and fruits through sealed
                                                                 plastic covers and Barcode on the weight etc. .
                                                             </p>
                                                             <div>
@@ -738,7 +751,7 @@
                                                                 Product quality is good. But, weight seemed less than
                                                                 1kg. Since it is being sent in open package, there is a
                                                                 possibility of pilferage in between.
-                                                                FreshCart sends the veggies and fruits through sealed
+                                                                Sosmart sends the veggies and fruits through sealed
                                                                 plastic covers and Barcode on the weight etc. .
                                                             </p>
 
@@ -926,17 +939,17 @@
                                         </div>
                                     </div>
                                 </div>
-                             
+
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            
+
             <!-- Related Items  -->
-            
-            <?php include_once('components/relatedItems.php')?>
+
+            <?php include_once('components/relatedItems.php') ?>
         </main>
         <!-- footer -->
         <?php include_once('footer.php') ?>

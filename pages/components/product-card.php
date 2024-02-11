@@ -67,10 +67,7 @@
                     ><i class="bi bi-cart"></i></a>
                 </div>
             </div>
-            <!-- heading -->
-            <!-- <div class="text-small ">
-                                    <a href="#!" class="text-decoration-none text-muted"><small>Snack & Munchies</small></a>
-                                 </div> -->
+      
             <h2 class="fs-5 mb-0">
                 <a
                     href="<?php echo "pages/shop-single.php?id=" . $id ?>"

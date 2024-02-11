@@ -9,6 +9,7 @@
     "dropzone": "^6.0.0-beta.2",
     "install": "^0.13.0",
     "jquery": "^3.7.1",
+    "nouislider": "^15.7.1",
     "npm": "^10.2.4",
     "tippy.js": "^6.3.7"
   }

@@ -454,5 +454,5 @@ include_once('header.php')
       <script src="../assets/js/theme.min.js"></script>
    </body>
 
-<!-- Mirrored from freshcart.codescandy.com/pages/account-orders.php by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Dec 2023 01:18:01 GMT -->
+<!-- Mirrored from Sosmart.codescandy.com/pages/account-orders.php by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Dec 2023 01:18:01 GMT -->
 </html>

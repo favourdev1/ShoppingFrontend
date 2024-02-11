@@ -13,7 +13,7 @@
                         href="../index.php"
                     >
                         <img
-                            src="../assets/images/logo/freshcart-logo.svg"
+                            src="../assets/images/logo/"
                             alt=""
                             class="d-inline-block align-text-top"
                         />

@@ -18,7 +18,7 @@ include_once('header.php')
                   <div class="offset-lg-1 col-lg-10 py-8 py-xl-0">
                      <div class="mb-10 mb-xxl-0">
                         <!-- img -->
-                        <a href="../index-2.html"><img src="../assets/images/logo/freshcart-logo.svg" alt="" /></a>
+                        <a href="../index-2.html"><img src="../assets/images/logo/" alt="" /></a>
                      </div>
                      <div class="row justify-content-center align-items-center">
                         <!-- content -->
@@ -63,5 +63,5 @@ include_once('header.php')
       <script src="../assets/js/theme.min.js"></script>
    </body>
 
-<!-- Mirrored from freshcart.codescandy.com/pages/404error.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Dec 2023 01:18:00 GMT -->
+<!-- Mirrored from Sosmart.codescandy.com/pages/404error.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Dec 2023 01:18:00 GMT -->
 </html>

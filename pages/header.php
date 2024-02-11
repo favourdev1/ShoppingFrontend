@@ -93,6 +93,16 @@
 
 
 
+    <!-- Om range slider -->
+    <link
+        rel="stylesheet"
+        href="../node_modules/om-rangeslider/src/om-javascript-range-slider.css"
+    />
+    <script src="../node_modules/om-rangeslider/src/om-javascript-range-slider.js"></script> 
+
+
+
+
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
@@ -106,6 +116,10 @@
         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap"
         rel="stylesheet"
     />
+    <script src="../node_modules/nouislider/dist/nouislider.js"></script>
+
+
+    <link href="../node_modules/nouislider/dist/nouislider.css" />
     <style>
     body {
         font-family: 'Nunito', sans-serif !important;
@@ -123,4 +137,7 @@
 
     <?php $isHomePath = false; ?>
 
+    <!-- Functions -->
+
+    <?php include_once('php/functions.php'); ?>
 </head>

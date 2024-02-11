@@ -353,7 +353,7 @@ function showQuickView(element) {
         modalProductRegularPriceElement.style.display = 'none'
     } else {
         modalProductRegularPriceElement.innerText = formatNumber(Number(regularPrice));
-        const discountPercentage = calculatePercentageDiscount(regularPrice, salesPrice);
+        const discountPercentage = (calculatePercentageDiscount(regularPrice, salesPrice));
         modalDiscount.innerText = discountPercentage
     }
 
