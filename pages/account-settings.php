@@ -14,227 +14,10 @@ include_once('header.php')
         <?php include_once('php/category/fetchAll.php'); ?>
         <?php include_once('php/cart/fetchAll.php') ?>
         <?php include_once('navbar.php') ?>
-        <!-- Modal -->
-        <div
-            class="modal fade"
-            id="userModal"
-            tabindex="-1"
-            aria-labelledby="userModalLabel"
-            aria-hidden="true"
-        >
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content p-4">
-                    <div class="modal-header border-0">
-                        <h5
-                            class="modal-title fs-3 fw-bold"
-                            id="userModalLabel"
-                        >Sign Up</h5>
+      
 
-                        <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                        ></button>
-                    </div>
-                    <div class="modal-body">
-                        <form
-                            class="needs-validation"
-                            novalidate
-                        >
-                            <div class="mb-3">
-                                <label
-                                    for="fullName"
-                                    class="form-label"
-                                >Name</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="fullName"
-                                    placeholder="Enter Your Name"
-                                    required
-                                />
-                                <div class="invalid-feedback">Please enter name.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label
-                                    for="email"
-                                    class="form-label"
-                                >Email address</label>
-                                <input
-                                    type="email"
-                                    class="form-control"
-                                    id="email"
-                                    placeholder="Enter Email address"
-                                    required
-                                />
-                                <div class="invalid-feedback">Please enter email.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label
-                                    for="password"
-                                    class="form-label"
-                                >Password</label>
-                                <input
-                                    type="password"
-                                    class="form-control"
-                                    id="password"
-                                    placeholder="Enter Password"
-                                    required
-                                />
-                                <div class="invalid-feedback">Please enter password.</div>
-                                <small class="form-text">
-                                    By Signup, you agree to our
-                                    <a href="#!">Terms of Service</a>
-                                    &
-                                    <a href="#!">Privacy Policy</a>
-                                </small>
-                            </div>
-
-                            <button
-                                type="submit"
-                                class="btn btn-primary"
-                                type="submit"
-                            >Sign Up</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer border-0 justify-content-center">
-                        Already have an account?
-                        <a href="#">Sign in</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- OffCart Canvas -->
-        <?php include_once('offcart.php') ?>
-
-
-
-        <!-- Modal -->
-        <div
-            class="modal fade"
-            id="locationModal"
-            tabindex="-1"
-            aria-labelledby="locationModalLabel"
-            aria-hidden="true"
-        >
-            <div class="modal-dialog modal-sm modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body p-6">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h5
-                                    class="mb-1"
-                                    id="locationModalLabel"
-                                >Choose your Delivery Location</h5>
-                                <p class="mb-0 small">Enter your address and we will specify the offer you area.</p>
-                            </div>
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                            ></button>
-                        </div>
-                        <div class="my-5">
-                            <input
-                                type="search"
-                                class="form-control"
-                                placeholder="Search your area"
-                            />
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h6 class="mb-0">Select Location</h6>
-                            <a
-                                href="#"
-                                class="btn btn-outline-gray-400 text-muted btn-sm"
-                            >Clear All</a>
-                        </div>
-                        <div>
-                            <div
-                                data-simplebar
-                                style="height: 300px"
-                            >
-                                <div class="list-group list-group-flush">
-                                    <a
-                                        href="#"
-                                        class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action active"
-                                    >
-                                        <span>Alabama</span>
-                                        <span>Min:$20</span>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action"
-                                    >
-                                        <span>Alaska</span>
-                                        <span>Min:$30</span>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action"
-                                    >
-                                        <span>Arizona</span>
-                                        <span>Min:$50</span>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action"
-                                    >
-                                        <span>California</span>
-                                        <span>Min:$29</span>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action"
-                                    >
-                                        <span>Colorado</span>
-                                        <span>Min:$80</span>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action"
-                                    >
-                                        <span>Florida</span>
-                                        <span>Min:$90</span>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action"
-                                    >
-                                        <span>Arizona</span>
-                                        <span>Min:$50</span>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action"
-                                    >
-                                        <span>California</span>
-                                        <span>Min:$29</span>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action"
-                                    >
-                                        <span>Colorado</span>
-                                        <span>Min:$80</span>
-                                    </a>
-                                    <a
-                                        href="#"
-                                        class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action"
-                                    >
-                                        <span>Florida</span>
-                                        <span>Min:$90</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+  
+    
         <script src="../assets/js/vendors/validation.js"></script>
 
         <main>
@@ -335,47 +118,67 @@ include_once('header.php')
                         </div>
                         <div class="col-lg-9 col-md-8 col-12">
                             <div class="py-6 p-md-6 p-lg-10">
-                                <div class="mb-6">
+                                <div class="mb-0">
                                     <!-- heading -->
                                     <h2 class="mb-0">Account Setting</h2>
                                 </div>
+                                <hr class="mt-3 mb-5" />
+
                                 <div>
                                     <!-- heading -->
                                     <h5 class="mb-4">Account details</h5>
                                     <div class="row">
-                                        <div class="col-lg-5">
+                                        <div class="col-lg">
                                             <!-- form -->
                                             <form>
                                                 <!-- input -->
-                                                <div class="mb-3">
-                                                    <label class="form-label">Name</label>
+                                                <div class="row row-cols-1 row-cols-md-2">
+
+                                                <div class=" col   mb-3">
+                                                    <label class="form-label">FirstName</label>
                                                     <input
                                                         type="text"
                                                         class="form-control"
-                                                        placeholder="jitu chauhan"
+                                                        disabled value="<?php echo $userFirstname?>"
                                                     />
                                                 </div>
-                                                <!-- input -->
-                                                <div class="mb-3">
+
+                                                <div class=" col   mb-3">
+                                                    <label class="form-label">LastName</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        disabled value="<?php echo $userLastname ?>"
+                                                    />
+                                                </div>
+
+                                                </div>
+                                             
+                                                <!-- Row -->
+                                                <div class="row row-cols-1 row-cols-md-2">
+
+                                                   <!-- input -->
+                                                   <div class=" col   mb-3">
                                                     <label class="form-label">Email</label>
                                                     <input
                                                         type="email"
                                                         class="form-control"
-                                                        placeholder="example@gmail.com"
+                                                        disabled value="<?php echo $userEmail ?>"
                                                     />
                                                 </div>
-                                                <!-- input -->
                                                 <div class="mb-5">
                                                     <label class="form-label">Phone</label>
                                                     <input
                                                         type="text"
                                                         class="form-control"
-                                                        placeholder="Phone number"
+                                                        disabled placeholder="Phone number"
                                                     />
+                                                </div>  
                                                 </div>
+                                                
                                                 <!-- button -->
-                                                <div class="mb-3">
-                                                    <button class="btn btn-primary">Save Details</button>
+                                                <div class=" col   mb-3">
+                                                    <button class="btn btn-dark px-5 py-2">Save Details</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -387,7 +190,7 @@ include_once('header.php')
                                     <h5 class="mb-4">Password</h5>
                                     <form class="row row-cols-1 row-cols-lg-2">
                                         <!-- input -->
-                                        <div class="mb-3 col">
+                                        <div class=" col   mb-3 col">
                                             <label class="form-label">New Password</label>
                                             <input
                                                 type="password"
@@ -396,7 +199,7 @@ include_once('header.php')
                                             />
                                         </div>
                                         <!-- input -->
-                                        <div class="mb-3 col">
+                                        <div class=" col   mb-3 col">
                                             <label class="form-label">Current Password</label>
                                             <input
                                                 type="password"

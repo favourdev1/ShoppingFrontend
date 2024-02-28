@@ -1,4 +1,5 @@
 <head>
+
     <?php $apiUrl = "http://localhost:8000/api" ?>
     <?php
     include_once('php/config.php');
@@ -98,9 +99,12 @@
         rel="stylesheet"
         href="../node_modules/om-rangeslider/src/om-javascript-range-slider.css"
     />
-    <script src="../node_modules/om-rangeslider/src/om-javascript-range-slider.js"></script> 
+    <script src="../node_modules/om-rangeslider/src/om-javascript-range-slider.js"></script>
 
 
+
+    <!-- Routes shit -->
+    <script src="javascript/Route.js"></script>
 
 
     <link
@@ -140,4 +144,30 @@
     <!-- Functions -->
 
     <?php include_once('php/functions.php'); ?>
+
+    <script>
+    /**
+     * Displays an alert message.
+     * @param {string} message - The message to be displayed in the alert.
+     * @param {string} status - The status of the alert ('success' or 'error').
+     * @param {number} [time=5]
+     */
+    function showAlert(message, status, time = 5) {
+        const alertHub = new AlertHub();
+        alertHub.showAlert({
+            title: "",
+            description: message + "    ",
+            position: "top-right",
+            type: status === 'success' ? 'success' : 'danger',
+            timeout: time,
+            closeButton: false,
+            closeButtonSize: 20,
+            animation: "fade-in",
+        });
+    }
+
+  
+    
+  
+    </script>
 </head>

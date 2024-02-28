@@ -1,5 +1,5 @@
 <?php
-include_once('components/loadingDialog.php');
+// include_once('components/loadingDialog.php');
 $arr = $_SESSION;
 // print_r($arr);
 if (isset($_SESSION['status']) && !empty($_SESSION['message'])) { ?>

@@ -5,119 +5,28 @@
     $pageName = "Checkout - Sosmart ";
     include_once('header.php');
 
-if(!if_Authenticated()){
-   header("Location: signin.php");
-}
+    if (!if_Authenticated()) {
+        header("Location: signin.php");
+    }
 
 
-       ?>
+    ?>
 
     <body>
         <!-- navbar -->
         <?php include_once('php/profile/fetchAll.php'); ?>
 
-        <?php include_once('php/address/fetchAll.php');?>
+        <?php include_once('php/address/fetchAll.php'); ?>
         <?php include_once('php/category/fetchAll.php'); ?>
         <?php include_once('php/cart/fetchAll.php') ?>
+
         <?php include_once('navbar.php') ?>
-        <!-- Modal -->
-        <div
-            class="modal fade"
-            id="userModal"
-            tabindex="-1"
-            aria-labelledby="userModalLabel"
-            aria-hidden="true"
-        >
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content p-4">
-                    <div class="modal-header border-0">
-                        <h5
-                            class="modal-title fs-3 fw-bold"
-                            id="userModalLabel"
-                        >Sign Up</h5>
-
-                        <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                        ></button>
-                    </div>
-                    <div class="modal-body">
-                        <form
-                            class="needs-validation"
-                            novalidate
-                        >
-                            <div class="mb-3">
-                                <label
-                                    for="fullName"
-                                    class="form-label"
-                                >Name</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="fullName"
-                                    placeholder="Enter Your Name"
-                                    required
-                                />
-                                <div class="invalid-feedback">Please enter name.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label
-                                    for="email"
-                                    class="form-label"
-                                >Email address</label>
-                                <input
-                                    type="email"
-                                    class="form-control"
-                                    id="email"
-                                    placeholder="Enter Email address"
-                                    required
-                                />
-                                <div class="invalid-feedback">Please enter email.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label
-                                    for="password"
-                                    class="form-label"
-                                >Password</label>
-                                <input
-                                    type="password"
-                                    class="form-control"
-                                    id="password"
-                                    placeholder="Enter Password"
-                                    required
-                                />
-                                <div class="invalid-feedback">Please enter password.</div>
-                                <small class="form-text">
-                                    By Signup, you agree to our
-                                    <a href="#!">Terms of Service</a>
-                                    &
-                                    <a href="#!">Privacy Policy</a>
-                                </small>
-                            </div>
-
-                            <button
-                                type="submit"
-                                class="btn btn-primary"
-                                type="submit"
-                            >Sign Up</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer border-0 justify-content-center">
-                        Already have an account?
-                        <a href="#">Sign in</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
 
         <script src="../assets/js/vendors/validation.js"></script>
 
         <main>
-
+<?php include_once('components/loadingDialog.php') ?>
             <!-- section -->
             <section class="mb-lg-14 mb-8 mt-8">
                 <div class="container">
@@ -173,7 +82,6 @@ if(!if_Authenticated()){
 
 
 
-
                                         <!-- Addresses  Section  -->
                                         <div
                                             id="flush-collapseOne"
@@ -184,58 +92,64 @@ if(!if_Authenticated()){
                                                 <div class="row">
                                                     <div class=" col-12 mb-4">
                                                         <!-- form -->
-                                                        <?php 
-                                                      
-                                                        if(count($allAddresses)<1){?>
+                                                        <?php
 
-                                                        <div class=" text-center alert alert-warning rounded-3  p-6">
-                                                            No address added
-                                                        </div>
+                                                        if (count($allAddresses) < 1) { ?>
 
-                                                        <?php }else{?>
-                                                        <?php foreach ($allAddresses as $address){?>
-
-
-                                                        <div class="d-flex align-items-center border rounded-3  p-6 mt-2">
-                                                            <div class="form-check mb-4">
-                                                                <input
-                                                                    class="form-check-input"
-                                                                    type="radio"
-                                                                    name="flexRadioDefault"
-                                                                    id="homeRadio"
-                                                                    checked
-                                                                />
-                                                                <!-- <label class="form-check-label text-dark" for="homeRadio">Home</label> -->
+                                                            <div class=" text-center alert alert-warning rounded-3  p-6">
+                                                                No address added
                                                             </div>
-                                                            <!-- address -->
-                                                            <div class="col">
+
+                                                        <?php } else { ?>
+                                                            <?php foreach ($allAddresses as $address) { ?>
 
 
-                                                                <address class="my-0">
-                                                                    <strong><?=$address['firstname']." ".$address['lastname']?></strong>
-                                                                    <br>
+                                                                <div
+                                                                    class="d-flex align-items-center border rounded-3  p-6 mt-2">
+                                                                    <div class="form-check mb-4">
+                                                                        <input
+                                                                            class="form-check-input"
+                                                                            type="radio"
+                                                                            name="flexRadioDefault"
+                                                                            id="homeRadio"
+                                                                            checked
+                                                                            data-address-id="<?= $address['id'] ?>"
+                                                                        />
 
-                                                                    <?=$address['delivery_address'].","?>
 
-                                                                    <br>
-                                                                    <?=$address['city']." ".$address['city'].","?>
+                                                                        <!-- <label class="form-check-label text-dark" for="homeRadio">Home</label> -->
+                                                                    </div>
+                                                                    <!-- address -->
+                                                                    <div class="col">
+
+
+                                                                        <address class="my-0">
+                                                                            <strong><?= $address['firstname'] . " " . $address['lastname'] ?></strong>
+                                                                            <br>
+
+                                                                            <?= $address['delivery_address'] . "," ?>
+
+                                                                            <br>
+                                                                            <?= $address['city'] . " " . $address['city'] . "," ?>
 
 
 
-                                                                    <abbr title="Phone"> <?=$address['phone_number_1']?>
-                                                                    </abbr>
-                                                                </address>
-                                                                <?php if($address['is_default']===true){?>
-                                                                <span
-                                                                    class="text-dark small rounded px-2"
-                                                                    style="background:rgba(0,0,0,.1); width:max-content!important "
-                                                                >Default address</span>
+                                                                            <abbr title="Phone">
+                                                                                <?= $address['phone_number_1'] ?>
+                                                                            </abbr>
+                                                                        </address>
+                                                                        <?php if ($address['is_default'] === true) { ?>
+                                                                            <span
+                                                                                class="text-dark small rounded px-2"
+                                                                                style="background:rgba(0,0,0,.1); width:max-content!important "
+                                                                            >Default address</span>
 
-                                                                <?php } ?>
-                                                            </div>
-                                                        </div>
+                                                                        <?php } ?>
+                                                                    </div>
+                                                                </div>
 
-                                                        <?php }}?>
+                                                            <?php }
+                                                        } ?>
                                                     </div>
 
                                                 </div>
@@ -350,21 +264,19 @@ if(!if_Authenticated()){
                                                                 </div>
                                                                 <div>
                                                                     <!-- title -->
-                                                                    <h5 class="mb-1 h6">Payment with Paypal</h5>
-                                                                    <p class="mb-0 small">You will be redirected to
-                                                                        PayPal website to complete your purchase
-                                                                        securely.</p>
+                                                                    <h5 class="mb-1 h6">Bank Transfer</h5>
+                                                                    <p class="mb-0 small">Transfer Directly from Your account  </p>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <!-- card -->
-                                                    <div class="card card-bordered shadow-none mb-2">
-                                                        <!-- card body -->
+                                                    <!-- <div class="card card-bordered shadow-none mb-2">
+                                                        
                                                         <div class="card-body p-6">
                                                             <div class="d-flex mb-4">
                                                                 <div class="form-check">
-                                                                    <!-- input -->
+                                                                
                                                                     <input
                                                                         class="form-check-input"
                                                                         type="radio"
@@ -385,7 +297,7 @@ if(!if_Authenticated()){
                                                             </div>
                                                             <div class="row g-2">
                                                                 <div class="col-12">
-                                                                    <!-- input -->
+                                                                   
                                                                     <div class="mb-3">
                                                                         <label class="form-label">Card Number</label>
                                                                         <input
@@ -396,7 +308,7 @@ if(!if_Authenticated()){
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6 col-12">
-                                                                    <!-- input -->
+                                                                   
                                                                     <div class="mb-3 mb-lg-0">
                                                                         <label class="form-label">Name on card</label>
                                                                         <input
@@ -407,7 +319,7 @@ if(!if_Authenticated()){
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-3 col-12">
-                                                                    <!-- input -->
+                                                                   
                                                                     <div class="mb-3 mb-lg-0 position-relative">
                                                                         <label class="form-label">Expiry date</label>
                                                                         <input
@@ -422,7 +334,7 @@ if(!if_Authenticated()){
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-3 col-12">
-                                                                    <!-- input -->
+                                                                   
                                                                     <div class="mb-3 mb-lg-0">
                                                                         <label class="form-label">CVV code</label>
                                                                         <input
@@ -434,35 +346,8 @@ if(!if_Authenticated()){
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <!-- card -->
-                                                    <div class="card card-bordered shadow-none mb-2">
-                                                        <!-- card body -->
-                                                        <div class="card-body p-6">
-                                                            <!-- check input -->
-                                                            <div class="d-flex">
-                                                                <div class="form-check">
-                                                                    <input
-                                                                        class="form-check-input"
-                                                                        type="radio"
-                                                                        name="flexRadioDefault"
-                                                                        id="payoneer"
-                                                                    />
-                                                                    <label
-                                                                        class="form-check-label ms-2"
-                                                                        for="payoneer"
-                                                                    ></label>
-                                                                </div>
-                                                                <div>
-                                                                    <!-- title -->
-                                                                    <h5 class="mb-1 h6">Pay with Payoneer</h5>
-                                                                    <p class="mb-0 small">You will be redirected to
-                                                                        Payoneer website to complete your purchase
-                                                                        securely.</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    </div> -->
+                                                   
                                                     <!-- card -->
                                                     <div class="card card-bordered shadow-none">
                                                         <div class="card-body p-6">
@@ -513,134 +398,105 @@ if(!if_Authenticated()){
                                 </div>
                             </div>
 
-                            <div class="col-12 col-md-12 offset-lg-1 col-lg-4">
-                                <div class="mt-4 mt-lg-0">
-                                    <div class="card shadow-sm">
-                                        <h5 class="px-6 py-4 bg-transparent mb-0">Order Details</h5>
-                                        <ul class="list-group list-group-flush">
-                                            <!-- list group item -->
-                                            <li class="list-group-item px-4 py-3">
-                                                <div class="row align-items-center">
-                                                    <div class="col-2 col-md-2">
-                                                        <img
-                                                            src="../assets/images/products/product-img-1.jpg"
-                                                            alt="Ecommerce"
-                                                            class="img-fluid"
-                                                        />
-                                                    </div>
-                                                    <div class="col-5 col-md-5">
-                                                        <h6 class="mb-0">Haldiram's Sev Bhujia</h6>
-                                                        <span><small class="text-muted">.98 / lb</small></span>
-                                                    </div>
-                                                    <div class="col-2 col-md-2 text-center text-muted">
-                                                        <span>1</span>
-                                                    </div>
-                                                    <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                        <span class="fw-bold">$5.00</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <!-- list group item -->
-                                            <li class="list-group-item px-4 py-3">
-                                                <div class="row align-items-center">
-                                                    <div class="col-2 col-md-2">
-                                                        <img
-                                                            src="../assets/images/products/product-img-2.jpg"
-                                                            alt="Ecommerce"
-                                                            class="img-fluid"
-                                                        />
-                                                    </div>
-                                                    <div class="col-5 col-md-5">
-                                                        <h6 class="mb-0">NutriChoice Digestive</h6>
-                                                        <span><small class="text-muted">250g</small></span>
-                                                    </div>
-                                                    <div class="col-2 col-md-2 text-center text-muted">
-                                                        <span>1</span>
-                                                    </div>
-                                                    <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                        <span class="fw-bold">$20.00</span>
-                                                        <div class="text-decoration-line-through text-muted small">
-                                                            $26.00</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <!-- list group item -->
-                                            <li class="list-group-item px-4 py-3">
-                                                <div class="row align-items-center">
-                                                    <div class="col-2 col-md-2">
-                                                        <img
-                                                            src="../assets/images/products/product-img-3.jpg"
-                                                            alt="Ecommerce"
-                                                            class="img-fluid"
-                                                        />
-                                                    </div>
-                                                    <div class="col-5 col-md-5">
-                                                        <h6 class="mb-0">Cadbury 5 Star Chocolate</h6>
-                                                        <span><small class="text-muted">1 kg</small></span>
-                                                    </div>
-                                                    <div class="col-2 col-md-2 text-center text-muted">
-                                                        <span>1</span>
-                                                    </div>
-                                                    <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                        <span class="fw-bold">$15.00</span>
-                                                        <div class="text-decoration-line-through text-muted small">
-                                                            $20.00</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <!-- list group item -->
-                                            <li class="list-group-item px-4 py-3">
-                                                <div class="row align-items-center">
-                                                    <div class="col-2 col-md-2">
-                                                        <img
-                                                            src="../assets/images/products/product-img-4.jpg"
-                                                            alt="Ecommerce"
-                                                            class="img-fluid"
-                                                        />
-                                                    </div>
-                                                    <div class="col-5 col-md-5">
-                                                        <h6 class="mb-0">Onion Flavour Potato</h6>
-                                                        <span><small class="text-muted">250g</small></span>
-                                                    </div>
-                                                    <div class="col-2 col-md-2 text-center text-muted">
-                                                        <span>1</span>
-                                                    </div>
-                                                    <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                        <span class="fw-bold">$15.00</span>
-                                                        <div class="text-decoration-line-through text-muted small">
-                                                            $20.00</div>
-                                                    </div>
-                                                </div>
-                                            </li>
+                            <div class="col-12 col-lg-4 col-md-5">
+                                <!-- card -->
 
-                                            <!-- list group item -->
-                                            <li class="list-group-item px-4 py-3">
-                                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                                    <div>Item Subtotal</div>
-                                                    <div class="fw-bold">$70.00</div>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between">
-                                                    <div>
-                                                        Service Fee
-                                                        <i
-                                                            class="feather-icon icon-info text-muted"
-                                                            data-bs-toggle="tooltip"
-                                                            title="Default tooltip"
-                                                        ></i>
-                                                    </div>
-                                                    <div class="fw-bold">$3.00</div>
-                                                </div>
-                                            </li>
-                                            <!-- list group item -->
-                                            <li class="list-group-item px-4 py-3">
-                                                <div class="d-flex align-items-center justify-content-between fw-bold">
-                                                    <div>Subtotal</div>
-                                                    <div>$73.00</div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                <?php if (isset($cartItems) && count($cartItems) > 0) {
+
+                                    $totalTax = 0;
+                                    $subTotalPrice = 0;
+                                    $totalShippingFee = 0;
+
+                                    ?>
+
+                                    <?php foreach ($cartItems as $cart) { ?>
+                                        <?php
+                                        $productId = $cart['id'];
+                                        $cartId = $cart['cart_id'];
+                                        $cartName = $cart['product_name'];
+                                        $cartcategoryId = $cart['category_id'];
+                                        $cartdescription = $cart['description'];
+                                        $cartregularPrice = $cart['regular_price'];
+                                        $cartbrand = $cart['brand'];
+                                        $cartImg1 = $cart['product_img1'];
+                                        $cartImg2 = $cart['product_img2'];
+                                        $cartImg3 = $cart['product_img3'];
+                                        $cartImg4 = $cart['product_img4'];
+                                        $cartImg5 = $cart['product_img5'];
+                                        $cartweight = $cart['weight'];
+                                        $tax = $cart['tax'];
+                                        $shippingFee = $cart['shipping_cost'];
+                                        $quantityInStock = $cart['quantity_in_stock'];
+                                        $cartItemQuantity = $cart['quantity'];
+                                        $cartSalesPrice = $cart['sales_price'];
+                                        $subTotalPrice += $cartSalesPrice * $cartItemQuantity;
+                                        $totalTax += $tax + $totalTax;
+                                        $totalShippingFee += $shippingFee + $totalShippingFee;
+                                    } ?>
+
+                                    <div class="mb-5 card mt-6">
+                                        <div class="card-body p-6">
+                                            <!-- heading -->
+                                            <h2 class="h5 mb-4">Summary</h2>
+                                            <div class="card mb-2">
+                                                <!-- list group -->
+                                                <ul class="list-group list-group-flush">
+                                                    <!-- list group item -->
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-start">
+                                                        <div class="me-auto">
+                                                            <div>Item Subtotal</div>
+                                                        </div>
+                                                        <span><?php echo CURRENCY . number_format($subTotalPrice) ?></span>
+                                                    </li>
+
+                                                    <!-- list group item -->
+
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-start">
+                                                        <div class="me-auto">
+                                                            <div>Shipping Fee</div>
+                                                        </div>
+                                                        <span id="shippingCost"><?php echo CURRENCY . number_format($totalShippingFee) ?></span>
+                                                    </li>
+
+
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-start">
+                                                        <div class="me-auto">
+                                                            <div>Tax</div>
+                                                        </div>
+                                                        <span><?php echo CURRENCY . number_format($totalTax) ?></span>
+                                                    </li>
+                                                    <!-- list group item -->
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-start">
+                                                        <div class="me-auto">
+                                                            <div class="fw-bold">Subtotal</div>
+                                                        </div>
+                                                        <span
+                                                            class="fw-bold"><?php echo CURRENCY . number_format($subTotalPrice + $totalShippingFee + $totalTax) ?></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="d-grid mb-1 mt-4">
+                                                <!-- btn -->
+                                                <a
+                                                    href="shop-checkout.php"
+                                                    class="btn btn-primary btn-lg d-flex justify-content-between align-items-center"
+                                                    type="submit"
+                                                >
+
+                                                    Go to Checkout
+                                                    <span
+                                                        class="fw-bold"><?php echo CURRENCY . number_format($subTotalPrice + $totalShippingFee + $totalTax) ?></span>
+                                                </a>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                </div>
+
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -699,6 +555,10 @@ if(!if_Authenticated()){
                 </div>
             </div>
         </div>
+
+
+        <script src="javascript/Route.js"></script>
+        <script src="javascript/checkout/shippingCost.js"></script>
         <?php include_once('components/shipping-modal.php') ?>
 
         <!-- Footer -->

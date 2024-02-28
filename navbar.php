@@ -233,13 +233,15 @@
 
                 <div class="col-lg-2 col-xxl-2 text-end col-md-6 col-7">
                     <div class="list-inline">
-                        
-                        <div class="list-inline-item me-5 dropdown"
-                        id="userDropdown"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false">
+
+                        <div
+                            class="list-inline-item me-5 dropdown"
+                          
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
                             <a
                                 href="#"
                                 class="text-dark dropdown-toggle"
@@ -269,13 +271,22 @@
                                         r="4"
                                     ></circle>
                                 </svg>
+
+                                <?php if (if_Authenticated()) { ?>
                                 <span class="d-none d-md-inline"><?php echo "Hi " . $userFirstname ?></span>
+                                <?php } else { ?>
+                                <span class="d-none d-md-inline"><?php echo "Hello User" ?></span>
+
+                                <?php } ?>
+
                             </a>
                             <div
                                 class="dropdown-menu py-4 px-2"
                                 aria-labelledby="userDropdown"
                             >
-                                <a
+
+
+                                <?php if (if_Authenticated()) { ?> <a
                                     class="dropdown-item fs-6"
                                     href="pages/account-settings.php"
                                 >My Account</a>
@@ -296,6 +307,14 @@
                                     class="dropdown-item fs-6"
                                     href="logout.php"
                                 >Logout</a>
+
+                                <?php } else { ?>
+                                <a
+                                    class="dropdown-item rounded fs-6  text-white "
+                                    style="background-color: #1877f2 !important;"
+                                    href="pages/signin.php"
+                                >LOGIN TO CONTINUE</a>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -366,7 +385,7 @@
     </div>
 
     <nav
-        class="navbar navbar-expand-lg navbar-light navbar-default py-0 pb-lg-4"
+        class=" bg-primary navbar navbar-expand-lg navbar-light navbar-default py-0 py-lg-2"
         aria-label="Offcanvas navbar large"
     >
         <div class="container">
@@ -530,14 +549,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="dropdown me-3 d-none d-lg-block">
+                    <div class="dropdown me-3 d-none d-lg-block ">
                         <button
-                            class="btn btn-primary px-6"
+                            class="btn btn-primary px-6 border border-white rounded-pill pr-5 overflow-hidden "
                             type="button"
                             id="dropdownMenuButton1"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
+
+
                             <span class="me-1">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -578,6 +599,11 @@
                                 </svg>
                             </span>
                             All Categories
+
+                            <span>
+
+                                <i class='bx bxs-chevron-down text-white '></i>
+                            </span>
                         </button>
 
 
@@ -615,32 +641,67 @@
                             <?php }
                             } ?>
                         </ul>
+
                     </div>
-                    <div class="">
-                        <ul class="navbar-nav align-items-center">
+                    <div class="col d-flex align-items-center justify-content-between h-100 text-white">
+                        <ul class="navbar-nav align-items-center justify-content-end text-white ">
+
+
+
+                            <li class="nav-item w-100 w-lg-auto mx-5  ">
+                                <a
+                                    class="nav-link text-white fw-bold"
+                                    href="pages/shop-grid.php?group=top-deals"
+                                >Top Deals</a>
+                            </li>
+
+
+                            <li class="nav-item w-100 w-lg-auto mx-5  ">
+                                <a
+                                    class="nav-link text-white fw-bold"
+                                    href="pages/shop-grid.php?group=featured-category"
+
+                                >Featured Category</a>
+                            </li>
+
+
+                            <li class="nav-item w-100 w-lg-auto mx-5 ">
+                                <a
+                                    class="nav-link text-white fw-bold"
+                                    href="pages/shop-grid.php?group=new_arrivals"
+
+                                >New Arrivals</a>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+                    <div class="col ">
+                        <ul class="navbar-nav align-items-center justify-content-end text-white ">
 
 
                             <?php if (isAdmin() || isAdmin() != null) { ?>
-                            <li class="nav-item w-100 w-lg-auto">
+                            <li class="nav-item w-100 w-lg-auto  ">
                                 <a
-                                    class="nav-link"
+                                    class="nav-link text-white fw-bold"
                                     href="dashboard/index.php"
                                 >Admin Dashboard</a>
                             </li>
 
                             <?php } ?>
                             <?php if (!if_Authenticated()) { ?>
-                            <li class="nav-item w-100 w-lg-auto">
+                            <li class="nav-item w-100 w-lg-auto  ">
                                 <a
-                                    class="nav-link"
+                                    class="nav-link text-white fw-bold"
                                     href="pages/signin.php"
                                 >Login</a>
                             </li>
 
                             <?php } else { ?>
-                            <li class="nav-item w-100 w-lg-auto">
+                            <li class="nav-item w-100 w-lg-auto ">
                                 <a
-                                    class="nav-link"
+                                    class="nav-link text-white fw-bold"
                                     href="logout.php"
                                 >Logout</a>
                             </li>
@@ -656,16 +717,21 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $('.dropdown-item').on('click', function(e) {
-            // Prevent the default behavior of the dropdown item
-            e.preventDefault();
-            
-            // Get the href attribute of the clicked dropdown item
-            var href = $(this).attr('href');
-            
-            // Navigate to the specified URL
-            window.location.href = href;
-        });
+document.addEventListener("DOMContentLoaded", function (){
+    var dropdownItems = document.querySelectorAll('.dropdown-item');
+
+// Iterate over each dropdown item and attach a click event listener
+dropdownItems.forEach(function(item) {
+    item.addEventListener('click', function(event) {
+        // Prevent the default behavior of the link
+        event.preventDefault();
+        
+        // Get the value of the "href" attribute of the clicked dropdown item
+        var href = item.getAttribute('href');
+        
+        // Navigate to the specified URL
+        window.location.href = href;
+    });
+});
     });
 </script>

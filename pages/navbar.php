@@ -181,21 +181,25 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-xxl-5 col-lg-5 d-none d-lg-block">
+                <div class="col-xxl-7 col-lg-5 d-none d-lg-block">
                     <form action="shop-grid.php">
-                        <div class="input-group">
+                        <div class="input-group rounded-pill border overflow-hidden">
                             <input
-                                class="form-control rounded"
+                                class="form-control border-0"
                                 type="search"
-                                value="<?php echo $_GET['query']??''?>"
-                                name = "query"
+                                name="query"
+                                value="<?php echo $_GET['query'] ?? '' ?>"
                                 placeholder="Search for products, brands or categories"
-
+                                style="background-color:#eeeeee50 !important"
                             />
-                            <span class="input-group-append">
+                            <span
+                                class="input-group-append border-0"
+                                style="background-color:#eeeeee50 !important"
+                            >
                                 <button
-                                    class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end"
+                                    class="btn bg-white border-0 border-start-0 ms-n10 rounded-0 rounded-end"
                                     type="button"
+                                    style="background-color:#eeeeee50 !important"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -229,17 +233,18 @@
 
                 <div class="col-lg-2 col-xxl-2 text-end col-md-6 col-7">
                     <div class="list-inline">
-                    
-                        <div class="list-inline-item me-5 dropdown"
-                        id="userDropdown"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false">
+
+                        <div
+                            class="list-inline-item me-5 dropdown"
+                            id="userDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
                             <a
                                 href="#"
                                 class="text-dark dropdown-toggle"
-                                id="userDropdown"
                                 role="button"
                                 data-bs-toggle="dropdown"
                                 aria-haspopup="true"
@@ -265,13 +270,22 @@
                                         r="4"
                                     ></circle>
                                 </svg>
+
+                                <?php if (if_Authenticated()) { ?>
                                 <span class="d-none d-md-inline"><?php echo "Hi " . $userFirstname ?></span>
+                                <?php } else { ?>
+                                <span class="d-none d-md-inline"><?php echo "Hello User" ?></span>
+
+                                <?php } ?>
+
                             </a>
                             <div
                                 class="dropdown-menu py-4 px-2"
                                 aria-labelledby="userDropdown"
                             >
-                                <a
+
+
+                                <?php if (if_Authenticated()) { ?> <a
                                     class="dropdown-item fs-6"
                                     href="account-settings.php"
                                 >My Account</a>
@@ -292,6 +306,14 @@
                                     class="dropdown-item fs-6"
                                     href="logout.php"
                                 >Logout</a>
+
+                                <?php } else { ?>
+                                <a
+                                    class="dropdown-item rounded fs-6  text-white "
+                                    style="background-color: #1877f2 !important;"
+                                    href="signin.php"
+                                >LOGIN TO CONTINUE</a>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -324,10 +346,19 @@
                                 <span
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
                                 >
-                                    <?php echo count($cartItems) ?>
+                                    <?php
+                                    $totalCartItems = 0;
+                                    foreach ($cartItems as $cartItemV) {
+                                        if (isset($cartItemV['quantity'])) {
+                                            if (is_numeric($cartItemV['quantity'])) {
+                                                $totalCartItems += $cartItemV['quantity'];
+                                            }
+                                        }
+                                    }
+                                    echo $totalCartItems ?>
 
                                 </span>
-                                
+
                             </a>
                             <span class="d-none d-md-inline">Cart</span>
                         </div>
@@ -362,7 +393,7 @@
     </div>
 
     <nav
-        class="navbar navbar-expand-lg navbar-light navbar-default py-0 pb-lg-4"
+        class="bg-primary navbar navbar-expand-lg navbar-light navbar-default py-0 py-lg-2"
         aria-label="Offcanvas navbar large"
     >
         <div class="container">
@@ -391,9 +422,8 @@
                                 <input
                                     class="form-control rounded"
                                     type="search"
-                                    value="<?php echo $_GET['query']??''?>"
+                                    value="<?php echo $_GET['query'] ?? '' ?>"
                                     placeholder="Search for products, brands or categories"
-
                                 />
                                 <span class="input-group-append">
                                     <button
@@ -511,13 +541,13 @@
 
                                             // Display the table row for each category
                                             ?>
-                                            <li><a
-                                                    class="dropdown-item"
-                                                    href="shop-grid.php?category=<?php echo $categoryName ?>"
-                                                ><?php echo $categoryName ?></a>
-                                            </li>
+                                    <li><a
+                                            class="dropdown-item"
+                                            href="shop-grid.php?category=<?php echo $categoryName ?>"
+                                        ><?php echo $categoryName ?></a>
+                                    </li>
 
-                                        <?php }
+                                    <?php }
                                     } ?>
                                 </ul>
                             </div>
@@ -525,12 +555,14 @@
                     </div>
                     <div class="dropdown me-3 d-none d-lg-block">
                         <button
-                            class="btn btn-primary px-6"
+                            class="btn btn-primary px-6 border border-white rounded-pill pr-5 overflow-hidden "
                             type="button"
                             id="dropdownMenuButton1"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
+
+
                             <span class="me-1">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -571,6 +603,11 @@
                                 </svg>
                             </span>
                             All Categories
+
+                            <span>
+
+                                <i class='bx bxs-chevron-down text-white '></i>
+                            </span>
                         </button>
 
 
@@ -579,7 +616,7 @@
                             aria-labelledby="dropdownMenuButton1"
                         >
                             <?php
-                            
+
                             // Check if the categories array is not empty
                             if (count($Allcategories) > 0) {
                                 // Loop through the categories array
@@ -601,43 +638,79 @@
 
                                     // Display the table row for each category
                                     ?>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-grid.php?category=<?php echo $categoryName ?>"
-                                        ><?php echo $categoryName ?></a></li>
+                            <li><a
+                                    class="dropdown-item"
+                                    href="shop-grid.php?category=<?php echo $categoryName ?>"
+                                ><?php echo $categoryName ?></a></li>
 
-                                <?php }
+                            <?php }
                             } ?>
                         </ul>
                     </div>
-                    <div class="">
-                        <ul class="navbar-nav align-items-center">
+
+                    <div class="col d-flex align-items-center justify-content-between h-100 text-white">
+                        <ul class="navbar-nav align-items-center justify-content-end text-white ">
+
+
+
+                            <li class="nav-item w-100 w-lg-auto mx-5  ">
+                                <a
+                                    class="nav-link text-white fw-bold"
+                                    href="shop-grid.php?group=top-deals"
+                                >Top Deals</a>
+                            </li>
+
+
+                            <li class="nav-item w-100 w-lg-auto mx-5  ">
+                                <a
+                                    class="nav-link text-white fw-bold"
+                                    href="shop-grid.php?group=featured-category"
+                                >Featured Category</a>
+                            </li>
+
+
+                            <li class="nav-item w-100 w-lg-auto mx-5 ">
+                                <a
+                                    class="nav-link text-white fw-bold"
+                                    href="shop-grid.php?group=new_arrivals"
+                                >New Arrivals</a>
+                            </li>
+
+
+
+
+                        </ul>
+                    </div>
+
+
+                    <div class="col">
+                        <ul class="navbar-nav align-items-center justify-content-end text-white ">
 
 
                             <?php if (isAdmin() || isAdmin() != null) { ?>
-                                <li class="nav-item w-100 w-lg-auto">
-                                    <a
-                                        class="nav-link"
-                                        href="dashboard/index.php"
-                                    >Admin Dashboard</a>
-                                </li>
+                            <li class="nav-item w-100 w-lg-auto">
+                                <a
+                                    class="nav-link  text-white fw-bold"
+                                    href="dashboard/index.php"
+                                >Admin Dashboard</a>
+                            </li>
 
                             <?php } ?>
                             <?php if (!if_Authenticated()) { ?>
-                                <li class="nav-item w-100 w-lg-auto">
-                                    <a
-                                        class="nav-link"
-                                        href="signin.php"
-                                    >Login</a>
-                                </li>
+                            <li class="nav-item w-100 w-lg-auto">
+                                <a
+                                    class="nav-link  text-white fw-bold"
+                                    href="signin.php"
+                                >Login</a>
+                            </li>
 
                             <?php } else { ?>
-                                <li class="nav-item w-100 w-lg-auto">
-                                    <a
-                                        class="nav-link"
-                                        href="logout.php"
-                                    >Logout</a>
-                                </li>
+                            <li class="nav-item w-100 w-lg-auto">
+                                <a
+                                    class="nav-link  text-white fw-bold"
+                                    href="logout.php"
+                                >Logout</a>
+                            </li>
 
                             <?php } ?>
 
@@ -650,16 +723,47 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $('.dropdown-item').on('click', function(e) {
-            // Prevent the default behavior of the dropdown item
-            e.preventDefault();
-            
-            // Get the href attribute of the clicked dropdown item
-            var href = $(this).attr('href');
-            
+<?php
+if ($isHomePath) {
+    $cartPage = "pages/php/cart/store.php";
+    $loginPath = "pages/signin.php";
+} else {
+    $cartPage = "php/cart/store.php";
+    $loginPath = "signin.php";
+
+}
+$isloggedIn = if_Authenticated();
+?>
+
+<?php
+  $isloggedIn = isset($isloggedIn) ? $isloggedIn : false;
+  ?>
+
+const isloggedIn = <?php echo json_encode($isloggedIn); ?>;
+
+
+
+var loginPath = '<?php echo ($loginPath); ?>'
+userId = '<?php echo $userId; ?>'
+let payloadRequest = <?php echo json_encode($payloadRequest); ?>
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var dropdownItems = document.querySelectorAll('.dropdown-item');
+
+    // Iterate over each dropdown item and attach a click event listener
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function(event) {
+            // Prevent the default behavior of the link
+            event.preventDefault();
+
+            // Get the value of the "href" attribute of the clicked dropdown item
+            var href = item.getAttribute('href');
+
             // Navigate to the specified URL
             window.location.href = href;
         });
     });
+});
 </script>

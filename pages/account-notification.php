@@ -9,7 +9,10 @@ include_once('header.php')
 
 <body>
     <!-- navbar -->
-    <?php include_once('navbar.php')?>
+    <?php include_once('php/profile/fetchAll.php'); ?>
+        <?php include_once('php/category/fetchAll.php'); ?>
+        <?php include_once('php/cart/fetchAll.php') ?>
+        <?php include_once('navbar.php') ?>
       <!-- Modal -->
       <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-dialog-centered">
@@ -56,10 +59,7 @@ include_once('header.php')
 
   
 
-    <!-- OffCart Canvas -->
-    <?php include_once('offcart.php')?>
-
-
+ 
 
       <!-- Modal -->
       <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
@@ -202,7 +202,7 @@ include_once('header.php')
                            </li>
                            <!-- nav item -->
                            <li class="nav-item">
-                              <a class="nav-link" href="../index.php">
+                              <a class="nav-link" href="logout.php">
                                  <i class="feather-icon icon-log-out me-2"></i>
                                  Log out
                               </a>

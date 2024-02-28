@@ -7,7 +7,7 @@ use Httpful\Request;
 
 $cartId = $_GET['id'];
 
-$response = Request::delete($apiUrl . 'carts/delete/' . $cartId)
+$response = Request::delete($apiUrl . 'carts/delete/' . $cartId.'/'.$userId)
     ->sendsJson()
     ->addHeaders($payloadRequest)
     ->send();

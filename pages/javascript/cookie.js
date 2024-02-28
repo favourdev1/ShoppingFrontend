@@ -10,3 +10,5 @@ function getCookie(key) {
     return null;
 }
 
+
+

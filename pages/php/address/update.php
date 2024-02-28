@@ -2,10 +2,10 @@
 
 use Httpful\Request;
 
-$cartItems=[];
+$allAddresses=[];
 
 // Make a GET request to your API endpoint for a specific product
-$response = Request::get($apiUrl . '/carts/')
+$response = Request::get($apiUrl . '/addresses/')
     ->addHeaders($payloadRequest)
 
     ->send();
@@ -19,13 +19,11 @@ $responseData = $response->body;
 
 if ($statusCode === 200) {
     // Decode the JSON response
-    $cartItems = json_decode(json_encode($responseData), true)['data'];
+    $allAddresses = json_decode(json_encode($responseData), true)['data']['addresses'];
     // Print or use the retrieved product data
     // echo "<pre>";
 
-    // print_r($cartItems);
-
-    
+    // print_r($allAddresses);
     // echo "</pre>";
 
     // die;

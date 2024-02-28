@@ -144,19 +144,19 @@
             text-overflow: ellipsis;"
                                 id="modal_ProductName"
                             ></h2>
-                            <!-- <div class="mb-4">
-                                        <small class="text-warning">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-half"></i>
-                                        </small>
-                                        <a
-                                            href="#"
-                                            class="ms-2"
-                                        >(30 reviews)</a>
-                                    </div> -->
+                            <div class="mb-4">
+                                <small class="text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </small>
+                                <a
+                                    href="#"
+                                    class="ms-2"
+                                >(30 reviews)</a>
+                            </div>
                             <div class="fs-4">
                                 <span
                                     class="fw-bold text-dark"
@@ -172,21 +172,7 @@
                                         id="discount"
                                     ></small></span>
                             </div>
-                            <!-- <hr class="my-6" /> -->
-                            <!-- <div class="mb-4">
-                                        <button
-                                            type="button"
-                                            class="btn btn-outline-secondary"
-                                        >250g</button>
-                                        <button
-                                            type="button"
-                                            class="btn btn-outline-secondary"
-                                        >500g</button>
-                                        <button
-                                            type="button"
-                                            class="btn btn-outline-secondary"
-                                        >1kg</button>
-                                    </div> -->
+
                             <div>
                                 <!-- input -->
                                 <!-- input -->
@@ -247,23 +233,23 @@
                                     ><i class="feather-icon icon-heart"></i></a>
                                 </div>
                             </div>
-                            <!-- <hr class="my-6" />
-                                    <div>
-                                        <table class="table table-borderless">
-                                            <tbody>
+                            <hr class="my-6" />
+                            <div>
+                                <table class="table table-borderless">
+                                    <tbody>
 
-                                                <tr>
-                                                    <td>Availability:</td>
-                                                    <td id="modal_Status">In Stock</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Type:</td>
-                                                    <td id="modal_Category"></td>
-                                                </tr>
+                                        <tr>
+                                            <td>Availability:</td>
+                                            <td id="modal_Status">In Stock</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Type:</td>
+                                            <td id="modal_Category"></td>
+                                        </tr>
 
-                                            </tbody>
-                                        </table>
-                                    </div> -->
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -414,20 +400,34 @@ function showQuickView(element) {
     })
 
 }
-<?php if ($isHomePath) {
+
+
+<?php 
+if ($isHomePath) {
     $cartPage = "pages/php/cart/store.php";
     $loginPath = "pages/signin.php";
 } else {
     $cartPage = "php/cart/store.php";
     $loginPath = "signin.php";
 
-} ?>
+}
+$isloggedIn = if_Authenticated(); 
+?>
 
 function submitModalForm(productId) {
+
+    var isloggedIn = <?php echo json_encode($isloggedIn); ?>;
+    if (!isloggedIn) {
+        window.location.href = "<?php echo $loginPath ?>"
+    }
     // Construct the data as an object
     var formData = new FormData();
+    // Get the value of the input field with id "modal_quantity"
+    var quantity_value = document.getElementById('modal_quantity').value;
+
+
     formData.append('product_id', productId);
-    formData.append('quantity', $('#modal_quantity').val());
+    formData.append('quantity', quantity_value);
 
     console.log(formData);
 

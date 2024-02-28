@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php
-    // require_once 'vendor/autoload.php'; ?>
+    // require_once 'vendor/autoload.php';                   ?>
     <?php $productName = $_GET['productName'] ?? 'Product Details';
     $pageName = $productName . " | Sosmart Online shopping and more! "; ?>
     <?php include_once('header.php') ?>
@@ -21,7 +21,7 @@
         if (!isset($_GET['id'])) {
             header('Location: 404error.php');
         }
-        $getId = $_GET['id'];?>
+        $getId = $_GET['id']; ?>
         <?php include_once('php/profile/fetchAll.php'); ?>
 
         <?php include_once('php/category/fetchAll.php'); ?>
@@ -32,49 +32,11 @@
         <?php include_once('navbar.php') ?>
 
 
-        <!-- Modal -->
-        <div
-            class="modal fade"
-            id="locationModal"
-            tabindex="-1"
-            aria-labelledby="locationModalLabel"
-            aria-hidden="true"
-        >
-            <div class="modal-dialog modal-sm modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body p-6">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h5
-                                    class="mb-1"
-                                    id="locationModalLabel"
-                                >Choose your Delivery Location</h5>
-                                <p class="mb-0 small">Enter your address and we will specify the offer you area.</p>
-                            </div>
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                            ></button>
-                        </div>
-                        <div class="my-5">
-                            <input
-                                type="search"
-                                class="form-control"
-                                placeholder="Search your area"
-                            />
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <script src="../assets/js/vendors/validation.js"></script>
 
         <main>
+            <?php include_once('components/loadingDialog.php') ?>
 
             <section class="mt-8">
                 <div class="container">
@@ -91,7 +53,7 @@
                                     style="background-image: url(<?php echo $productImg1 ?>); background-repeat:no-repeat"
                                 >
                                     <!-- img -->
-                                    <!-- img -->
+
                                     <img
                                         src="<?php echo $productImg1 ?>"
                                         alt=""
@@ -194,15 +156,15 @@
                                 <small class="text-muted d-flex align-items-center">
                                     <div class="d-flex align-items-center justify-content-start">
                                         <?php if (is_array($tags)) { ?>
-                                            <span class="text-muted fw-bold">Tags:</span>
-                                            <?php foreach ($tags as $tag): ?>
-                                                <a
-                                                    href="shop-grid.php?search=<?= $tag->value ?>"
-                                                    class="ps-2 text-muted text-decoration-underline"
-                                                >
-                                                    <?= $tag->value ?>
-                                                </a>
-                                            <?php endforeach;
+                                        <span class="text-muted fw-bold">Tags:</span>
+                                        <?php foreach ($tags as $tag): ?>
+                                        <a
+                                            href="shop-grid.php?search=<?= $tag->value ?>"
+                                            class="ps-2 text-muted text-decoration-underline"
+                                        >
+                                            <?= $tag->value ?>
+                                        </a>
+                                        <?php endforeach;
                                         } ?>
 
                                     </div>
@@ -221,13 +183,18 @@
                                         href="#"
                                         class="ms-2"
                                     >(0 reviews)</a>
+                                    <span class="ps-3 text-muted pb-0">(<?php echo $quantityInStock; ?> available)</p>
+                                    </span>
+
                                 </div>
+
+
                                 <div class="fs-4 fw-bold">
                                     <!-- price -->
                                     <?php if (!empty($regularPrice)) { ?>
 
-                                        <span
-                                            class="text-decoration-line-through text-muted"><?php echo CURRENCY . number_format($regularPrice) ?></span>
+                                    <span
+                                        class="text-decoration-line-through text-muted"><?php echo CURRENCY . number_format($regularPrice) ?></span>
 
                                     <?php } ?>
                                     <span class="text-dark"><?php echo CURRENCY . number_format($salesPrice) ?></span>
@@ -235,80 +202,7 @@
                                 </div>
                                 <!-- hr -->
                                 <hr class="my-6" />
-                                <div class="mb-5">
-                                    <button
-                                        type="button"
-                                        class="btn btn-outline-secondary"
-                                    >250g</button>
-                                    <!-- btn -->
-                                    <button
-                                        type="button"
-                                        class="btn btn-outline-secondary"
-                                    >500g</button>
-                                    <!-- btn -->
-                                    <button
-                                        type="button"
-                                        class="btn btn-outline-secondary"
-                                    >1kg</button>
-                                </div>
-                                <div>
-                                    <!-- input -->
-                                    <div class="input-group input-spinner ">
-                                        <input
-                                            type="button"
-                                            value="-"
-                                            class="button-minus btn btn-sm"
-                                            data-field="quantity"
-                                        />
-                                        <input
-                                            type="number"
-                                            step="1"
-                                            max="10"
-                                            value="1"
-                                            name="quantity"
-                                            class="quantity-field form-control-sm form-input"
-                                        />
-                                        <input
-                                            type="button"
-                                            value="+"
-                                            class="button-plus btn btn-sm"
-                                            data-field="quantity"
-                                        />
-                                        <p class="ps-3 text-muted pb-0">(<?php echo $quantityInStock; ?> available)</p>
-                                    </div>
-                                </div>
-                                <div class="mt-3 row justify-content-start g-2 align-items-center">
-                                    <div class="col-xxl-4 col-lg-4 col-md-5 col-5 d-grid">
-                                        <!-- button -->
-                                        <!-- btn -->
-                                        <button
-                                            type="button"
-                                            class="btn btn-primary"
-                                        >
-                                            <i class="feather-icon icon-shopping-bag me-2"></i>
-                                            Add to cart
-                                        </button>
-                                    </div>
-                                    <div class="col-md-4 col-4">
-                                        <!-- btn -->
-                                        <a
-                                            class="btn btn-light"
-                                            href="#"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-html="true"
-                                            aria-label="Compare"
-                                        ><i class="bi bi-arrow-left-right"></i></a>
-                                        <a
-                                            class="btn btn-light"
-                                            href="shop-wishlist.php"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-html="true"
-                                            aria-label="Wishlist"
-                                        ><i class="feather-icon icon-heart"></i></a>
-                                    </div>
-                                </div>
-                                <!-- hr -->
-                                <hr class="my-6 mb-3" />
+
                                 <div>
                                     <!-- table -->
                                     <table class="table table-borderless mb-0 ps-0">
@@ -337,6 +231,130 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+
+
+
+                                <div>
+                                    <!-- input -->
+                                    <div class="input-group input-spinner ">
+                                        <!-- <input
+                                            type="button"
+                                            value="-"
+                                            class="button-minus btn btn-sm"
+                                            name="product_id"
+                                        />
+                                        <input
+                                            type="number"
+                                            step="1"
+                                            max="10"
+                                            value="1"
+                                            name="quantity"
+                                            class="quantity-field form-control-sm form-input"
+                                        />
+                                        <input
+                                            type="button"
+                                            value="+"
+                                            class="button-plus btn btn-sm"
+                                            data-field="quantity"
+                                        /> -->
+                                    </div>
+                                </div>
+
+
+                                <div class="mt-3 row justify-content-start g-2 align-items-center">
+
+
+                                    <div class="col-xxl-3 col-lg-3 col-md-3 col-5 d-grid">
+                                        <!-- button -->
+                                        <!-- btn -->
+                                        <?php
+                                        function checkIfIdExists($targetId, $products)
+                                        {
+                                            return in_array($targetId, array_column($products, 'id'));
+                                        }
+
+
+
+                                        if (!checkIfIdExists($getId, $cartItems)) {
+
+                                            ?>
+
+                                        <button
+                                            type="button"
+                                            class="btn btn-primary"
+                                            id="addTocartPageButton"
+                                        >
+                                            <i class="feather-icon icon-shopping-bag me-2"></i>
+                                            Add to cart
+                                        </button>
+
+                                        <?php
+
+                                        } else { ?>
+                                        <div
+                                            class="input-group input-spinner  mb-3  h-100 "
+                                            style="width:max-content"
+                                        >
+                                            <input
+                                                type="button"
+                                                value="-"
+                                                class="button-minus btn btn-sm text-white h-100 rounded-3"
+                                                data-field="quantity"
+                                                style="background:#0d6efd; width:2.4rem !important"
+                                            />
+                                            <?php
+                                                    $cartQuantity = 1; //set default value to 1
+                                                    foreach ($cartItems as $cart) {
+                                                        if ($cart['id'] == $getId) {
+                                                            $cartQuantity = $cart['quantity'];
+                                                            break;
+                                                        }
+                                                    }
+
+
+                                                    ?>
+
+
+                                            <input
+                                                type="number"
+                                                step="1"
+                                                max="10"
+                                                value="<?= $cartQuantity ?>"
+                                                name="quantity"
+                                                class="quantity-field form-control-sm form-input border-0 mx-4"
+                                            />
+                                            <input
+                                                type="button"
+                                                value="+"
+                                                class="button-plus btn btn-sm  text-white h-100 rounded-3"
+                                                data-field="quantity"
+                                                style="background:#0d6efd; width:2.4rem !important"
+                                            />
+
+                                        </div>
+
+
+                                        <?php }
+                                        ?>
+                                    </div>
+                                    <div class="col">
+
+                                        <a
+                                            class="btn btn-light"
+                                            href="shop-wishlist.php"
+                                            data-bs-toggle="tooltip"
+                                            data-bs-html="true"
+                                            aria-label="Wishlist"
+                                        ><i class="feather-icon icon-heart"></i></a>
+                                    </div>
+
+
+
+                                </div>
+                                <!-- hr -->
+                                <hr class="my-6 mb-3" />
+
                                 <div class="mt-8">
                                     <!-- dropdown -->
                                     <div class="dropdown">
@@ -453,11 +471,11 @@
                                         <?= $description ?>
                                         <div
                                             class=" alert alert-warning"
-                                            style="" ">
+                                            style=""
+                                        >
                                             <h5 class="
                                             mb-1
-                                            small"
-                                        >Disclaimer</h5>
+                                            small">Disclaimer</h5>
                                             <p class="mb-0 small">
                                                 Image shown is a representation and may slightly vary from the actual
                                                 product. Every effort is made to maintain accuracy of all information
@@ -954,8 +972,7 @@
         <!-- footer -->
         <?php include_once('footer.php') ?>
 
-        <!-- QUick view modal -->
-        <?php include_once('components/quickview.php') ?>
+
 
         <!-- Javascript-->
         <script src="../assets/libs/rater-js/index.js"></script>
@@ -973,6 +990,55 @@
         <script src="../assets/js/vendors/tns-slider.js"></script>
         <script src="../assets/js/vendors/zoom.js"></script>
         <script src="../assets/js/vendors/dropzone.js"></script>
+        <script src="javascript/main.js"></script>
+
+        <?php
+        $isloggedIn = isset($isloggedIn) ? $isloggedIn : false;
+        ?>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // button add to cart clicked 
+
+            <?php if (!checkIfIdExists($getId, $cartItems)) { ?>
+            var addTocartPageButton = document.getElementById('addTocartPageButton');
+            addTocartPageButton.addEventListener('click', function() {
+                addToCart(<?php echo $getId; ?>, 1, true)
+            })
+
+            <?php } ?>
+
+
+            const productId = new URLSearchParams(window.location.search).get('id');
+
+            // Get the quantity field and add and minus buttons
+            const quantityField = document.querySelector('.quantity-field');
+            const buttonPlus = document.querySelector('.button-plus');
+            const buttonMinus = document.querySelector('.button-minus');
+
+            // Add event listener for the plus button
+            buttonPlus.addEventListener('click', function() {
+
+                let quantity = parseInt(quantityField.value) + 1
+
+                addToCart(productId, quantity);
+            });
+
+            // Add event listener for the minus button
+            buttonMinus.addEventListener('click', function() {
+                // Decrement the quantity value
+                let quantity = parseInt(quantityField.value) - 1
+                if (quantity < 1) {
+                    addToCart(productId, quantity, true);
+
+                } else {
+                    addToCart(productId, quantity);
+
+                }
+
+            });
+
+        })
+        </script>
     </body>
 
 </html>

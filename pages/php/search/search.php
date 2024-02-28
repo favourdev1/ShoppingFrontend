@@ -10,6 +10,8 @@ $category = "category=" . (isset($_GET['category']) ? urlencode($_GET['category'
 $min_price  = "min_price=" . (isset($_GET['min_price']) ? urlencode($_GET['min_price']) : '');
 $max_price  = "max_price=" . (isset($_GET['max_price']) ? urlencode($_GET['max_price']) : '');
 
+$group="group=".(isset($_GET['group']) ? urlencode($_GET['group']) :'');
+
 
 
 $query = '';
@@ -34,6 +36,9 @@ if($max_price   !=='max_price='){
     $query .= ($query==''?'':"&").$max_price;
 }
 
+if($group !== 'group='){
+    $query .=($query ==''?'':'&').$group;
+}
 
 // echo "<BR>";
 

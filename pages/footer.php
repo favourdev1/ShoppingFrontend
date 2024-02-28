@@ -1,3 +1,7 @@
+
+    <!-- QUick view modal -->
+    <?php include_once('components/quickview.php') ?>
+
 <footer class="footer">
          <div class="container">
             <div class="row g-4 py-4">

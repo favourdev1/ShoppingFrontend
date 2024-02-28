@@ -3,42 +3,22 @@
 <?php $pageName="Create an account -Sosmart online shopping and more!";
  include_once('header.php')?>
 
-    <body>
-        <!-- navigation -->
-        <div class="border-bottom shadow-sm">
-            <nav class="navbar navbar-light py-2">
-                <div class="container justify-content-center justify-content-lg-between">
-                    <a
-                        class="navbar-brand"
-                        href="../index.php"
-                    >
-                        <img
-                            src="../assets/images/logo/"
-                            alt=""
-                            class="d-inline-block align-text-top"
-                        />
-                    </a>
-                    <span class="navbar-text">
-                        Already have an account?
-                        <a href="signin.php">Sign in</a>
-                    </span>
-                </div>
-            </nav>
-        </div>
+<body class="d-flex align-items-center justify-content-center">
+     
 
-        <main class="border-bottom">
+        <div class="vh-100 d-flex align-items-center ">
             <!-- section -->
 
-            <section class="my-lg-14 my-8 ">
+            <section class=" my-8 ">
                 <!-- container -->
                 <div class="container">
                     <!-- row -->
                     <div class="row justify-content-center align-items-center">
                       
                         <!-- col -->
-                        <div class="col-12 col-md-6 col-lg-5 offset-lg-1 col-lg-4 order-lg-2 order-1 ">
+                        <div class="col-12 col-md-6 offset-lg-1 col-lg-4 order-lg-2 order-1">
                             <div class="mb-lg-9 mb-5 text-center">
-                                <h1 class="mb-1 h2 fw-bold">Get Start Shopping</h1>
+                                <h1 class="mb-1 h2 fw-bold">Get Started Shopping</h1>
                                 <p>Welcome to Sosmart! Enter your email to get started.</p>
                             </div>
                             <!-- form -->
@@ -132,6 +112,11 @@
                                             class="btn btn-primary"
                                         >Create New Account </button></div>
 
+
+                                        <div class="text-center">
+                                       Already have an account?
+                                        <a href="signin.php">Sign In</a>
+                                    </div>
                                     <!-- text -->
                                     <p class="text-center">
                                         <small class="text-center">
@@ -147,14 +132,9 @@
                     </div>
                 </div>
             </section>
-        </main>
-
-        <!-- Footer -->
-        <!-- footer -->
-        <?php include_once('footer.php')?>
+        </d>
 
         <!-- Javascript-->
-        <!-- Libs JS -->
         <!-- <script src="../assets/libs/jquery/dist/jquery.min.js"></script> -->
         <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
