@@ -1,5 +1,10 @@
 <head>
 
+
+
+
+
+
     <?php $apiUrl = "http://localhost:8000/api" ?>
     <?php include_once('pages/php/config.php') ?>
     <!-- Required meta tags -->

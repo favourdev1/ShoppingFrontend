@@ -9,8 +9,8 @@ use Httpful\Request;
 $response = Request::get($apiUrl . '/products/discountproduct')
     ->addHeaders($payloadRequest)
     ->send();
-
-// Check the HTTP status code
+try{
+    // Check the HTTP status code
 if ($response->code < 300) {
     // Decode the JSON response
     $discountProducts = json_decode(json_encode($response->body), true);
@@ -25,15 +25,18 @@ if ($response->code < 300) {
     // echo"</pre>";
     // die;
 } else {
-    // Decode the JSON error response
     $responseBody = $response->body;
     // $errorBody = json_decode($response->body, true);
 
     // Output the error details
     // echo "Error Status Code: {$response->code}\n";
    print_r($responseBody);
-   exit;
+//    exit;
 }
 
+} catch (\Exception $e) {
+    echo $e->getMessage();
+
+}
 
 ?>

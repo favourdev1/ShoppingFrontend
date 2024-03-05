@@ -16,7 +16,7 @@
                                 <svg
                                     width="16"
                                     height="13"
-                                    viewBox="0 0 16 13"
+                                viewBox="0 0 16 13"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
                                 >
@@ -165,7 +165,7 @@
                         href="index-2.html"
                     >
                         <img
-                            src="assets/images/logo/"
+                                src="assets/images/logo/sosmart-logo.png" height="40" class=""
                             alt="Sosmart Logo"
                         />
                     </a>
@@ -175,7 +175,7 @@
                             href="index-2.html"
                         >
                             <img
-                                src="assets/images/logo/"
+                                    src="assets/images/logo/sosmart-logo.png" height="40" class=""
                                 alt="Sosmart Logo"
                             />
                         </a>
@@ -236,7 +236,6 @@
 
                         <div
                             class="list-inline-item me-5 dropdown"
-                          
                             role="button"
                             data-bs-toggle="dropdown"
                             aria-haspopup="true"
@@ -397,7 +396,7 @@
             >
                 <div class="offcanvas-header pb-1">
                     <a href="index-2.html"><img
-                            src="assets/images/logo/"
+                                src="assets/images/logo/sosmart-logo.png" height="40" class=""
                             alt="Sosmart Logo"
                         /></a>
                     <button
@@ -660,7 +659,6 @@
                                 <a
                                     class="nav-link text-white fw-bold"
                                     href="pages/shop-grid.php?group=featured-category"
-
                                 >Featured Category</a>
                             </li>
 
@@ -669,7 +667,6 @@
                                 <a
                                     class="nav-link text-white fw-bold"
                                     href="pages/shop-grid.php?group=new_arrivals"
-
                                 >New Arrivals</a>
                             </li>
 
@@ -717,21 +714,21 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function (){
-    var dropdownItems = document.querySelectorAll('.dropdown-item');
+    document.addEventListener("DOMContentLoaded", function () {
+        var dropdownItems = document.querySelectorAll('.dropdown-item');
 
-// Iterate over each dropdown item and attach a click event listener
-dropdownItems.forEach(function(item) {
-    item.addEventListener('click', function(event) {
-        // Prevent the default behavior of the link
-        event.preventDefault();
-        
-        // Get the value of the "href" attribute of the clicked dropdown item
-        var href = item.getAttribute('href');
-        
-        // Navigate to the specified URL
-        window.location.href = href;
-    });
-});
+        // Iterate over each dropdown item and attach a click event listener
+        dropdownItems.forEach(function (item) {
+            item.addEventListener('click', function (event) {
+                // Prevent the default behavior of the link
+                event.preventDefault();
+
+                // Get the value of the "href" attribute of the clicked dropdown item
+                var href = item.getAttribute('href');
+
+                // Navigate to the specified URL
+                window.location.href = href;
+            });
+        });
     });
 </script>

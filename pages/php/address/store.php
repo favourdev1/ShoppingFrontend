@@ -26,7 +26,7 @@ if (isset($userId) && !empty($userId)) {
         $data = $_POST;
 
 print_r($data);
-die;
+
 
         $response = Request::post($apiUrl . 'address/add/' . $userId)
             ->sendsJson()

@@ -1,5 +1,3 @@
-
-
 const signupForm = document.getElementById('signupform')
 const formData = new FormData(signupForm);
 const alertHub = new AlertHub();
@@ -8,23 +6,23 @@ errorEl.style.display = "none"
 
 
 // Append your form data
-signupForm.addEventListener("submit", function (event) {
+signupForm.addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent the default form submission
     errorEl.style.display = "none"
 
     const formData = new FormData(event.target);
 
-    axios.post(apiUrl + "signup", formData, {
-        headers: {
-            // 'Accept': 'application/json',
-        }
-    })
+    axios.post(apiUrl + "register", formData, {
+            headers: {
+                // 'Accept': 'application/json',
+            }
+        })
         .then(response => {
             // console.log("Response Data:", response.data);
             var message = response.data.message
             var token = response.data.token
             errorEl.style.display = "none"
-            // sessionStorage.setItem('token', token)
+                // sessionStorage.setItem('token', token)
 
             alertHub.showAlert({
                 title: "",
@@ -63,7 +61,7 @@ signupForm.addEventListener("submit", function (event) {
 
                 }
 
-              
+
                 alertHub.showAlert({
                     title: "",
                     description: error.response.data.message + "    ",

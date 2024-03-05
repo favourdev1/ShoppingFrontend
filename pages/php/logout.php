@@ -1,6 +1,7 @@
 <?php
 
-require_once '../vendor/autoload.php';
+require_once '../..//vendor/autoload.php';
+include_once('auth.php');
 // Include the Guzzle library
 
 use GuzzleHttp\Client;
@@ -13,7 +14,7 @@ $client = new Client();
      
 
         // Make a GET request to your API endpoint for a specific category
-        $response = $client->get( $apiUrl . '/logout/' , [
+        $response = $client->get( $apiUrl . 'logout/' , [
             'headers' => [
                 'Accept' => '*/*',
                 'Cookie' => 'access_token=' . $token,

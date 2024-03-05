@@ -59,8 +59,7 @@ include_once('header.php')
          </div>
       </div>
 
-      <!-- OffCart Canvas -->
-      <?php include_once('offcart.php') ?>
+    
 
 
 

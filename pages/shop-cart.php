@@ -31,7 +31,7 @@
             <?php include_once('components/loadingDialog.php') ?>
 
             <!-- section -->
-            <section class="mb-lg-14 mb-8 mt-8">
+            <section class="pb-lg-14 pb-8 border-bottom mt-8" style="min-height:60dvh">
                 <div class="container">
                     <!-- row -->
                     <div class="row">
@@ -49,7 +49,7 @@
                         <div class="col-lg-8 col-md-7">
                             <div class="py-0">
                                 <!-- alert -->
-                                <div
+                                <!-- <div
                                     class="alert alert-secondary p-2"
                                     role="alert"
                                 >
@@ -58,7 +58,7 @@
                                         href="#!"
                                         class="alert-link"
                                     >checkout now!</a>
-                                </div>
+                                </div> -->
                                 <ul class="list-group list-group-flush">
                                     <!-- list group -->
 
@@ -90,13 +90,13 @@
                                             $cartImg5 = $cart['product_img5'];
                                             $cartweight = $cart['weight'];
                                             $tax = $cart['tax'];
-                                            $shippingFee = $cart['shipping_cost'];
+                                            // $shippingFee = $cart['shipping_cost'];
                                             $quantityInStock = $cart['quantity_in_stock'];
                                             $cartItemQuantity = $cart['quantity'];
                                             $cartSalesPrice = $cart['sales_price'];
                                             $subTotalPrice += $cartSalesPrice * $cartItemQuantity;
                                             $totalTax += $tax + $totalTax;
-                                            $totalShippingFee += $shippingFee + $totalShippingFee;
+                                            // $totalShippingFee += $shippingFee + $totalShippingFee;
                                             ?>
 
                                     <li class="list-group-item py-3 ps-0 border-top">
@@ -235,7 +235,6 @@
                                                 </div>
                                                 <span><?php echo CURRENCY . number_format($totalShippingFee) ?></span>
                                             </li>
-
 
                                             <li
                                                 class="list-group-item d-flex justify-content-between align-items-start">

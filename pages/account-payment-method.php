@@ -56,7 +56,6 @@ include_once('header.php')
       </div>
 
        <!-- OffCart Canvas -->
-       <?php include_once('offcart.php')?>
 
 
       <!-- Modal -->

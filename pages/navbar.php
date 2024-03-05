@@ -165,7 +165,7 @@
                         href="../index.php"
                     >
                         <img
-                            src="assets/images/logo/"
+                            src="../assets/images/logo/sosmart-logo.png" height="40" class=""
                             alt="Sosmart Logo"
                         />
                     </a>
@@ -175,7 +175,7 @@
                             href="../index.php"
                         >
                             <img
-                                src="assets/images/logo/"
+                                src="../assets/images/logo/sosmart-logo.png" height="40" class=""
                                 alt="Sosmart Logo"
                             />
                         </a>
@@ -291,7 +291,7 @@
                                 >My Account</a>
                                 <a
                                     class="dropdown-item fs-6"
-                                    href="#"
+                                    href="account-orders.php"
                                 >Orders</a>
                                 <a
                                     class="dropdown-item fs-6"
@@ -299,12 +299,12 @@
                                 >Inbox</a>
                                 <a
                                     class="dropdown-item fs-6"
-                                    href="#"
+                                    href="shop-wishlist.php"
                                 >Saved Items</a>
                                 <hr>
                                 <a
                                     class="dropdown-item fs-6"
-                                    href="logout.php"
+                                    href="php/logout.php"
                                 >Logout</a>
 
                                 <?php } else { ?>
@@ -405,7 +405,7 @@
             >
                 <div class="offcanvas-header pb-1">
                     <a href="../index.php"><img
-                            src="assets/images/logo/"
+                            src="../assets/images/logo/sosmart-logo.png" height="40" class=""
                             alt="Sosmart Logo"
                         /></a>
                     <button
@@ -708,7 +708,7 @@
                             <li class="nav-item w-100 w-lg-auto">
                                 <a
                                     class="nav-link  text-white fw-bold"
-                                    href="logout.php"
+                                    href="php/logout.php"
                                 >Logout</a>
                             </li>
 
