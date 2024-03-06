@@ -162,7 +162,7 @@
                 <div class="col-xxl-2 col-lg-3 col-md-6 col-5">
                     <a
                         class="navbar-brand d-none d-lg-block"
-                        href="index-2.html"
+                        href="index.php"
                     >
                         <img
                                 src="assets/images/logo/sosmart-logo.png" height="40" class=""
@@ -172,7 +172,7 @@
                     <div class="d-flex justify-content-between w-100 d-lg-none">
                         <a
                             class="navbar-brand"
-                            href="index-2.html"
+                            href="index.php"
                         >
                             <img
                                     src="assets/images/logo/sosmart-logo.png" height="40" class=""
@@ -291,7 +291,7 @@
                                 >My Account</a>
                                 <a
                                     class="dropdown-item fs-6"
-                                    href="#"
+                                    href="pages/account-orders.php"
                                 >Orders</a>
                                 <a
                                     class="dropdown-item fs-6"
@@ -299,7 +299,7 @@
                                 >Inbox</a>
                                 <a
                                     class="dropdown-item fs-6"
-                                    href="#"
+                                    href="page/shop-wishlist.php"
                                 >Saved Items</a>
                                 <hr>
                                 <a

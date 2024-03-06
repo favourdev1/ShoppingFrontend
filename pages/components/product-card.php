@@ -51,6 +51,7 @@
                     </a>
                     <a
                         href="#!"
+                        onclick="addToWishlist(<?=$product_id?>,false,event)"
                         class="btn-action"
                         data-bs-toggle="tooltip"
                         data-bs-html="true"

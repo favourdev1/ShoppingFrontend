@@ -87,6 +87,7 @@ include_once 'header.php';
     <?php include_once 'php/profile/fetchAll.php'; ?>
     <?php include_once 'php/category/fetchAll.php'; ?>
     <?php include_once 'php/cart/fetchAll.php'; ?>
+    <?php include_once 'php/orders/fetchAll.php'; ?>
     <?php include_once 'navbar.php'; ?>
     <!-- Modal -->
     <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
@@ -138,85 +139,7 @@ include_once 'header.php';
 
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body p-6">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <div>
-                            <h5 class="mb-1" id="locationModalLabel">Choose your Delivery Location</h5>
-                            <p class="mb-0 small">Enter your address and we will specify the offer you area.</p>
-                        </div>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="my-5">
-                        <input type="search" class="form-control" placeholder="Search your area" />
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h6 class="mb-0">Select Location</h6>
-                        <a href="#" class="btn btn-outline-gray-400 text-muted btn-sm">Clear All</a>
-                    </div>
-                    <div>
-                        <div data-simplebar style="height: 300px">
-                            <div class="list-group list-group-flush">
-                                <a href="#"
-                                    class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action active">
-                                    <span>Alabama</span>
-                                    <span>Min:$20</span>
-                                </a>
-                                <a href="#"
-                                    class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Alaska</span>
-                                    <span>Min:$30</span>
-                                </a>
-                                <a href="#"
-                                    class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Arizona</span>
-                                    <span>Min:$50</span>
-                                </a>
-                                <a href="#"
-                                    class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>California</span>
-                                    <span>Min:$29</span>
-                                </a>
-                                <a href="#"
-                                    class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Colorado</span>
-                                    <span>Min:$80</span>
-                                </a>
-                                <a href="#"
-                                    class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Florida</span>
-                                    <span>Min:$90</span>
-                                </a>
-                                <a href="#"
-                                    class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Arizona</span>
-                                    <span>Min:$50</span>
-                                </a>
-                                <a href="#"
-                                    class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>California</span>
-                                    <span>Min:$29</span>
-                                </a>
-                                <a href="#"
-                                    class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Colorado</span>
-                                    <span>Min:$80</span>
-                                </a>
-                                <a href="#"
-                                    class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                                    <span>Florida</span>
-                                    <span>Min:$90</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <script src="../assets/js/vendors/validation.js"></script>
 
@@ -265,7 +188,7 @@ include_once 'header.php';
                                         Address
                                     </a>
                                 </li>
-                                
+
                                 <!-- nav item -->
                                 <li class="nav-item">
                                     <a class="nav-link" href="account-notification.php">
@@ -296,43 +219,91 @@ include_once 'header.php';
                                 <!-- Table -->
                                 <div class="container">
 
-<!-- Empty order -->
-<div class="alert alert-secondary">
-                                        No item in cart
+                                    <!-- Empty order -->
+
+                                    <?php 
+if (count($orderItems) === 0) {?>
+                                    <div class="alert alert-secondary">
+                                        No available orders
                                     </div>
 
+                                    <?php } else { ?>
+                                    <?php foreach ($orderItems as $orderItem) { 
+    $order_id = $orderItem['id'];
+    $order_number = $orderItem['order_number'];
+    $order_status = $orderItem['order_status'];
+    $payment_status = $orderItem['payment_status'];
+    $delivery_status = $orderItem['delivery_status'];
+    $total_amount = $orderItem['total_amount'];
+    $created_at = $orderItem['created_at'];
+    $product_id = $orderItem['product_id'];
+    $product_name = $orderItem['product_name'];
+    $quantity = $orderItem['quantity'];
+    $price = $orderItem['price'];
+    $product_img1 = $orderItem['product_img1'];
+    $product_img2 = $orderItem['product_img2'];
+    $product_img3 = $orderItem['product_img3'];
+    $product_img4 = $orderItem['product_img4'];
+    $product_img5 = $orderItem['product_img5'];
+    $category_id = $orderItem['category_id'];
+    $description = $orderItem['description'];
+    $regular_price = $orderItem['regular_price'];
+    $brand = $orderItem['brand'];
+    $weight = $orderItem['weight'];
+    $quantity_in_stock = $orderItem['quantity_in_stock'];
+    $tags = $orderItem['tags'];
+    $refundable = $orderItem['refundable'];
+    $sales_price = $orderItem['sales_price'];
+    $meta_title = $orderItem['meta_title'];
+    $meta_description = $orderItem['meta_description'];
+    $cash_on_delivery = $orderItem['cash_on_delivery'];
+    $sku = $orderItem['sku'];
+    $free_shipping = $orderItem['free_shipping'];
+    $shipping_cost = $orderItem['shipping_cost'];
+    $length = $orderItem['length'];
+    $width = $orderItem['width'];
+    $height = $orderItem['height'];
+    $status = $orderItem['status'];
+    $delivery_date = $orderItem['delivery_date'];
+    $shipping_address = $orderItem['shipping_address'];
+    $payment_method = $orderItem['payment_method'];
 
+    
+    ?>
                                     <div class="row order-details border py-3 mb-3 rounded-3">
                                         <div class="col-md-2">
-                                            <img src="image-link-here" alt="" class="order-img img-fluid">
+                                            <img src="<?php echo $product_img1; ?>" alt=""   height="70" width="100" class="order-img img-fluid rounded-3">
                                         </div>
 
                                         <div class="col-md-7">
                                             <!-- Product details -->
-                                            <p class="">0.96 Inch IIC I2C Serial GND 128X64 OLED LCD LED Display
-                                                Module SS...</p>
+                                            <p class="">
+                                                <?php
+                                                echo $product_name;
+                                                ?></p>
 
                                             <!-- Order number -->
-                                            <small class="text-muted">Order id: 1442137292</small>
+                                            <small class="text-muted">Order id: <?php echo $order_number; ?></small>
                                             <br>
 
                                             <!-- Delivery status and date -->
                                             <small
-                                                class='bg-success px-3 py-1 small text-white rounded-pill'>Delivered</small>
+                                                class='bg-success px-3 py-1 small text-white rounded-pill'><?php echo $delivery_status; ?></small>
                                             <br>
                                         </div>
 
                                         <!-- See details button -->
                                         <div class='nav-item col text-end'>
-                                            <a href="#" 
-                                                class='  text-primary border-0 nav-link' style="font-size:0.85rem">SEE
+                                            <a href="#" class='  text-primary border-0 nav-link'
+                                                style="font-size:0.85rem">SEE
                                                 DETAILS</a>
                                         </div>
 
                                     </div>
-                                  
 
-                                    
+                                    <?php } }?>
+
+
                                 </div>
 
                             </div>

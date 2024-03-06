@@ -7,6 +7,8 @@
 
     <body>
         <!-- navbar -->
+        <?php include_once('components/loadingDialog.php')?>
+
         <?php include_once('php/profile/fetchAll.php'); ?>
 
         <?php include_once('php/cart/fetchAll.php') ?>
@@ -19,6 +21,7 @@
 
 
 
+        <script src="javascript/main.js"></script>
 
         <script src="../assets/js/vendors/validation.js"></script>
 
@@ -226,7 +229,6 @@
             </div>
         </main>
 
-     
         <!-- footer -->
         <?php include_once('footer.php') ?>
 

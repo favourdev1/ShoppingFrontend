@@ -233,7 +233,7 @@
                                                 <div class="me-auto">
                                                     <div>Shipping Fee</div>
                                                 </div>
-                                                <span><?php echo CURRENCY . number_format($totalShippingFee) ?></span>
+                                                <span><?php echo "not included" ?></span>
                                             </li>
 
                                             <li
@@ -250,7 +250,7 @@
                                                     <div class="fw-bold">Subtotal</div>
                                                 </div>
                                                 <span
-                                                    class="fw-bold"><?php echo CURRENCY . number_format($subTotalPrice + $totalShippingFee + $totalTax) ?></span>
+                                                    class="fw-bold"><?php echo CURRENCY . number_format($subTotalPrice  + $totalTax) ?></span>
                                             </li>
                                         </ul>
                                     </div>

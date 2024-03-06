@@ -480,94 +480,107 @@ if (!if_Authenticated()) {
     <!-- Theme JS -->
     <script src="../assets/js/theme.min.js"></script>
     <script>
-        function checkIfIdExists(id) {
-            return document.getElementById(id) !== null;
-        }
-
-        function hideElement(id) {
-            return document.getElementById(id).style.display = none;
-        }
-        //
-
-
-
-
-        // axos function to send address informtion to server
-        function sendAddressInfoToServer() {
-            if (checkIfIdExists('emptyAddress')) {
-                showAlert('No address added', 'warning');
-                return;
+     
+            function checkIfIdExists(id) {
+                return document.getElementById(id) !== null;
             }
 
-            const addressId = document.querySelector('input[name="address"]:checked').getAttribute(
-                'data-address-id');
-            const deliveryInstructions = document.getElementById('DeliveryInstructions').value;
-            const shippingCost = document.getElementById('shippingCost').innerText;
-            const itemsubTotal = document.getElementById('itemSubtotal').innerText;
-            const tax = document.getElementById('tax').innerText;
-            const total = document.getElementById('subTotalPrice').innerText;
-            const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
-
-            // lets echo out the value of the variables to be sure they are in 
-            // the right format
-            console.log(addressId);
-            console.log(deliveryInstructions);
-            console.log(shippingCost);
-            console.log(itemsubTotal);
-            console.log(tax);
-            console.log(total);
-            console.log(paymentMethod);
-
-            hideDialog(false)
-            // wee should also check if any of them is not already set
-            if (addressId === undefined || deliveryInstructions === undefined || shippingCost === undefined ||
-                itemsubTotal === undefined || tax === undefined || total === undefined || paymentMethod === undefined) {
-                showAlert('Please fill in all the required fields', 'warning');
-                hideDialog(true)
-                return;
+            function hideElement(id) {
+                return document.getElementById(id).style.display = none;
             }
+            //
 
-            console.log(payloadRequest)
-            // send information too server using axios
-            axios.post(endPoint + '/carts/checkout', {
-                    address: addressId,
-                    deliveryInstructions: deliveryInstructions,
-                    shippingCost: shippingCost,
-                    itemsubTotal: itemsubTotal,
-                    tax: tax,
-                    total: total,
-                    payment_method: paymentMethod
-                }, {
-                    headers: payloadRequest
-                })
-                .then(response => {
-                    console.log(response);
-                    responseMessage = response.data.message
-                    responseStatus = response.data.status
 
-                    if (response.data.status === 'success') {
-                        // Handle success scenario
-                        showAlert('Order placed successfully', 'success');
-                    } else {
 
-                        showAlert(responseMessage, responseStatus);
-                    }
 
-                    console.log(response.data.message);
-                    // window.location.href = 'shop-checkout-success.php';
-                })
-                .catch(error => {
-                    console.error(error);
-                    showAlert('An error occurred', 'error');
-                })
-                .finally(function() {
+            // axos function to send address informtion to server
+            function sendAddressInfoToServer() {
+                if (checkIfIdExists('emptyAddress')) {
+                    showAlert('No address added', 'warning');
+                    return;
+                }
+
+                const addressId = document.querySelector('input[name="address"]:checked').getAttribute(
+                    'data-address-id');
+                const deliveryInstructions = document.getElementById('DeliveryInstructions').value;
+                const shippingCost = document.getElementById('shippingCost').innerText;
+                const itemsubTotal = document.getElementById('itemSubtotal').innerText;
+                const tax = document.getElementById('tax').innerText;
+                const total = document.getElementById('subTotalPrice').innerText;
+                const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
+
+                // lets echo out the value of the variables to be sure they are in 
+                // the right format
+                console.log(addressId);
+                console.log(deliveryInstructions);
+                console.log(shippingCost);
+                console.log(itemsubTotal);
+                console.log(tax);
+                console.log(total);
+                console.log(paymentMethod);
+
+                hideDialog(false)
+                // wee should also check if any of them is not already set
+                if (addressId === undefined || deliveryInstructions === undefined || shippingCost === undefined ||
+                    itemsubTotal === undefined || tax === undefined || total === undefined || paymentMethod ===
+                    undefined) {
+                    showAlert('Please fill in all the required fields', 'warning');
                     hideDialog(true)
-                });
+                    return;
+                }
+
+                console.log(payloadRequest)
+                // send information too server using axios
+                axios.post(endPoint + '/carts/checkout', {
+                        address: addressId,
+                        deliveryInstructions: deliveryInstructions,
+                        shippingCost: shippingCost,
+                        itemsubTotal: itemsubTotal,
+                        tax: tax,
+                        total: total,
+                        payment_method: paymentMethod
+                    }, {
+                        headers: payloadRequest
+                    })
+                    .then(response => {
+                        console.log(response);
+                        responseMessage = response.data.message
+                        responseStatus = response.data.status
+                        orderInfo = response.data.order
+                        orderId = orderInfo.order_number
+                        console.log(orderInfo)
+                        console.log(orderId);
+                        
+                        if (response.data.status === 'success') {
+                            // Handle success scenario
+                            showAlert('Order placed successfully', 'success');
+                        } else {
+
+                            showAlert(responseMessage, responseStatus);
+                        }
+
+                        console.log(response.data.message);
+                        if (paymentMethod === 'bank transfer') {
+                            window.location.href = 'payment.php?order_number=' + orderId;
+                        }else{
+
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        showAlert('An error occurred', 'error');
+                    })
+                    .finally(function() {
+                        hideDialog(true)
+                    });
 
 
-        }
-        const placeOrderBtn = document.getElementById('placeOrderBtn');
-        placeOrderBtn.addEventListener('click', sendAddressInfoToServer);
+            }
+            const placeOrderBtn = document.getElementById('placeOrderBtn');
+            placeOrderBtn.addEventListener('click', sendAddressInfoToServer);
+
+
+        
     </script>
 </body>
 

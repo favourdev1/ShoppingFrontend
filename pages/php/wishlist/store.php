@@ -27,7 +27,7 @@ if (isset($userId) && !empty($userId)) {
 
 
 
-        $response = Request::post($apiUrl . 'address/add/' . $userId)
+        $response = Request::post($apiUrl . 'carts/add/' . $userId)
             ->sendsJson()
             ->addHeaders($headers)
             ->body(json_encode($data))
@@ -47,8 +47,8 @@ if (isset($userId) && !empty($userId)) {
             $message = json_decode(json_encode($responseData))->message;
             $_SESSION['message'] = $message;
             $_SESSION['status'] = "success";
-            // header("Location: ../../products.php");
-            print_r($message);
+            header("Location: ../../products.php");
+            // print_r($message);
             // exit();
         } else {
             // print_r($responseData);

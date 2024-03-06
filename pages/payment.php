@@ -18,22 +18,23 @@ include_once 'header.php'; ?>
     <!-- navbar -->
     <?php include_once 'php/profile/fetchAll.php'; ?>
 
-    
+
     <?php include_once 'php/cart/fetchAll.php'; ?>
+    <?php include_once 'php/orders/fetch.php'; ?>
 
-
+    <!-- <script src="javascript/Route.js"></script> -->
     <!-- NavBar -->
 
     <div class="py-5">
         <div class="container">
             <div class="row w-100 align-items-center justify-content-between gx-lg-2 gx-0">
                 <div class="col-xxl-2 col-lg-3 col-md-6 col-5">
-                    <a class="navbar-brand d-none d-lg-block" href="index-2.html">
+                    <a class="navbar-brand d-none d-lg-block" href="../index.php">
                         <img src="../assets/images/logo/sosmart-logo.png" height="40" class=""
                             alt="Sosmart Logo" />
                     </a>
                     <div class="d-flex justify-content-between w-100 d-lg-none">
-                        <a class="navbar-brand" href="index-2.html">
+                        <a class="navbar-brand" href="../index.php">
                             <img src="../assets/images/logo/sosmart-logo.png" height="40" class=""
                                 alt="Sosmart Logo" />
                         </a>
@@ -69,13 +70,27 @@ include_once 'header.php'; ?>
                             <div class="dropdown-menu py-4 px-2" aria-labelledby="userDropdown">
 
 
-                                <?php if (if_Authenticated()) { ?> <a class="dropdown-item fs-6" href="pages/account-settings.php">My
-                                    Account</a>
-                                <a class="dropdown-item fs-6" href="#">Orders</a>
-                                <a class="dropdown-item fs-6" href="#">Inbox</a>
-                                <a class="dropdown-item fs-6" href="#">Saved Items</a>
+                            <?php if (if_Authenticated()) { ?> <a
+                                    class="dropdown-item fs-6"
+                                    href="account-settings.php"
+                                >My Account</a>
+                                <a
+                                    class="dropdown-item fs-6"
+                                    href="account-orders.php"
+                                >Orders</a>
+                                <a
+                                    class="dropdown-item fs-6"
+                                    href="#"
+                                >Inbox</a>
+                                <a
+                                    class="dropdown-item fs-6"
+                                    href="shop-wishlist.php"
+                                >Saved Items</a>
                                 <hr>
-                                <a class="dropdown-item fs-6" href="logout.php">Logout</a>
+                                <a
+                                    class="dropdown-item fs-6"
+                                    href="php/logout.php"
+                                >Logout</a>
 
                                 <?php } else { ?>
                                 <a class="dropdown-item rounded fs-6  text-white "
@@ -99,7 +114,7 @@ include_once 'header.php'; ?>
     <main>
         <?php include_once 'components/loadingDialog.php'; ?>
 
-<div class="border-top"></div>        <!-- section -->
+        <div class="border-top"></div> <!-- section -->
         <section class=" pb-lg-14 pb-8 border-bottom mt-md-8" style="min-height:60dvh">
             <div class="container">
                 <!-- row -->
@@ -109,7 +124,8 @@ include_once 'header.php'; ?>
                         <div class="d-flex align-items-center border-bottom p-4 p-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-arrow-left" onclick="window.history.back()">
+                                stroke-linejoin="round" class="feather feather-arrow-left"
+                                onclick="window.history.back()">
                                 <line x1="19" y1="12" x2="5" y2="12"></line>
                                 <polyline points="12 19 5 12 12 5"></polyline>
                             </svg>
@@ -119,6 +135,7 @@ include_once 'header.php'; ?>
                         </div>
                         <!-- design me something where user can see an account number where they are to make payment transfer to  -->
                         <div class="container mt-5">
+
                             <div class="container">
                                 <div class="card-body">
                                     <div class="icon bg-success px-3"style="width:fit-content">
@@ -126,8 +143,8 @@ include_once 'header.php'; ?>
                                     </div>
                                     <div class="text-center">
                                         <img src="../assets/images/icons/success-icon.png" alt="">
-                                        <h2 class="text-success">Your Order has been placed!</h2>
-                                        <p>$1,000,000</p>
+                                        <h2 class="text-success">Order placed!</h2>
+                                        <p>please proceed to make payment to the following details </p>
                                     </div>
                                     <!-- <div class="card mb-2"> -->
                                     <ul class=" list-group list-group-flush">
@@ -137,88 +154,43 @@ include_once 'header.php'; ?>
                                             <div class="me-auto">
                                                 <div>Amount To Transfer</div>
                                             </div>
-                                            <span>$2000</span>
+                                            <span><?= CURRENCY . number_format($total_amount, 2) ?></span>
                                         </li>
                                         <li
                                             class="list-group-item px-0 py-3 d-flex justify-content-between align-items-start">
                                             <div class="me-auto">
                                                 <div>Account Number</div>
                                             </div>
-                                            <span>1234567890</span>
+                                            <span>0892128066 </span>
                                         </li>
                                         <li
                                             class="list-group-item px-0 py-3 d-flex justify-content-between align-items-start">
                                             <div class="me-auto">
                                                 <div>Account Name</div>
                                             </div>
-                                            <span>$2000</span>
+                                            <span>Jachike Onuigbo</span>
                                         </li>
 
 
                                         <li
                                             class="list-group-item px-0 py-3 justify-content-between align-items-start ">
                                             <div class="my-0  ">Payment Proof</div>
-                                            <div class="custom-file-input col w-100 text-center py-5 my-3 rounded" style="border-style:dashed">
+                                            <div class="custom-file-input col w-100 text-center py-5 my-3 rounded"
+                                                style="border-style:dashed">
                                                 <div class="me-auto my-5">
-                                                    <p class="fw-bold my-0 text-secondary" id= "fileName">No file chosen</p>
+                                                    <p class="fw-bold my-0 text-secondary" id= "fileName">No file
+                                                        chosen</p>
                                                     <!-- file size -->
                                                     <p class="small my-0 py-0 text-secondary" id= "filesize">0kb</p>
                                                 </div>
-                                                <input type="file" accept="images" name="payment_proof" id="payment_proof_input">
+                                                <input type="file" accept="images" name="payment_proof"
+                                                    id="payment_proof_input">
                                             </div>
 
-                                            <script>
-                                                const paymentProofInput = document.getElementById('payment_proof_input');
-                                                const paymentProofDiv =document.getElementById('fileName')
-const fileSizeDiv =document.getElementById('filesize')
-                                                paymentProofInput.addEventListener('change', (event) => {
-                                                    const fileName = event.target.files[0].name;
-                                                    paymentProofDiv.textContent = fileName;
 
-                                                    const fileSize = event.target.files[0].size;
-                                                    const fileSizeInKb = fileSize / 1024;
-                                                    const fileSizeInMb = fileSizeInKb / 1024;
-                                                    const fileSizeInGb = fileSizeInMb / 1024;
-                                                    const fileSizeInTb = fileSizeInGb / 1024;
-
-                                                    if (fileSizeInTb > 1) {
-                                                        fileSizeDiv.textContent = fileSizeInTb.toFixed(2) + 'TB';
-                                                    } else if (fileSizeInGb > 1) {
-                                                        fileSizeDiv.textContent = fileSizeInGb.toFixed(2) + 'GB';
-                                                    } else if (fileSizeInMb > 1) {
-                                                        fileSizeDiv.textContent = fileSizeInMb.toFixed(2) + 'MB';
-                                                    } else if (fileSizeInKb > 1) {
-                                                        fileSizeDiv.textContent = fileSizeInKb.toFixed(2) + 'KB';
-                                                    } else {
-                                                        fileSizeDiv.textContent = fileSize.toFixed(2) + 'B';
-                                                    }
-
-                                                });
-                                            </script>
                                         </li>
 
-                                        <style>
-                                            .custom-file-input {
-                                                position: relative;
-                                                overflow: hidden;
-                                                display: inline-block;
-                                                border: 1px solid #ccc;
-                                                padding: 8px 12px;
-                                                cursor: pointer;
-                                                background-color: #f0f0f0;
-                                            }
 
-
-                                            .custom-file-input input[type="file"] {
-                                                position: absolute;
-                                                top: 0;
-                                                right: 0;
-                                                bottom: 0;
-                                                left: 0;
-                                                opacity: 0;
-                                                cursor: pointer;
-                                            }
-                                        </style>
 
                                         <li
                                             class="  list-group-item border-0 px-0 py-3 justify-content-between align-items-start ">
@@ -227,7 +199,7 @@ const fileSizeDiv =document.getElementById('filesize')
                                             </div>
 
                                             <input type="text" class="form-control" name="accNo"
-                                                id="">
+                                                id="accNo">
                                             <small>The account number you are using to make the payment</small>
                                         </li>
                                         <div class="d-flex align-items-cente py-4 px-3 alert alert-danger"
@@ -243,8 +215,10 @@ const fileSizeDiv =document.getElementById('filesize')
                                                 transfering the exact amount that is shown on this page
                                             </p>
                                         </div>
-                                        <input type="submit"
-                                            class="btn btn-primary w-100 mb-5"value="Request Approval">
+                                        <p  class="btn btn-primary w-100 mb-5" id = "sendPayment"
+                                           >
+                                            Request Approval
+                                        </p>
                                     </ul>
                                     <!-- </div> -->
                                 </div>
@@ -258,6 +232,113 @@ const fileSizeDiv =document.getElementById('filesize')
     </main>
 
 
+
+    <style>
+        .custom-file-input {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+        }
+
+
+        .custom-file-input input[type="file"] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+ hideDialog(false)
+        document.addEventListener('DomContentLoaded', () => {
+            hideDialog(true)
+        
+        });
+            const sendDataToServerBtn = document.getElementById('sendPayment')
+
+            sendDataToServerBtn.addEventListener('click', () => {
+                sendDataToServer()
+                console.log('clicked')
+            })
+        const paymentProofInput = document.getElementById('payment_proof_input');
+
+        const accNoInput = document.getElementById('accNo');
+
+        const paymentProofDiv = document.getElementById('fileName')
+        const fileSizeDiv = document.getElementById('filesize')
+        paymentProofInput.addEventListener('change', (event) => {
+            const fileName = event.target.files[0].name;
+            paymentProofDiv.textContent = fileName;
+
+            const fileSize = event.target.files[0].size;
+            const fileSizeInKb = fileSize / 1024;
+            const fileSizeInMb = fileSizeInKb / 1024;
+            const fileSizeInGb = fileSizeInMb / 1024;
+            const fileSizeInTb = fileSizeInGb / 1024;
+
+            if (fileSizeInTb > 1) {
+                fileSizeDiv.textContent = fileSizeInTb.toFixed(2) + 'TB';
+            } else if (fileSizeInGb > 1) {
+                fileSizeDiv.textContent = fileSizeInGb.toFixed(2) + 'GB';
+            } else if (fileSizeInMb > 1) {
+                fileSizeDiv.textContent = fileSizeInMb.toFixed(2) + 'MB';
+            } else if (fileSizeInKb > 1) {
+                fileSizeDiv.textContent = fileSizeInKb.toFixed(2) + 'KB';
+            } else {
+                fileSizeDiv.textContent = fileSize.toFixed(2) + 'B';
+            }
+
+        });
+
+
+        function sendDataToServer() {
+            const file = paymentProofInput.files[0];
+            const accNo = accNoInput.value;
+            if (!file) {
+                showAlert('Please select a file,', 'error');
+                return;
+            }
+            
+            if (!accNo || accNo.length < 9) {
+                showAlert('Please enter your correct  account number', 'error');
+                return;
+            }
+            hideDialog(false)
+            const formData = new FormData();
+            formData.append('payment_proof', file);
+            formData.append('accNo', accNo);
+
+
+
+            setTimeout(() => {
+                window.location.href = 'successPayment.php';
+                hideDialog(true)
+
+            }, 5000);
+            axios.post(sendPayment, formData)
+                .then(response => {
+                    // Handle success
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    // Handle error
+                    console.error(error);
+                })
+                .finally(function() {
+                    hideDialog(true)
+
+                });
+        }
+   
+    </script>
 
 
     <!-- Footer -->

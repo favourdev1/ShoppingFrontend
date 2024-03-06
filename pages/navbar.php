@@ -147,7 +147,7 @@
                                             </defs>
                                         </svg>
                                     </span>
-                                    Deutsch
+                                    French
                                 </a>
                             </li>
                         </ul>
@@ -691,7 +691,7 @@
                             <li class="nav-item w-100 w-lg-auto">
                                 <a
                                     class="nav-link  text-white fw-bold"
-                                    href="dashboard/index.php"
+                                    href="../dashboard/index.php"
                                 >Admin Dashboard</a>
                             </li>
 

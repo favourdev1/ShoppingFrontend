@@ -1,27 +1,26 @@
-
 const formData = new FormData(document.getElementById("loginForm"));
 const alertHub = new AlertHub();
 
 
 
 // Append your form data
-document.getElementById("loginForm").addEventListener("submit", function (event) {
+document.getElementById("loginForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent the default form submission
 
     const formData = new FormData(event.target);
 
     hideDialog(false)
     axios.post(apiUrl + "login", formData, {
-        headers: {
-            'Accept': 'application/json',
-        }
-    })
+            headers: {
+                'Accept': 'application/json',
+            }
+        })
         .then(response => {
             // console.log("Response Data:", response.data);
             var message = response.data.message
             var token = response.data.data.token
             var userId = response.data.data.userId
-            var isAdmin = response.data.data.isAdmin ?? false;
+            var isAdmin = response.data.data.isAdmin ? ? false;
 
 
             // Calculate the expiration date for one day from now
@@ -57,11 +56,11 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
             console.log(isAdmin)
             console.log("Cookies set:", document.cookie);
             setTimeout(() => {
-                if (isAdmin) {
-                    window.location.href = "../dashboard/index.php"
-                } else {
-                    window.location.href = "../index.php"
-                }
+                // if (isAdmin) {
+                //     window.location.href = "../dashboard/index.php"
+                // } else {
+                //     window.location.href = "../index.php"
+                // }
             }, 1000);
 
         })
@@ -86,8 +85,8 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
                 console.error("No response received");
             }
         })
-        .finally(function (){
+        .finally(function() {
             hideDialog(true)
         });
-        
+
 })

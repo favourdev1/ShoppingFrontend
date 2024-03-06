@@ -14,6 +14,65 @@
         <?php include_once('pages/php/cart/fetchAll.php') ?>
         <?php include_once('pages/php/products/discountProduct.php') ?>
         <?php include_once('navbar.php') ?>
+      <!-- LOading dialog -->
+      <div
+    class="modal d-flex align-items-center   justify-content-center"
+    tabindex="-1"
+    role="dialog"
+    id="loadingDialog"
+    data-backdrop="static"
+    data-keyboard="false"
+    style="background:#000000e5 !important"
+>
+    <div
+        class="modal-dialog "
+        role="document"
+    >
+        <div class="modal-content border">
+            <img
+                src="assets/images/loader.svg"
+                height="100"
+                width="100"
+                class="img-fluid m-5 "
+                alt=""
+            >
+        </div>
+    </div>
+</div>
+
+<script>
+
+    // document.addEventListener("DOMContentLoaded", function() {
+        const modal = document.getElementById('loadingDialog');
+        // hideDialog(true)
+
+       
+    // })
+    function hideDialog(hide) {
+            if (hide) {
+                modal.style.cssText = 'background:#000000a5 ;display: none !important;';
+
+            } else {
+                modal.style.cssText = 'background:#000000a5 ; display: flex !important;';
+
+            }
+
+        }
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // const modal = document.getElementById('loadingDialog');
+        hideDialog(true)
+
+       
+    })
+
+</script>
+
+
+
+
+      <!-- end of loading dialog -->
 
         <!-- Modal -->
         <div
@@ -239,7 +298,7 @@
                                     style="background: url(https://ae01.alicdn.com/kf/Sa24f41ac53234b6ea52a15062a3c2517J/Air-Conditioner-Mini-Fan-Cooler-Portable-Air-Cooler-AC-Air-Conditioning-3-Gear-Speed-Air-Cooling.jpg_350x350xz.jpg_.webp) no-repeat; background-size: cover; background-position: center"
                                 >
                                     <div>
-                                        <h3 class="fw-bold mb-1">Fruits & Vegetables</h3>
+                                        <h3 class="fw-bold mb-1">Discounts Everywhere!</h3>
                                         <p class="mb-4">
                                             Get Upto
                                             <span class="fw-bold">30%</span>
@@ -260,7 +319,7 @@
                                     style="background: url(assets/images/banner/grocery-banner-2.jpg) no-repeat; background-size: cover; background-position: center"
                                 >
                                     <div>
-                                        <h3 class="fw-bold mb-1">Freshly Baked Buns</h3>
+                                        <h3 class="fw-bold mb-1">Simple Shopping !</h3>
                                         <p class="mb-4">
                                             Get Upto
                                             <span class="fw-bold">25%</span>
@@ -347,7 +406,7 @@
                         </div>
                     </div>
 
-                    <div class="row g-2 row-cols-lg-5 row-cols-2 row-cols-md-3">
+                    <div class="row g-2 row-cols-lg-6 row-cols-2 row-cols-md-3">
 
 
                         <?php
@@ -436,6 +495,13 @@
         <script src="assets/js/vendors/tns-slider.js"></script>
         <script src="assets/js/vendors/zoom.js"></script>
         <script src="pages/javascript/checkAuth.js"> </script>
+
+        <script>
+            hideDialog(false)
+            document.addEventListener('DOMContentLoaded',function(){
+                hideDialog(true)
+            })
+        </script>
     </body>
 
 </html>

@@ -97,9 +97,9 @@
     <!-- Om range slider -->
     <link
         rel="stylesheet"
-        href="../node_modules/om-rangeslider/src/om-javascript-range-slider.css"
+        href="../assets/libs/om-rangeslider/src/om-javascript-range-slider.css"
     />
-    <script src="../node_modules/om-rangeslider/src/om-javascript-range-slider.js"></script>
+    <script src="../assets/libs/om-rangeslider/src/om-javascript-range-slider.js"></script>
 
 
 

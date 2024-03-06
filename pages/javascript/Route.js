@@ -1,5 +1,5 @@
 // Define variables for the API routes
-const endPoint = 'http://localhost:8000/api';
+var endPoint = 'http://localhost:8000/api';
 
 // Authentication routes
 const registerRoute = '/register';
@@ -26,6 +26,16 @@ const addOrUpdateCartItemRoute = '/carts/add/';
 const updateCartItemRoute = '/carts/update/';
 const ShippingCostRoute = '/carts/shippingCost/';
 const deleteCartItemRoute = '/carts/delete/';
+
+// wishlist routes
+const wishlistsRoute = '/wishlists';
+const addWishlistRoute = '/wishlists/add/';
+const deleteWishlistRoute = '/wishlists/delete/';
+
+
+// payment route
+const paymentRoute = '/payment';
+const sendPayment = '/payment/add';
 
 // Address routes
 const addressesRoute = '/addresses';
@@ -54,4 +64,3 @@ const adminProductAddRoute = '/admin/products/add';
 const adminProductUpdateRoute = '/admin/products/';
 const adminProductUploadImageRoute = '/admin/products/upload-image';
 const adminProductDeleteRoute = '/admin/products/delete/';
-
