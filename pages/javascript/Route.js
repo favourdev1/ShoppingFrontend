@@ -64,3 +64,15 @@ const adminProductAddRoute = '/admin/products/add';
 const adminProductUpdateRoute = '/admin/products/';
 const adminProductUploadImageRoute = '/admin/products/upload-image';
 const adminProductDeleteRoute = '/admin/products/delete/';
+
+
+//Email Route
+const Email = '/email';
+const sendEmail = '/email/subscribe';
+
+
+
+
+
+
+//

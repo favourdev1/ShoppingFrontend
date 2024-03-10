@@ -30,10 +30,11 @@ if ($statusCode === 200) {
     $dataResponse = json_decode(json_encode($responseData), true)['data'];
     $order = $dataResponse['order'];
     $adminSettings = $dataResponse['admin_settings'];
-// $adminSettings = json_decode(json_decode($responseData),true)['admin_settings'];
+    $order_items = $dataResponse['order_items'];
+    $paymentInformation = $dataResponse['payment_info'];
     // echo "<pre>";
 
-    // var_dump($adminSettings);
+    // var_dump($paymentInformation);
     // echo "</pre>";
 
     // die;
@@ -63,7 +64,8 @@ if ($statusCode === 200) {
     $errorMessage = str_replace(',', '\n', $responseData->message);
     $_SESSION['message'] = $errorMessage;
     $_SESSION['status'] = 'error';
-    // echo $errorMessage;
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-    exit();
+    echo $errorMessage;
+    die;
+    // header('Location: ' . $_SERVER['HTTP_REFERER']);
+    // exit();
 }

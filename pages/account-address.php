@@ -10,6 +10,16 @@ include_once('header.php')
 
 <body>
     <!-- navbar -->
+    <?php
+    
+    if (!if_Authenticated()) {
+        setcookie('userId', '', time() - 3600, '/');
+        setcookie('token', '', time() - 3600, '/');
+        setcookie('isAdmin', '', time() - 3600, '/');
+        header('Location: signin.php?error=user not logged in & redirect=' . __DIR__ . '/shop-cart.php');
+        exit();
+    }
+    ?>
     <?php include_once('php/profile/fetchAll.php'); ?>
     <?php include_once('php/address/fetchAll.php'); ?>
         <?php include_once('php/category/fetchAll.php'); ?>

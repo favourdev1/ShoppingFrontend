@@ -73,7 +73,7 @@
 
     </script>
     <script src="pages/javascript/config.js"></script>
-
+<script src="pages/javascript/Route.js"></script>
 
     <?php
     include_once('pages/php/checkAuth.php');

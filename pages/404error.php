@@ -24,17 +24,24 @@ include_once('header.php')
                         <!-- content -->
                         <div class="col-md-6">
                            <div class="mb-6 mb-lg-0">
-                              <h1>Something’s wrong here...</h1>
+                              <!-- <h1>Something’s wrong here...</h1> -->
                               <p class="mb-8">
-                                 We can’t find the page you’re looking for.
-                                 <br />
-                                 Check out our help center or head back to home.
+                                 <?php 
+
+                                 if(isset($_GET['error'])){
+                                    echo "<h1>Error!</h1>";
+                                    echo $_GET['error'];
+                                 }else{
+echo "<h1>Something’s wrong here...</h1>";
+                                    echo "We can’t find the page you’re looking for.
+                                    <br />
+                                    Check out our help center or head back to home.";
+                                 }
+
+                                 ?>
+                                 
                               </p>
-                              <!-- btn -->
-                              <a href="#" class="btn btn-dark">
-                                 Help Center
-                                 <i class="feather-icon icon-arrow-right"></i>
-                              </a>
+                             
                               <!-- btn -->
                               <a href="../index.php" class="btn btn-primary ms-2">Back to home</a>
                            </div>

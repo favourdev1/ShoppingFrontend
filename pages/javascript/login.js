@@ -20,7 +20,10 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
             var message = response.data.message
             var token = response.data.data.token
             var userId = response.data.data.userId
-            var isAdmin = response.data.data.isAdmin ? ? false;
+            var isAdmin = false;
+            if (response.data.data.isAdmin) {
+                isAdmin = response.data.data.isAdmin;
+            }
 
 
             // Calculate the expiration date for one day from now
@@ -56,11 +59,11 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
             console.log(isAdmin)
             console.log("Cookies set:", document.cookie);
             setTimeout(() => {
-                // if (isAdmin) {
-                //     window.location.href = "../dashboard/index.php"
-                // } else {
-                //     window.location.href = "../index.php"
-                // }
+                if (isAdmin) {
+                    window.location.href = "../dashboard/index.php"
+                } else {
+                    window.location.href = "../index.php"
+                }
             }, 1000);
 
         })

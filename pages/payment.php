@@ -19,12 +19,21 @@ include_once 'header.php'; ?>
     <?php include_once 'php/profile/fetchAll.php'; ?>
 
 
-    <?php include_once 'php/cart/fetchAll.php'; ?>
-    <?php include_once 'php/orders/fetch.php'; ?>
-
+    
     <!-- <script src="javascript/Route.js"></script> -->
     <!-- NavBar -->
+    
+    
+    <?php 
 
+if(!isset($_GET['order_number']) || empty($_GET['order_number'])){
+    header('Location: 404error.php?error=we are unable to find the order infomation you are looking for');
+    exit();
+}
+
+?>
+<?php include_once 'php/cart/fetchAll.php'; ?>
+<?php include_once 'php/orders/fetch.php'; ?>
     <div class="py-5">
         <div class="container">
             <div class="row w-100 align-items-center justify-content-between gx-lg-2 gx-0">

@@ -145,12 +145,12 @@
                                                                 <td><?php echo $category ?></td>
                                                                 <td><?php echo $quantity ?></td>
 
+                                                                <td><?php echo "$".number_format($price) ?></td>
                                                                 <td>
                                                                     <small
                                                                         class="badge  <?php echo $status == 'active' ? 'bg-light-success text-dark-success' : 'bg-light-danger text-dark-danger'; ?> "
                                                                     ><?php echo ucfirst($status); ?></small>
                                                                 </td>
-                                                                <td><?php echo $price ?></td>
                                                                 <td><?php $date = date("d/m/Y", strtotime($product['created_at']));
                                                                 echo $date ?></td>
                                                                 <td>
