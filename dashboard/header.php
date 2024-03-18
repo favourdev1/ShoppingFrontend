@@ -48,7 +48,7 @@
 
 
     <script src="../node_modules/axios/dist/axios.min.js"></script>
-    <?php //include_once('php/auth.php')?>
+    <?php include_once('php/auth.php')?>
 
 
 
@@ -111,4 +111,9 @@
 
 
     </style>
+
+<?php include_once('../pages/php/config.php')?>
+<script src ="js/functions.js"></script>
+<script src="../pages/javascript/Route.js"></script>
+
 </head>

@@ -47,7 +47,7 @@ include_once 'header.php'; ?>
                 <div class="col text-end">
 
                 
-                                        <?php if ($paymentInformation !== null) { ?>
+                                        <?php if ($paymentInformation == null) { ?>
                                             <a href="payment.php?order_number=<?=$_GET['order_number']?>" class="btn btn-danger px-4 py-2 rounded">Make payment </a>
 
                                             <?php }else{ 

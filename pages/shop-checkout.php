@@ -26,6 +26,7 @@ if (!if_Authenticated()) {
     <?php include_once 'php/address/fetchAll.php'; ?>
     <?php include_once 'php/category/fetchAll.php'; ?>
     <?php include_once 'php/cart/fetchAll.php'; ?>
+<?php include_once('php/payment/fetchAll.php'); ?>
 
     <?php include_once 'navbar.php'; ?>
 
@@ -198,7 +199,12 @@ if (!if_Authenticated()) {
                                         data-bs-parent="#accordionFlushExample">
                                         <div class="mt-5">
                                             <div>
-                                                <div class="card card-bordered shadow-none mb-2">
+
+                                            <?php 
+
+                                            foreach ($allpaymentMethods as $paymentMethod) { ?>
+                                                <?php if (strtolower($paymentMethod['name']) === 'bank transfer') { ?>
+                                                <div class="card card-bordered shadow-none mb-2 mt-2">
                                                     <!-- card body -->
                                                     <div class="card-body p-6">
                                                         <div class="d-flex">
@@ -206,7 +212,7 @@ if (!if_Authenticated()) {
                                                                 <!-- checkbox -->
                                                                 <input class="form-check-input"checked type="radio"
                                                                     name="payment_method" id="bankTransfer"
-                                                                    value="bank transfer" />
+                                                                    value="<?php $payment_method['id']?>"  data-name = "bank transfer" />
                                                                 <label class="form-check-label ms-2"
                                                                     for="bankTransfer"></label>
                                                             </div>
@@ -298,14 +304,16 @@ if (!if_Authenticated()) {
                                                     </div> -->
 
                                                 <!-- card -->
-                                                <div class="card card-bordered shadow-none">
+
+                                                <?php }else{ if (strtolower($paymentMethod['name']) === 'pay on delivery') { ?>
+                                                <div class="card card-bordered shadow-none ">
                                                     <div class="card-body p-6">
                                                         <!-- check input -->
                                                         <div class="d-flex">
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="radio"
                                                                     name="payment_method" id="cashonDeliver"
-                                                                    value="cash on delivery" />
+                                                                    value="<?php $payment_method['id']?>" data-name = "cash on delivery" />
                                                                 <label class="form-check-label ms-2"
                                                                     for="cashonDelivery"></label>
                                                             </div>
@@ -318,6 +326,8 @@ if (!if_Authenticated()) {
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <?php }} }?>
                                                 <!-- Button -->
                                                 <div class="mt-5 d-flex justify-content-end">
                                                     <a href="#" class="btn btn-outline-gray-400 text-muted"
@@ -529,6 +539,8 @@ if (!if_Authenticated()) {
                     return;
                 }
 
+
+                return
                 console.log(payloadRequest)
                 // send information too server using axios
                 axios.post(endPoint + '/carts/checkout', {
@@ -563,7 +575,7 @@ if (!if_Authenticated()) {
                         if (paymentMethod === 'bank transfer') {
                             window.location.href = 'payment.php?order_number=' + orderId;
                         }else{
-
+window.location.href = 'successPay.php';
                         }
                     })
                     .catch(error => {

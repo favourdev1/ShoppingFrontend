@@ -16,6 +16,13 @@ const categoryRoute = '/category';
 const categoryShowRoute = '/category/';
 const newArrivalRoute = '/group/newArrivial';
 
+
+//order Route 
+const orderRoute = '/orders';
+
+
+
+
 // User profile routes
 const userProfileRoute = '/profile/';
 const updateProfileRoute = '/profile/update';
@@ -35,7 +42,7 @@ const deleteWishlistRoute = '/wishlists/delete/';
 
 // payment route
 const paymentRoute = '/payment';
-const sendPayment = '/payment/add';
+const sendPayment = '/payments/add';
 
 // Address routes
 const addressesRoute = '/addresses';

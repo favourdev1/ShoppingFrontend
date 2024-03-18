@@ -18,22 +18,25 @@ include_once 'header.php'; ?>
     <!-- navbar -->
     <?php include_once 'php/profile/fetchAll.php'; ?>
 
+    <script>
+        let payloadRequest = <?php echo json_encode($payloadRequest); ?>
+    </script>
 
-    
+
     <!-- <script src="javascript/Route.js"></script> -->
     <!-- NavBar -->
-    
-    
-    <?php 
 
-if(!isset($_GET['order_number']) || empty($_GET['order_number'])){
-    header('Location: 404error.php?error=we are unable to find the order infomation you are looking for');
-    exit();
-}
 
-?>
-<?php include_once 'php/cart/fetchAll.php'; ?>
-<?php include_once 'php/orders/fetch.php'; ?>
+    <?php
+    
+    if (!isset($_GET['order_number']) || empty($_GET['order_number'])) {
+        header('Location: 404error.php?error=we are unable to find the order infomation you are looking for');
+        exit();
+    }
+    
+    ?>
+    <?php include_once 'php/cart/fetchAll.php'; ?>
+    <?php include_once 'php/orders/fetch.php'; ?>
     <div class="py-5">
         <div class="container">
             <div class="row w-100 align-items-center justify-content-between gx-lg-2 gx-0">
@@ -79,27 +82,13 @@ if(!isset($_GET['order_number']) || empty($_GET['order_number'])){
                             <div class="dropdown-menu py-4 px-2" aria-labelledby="userDropdown">
 
 
-                            <?php if (if_Authenticated()) { ?> <a
-                                    class="dropdown-item fs-6"
-                                    href="account-settings.php"
-                                >My Account</a>
-                                <a
-                                    class="dropdown-item fs-6"
-                                    href="account-orders.php"
-                                >Orders</a>
-                                <a
-                                    class="dropdown-item fs-6"
-                                    href="#"
-                                >Inbox</a>
-                                <a
-                                    class="dropdown-item fs-6"
-                                    href="shop-wishlist.php"
-                                >Saved Items</a>
+                                <?php if (if_Authenticated()) { ?> <a class="dropdown-item fs-6" href="account-settings.php">My
+                                    Account</a>
+                                <a class="dropdown-item fs-6" href="account-orders.php">Orders</a>
+                                <a class="dropdown-item fs-6" href="#">Inbox</a>
+                                <a class="dropdown-item fs-6" href="shop-wishlist.php">Saved Items</a>
                                 <hr>
-                                <a
-                                    class="dropdown-item fs-6"
-                                    href="php/logout.php"
-                                >Logout</a>
+                                <a class="dropdown-item fs-6" href="php/logout.php">Logout</a>
 
                                 <?php } else { ?>
                                 <a class="dropdown-item rounded fs-6  text-white "
@@ -224,8 +213,7 @@ if(!isset($_GET['order_number']) || empty($_GET['order_number'])){
                                                 transfering the exact amount that is shown on this page
                                             </p>
                                         </div>
-                                        <p  class="btn btn-primary w-100 mb-5" id = "sendPayment"
-                                           >
+                                        <p class="btn btn-primary w-100 mb-5" id = "sendPayment">
                                             Request Approval
                                         </p>
                                     </ul>
@@ -266,17 +254,17 @@ if(!isset($_GET['order_number']) || empty($_GET['order_number'])){
     </style>
 
     <script>
- hideDialog(false)
+        hideDialog(false)
         document.addEventListener('DomContentLoaded', () => {
             hideDialog(true)
-        
-        });
-            const sendDataToServerBtn = document.getElementById('sendPayment')
 
-            sendDataToServerBtn.addEventListener('click', () => {
-                sendDataToServer()
-                console.log('clicked')
-            })
+        });
+        const sendDataToServerBtn = document.getElementById('sendPayment')
+
+        sendDataToServerBtn.addEventListener('click', () => {
+            sendDataToServer()
+            console.log('clicked')
+        })
         const paymentProofInput = document.getElementById('payment_proof_input');
 
         const accNoInput = document.getElementById('accNo');
@@ -315,7 +303,7 @@ if(!isset($_GET['order_number']) || empty($_GET['order_number'])){
                 showAlert('Please select a file,', 'error');
                 return;
             }
-            
+
             if (!accNo || accNo.length < 9) {
                 showAlert('Please enter your correct  account number', 'error');
                 return;
@@ -327,12 +315,14 @@ if(!isset($_GET['order_number']) || empty($_GET['order_number'])){
 
 
 
-            setTimeout(() => {
-                window.location.href = 'successPayment.php';
-                hideDialog(true)
+            // setTimeout(() => {
+            //     window.location.href = 'successPayment.php';
 
-            }, 5000);
-            axios.post(sendPayment, formData)
+            //     hideDialog(true)
+            // }, 5000);
+            axios.post(endPoint + sendPayment, formData, {
+                    headers: payloadRequest
+                })
                 .then(response => {
                     // Handle success
                     console.log(response.data);
@@ -346,7 +336,6 @@ if(!isset($_GET['order_number']) || empty($_GET['order_number'])){
 
                 });
         }
-   
     </script>
 
 
