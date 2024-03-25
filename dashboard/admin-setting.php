@@ -102,13 +102,13 @@
                                                         $account_name_1 = $allAdminSettings['account_name_1'];
                                                         $bankName_1 = $allAdminSettings['bank_name_1'];
                                                         $account_number_1 = $allAdminSettings['account_number_1'];
-                                                        if (empty($account_name)) {
+                                                        if (empty ($account_name)) {
                                                             $account_name = 'Not set';
                                                         }
-                                                        if (empty($bankName)) {
+                                                        if (empty ($bankName)) {
                                                             $bankName = 'Not set';
                                                         }
-                                                        if (empty($account_number_1)) {
+                                                        if (empty ($account_number_1)) {
                                                             $account_number_1 = 'Not set';
                                                         }
                                                         ?>
@@ -128,45 +128,45 @@
                                             </div>
                                         </li>
                                         <!-- List group item -->
-                                        <?php 
+                                        <?php
 
-                           if($allAdminSettings['account_name_2'] != null){
-                              ?>
+                                        if ($allAdminSettings['account_name_2'] != null) {
+                                            ?>
 
-                                        <li class="list-group-item px-0 py-5 border  rounded-3 px-3 mt-2">
-                                            <div class="d-md-flex justify-content-between">
-                                                <div class="d-flex">
+                                            <li class="list-group-item px-0 py-5 border  rounded-3 px-3 mt-2">
+                                                <div class="d-md-flex justify-content-between">
+                                                    <div class="d-flex">
 
+                                                        <div>
+                                                            <?php
+                                                            $account_name_2 = $allAdminSettings['account_name_2'];
+                                                            $bankName = $allAdminSettings['bank_name_2'];
+                                                            $account_number_2 = $allAdminSettings['account_number_2'];
+                                                            if (empty ($account_name)) {
+                                                                $account_name = 'Not set';
+                                                            }
+                                                            if (empty ($bankName)) {
+                                                                $bankName = 'Not set';
+                                                            }
+                                                            if (empty ($account_number_2)) {
+                                                                $account_number_2 = 'Not set';
+                                                            }
+                                                            ?>
+                                                            <h5 class="mb-">Account Name : <?php print_r($account_name_2); ?></h5>
+                                                            <p class="mb-0 small">Account Number : <?php echo $account_number_2; ?></p>
+
+                                                            <p class="mb-0 small text-muted">Bank Name :
+                                                                <?php echo $bankName; ?></p>
+                                                        </div>
+                                                    </div>
                                                     <div>
-                                                        <?php
-                                                        $account_name_2 = $allAdminSettings['account_name_2'];
-                                                        $bankName = $allAdminSettings['bank_name_2'];
-                                                        $account_number_2 = $allAdminSettings['account_number_2'];
-                                                        if (empty($account_name)) {
-                                                            $account_name = 'Not set';
-                                                        }
-                                                        if (empty($bankName)) {
-                                                            $bankName = 'Not set';
-                                                        }
-                                                        if (empty($account_number_2)) {
-                                                            $account_number_2 = 'Not set';
-                                                        }
-                                                        ?>
-                                                        <h5 class="mb-">Account Name : <?php print_r($account_name_2); ?></h5>
-                                                        <p class="mb-0 small">Account Number : <?php echo $account_number_2; ?></p>
-
-                                                        <p class="mb-0 small text-muted">Bank Name :
-                                                            <?php echo $bankName; ?></p>
+                                                        <!-- button-->
+                                                        <a href="#"
+                                                            class="btn btn-outline-gray-400 mt-3 mt-md-0 text-muted btn-sm">Update
+                                                            Information</a>
                                                     </div>
                                                 </div>
-                                                <div>
-                                                    <!-- button-->
-                                                    <a href="#"
-                                                        class="btn btn-outline-gray-400 mt-3 mt-md-0 text-muted btn-sm">Update
-                                                        Information</a>
-                                                </div>
-                                            </div>
-                                        </li>
+                                            </li>
 
                                         <?php } ?>
 

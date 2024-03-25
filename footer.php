@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer border-top">
 
 
     <div class="container border-bottom mb-5 py-5">
@@ -247,9 +247,7 @@
                                     .getFullYear()));
                             </script>
                         </span>
-                        Sosmart eCommerce HTML Template. All rights reserved. Powered by
-                        <a href="https://codescandy.com/">Codescandy</a>
-                        .
+                        Sosmart eCommerce HTML Template. 
                     </span>
                 </div>
                 <div class="col-md-6">

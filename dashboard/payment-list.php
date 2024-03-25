@@ -24,7 +24,7 @@
                     <div class="col-md-12">
                         <!-- page header -->
                         <div>
-                            <h2>Order List</h2>
+                            <h2>All Payments </h2>
 
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                                         <thead class="bg-light">
                                             <tr class="text-center">
                                                 <th>
-                                                   S/N
+                                                    S/N
                                                 </th>
 
                                                 <th>Order Number</th>
@@ -71,6 +71,7 @@
                                                 <th>Date & TIme</th>
                                                 <th>Payment</th>
                                                 <th>Shipping Fee</th>
+                                                <th>Payment Proof</th>
                                                 <th>Status</th>
                                                 <th>Amount</th>
                                                 <th>Action</th>
@@ -106,21 +107,20 @@
 </body>
 
 <script>
-      
+    // Define the function to build the table
+    function buildTable(data) {
+        var tableBody = document.getElementById('myTable');
+        tableBody.innerHTML = ''; // Clear table body
 
-        // Define the function to build the table
-        function buildTable(data) {
-            var tableBody = document.getElementById('myTable');
-            tableBody.innerHTML = ''; // Clear table body
-
-            data.forEach(item => {
-                var row = `<tr class="text-center">
+        data.forEach(item => {
+            var row = `<tr class="text-center">
                     <td>${item.id}</td>
                     <td>${item.order_number}</td>
                     <td>${item.firstname} ${item.lastname}</td>
                     <td>${new Date(item.created_at).toLocaleString()}</td>
                     <td>${item.payment_method}</td>
                     <td>${item.shipping_charge}</td>
+                    <th><a href="#"><img src="../assets/svg/image.svg" height="20px" width="20px" ></a></th>
                     <td><span class="badge bg-light-primary text-dark-primary">${item.order_status}</span></td>
                     <td><?= CURRENCY ?>${formatCurrency(item.total_amount)}</td>
                     <td>
@@ -135,75 +135,79 @@
                         </div>
                     </td>
                 </tr>`;
-                tableBody.innerHTML += row;
-            });
+            tableBody.innerHTML += row;
+        });
+    }
+
+    // Define the function to build pagination
+    function buildPagination(data) {
+        var paginationDiv = document.getElementById('pagination');
+        paginationDiv.innerHTML = ''; // Clear pagination container
+
+        var totalPages = Math.ceil(data.total / data.per_page);
+        var currentPage = data.current_page;
+        var startPage = Math.max(1, currentPage - 2);
+        var endPage = Math.min(totalPages, currentPage + 2);
+
+        var paginationHTML = '<div class=" d-md-flex justify-content-between align-items-center ">';
+        paginationHTML += '<span>Showing ' + data.from + ' to ' + data.to + ' of ' + data.total + ' entries</span>';
+        paginationHTML += '<nav class="mt-2 mt-md-0"><ul class="pagination mb-0">';
+
+        if (currentPage > 1) {
+            paginationHTML += '<li class="page-item"><a class="page-link" href="#!" onclick="loadPage(' + (currentPage -
+                1) + ')">Previous</a></li>';
+        } else {
+            paginationHTML += '<li class="page-item disabled"><span class="page-link">Previous</span></li>';
         }
 
-        // Define the function to build pagination
-        function buildPagination(data) {
-            var paginationDiv = document.getElementById('pagination');
-            paginationDiv.innerHTML = ''; // Clear pagination container
-
-            var totalPages = Math.ceil(data.total / data.per_page);
-            var currentPage = data.current_page;
-            var startPage = Math.max(1, currentPage - 2);
-            var endPage = Math.min(totalPages, currentPage + 2);
-
-            var paginationHTML = '<div class=" d-md-flex justify-content-between align-items-center ">';
-            paginationHTML += '<span>Showing ' + data.from + ' to ' + data.to + ' of ' + data.total + ' entries</span>';
-            paginationHTML += '<nav class="mt-2 mt-md-0"><ul class="pagination mb-0">';
-
-            if (currentPage > 1) {
-                paginationHTML += '<li class="page-item"><a class="page-link" href="#!" onclick="loadPage(' + (currentPage - 1) + ')">Previous</a></li>';
+        for (var i = startPage; i <= endPage; i++) {
+            if (i === currentPage) {
+                paginationHTML += '<li class="page-item active"><span class="page-link">' + i + '</span></li>';
             } else {
-                paginationHTML += '<li class="page-item disabled"><span class="page-link">Previous</span></li>';
+                paginationHTML += '<li class="page-item"><a class="page-link" href="#!" onclick="loadPage(' + i +
+                    ')">' + i + '</a></li>';
             }
+        }
 
-            for (var i = startPage; i <= endPage; i++) {
-                if (i === currentPage) {
-                    paginationHTML += '<li class="page-item active"><span class="page-link">' + i + '</span></li>';
+        if (currentPage < totalPages) {
+            paginationHTML += '<li class="page-item"><a class="page-link" href="#!" onclick="loadPage(' + (currentPage +
+                1) + ')">Next</a></li>';
+        } else {
+            paginationHTML += '<li class="page-item disabled"><span class="page-link">Next</span></li>';
+        }
+
+        paginationHTML += '</ul></nav></div>';
+        paginationDiv.innerHTML = paginationHTML;
+    }
+
+    // Define the function to load data for a specific page
+    function loadPage(pageNumber) {
+        var url = endPoint + "/admin" + paymentRoute + '?page=' + pageNumber;
+        console.log(url)
+        axios.get(url, {
+                headers: payloadRequest
+            })
+            .then(response => {
+                const data = response.data;
+
+                if (data.status === 'success') {
+                    const dataPayload = data.data;
+                    const paginationPayload = data.data;
+
+                    buildTable(dataPayload.data);
+                    buildPagination(paginationPayload);
                 } else {
-                    paginationHTML += '<li class="page-item"><a class="page-link" href="#!" onclick="loadPage(' + i + ')">' + i + '</a></li>';
+                    console.log('Failed to get data');
+                    console.log(data.status);
                 }
-            }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
 
-            if (currentPage < totalPages) {
-                paginationHTML += '<li class="page-item"><a class="page-link" href="#!" onclick="loadPage(' + (currentPage + 1) + ')">Next</a></li>';
-            } else {
-                paginationHTML += '<li class="page-item disabled"><span class="page-link">Next</span></li>';
-            }
+    // Initial load of data (assuming page 1)
+    loadPage(1);
+</script>
 
-            paginationHTML += '</ul></nav></div>';
-            paginationDiv.innerHTML = paginationHTML;
-        }
-
-        // Define the function to load data for a specific page
-        function loadPage(pageNumber) {
-            var url = endPoint + orderRoute + '?page=' + pageNumber;
-
-            axios.get(url, {
-                    headers: payloadRequest
-                })
-                .then(response => {
-                    const data = response.data;
-
-                    if (data.status === 'success') {
-                        const dataPayload = data.data;
-                        const paginationPayload = data.data;
-
-                        buildTable(dataPayload.data);
-                        buildPagination(paginationPayload);
-                    } else {
-                        console.log('Failed to get data');
-                        console.log(data.status);
-                    }
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        }
-
-        // Initial load of data (assuming page 1)
-        loadPage(1);
-    </script>
 </html>

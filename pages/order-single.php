@@ -9,7 +9,7 @@ include_once 'header.php'; ?>
 <body>
     <!-- navbar -->
     <?php
-    
+
     if (!if_Authenticated()) {
         setcookie('userId', '', time() - 3600, '/');
         setcookie('token', '', time() - 3600, '/');
@@ -48,12 +48,12 @@ include_once 'header.php'; ?>
 
                 
                                         <?php if ($paymentInformation == null) { ?>
-                                            <a href="payment.php?order_number=<?=$_GET['order_number']?>" class="btn btn-danger px-4 py-2 rounded">Make payment </a>
+                                                <a href="payment.php?order_number=<?= $_GET['order_number'] ?>" class="btn btn-danger px-4 py-2 rounded">Make payment </a>
 
-                                            <?php }else{ 
-                                                echo "<span class='bg-success px-3 py-1 small text-white rounded-pill'>Payment made</span>";
-                                            
-                                            } ?>
+                                            <?php } else {
+                                            echo "<span class='bg-success px-3 py-1 small text-white rounded-pill'>Payment made</span>";
+
+                                        } ?>
                                     </div>
 
             </div>
@@ -97,8 +97,8 @@ include_once 'header.php'; ?>
                                 <div class="col-12">
                                     <div class="table-responsive">
                                         <!-- Table -->
-                                        <?php 
-                                         foreach ($order_items as $orderItem){
+                                        <?php
+                                        foreach ($order_items as $orderItem) {
 
                                             $order_id = $orderItem['id'];
                                             $order_number = $orderItem['order_number'];
@@ -138,55 +138,55 @@ include_once 'header.php'; ?>
                                             $delivery_date = $orderItem['delivery_date'];
                                             $shipping_address = $orderItem['shipping_address'];
                                             $payment_method = $orderItem['payment_method'];
-                                        
-?>
-                                        <div class="col-11 mx-auto">
-                                            <div class="row order-details border py-3 mb-3 rounded-3">
-                                                <div class="d-flex">
 
-                                                    <div class="">
-                                                        <img src="<?php echo $product_img1; ?>" alt="" height="70"
-                                                            width="70" class="order-img img-fluid rounded-3">
+                                            ?>
+                                            <div class="col-11 mx-auto">
+                                                <div class="row order-details border py-3 mb-3 rounded-3">
+                                                    <div class="d-flex">
+
+                                                        <div class="">
+                                                            <img src="<?php echo $product_img1; ?>" alt="" height="70"
+                                                                width="70" class="order-img img-fluid rounded-3">
+                                                        </div>
+
+                                                        <div class="col ps-3">
+                                                            <!-- Product details -->
+                                                            <p class="">
+                                                                <?php
+                                                                echo $product_name;
+                                                                ?></p>
+
+                                                            <!-- Order number -->
+                                                            <small class="text-muted"> <?php echo CURRENCY . $sales_price; ?></small>
+                                                            <!-- Order number -->
+
+
+                                                            <br>
+                                                            <small class="text-muted">Quantity: <?php echo $quantity; ?></small>
+                                                            <br>
+
+                                                            <!-- Delivery status and date -->
+
+                                                        </div>
                                                     </div>
 
-                                                    <div class="col ps-3">
-                                                        <!-- Product details -->
-                                                        <p class="">
-                                                            <?php
-                                                            echo $product_name;
-                                                            ?></p>
 
-                                                        <!-- Order number -->
-                                                        <small class="text-muted"> <?php echo CURRENCY . $sales_price; ?></small>
-                                                        <!-- Order number -->
-
-
+                                                    <div class="col">
+                                                        <small
+                                                            class='bg-success px-3 py-1 small text-white rounded-pill'><?php echo $delivery_status; ?></small>
                                                         <br>
-                                                        <small class="text-muted">Quantity: <?php echo $quantity; ?></small>
-                                                        <br>
-
-                                                        <!-- Delivery status and date -->
-
                                                     </div>
+
+                                                    <!-- See details button -->
+                                                    <div class='nav-item col text-end justify-items-end'>
+                                                        <a href="shop-single.php?id=<?= $product_id ?>"
+                                                            class='  text-white border-0 nav-link bg-primary ms-auto px-4 py-2 rounded'
+                                                            style="font-size:0.85rem; width :max-content !important">Buy Again</a>
+                                                    </div>
+
                                                 </div>
-
-
-                                                <div class="col">
-                                                    <small
-                                                        class='bg-success px-3 py-1 small text-white rounded-pill'><?php echo $delivery_status; ?></small>
-                                                    <br>
-                                                </div>
-
-                                                <!-- See details button -->
-                                                <div class='nav-item col text-end justify-items-end'>
-                                                    <a href="shop-single.php?id=<?= $product_id ?>"
-                                                        class='  text-white border-0 nav-link bg-primary ms-auto px-4 py-2 rounded'
-                                                        style="font-size:0.85rem; width :max-content !important">Buy Again</a>
-                                                </div>
-
                                             </div>
-                                        </div>
-                                        <?php }?>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>

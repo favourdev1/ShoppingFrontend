@@ -3,20 +3,20 @@
 
 
 
-    <?php include_once('header.php') ?>
+    <?php include_once ('header.php') ?>
 
     <body>
         <!-- main -->
         <!-- navbar -->
 
-        <?php include_once('navbar.php'); ?>
-        <?php include_once('php/profile/fetchAll.php'); ?>
+        <?php include_once ('navbar.php'); ?>
+        <?php include_once ('php/profile/fetchAll.php'); ?>
 
 
         <div class="main-wrapper">
             <!-- navbar vertical -->
             <!-- navbar -->
-            <?php include_once('sidebar.php') ?>
+            <?php include_once ('sidebar.php') ?>
 
             <main class="main-content-wrapper">
                 <div class="">
@@ -101,7 +101,7 @@
                                                     $city = $user['city'];
                                                     $phone_number = $user['phone_number'];
                                                     $profile_img = $user['profile_img'];
-                                                    $is_admin = $user['is_admin']==true?'true':'false';
+                                                    $is_admin = $user['is_admin'] == true ? 'true' : 'false';
                                                     $email = $user['email'];
                                                     $email_verified_at = $user['email_verified_at'];
                                                     $created_at = date("d/m/Y", strtotime($user['created_at']));

@@ -5,7 +5,7 @@
 
     <?php
 
-    include_once('header.php');
+    include_once ('header.php');
     include_once __DIR__ . '/php/auth.php'; ?>
 
     <link
@@ -19,10 +19,10 @@
         <!-- main -->
         <!-- navbar -->
 
-        <?php include_once('navbar.php'); ?>
+        <?php include_once ('navbar.php'); ?>
 
-        <?php include_once('php/category/fetch.php') ?>
-        <?php include_once('php/category/fetchAll.php') ?>
+        <?php include_once ('php/category/fetch.php') ?>
+        <?php include_once ('php/category/fetchAll.php') ?>
         <?php
         if ($isUpdating) {
             $endPoint = "php/category/update.php";
@@ -34,7 +34,7 @@
         <div class="main-wrapper">
             <!-- navbar vertical -->
             <!-- navbar -->
-            <?php include_once('sidebar.php') ?>
+            <?php include_once ('sidebar.php') ?>
 
             <!-- main -->
             <main class="main-content-wrapper">
@@ -81,7 +81,7 @@
                                                     class="image icon-shape icon-xxxl bg-light rounded-4 border"
                                                     src="<?php
                                                     if ($isUpdating) {
-                                                        if (empty($categoryImg) || $categoryImg == null) {
+                                                        if (empty ($categoryImg) || $categoryImg == null) {
                                                             echo "../assets/images/icons/bakery.svg";
                                                         } else {
                                                             echo $categoryImg;

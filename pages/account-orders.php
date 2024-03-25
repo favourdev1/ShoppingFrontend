@@ -85,7 +85,7 @@ include_once 'header.php';
 <body>
     <!-- navbar -->
     <?php
-    
+
     if (!if_Authenticated()) {
         setcookie('userId', '', time() - 3600, '/');
         setcookie('token', '', time() - 3600, '/');
@@ -186,87 +186,88 @@ include_once 'header.php';
 
                                     <!-- Empty order -->
 
-                                    <?php 
-if (count($orderItems) === 0) {?>
-                                    <div class="alert alert-secondary">
-                                        No available orders
-                                    </div>
+                                    <?php
+                                    if (count($orderItems) === 0) { ?>
+                                        <div class="alert alert-secondary">
+                                            No available orders
+                                        </div>
 
                                     <?php } else { ?>
-                                    <?php foreach ($orderItems as $orderItem) { 
-    $order_id = $orderItem['id'];
-    $order_number = $orderItem['order_number'];
-    $order_status = $orderItem['order_status'];
-    $payment_status = $orderItem['payment_status'];
-    $delivery_status = $orderItem['delivery_status'];
-    $total_amount = $orderItem['total_amount'];
-    $created_at = $orderItem['created_at'];
-    $product_id = $orderItem['product_id'];
-    $product_name = $orderItem['product_name'];
-    $quantity = $orderItem['quantity'];
-    $price = $orderItem['price'];
-    $product_img1 = $orderItem['product_img1'];
-    $product_img2 = $orderItem['product_img2'];
-    $product_img3 = $orderItem['product_img3'];
-    $product_img4 = $orderItem['product_img4'];
-    $product_img5 = $orderItem['product_img5'];
-    $category_id = $orderItem['category_id'];
-    $description = $orderItem['description'];
-    $regular_price = $orderItem['regular_price'];
-    $brand = $orderItem['brand'];
-    $weight = $orderItem['weight'];
-    $quantity_in_stock = $orderItem['quantity_in_stock'];
-    $tags = $orderItem['tags'];
-    $refundable = $orderItem['refundable'];
-    $sales_price = $orderItem['sales_price'];
-    $meta_title = $orderItem['meta_title'];
-    $meta_description = $orderItem['meta_description'];
-    $cash_on_delivery = $orderItem['cash_on_delivery'];
-    $sku = $orderItem['sku'];
-    $free_shipping = $orderItem['free_shipping'];
-    $shipping_cost = $orderItem['shipping_cost'];
-    $length = $orderItem['length'];
-    $width = $orderItem['width'];
-    $height = $orderItem['height'];
-    $status = $orderItem['status'];
-    $delivery_date = $orderItem['delivery_date'];
-    $shipping_address = $orderItem['shipping_address'];
-    $payment_method = $orderItem['payment_method'];
+                                        <?php foreach ($orderItems as $orderItem) {
+                                            $order_id = $orderItem['id'];
+                                            $order_number = $orderItem['order_number'];
+                                            $order_status = $orderItem['order_status'];
+                                            $payment_status = $orderItem['payment_status'];
+                                            $delivery_status = $orderItem['delivery_status'];
+                                            $total_amount = $orderItem['total_amount'];
+                                            $created_at = $orderItem['created_at'];
+                                            $product_id = $orderItem['product_id'];
+                                            $product_name = $orderItem['product_name'];
+                                            $quantity = $orderItem['quantity'];
+                                            $price = $orderItem['price'];
+                                            $product_img1 = $orderItem['product_img1'];
+                                            $product_img2 = $orderItem['product_img2'];
+                                            $product_img3 = $orderItem['product_img3'];
+                                            $product_img4 = $orderItem['product_img4'];
+                                            $product_img5 = $orderItem['product_img5'];
+                                            $category_id = $orderItem['category_id'];
+                                            $description = $orderItem['description'];
+                                            $regular_price = $orderItem['regular_price'];
+                                            $brand = $orderItem['brand'];
+                                            $weight = $orderItem['weight'];
+                                            $quantity_in_stock = $orderItem['quantity_in_stock'];
+                                            $tags = $orderItem['tags'];
+                                            $refundable = $orderItem['refundable'];
+                                            $sales_price = $orderItem['sales_price'];
+                                            $meta_title = $orderItem['meta_title'];
+                                            $meta_description = $orderItem['meta_description'];
+                                            $cash_on_delivery = $orderItem['cash_on_delivery'];
+                                            $sku = $orderItem['sku'];
+                                            $free_shipping = $orderItem['free_shipping'];
+                                            $shipping_cost = $orderItem['shipping_cost'];
+                                            $length = $orderItem['length'];
+                                            $width = $orderItem['width'];
+                                            $height = $orderItem['height'];
+                                            $status = $orderItem['status'];
+                                            $delivery_date = $orderItem['delivery_date'];
+                                            $shipping_address = $orderItem['shipping_address'];
+                                            $payment_method = $orderItem['payment_method'];
 
-    
-    ?>
-                                    <div class="row order-details border py-3 mb-3 rounded-3">
-                                        <div class="col-md-2">
-                                            <img src="<?php echo $product_img1; ?>" alt=""   height="70" width="100" class="order-img img-fluid rounded-3">
-                                        </div>
 
-                                        <div class="col-md-7">
-                                            <!-- Product details -->
-                                            <p class="">
-                                                <?php
-                                                echo $product_name;
-                                                ?></p>
+                                            ?>
+                                            <div class="row order-details border py-3 mb-3 rounded-3">
+                                                <div class="col-md-2">
+                                                    <img src="<?php echo $product_img1; ?>" alt=""   height="70" width="100" class="order-img img-fluid rounded-3">
+                                                </div>
 
-                                            <!-- Order number -->
-                                            <small class="text-muted">Order id: <?php echo $order_number; ?></small>
-                                            <br>
+                                                <div class="col-md-7">
+                                                    <!-- Product details -->
+                                                    <p class="">
+                                                        <?php
+                                                        echo $product_name;
+                                                        ?></p>
 
-                                            <!-- Delivery status and date -->
-                                            <small
-                                                class='bg-success px-3 py-1 small text-white rounded-pill'><?php echo $delivery_status; ?></small>
-                                            <br>
-                                        </div>
+                                                    <!-- Order number -->
+                                                    <small class="text-muted">Order id: <?php echo $order_number; ?></small>
+                                                    <br>
 
-                                        <!-- See details button -->
-                                        <div class='nav-item col text-end'>
-                                            <a href="order-single.php?order_number=<?=$order_number?>" class='  text-primary border-0 nav-link'
-                                                style="font-size:0.85rem">SEE
-                                                DETAILS</a>
-                                        </div>
+                                                    <!-- Delivery status and date -->
+                                                    <small
+                                                        class='bg-success px-3 py-1 small text-white rounded-pill'><?php echo $delivery_status; ?></small>
+                                                    <br>
+                                                </div>
 
-                                    </div>
+                                                <!-- See details button -->
+                                                <div class='nav-item col text-end'>
+                                                    <a href="order-single.php?order_number=<?= $order_number ?>" class='  text-primary border-0 nav-link'
+                                                        style="font-size:0.85rem">SEE
+                                                        DETAILS</a>
+                                                </div>
 
-                                    <?php } }?>
+                                            </div>
+
+                                        <?php }
+                                    } ?>
 
 
                                 </div>

@@ -6,7 +6,7 @@ include_once 'header.php'; ?>
 <body>
 
     <?php
-    
+
     if (!if_Authenticated()) {
         setcookie('userId', '', time() - 3600, '/');
         setcookie('token', '', time() - 3600, '/');
@@ -28,12 +28,12 @@ include_once 'header.php'; ?>
 
 
     <?php
-    
-    if (!isset($_GET['order_number']) || empty($_GET['order_number'])) {
+
+    if (!isset ($_GET['order_number']) || empty ($_GET['order_number'])) {
         header('Location: 404error.php?error=we are unable to find the order infomation you are looking for');
         exit();
     }
-    
+
     ?>
     <?php include_once 'php/cart/fetchAll.php'; ?>
     <?php include_once 'php/orders/fetch.php'; ?>
@@ -72,9 +72,9 @@ include_once 'header.php'; ?>
                                 </svg>
 
                                 <?php if (if_Authenticated()) { ?>
-                                <span class="d-none d-md-inline"><?php echo 'Hi ' . $userFirstname; ?></span>
+                                    <span class="d-none d-md-inline"><?php echo 'Hi ' . $userFirstname; ?></span>
                                 <?php } else { ?>
-                                <span class="d-none d-md-inline"><?php echo 'Hello User'; ?></span>
+                                    <span class="d-none d-md-inline"><?php echo 'Hello User'; ?></span>
 
                                 <?php } ?>
 
@@ -83,17 +83,17 @@ include_once 'header.php'; ?>
 
 
                                 <?php if (if_Authenticated()) { ?> <a class="dropdown-item fs-6" href="account-settings.php">My
-                                    Account</a>
-                                <a class="dropdown-item fs-6" href="account-orders.php">Orders</a>
-                                <a class="dropdown-item fs-6" href="#">Inbox</a>
-                                <a class="dropdown-item fs-6" href="shop-wishlist.php">Saved Items</a>
-                                <hr>
-                                <a class="dropdown-item fs-6" href="php/logout.php">Logout</a>
+                                        Account</a>
+                                    <a class="dropdown-item fs-6" href="account-orders.php">Orders</a>
+                                    <a class="dropdown-item fs-6" href="#">Inbox</a>
+                                    <a class="dropdown-item fs-6" href="shop-wishlist.php">Saved Items</a>
+                                    <hr>
+                                    <a class="dropdown-item fs-6" href="php/logout.php">Logout</a>
 
                                 <?php } else { ?>
-                                <a class="dropdown-item rounded fs-6  text-white "
-                                    style="background-color: #1877f2 !important;" href="pages/signin.php">LOGIN TO
-                                    CONTINUE</a>
+                                    <a class="dropdown-item rounded fs-6  text-white "
+                                        style="background-color: #1877f2 !important;" href="pages/signin.php">LOGIN TO
+                                        CONTINUE</a>
                                 <?php } ?>
                             </div>
                         </div>
@@ -152,7 +152,7 @@ include_once 'header.php'; ?>
                                             <div class="me-auto">
                                                 <div>Amount To Transfer</div>
                                             </div>
-                                            <span><?= CURRENCY . number_format($total_amount, 2) ?></span>
+                                            <span id="amount"><?= CURRENCY . number_format($total_amount, 2) ?></span>
                                         </li>
                                         <li
                                             class="list-group-item px-0 py-3 d-flex justify-content-between align-items-start">
@@ -254,6 +254,7 @@ include_once 'header.php'; ?>
     </style>
 
     <script>
+        const order_number = '<?=$_GET['order_number']?>'
         hideDialog(false)
         document.addEventListener('DomContentLoaded', () => {
             hideDialog(true)
@@ -297,6 +298,7 @@ include_once 'header.php'; ?>
 
 
         function sendDataToServer() {
+            const amount = document.getElementById ('amount').innerHTML
             const file = paymentProofInput.files[0];
             const accNo = accNoInput.value;
             if (!file) {
@@ -311,7 +313,9 @@ include_once 'header.php'; ?>
             hideDialog(false)
             const formData = new FormData();
             formData.append('payment_proof', file);
-            formData.append('accNo', accNo);
+            formData.append('account_number', accNo);
+            formData.append('payment_amount',amount)
+            formData.append('order_number',order_number)
 
 
 
@@ -325,6 +329,13 @@ include_once 'header.php'; ?>
                 })
                 .then(response => {
                     // Handle success
+                    if(response.data.status =='success'){
+
+                            window.location.href = 'successPayment.php';
+                    }else{
+                        showAlert(response.data.data.message)
+                    }
+
                     console.log(response.data);
                 })
                 .catch(error => {

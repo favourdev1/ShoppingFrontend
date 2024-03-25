@@ -176,7 +176,7 @@
         <script src="assets/js/vendors/validation.js"></script>
 
         <main>
-            <section class="mt-8">
+            <!-- <section class="mt-8">
                 <div class="container">
                     <div class="hero-slider">
                         <div
@@ -219,7 +219,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <!-- Category Section Start-->
             <section class="mb-lg-10 mt-lg-14 my-8">
@@ -257,15 +257,21 @@
                                 class="text-decoration-none text-inherit"
                             >
                                 <div class="card border-0 shadow-none card-product mb-lg-4">
-                                    <div class="card-body text-center py-8">
+                                    <div class="card-body text-center py-8 px-0">
+                                        <div class="rounded-circle overflow-hidden border-2 mx-auto border  card-product mb-4 "
+                                        style="background-color: rgba(0, 0, 0, 0.5);height: 100px!important ;width:100px !important;" id="categoryContainer">
+
                                         <img
                                             src="<?php echo $categoryImg ?>"
                                             alt="<?=$categoryName?>"
-                                            class="mb-3 img-fluid rounded-circle card-product border-2 border-muted card"
+                                            class="mb-3  img-fluid  p-0 card" style=" object-fit:cover!important  ; "
                                             loading="lazy"
-                                            style="object-fit:cover"
+                                          
                                         />
-                                        <div class="text-truncate"><?php echo $categoryName ?> </div>
+
+
+                                        </div>
+                                        <small class="text-center  text-truncate"><?php echo $categoryName ?> </small>
                                     </div>
                                 </div>
                             </a>
@@ -394,7 +400,7 @@
 
             <!-- divider Container -->
             <section class="my-lg-14 my-8">
-           <?php include_once('pages/components/bannerview.php')?>
+           <?php //include_once('pages/components/bannerview.php')?>
             </section>
 
             <!-- Popular Products Start-->

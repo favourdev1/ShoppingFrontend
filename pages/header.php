@@ -2,7 +2,7 @@
 
     <?php $apiUrl = "http://localhost:8000/api" ?>
     <?php
-    include_once('php/config.php');
+    include_once ('php/config.php');
 
     ?>
     <!-- Required meta tags -->
@@ -88,7 +88,7 @@
     <script src="javascript/cookie.js"></script>
 
     <?php
-    include_once('php/checkAuth.php');
+    include_once ('php/checkAuth.php');
     require_once '../vendor/autoload.php';
     ?>
 
@@ -143,7 +143,7 @@
 
     <!-- Functions -->
 
-    <?php include_once('php/functions.php'); ?>
+    <?php include_once ('php/functions.php'); ?>
 
     <script>
     /**

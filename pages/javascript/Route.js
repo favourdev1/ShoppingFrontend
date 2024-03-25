@@ -21,6 +21,8 @@ const newArrivalRoute = '/group/newArrivial';
 const orderRoute = '/orders';
 
 
+//review  route 
+const reviewRoute = '/reviews'
 
 
 // User profile routes

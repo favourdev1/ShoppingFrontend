@@ -4,26 +4,26 @@
 
 
     <?php
-$pageName = "Settings - Sosmart Online shopping and more";
-include_once('header.php')
-   ?>
+    $pageName = "Settings - Sosmart Online shopping and more";
+    include_once ('header.php')
+        ?>
 
     <body>
         <!-- navbar -->
         <?php
-    
-    if (!if_Authenticated()) {
-        setcookie('userId', '', time() - 3600, '/');
-        setcookie('token', '', time() - 3600, '/');
-        setcookie('isAdmin', '', time() - 3600, '/');
-        header('Location: signin.php?error=user not logged in & redirect=' . __DIR__ . '/shop-cart.php');
-        exit();
-    }
-    ?>
-        <?php include_once('php/profile/fetchAll.php'); ?>
-        <?php include_once('php/category/fetchAll.php'); ?>
-        <?php include_once('php/cart/fetchAll.php') ?>
-        <?php include_once('navbar.php') ?>
+
+        if (!if_Authenticated()) {
+            setcookie('userId', '', time() - 3600, '/');
+            setcookie('token', '', time() - 3600, '/');
+            setcookie('isAdmin', '', time() - 3600, '/');
+            header('Location: signin.php?error=user not logged in & redirect=' . __DIR__ . '/shop-cart.php');
+            exit();
+        }
+        ?>
+        <?php include_once ('php/profile/fetchAll.php'); ?>
+        <?php include_once ('php/category/fetchAll.php'); ?>
+        <?php include_once ('php/cart/fetchAll.php') ?>
+        <?php include_once ('navbar.php') ?>
       
 
   
@@ -149,7 +149,7 @@ include_once('header.php')
                                                     <input
                                                         type="text"
                                                         class="form-control"
-                                                        disabled value="<?php echo $userFirstname?>"
+                                                        disabled value="<?php echo $userFirstname ?>"
                                                     />
                                                 </div>
 
@@ -350,7 +350,7 @@ include_once('header.php')
 
         <!-- Footer -->
         <!-- footer -->
-        <?php include_once('footer.php'); ?>
+        <?php include_once ('footer.php'); ?>
         <!-- Javascript-->
         <!-- Libs JS -->
         <!-- <script src="../assets/libs/jquery/dist/jquery.min.js"></script> -->

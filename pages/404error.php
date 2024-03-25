@@ -2,10 +2,10 @@
 <html lang="en">
    
    
-<?php 
-$pageName="Error 404 - Sosmart Online shopping and more";
-include_once('header.php')
-?>
+<?php
+$pageName = "Error 404 - Sosmart Online shopping and more";
+include_once ('header.php')
+   ?>
 
    <body>
       <main>
@@ -26,13 +26,13 @@ include_once('header.php')
                            <div class="mb-6 mb-lg-0">
                               <!-- <h1>Something’s wrong here...</h1> -->
                               <p class="mb-8">
-                                 <?php 
+                                 <?php
 
-                                 if(isset($_GET['error'])){
+                                 if (isset ($_GET['error'])) {
                                     echo "<h1>Error!</h1>";
                                     echo $_GET['error'];
-                                 }else{
-echo "<h1>Something’s wrong here...</h1>";
+                                 } else {
+                                    echo "<h1>Something’s wrong here...</h1>";
                                     echo "We can’t find the page you’re looking for.
                                     <br />
                                     Check out our help center or head back to home.";

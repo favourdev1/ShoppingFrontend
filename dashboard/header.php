@@ -48,13 +48,11 @@
 
 
     <script src="../node_modules/axios/dist/axios.min.js"></script>
-    <?php include_once('php/auth.php')?>
+    <?php include_once ('php/auth.php') ?>
 
 
 
-    <script>
-    var apiUrl = 'http://localhost:8000/api/admin'
-    </script>
+  <?php include_once ('route.php') ?>
 
     <!-- <script src="../pages/javascript/cookie.js"></script> -->
     <!-- <script src="../pages/javascript/checkAuth.js"></script> -->
@@ -71,7 +69,7 @@
     <script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6.3.4/dist/tippy-bundle.umd.min.js"></script>
     <!-- </script> -->
-    <?php include_once('php/auth.php') ?>
+    <?php include_once ('php/auth.php') ?>
 
 
 
@@ -94,7 +92,7 @@
         font-family: 'Nunito', sans-serif !important;
     }
     </style>
-    <?php include_once('php/profileDetails.php') ?>
+    <?php include_once ('php/profileDetails.php') ?>
 
     
     <style>
@@ -112,7 +110,7 @@
 
     </style>
 
-<?php include_once('../pages/php/config.php')?>
+<?php include_once ('../pages/php/config.php') ?>
 <script src ="js/functions.js"></script>
 <script src="../pages/javascript/Route.js"></script>
 

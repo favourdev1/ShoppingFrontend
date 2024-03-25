@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php
-    // require_once 'vendor/autoload.php';                   ?>
+    // require_once 'vendor/autoload.php';                    ?>
     <?php $productName = $_GET['productName'] ?? 'Product Details';
     $pageName = $productName . " | Sosmart Online shopping and more! "; ?>
-    <?php include_once('header.php') ?>
+    <?php include_once ('header.php') ?>
 
 
 
@@ -18,25 +18,25 @@
         </script>
         <!-- files   -->
         <?php
-        if (!isset($_GET['id'])) {
+        if (!isset ($_GET['id'])) {
             header('Location: 404error.php');
         }
         $getId = $_GET['id']; ?>
-        <?php include_once('php/profile/fetchAll.php'); ?>
+        <?php include_once ('php/profile/fetchAll.php'); ?>
 
-        <?php include_once('php/category/fetchAll.php'); ?>
-        <?php include_once('php/products/fetchSimilar.php'); ?>
-        <?php include_once('php/products/fetch.php'); ?>
-        <?php include_once('php/cart/fetchAll.php') ?>
+        <?php include_once ('php/category/fetchAll.php'); ?>
+        <?php include_once ('php/products/fetchSimilar.php'); ?>
+        <?php include_once ('php/products/fetch.php'); ?>
+        <?php include_once ('php/cart/fetchAll.php') ?>
         <!-- navbar -->
-        <?php include_once('navbar.php') ?>
+        <?php include_once ('navbar.php') ?>
 
 
 
         <script src="../assets/js/vendors/validation.js"></script>
 
         <main>
-            <?php include_once('components/loadingDialog.php') ?>
+            <?php include_once ('components/loadingDialog.php') ?>
 
             <section class="mt-8">
                 <div class="container">
@@ -156,15 +156,15 @@
                                 <small class="text-muted d-flex align-items-center">
                                     <div class="d-flex align-items-center justify-content-start">
                                         <?php if (is_array($tags)) { ?>
-                                        <span class="text-muted fw-bold">Tags:</span>
-                                        <?php foreach ($tags as $tag): ?>
-                                        <a
-                                            href="shop-grid.php?search=<?= $tag->value ?>"
-                                            class="ps-2 text-muted text-decoration-underline"
-                                        >
-                                            <?= $tag->value ?>
-                                        </a>
-                                        <?php endforeach;
+                                            <span class="text-muted fw-bold">Tags:</span>
+                                            <?php foreach ($tags as $tag): ?>
+                                                <a
+                                                    href="shop-grid.php?search=<?= $tag->value ?>"
+                                                    class="ps-2 text-muted text-decoration-underline"
+                                                >
+                                                    <?= $tag->value ?>
+                                                </a>
+                                            <?php endforeach;
                                         } ?>
 
                                     </div>
@@ -191,10 +191,10 @@
 
                                 <div class="fs-4 fw-bold">
                                     <!-- price -->
-                                    <?php if (!empty($regularPrice)) { ?>
+                                    <?php if (!empty ($regularPrice)) { ?>
 
-                                    <span
-                                        class="text-decoration-line-through text-muted"><?php echo CURRENCY . number_format($regularPrice) ?></span>
+                                        <span
+                                            class="text-decoration-line-through text-muted"><?php echo CURRENCY . number_format($regularPrice) ?></span>
 
                                     <?php } ?>
                                     <span class="text-dark"><?php echo CURRENCY . number_format($salesPrice) ?></span>
@@ -280,59 +280,59 @@
 
                                             ?>
 
-                                        <button
-                                            type="button"
-                                            class="btn btn-primary"
-                                            id="addTocartPageButton"
-                                        >
-                                            <i class="feather-icon icon-shopping-bag me-2"></i>
-                                            Add to cart
-                                        </button>
+                                            <button
+                                                type="button"
+                                                class="btn btn-primary"
+                                                id="addTocartPageButton"
+                                            >
+                                                <i class="feather-icon icon-shopping-bag me-2"></i>
+                                                Add to cart
+                                            </button>
 
-                                        <?php
+                                            <?php
 
                                         } else { ?>
-                                        <div
-                                            class="input-group input-spinner  mb-3  h-100 "
-                                            style="width:max-content"
-                                        >
-                                            <input
-                                                type="button"
-                                                value="-"
-                                                class="button-minus btn btn-sm text-white h-100 rounded-3"
-                                                data-field="quantity"
-                                                style="background:#0d6efd; width:2.4rem !important"
-                                            />
-                                            <?php
-                                                    $cartQuantity = 1; //set default value to 1
-                                                    foreach ($cartItems as $cart) {
-                                                        if ($cart['id'] == $getId) {
-                                                            $cartQuantity = $cart['quantity'];
-                                                            break;
-                                                        }
+                                            <div
+                                                class="input-group input-spinner  mb-3  h-100 "
+                                                style="width:max-content"
+                                            >
+                                                <input
+                                                    type="button"
+                                                    value="-"
+                                                    class="button-minus btn btn-sm text-white h-100 rounded-3"
+                                                    data-field="quantity"
+                                                    style="background:#0d6efd; width:2.4rem !important"
+                                                />
+                                                <?php
+                                                $cartQuantity = 1; //set default value to 1
+                                                foreach ($cartItems as $cart) {
+                                                    if ($cart['id'] == $getId) {
+                                                        $cartQuantity = $cart['quantity'];
+                                                        break;
                                                     }
+                                                }
 
 
-                                                    ?>
+                                                ?>
 
 
-                                            <input
-                                                type="number"
-                                                step="1"
-                                                max="10"
-                                                value="<?= $cartQuantity ?>"
-                                                name="quantity"
-                                                class="quantity-field form-control-sm form-input border-0 mx-4"
-                                            />
-                                            <input
-                                                type="button"
-                                                value="+"
-                                                class="button-plus btn btn-sm  text-white h-100 rounded-3"
-                                                data-field="quantity"
-                                                style="background:#0d6efd; width:2.4rem !important"
-                                            />
+                                                <input
+                                                    type="number"
+                                                    step="1"
+                                                    max="10"
+                                                    value="<?= $cartQuantity ?>"
+                                                    name="quantity"
+                                                    class="quantity-field form-control-sm form-input border-0 mx-4"
+                                                />
+                                                <input
+                                                    type="button"
+                                                    value="+"
+                                                    class="button-plus btn btn-sm  text-white h-100 rounded-3"
+                                                    data-field="quantity"
+                                                    style="background:#0d6efd; width:2.4rem !important"
+                                                />
 
-                                        </div>
+                                            </div>
 
 
                                         <?php }
@@ -967,10 +967,10 @@
 
             <!-- Related Items  -->
 
-            <?php include_once('components/relatedItems.php') ?>
+            <?php include_once ('components/relatedItems.php') ?>
         </main>
         <!-- footer -->
-        <?php include_once('footer.php') ?>
+        <?php include_once ('footer.php') ?>
 
 
 
@@ -993,17 +993,17 @@
         <script src="javascript/main.js"></script>
 
         <?php
-        $isloggedIn = isset($isloggedIn) ? $isloggedIn : false;
+        $isloggedIn = isset ($isloggedIn) ? $isloggedIn : false;
         ?>
         <script>
         document.addEventListener("DOMContentLoaded", function() {
             // button add to cart clicked 
 
             <?php if (!checkIfIdExists($getId, $cartItems)) { ?>
-            var addTocartPageButton = document.getElementById('addTocartPageButton');
-            addTocartPageButton.addEventListener('click', function() {
-                addToCart(<?php echo $getId; ?>, 1, true)
-            })
+                var addTocartPageButton = document.getElementById('addTocartPageButton');
+                addTocartPageButton.addEventListener('click', function() {
+                    addToCart(<?php echo $getId; ?>, 1, true)
+                })
 
             <?php } ?>
 

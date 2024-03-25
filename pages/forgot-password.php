@@ -2,7 +2,7 @@
 <html lang="en">
 
 
-<?php  include_once('header.php')?>
+<?php include_once ('header.php') ?>
 
 
    <body>
@@ -67,7 +67,7 @@
 
       <!-- Footer -->
       <!-- footer -->
-   <?php include_once('footer.php')?>
+   <?php include_once ('footer.php') ?>
       <!-- Javascript-->
       <!-- Libs JS -->
       <!-- <script src="../assets/libs/jquery/dist/jquery.min.js"></script> -->

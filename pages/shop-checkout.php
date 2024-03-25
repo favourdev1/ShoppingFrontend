@@ -26,7 +26,7 @@ if (!if_Authenticated()) {
     <?php include_once 'php/address/fetchAll.php'; ?>
     <?php include_once 'php/category/fetchAll.php'; ?>
     <?php include_once 'php/cart/fetchAll.php'; ?>
-<?php include_once('php/payment/fetchAll.php'); ?>
+<?php include_once ('php/payment/fetchAll.php'); ?>
 
     <?php include_once 'navbar.php'; ?>
 
@@ -87,56 +87,56 @@ if (!if_Authenticated()) {
                                                     <!-- form -->
                                                     <?php
 
-                                                        if (count($allAddresses) < 1) { ?>
+                                                    if (count($allAddresses) < 1) { ?>
 
-                                                    <div id="emptyAddress"
-                                                        class=" text-center alert alert-warning rounded-3  p-6">
-                                                        No address added
-                                                    </div>
+                                                        <div id="emptyAddress"
+                                                            class=" text-center alert alert-warning rounded-3  p-6">
+                                                            No address added
+                                                        </div>
 
                                                     <?php } else { ?>
-                                                    <?php foreach ($allAddresses as $address) { ?>
+                                                        <?php foreach ($allAddresses as $address) { ?>
 
 
-                                                    <div class="d-flex align-items-center border rounded-3  p-6 mt-2">
-                                                        <div class="form-check mb-4">
-                                                            <input class="form-check-input" type="radio"
-                                                                name="address" id="homeRadio" checked
-                                                                data-address-id="<?= $address['id'] ?>" />
+                                                            <div class="d-flex align-items-center border rounded-3  p-6 mt-2">
+                                                                <div class="form-check mb-4">
+                                                                    <input class="form-check-input" type="radio"
+                                                                        name="address" id="homeRadio" checked
+                                                                        data-address-id="<?= $address['id'] ?>" />
 
 
-                                                            <!-- <label class="form-check-label text-dark" for="homeRadio">Home</label> -->
-                                                        </div>
-                                                        <!-- address -->
-                                                        <div class="col">
+                                                                    <!-- <label class="form-check-label text-dark" for="homeRadio">Home</label> -->
+                                                                </div>
+                                                                <!-- address -->
+                                                                <div class="col">
 
 
-                                                            <address class="my-0">
-                                                                <strong><?= $address['firstname'] . ' ' . $address['lastname'] ?></strong>
-                                                                <br>
+                                                                    <address class="my-0">
+                                                                        <strong><?= $address['firstname'] . ' ' . $address['lastname'] ?></strong>
+                                                                        <br>
 
-                                                                <?= $address['delivery_address'] . ',' ?>
+                                                                        <?= $address['delivery_address'] . ',' ?>
 
-                                                                <br>
-                                                                <?= $address['city'] . ' ' . $address['city'] . ',' ?>
+                                                                        <br>
+                                                                        <?= $address['city'] . ' ' . $address['city'] . ',' ?>
 
 
 
-                                                                <abbr title="Phone">
-                                                                    <?= $address['phone_number_1'] ?>
-                                                                </abbr>
-                                                            </address>
-                                                            <?php if ($address['is_default'] === true) { ?>
-                                                            <span class="text-dark small rounded px-2"
-                                                                style="background:rgba(0,0,0,.1); width:max-content!important ">Default
-                                                                address</span>
+                                                                        <abbr title="Phone">
+                                                                            <?= $address['phone_number_1'] ?>
+                                                                        </abbr>
+                                                                    </address>
+                                                                    <?php if ($address['is_default'] === true) { ?>
+                                                                        <span class="text-dark small rounded px-2"
+                                                                            style="background:rgba(0,0,0,.1); width:max-content!important ">Default
+                                                                            address</span>
 
-                                                            <?php } ?>
-                                                        </div>
-                                                    </div>
+                                                                    <?php } ?>
+                                                                </div>
+                                                            </div>
 
-                                                    <?php }
-                                                        } ?>
+                                                        <?php }
+                                                    } ?>
                                                 </div>
 
                                             </div>
@@ -200,33 +200,33 @@ if (!if_Authenticated()) {
                                         <div class="mt-5">
                                             <div>
 
-                                            <?php 
+                                            <?php
 
                                             foreach ($allpaymentMethods as $paymentMethod) { ?>
-                                                <?php if (strtolower($paymentMethod['name']) === 'bank transfer') { ?>
-                                                <div class="card card-bordered shadow-none mb-2 mt-2">
-                                                    <!-- card body -->
-                                                    <div class="card-body p-6">
-                                                        <div class="d-flex">
-                                                            <div class="form-check">
-                                                                <!-- checkbox -->
-                                                                <input class="form-check-input"checked type="radio"
-                                                                    name="payment_method" id="bankTransfer"
-                                                                    value="<?php $payment_method['id']?>"  data-name = "bank transfer" />
-                                                                <label class="form-check-label ms-2"
-                                                                    for="bankTransfer"></label>
-                                                            </div>
-                                                            <div>
-                                                                <!-- title -->
-                                                                <h5 class="mb-1 h6">Bank Transfer</h5>
-                                                                <p class="mb-0 small">Transfer Directly from Your
-                                                                    account </p>
+                                                    <?php if (strtolower($paymentMethod['name']) === 'bank transfer') { ?>
+                                                        <div class="card card-bordered shadow-none mb-2 mt-2">
+                                                            <!-- card body -->
+                                                            <div class="card-body p-6">
+                                                                <div class="d-flex">
+                                                                    <div class="form-check">
+                                                                        <!-- checkbox -->
+                                                                        <input class="form-check-input"checked type="radio"
+                                                                            name="payment_method" id="bankTransfer"
+                                                                            value="<?php echo $paymentMethod['id'] ?>"  data-name = "bank transfer" />
+                                                                        <label class="form-check-label ms-2"
+                                                                            for="bankTransfer"></label>
+                                                                    </div>
+                                                                    <div>
+                                                                        <!-- title -->
+                                                                        <h5 class="mb-1 h6">Bank Transfer</h5>
+                                                                        <p class="mb-0 small">Transfer Directly from Your
+                                                                            account </p>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <!-- card -->
-                                                <!-- <div class="card card-bordered shadow-none mb-2">
+                                                        <!-- card -->
+                                                        <!-- <div class="card card-bordered shadow-none mb-2">
                                                         
                                                         <div class="card-body p-6">
                                                             <div class="d-flex mb-4">
@@ -303,31 +303,34 @@ if (!if_Authenticated()) {
                                                         </div>
                                                     </div> -->
 
-                                                <!-- card -->
+                                                        <!-- card -->
 
-                                                <?php }else{ if (strtolower($paymentMethod['name']) === 'pay on delivery') { ?>
-                                                <div class="card card-bordered shadow-none ">
-                                                    <div class="card-body p-6">
-                                                        <!-- check input -->
-                                                        <div class="d-flex">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="payment_method" id="cashonDeliver"
-                                                                    value="<?php $payment_method['id']?>" data-name = "cash on delivery" />
-                                                                <label class="form-check-label ms-2"
-                                                                    for="cashonDelivery"></label>
+                                                    <?php } else {
+                                                        if (strtolower($paymentMethod['name']) === 'pay on delivery') { ?>
+                                                            <div class="card card-bordered shadow-none ">
+                                                                <div class="card-body p-6">
+                                                                    <!-- check input -->
+                                                                    <div class="d-flex">
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio"
+                                                                                name="payment_method" id="cashonDeliver"
+                                                                                value="<?php echo $paymentMethod['id'] ?>" data-name = "cash on delivery" />
+                                                                            <label class="form-check-label ms-2"
+                                                                                for="cashonDelivery"></label>
+                                                                        </div>
+                                                                        <div>
+                                                                            <!-- title -->
+                                                                            <h5 class="mb-1 h6">Cash on Delivery</h5>
+                                                                            <p class="mb-0 small">Pay with cash when your order
+                                                                                is delivered.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div>
-                                                                <!-- title -->
-                                                                <h5 class="mb-1 h6">Cash on Delivery</h5>
-                                                                <p class="mb-0 small">Pay with cash when your order
-                                                                    is delivered.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
-                                                <?php }} }?>
+                                                        <?php }
+                                                    }
+                                            } ?>
                                                 <!-- Button -->
                                                 <div class="mt-5 d-flex justify-content-end">
                                                     <a href="#" class="btn btn-outline-gray-400 text-muted"
@@ -349,88 +352,88 @@ if (!if_Authenticated()) {
                         <div class="col-12 col-lg-4 col-md-5">
                             <!-- card -->
 
-                            <?php if (isset($cartItems) && count($cartItems) > 0) {
+                            <?php if (isset ($cartItems) && count($cartItems) > 0) {
 
-                                    $totalTax = 0;
-                                    $subTotalPrice = 0;
-                                    $totalShippingFee = 0;
+                                $totalTax = 0;
+                                $subTotalPrice = 0;
+                                $totalShippingFee = 0;
 
-                                    ?>
+                                ?>
 
-                            <?php foreach ($cartItems as $cart) { ?>
-                            <?php
-                                        $productId = $cart['id'];
-                                        $cartId = $cart['cart_id'];
-                                        $cartName = $cart['product_name'];
-                                        $cartcategoryId = $cart['category_id'];
-                                        $cartdescription = $cart['description'];
-                                        $cartregularPrice = $cart['regular_price'];
-                                        $cartbrand = $cart['brand'];
-                                        $cartImg1 = $cart['product_img1'];
-                                        $cartImg2 = $cart['product_img2'];
-                                        $cazrtImg3 = $cart['product_img3'];
-                                        $cartImg4 = $cart['product_img4'];
-                                        $cartImg5 = $cart['product_img5'];
-                                        $cartweight = $cart['weight'];
-                                        $tax = $cart['tax'];
-                                        // $shippingFee = $cart['shipping_cost'];
-                                        // echo $cart['shipping_cost']."slknsdnlsg";
-                                        $quantityInStock = $cart['quantity_in_stock'];
-                                        $cartItemQuantity = $cart['quantity'];
-                                        $cartSalesPrice = $cart['sales_price'];
-                                        $subTotalPrice += $cartSalesPrice * $cartItemQuantity;
-                                        $totalTax += $tax + $totalTax;
-                                        // $totalShippingFee += $shippingFee + $totalShippingFee;
-                                    } ?>
+                                <?php foreach ($cartItems as $cart) { ?>
+                                    <?php
+                                    $productId = $cart['id'];
+                                    $cartId = $cart['cart_id'];
+                                    $cartName = $cart['product_name'];
+                                    $cartcategoryId = $cart['category_id'];
+                                    $cartdescription = $cart['description'];
+                                    $cartregularPrice = $cart['regular_price'];
+                                    $cartbrand = $cart['brand'];
+                                    $cartImg1 = $cart['product_img1'];
+                                    $cartImg2 = $cart['product_img2'];
+                                    $cazrtImg3 = $cart['product_img3'];
+                                    $cartImg4 = $cart['product_img4'];
+                                    $cartImg5 = $cart['product_img5'];
+                                    $cartweight = $cart['weight'];
+                                    $tax = $cart['tax'];
+                                    // $shippingFee = $cart['shipping_cost'];
+                                    // echo $cart['shipping_cost']."slknsdnlsg";
+                                    $quantityInStock = $cart['quantity_in_stock'];
+                                    $cartItemQuantity = $cart['quantity'];
+                                    $cartSalesPrice = $cart['sales_price'];
+                                    $subTotalPrice += $cartSalesPrice * $cartItemQuantity;
+                                    $totalTax += $tax + $totalTax;
+                                // $totalShippingFee += $shippingFee + $totalShippingFee;
+                            } ?>
 
-                            <div class="mb-5 card mt-6">
-                                <div class="card-body p-6">
-                                    <!-- heading -->
-                                    <h2 class="h5 mb-4">Summary</h2>
-                                    <div class="card mb-2">
-                                        <!-- list group -->
-                                        <ul class="list-group list-group-flush">
-                                            <!-- list group item -->
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-start">
-                                                <div class="me-auto">
-                                                    <div>Item Subtotal</div>
-                                                </div>
-                                                <span><?php echo CURRENCY . '<span id = "itemSubtotal">' . number_format($subTotalPrice) . '</span>'; ?></span>
-                                            </li>
+                                <div class="mb-5 card mt-6">
+                                    <div class="card-body p-6">
+                                        <!-- heading -->
+                                        <h2 class="h5 mb-4">Summary</h2>
+                                        <div class="card mb-2">
+                                            <!-- list group -->
+                                            <ul class="list-group list-group-flush">
+                                                <!-- list group item -->
+                                                <li
+                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                    <div class="me-auto">
+                                                        <div>Item Subtotal</div>
+                                                    </div>
+                                                    <span><?php echo CURRENCY . '<span id = "itemSubtotal">' . number_format($subTotalPrice) . '</span>'; ?></span>
+                                                </li>
 
-                                            <!-- list group item -->
+                                                <!-- list group item -->
 
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-start">
-                                                <div class="me-auto">
-                                                    <div>Shipping Fee</div>
-                                                </div>
-                                                <span id="shippingCost"><?php echo CURRENCY . '<span id = "shippingFee">' . number_format($totalShippingFee) . '</span>'; ?></span>
-                                            </li>
+                                                <li
+                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                    <div class="me-auto">
+                                                        <div>Shipping Fee</div>
+                                                    </div>
+                                                    <span id="shippingCost"><?php echo CURRENCY . '<span id = "shippingFee">' . number_format($totalShippingFee) . '</span>'; ?></span>
+                                                </li>
 
 
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-start">
-                                                <div class="me-auto">
-                                                    <div>Tax</div>
-                                                </div>
-                                                <span><?php echo CURRENCY . '<span id = "tax">' . number_format($totalTax) . '</span>'; ?></span>
-                                            </li>
-                                            <!-- list group item -->
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-start">
-                                                <div class="me-auto">
-                                                    <div class="fw-bold">Subtotal</div>
-                                                </div>
-                                                <span class="fw-bold"><?php echo CURRENCY . '<span id = "subTotalPrice">' . number_format($subTotalPrice + $totalShippingFee + $totalTax) . '</span>'; ?></span>
-                                            </li>
-                                        </ul>
+                                                <li
+                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                    <div class="me-auto">
+                                                        <div>Tax</div>
+                                                    </div>
+                                                    <span><?php echo CURRENCY . '<span id = "tax">' . number_format($totalTax) . '</span>'; ?></span>
+                                                </li>
+                                                <!-- list group item -->
+                                                <li
+                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                    <div class="me-auto">
+                                                        <div class="fw-bold">Subtotal</div>
+                                                    </div>
+                                                    <span class="fw-bold"><?php echo CURRENCY . '<span id = "subTotalPrice">' . number_format($subTotalPrice + $totalShippingFee + $totalTax) . '</span>'; ?></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
                                     </div>
-
-
                                 </div>
-                            </div>
 
                             <?php } ?>
                         </div>
@@ -519,6 +522,8 @@ if (!if_Authenticated()) {
                 const total = document.getElementById('subTotalPrice').innerText;
                 const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
 
+                const paymentMethodName = document.querySelector('input[name="payment_method"]:checked').getAttribute('data-name');
+
                 // lets echo out the value of the variables to be sure they are in 
                 // the right format
                 console.log(addressId);
@@ -540,7 +545,7 @@ if (!if_Authenticated()) {
                 }
 
 
-                return
+              
                 console.log(payloadRequest)
                 // send information too server using axios
                 axios.post(endPoint + '/carts/checkout', {
@@ -572,10 +577,10 @@ if (!if_Authenticated()) {
                         }
 
                         console.log(response.data.message);
-                        if (paymentMethod === 'bank transfer') {
+                        if (paymentMethodName === 'bank transfer') {
                             window.location.href = 'payment.php?order_number=' + orderId;
                         }else{
-window.location.href = 'successPay.php';
+window.location.href = 'successPayment.php';
                         }
                     })
                     .catch(error => {

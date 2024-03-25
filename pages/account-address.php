@@ -5,26 +5,26 @@
    
 <?php
 $pageName = "Shipping Info - Sosmart Online shopping and more";
-include_once('header.php')
+include_once ('header.php')
    ?>
 
 <body>
     <!-- navbar -->
     <?php
-    
+
     if (!if_Authenticated()) {
-        setcookie('userId', '', time() - 3600, '/');
-        setcookie('token', '', time() - 3600, '/');
-        setcookie('isAdmin', '', time() - 3600, '/');
-        header('Location: signin.php?error=user not logged in & redirect=' . __DIR__ . '/shop-cart.php');
-        exit();
+       setcookie('userId', '', time() - 3600, '/');
+       setcookie('token', '', time() - 3600, '/');
+       setcookie('isAdmin', '', time() - 3600, '/');
+       header('Location: signin.php?error=user not logged in & redirect=' . __DIR__ . '/shop-cart.php');
+       exit();
     }
     ?>
-    <?php include_once('php/profile/fetchAll.php'); ?>
-    <?php include_once('php/address/fetchAll.php'); ?>
-        <?php include_once('php/category/fetchAll.php'); ?>
-        <?php include_once('php/cart/fetchAll.php') ?>
-        <?php include_once('navbar.php') ?>
+    <?php include_once ('php/profile/fetchAll.php'); ?>
+    <?php include_once ('php/address/fetchAll.php'); ?>
+        <?php include_once ('php/category/fetchAll.php'); ?>
+        <?php include_once ('php/cart/fetchAll.php') ?>
+        <?php include_once ('navbar.php') ?>
       <!-- Modal -->
       <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-dialog-centered">
@@ -177,67 +177,68 @@ include_once('header.php')
                                                 <div class="row">
                                                     <div class=" col-12 mb-4">
                                                         <!-- form -->
-                                                        <?php 
-                                                      
-                                                        if(count($allAddresses)<1){?>
+                                                        <?php
 
-                                                        <div class=" text-center alert alert-warning rounded-3  p-6">
-                                                            No address added
-                                                        </div>
+                                                        if (count($allAddresses) < 1) { ?>
 
-                                                        <?php }else{?>
-                                                        <?php foreach ($allAddresses as $address){?>
+                                                           <div class=" text-center alert alert-warning rounded-3  p-6">
+                                                               No address added
+                                                           </div>
 
-
-                                                        <div class="d-flex align-items-center border rounded-3  p-6 mt-2">
-                                                            <div class="form-check mb-4">
-                                                                <input
-                                                                    class="form-check-input"
-                                                                    type="radio"
-                                                                    name="flexRadioDefault"
-                                                                    id="homeRadio"
-                                                                    checked
-                                                                />
-                                                                <!-- <label class="form-check-label text-dark" for="homeRadio">Home</label> -->
-                                                            </div>
-                                                            <!-- address -->
-                                                            <div class="col">
+                                                        <?php } else { ?>
+                                                           <?php foreach ($allAddresses as $address) { ?>
 
 
-                                                                <address class="my-0">
-                                                                    <strong><?=$address['firstname']." ".$address['lastname']?></strong>
-                                                                    <br>
+                                                              <div class="d-flex align-items-center border rounded-3  p-6 mt-2">
+                                                                  <div class="form-check mb-4">
+                                                                      <input
+                                                                          class="form-check-input"
+                                                                          type="radio"
+                                                                          name="flexRadioDefault"
+                                                                          id="homeRadio"
+                                                                          checked
+                                                                      />
+                                                                      <!-- <label class="form-check-label text-dark" for="homeRadio">Home</label> -->
+                                                                  </div>
+                                                                  <!-- address -->
+                                                                  <div class="col">
 
-                                                                    <?=$address['delivery_address'].","?>
 
-                                                                    <br>
-                                                                    <?=$address['city']." ".$address['city'].","?>
+                                                                      <address class="my-0">
+                                                                          <strong><?= $address['firstname'] . " " . $address['lastname'] ?></strong>
+                                                                          <br>
+
+                                                                          <?= $address['delivery_address'] . "," ?>
+
+                                                                          <br>
+                                                                          <?= $address['city'] . " " . $address['city'] . "," ?>
 
 
 
-                                                                    <abbr title="Phone"> <?=$address['phone_number_1']?>
-                                                                    </abbr>
-                                                                </address>
+                                                                          <abbr title="Phone"> <?= $address['phone_number_1'] ?>
+                                                                          </abbr>
+                                                                      </address>
 
-                                                                <div class="d-flex mt-3 align-items-center">
-                                                                <?php if($address['is_default']===true){?>
-                                                                <span
-                                                                    class="text-dark small rounded px-2"
-                                                                    style="background:rgba(0,0,0,.1); width:max-content!important "
-                                                                >Default address</span>
+                                                                      <div class="d-flex mt-3 align-items-center">
+                                                                      <?php if ($address['is_default'] === true) { ?>
+                                                                         <span
+                                                                             class="text-dark small rounded px-2"
+                                                                             style="background:rgba(0,0,0,.1); width:max-content!important "
+                                                                         >Default address</span>
 
-                                                                <?php }else{?>
-<a href="#" class="btn btn-primary text-white rounded py-1 px-3 small me-2"  > set as default </a>
-<a href="#" class="btn btn-secondary text-white rounded py-1 px-3 small me-2"  > Update Address </a>
+                                                                      <?php } else { ?>
+         <a href="#" class="btn btn-primary text-white rounded py-1 px-3 small me-2"  > set as default </a>
+         <a href="#" class="btn btn-secondary text-white rounded py-1 px-3 small me-2"  > Update Address </a>
 
-<a href="#" class="btn btn-danger text-white rounded py-1 px-3 small me-2"  >Delete Address </a>
+         <a href="#" class="btn btn-danger text-white rounded py-1 px-3 small me-2"  >Delete Address </a>
 
-                                                              <?php   } ?>
-                                                            </div>
-                                                            </div>
-                                                        </div>
+                                                                    <?php } ?>
+                                                                  </div>
+                                                                  </div>
+                                                              </div>
 
-                                                        <?php }}?>
+                                                           <?php }
+                                                        } ?>
                                                     </div>
 
                                                 </div>
@@ -286,14 +287,14 @@ include_once('header.php')
          </div>
       </div>
       <!-- Modal -->
-      <?php include_once('components/shipping-modal.php') ?>
+      <?php include_once ('components/shipping-modal.php') ?>
 
 
 
 
 
       <!-- footer -->
-     <?php include_once('footer.php') ?>
+     <?php include_once ('footer.php') ?>
       <!-- Javascript-->
       <!-- Libs JS -->
       <!-- <script src="../assets/libs/jquery/dist/jquery.min.js"></script> -->

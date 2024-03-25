@@ -272,9 +272,9 @@
                                 </svg>
 
                                 <?php if (if_Authenticated()) { ?>
-                                <span class="d-none d-md-inline"><?php echo "Hi " . $userFirstname ?></span>
+                                    <span class="d-none d-md-inline"><?php echo "Hi " . $userFirstname ?></span>
                                 <?php } else { ?>
-                                <span class="d-none d-md-inline"><?php echo "Hello User" ?></span>
+                                    <span class="d-none d-md-inline"><?php echo "Hello User" ?></span>
 
                                 <?php } ?>
 
@@ -286,33 +286,33 @@
 
 
                                 <?php if (if_Authenticated()) { ?> <a
-                                    class="dropdown-item fs-6"
-                                    href="account-settings.php"
-                                >My Account</a>
-                                <a
-                                    class="dropdown-item fs-6"
-                                    href="account-orders.php"
-                                >Orders</a>
-                                <a
-                                    class="dropdown-item fs-6"
-                                    href="#"
-                                >Inbox</a>
-                                <a
-                                    class="dropdown-item fs-6"
-                                    href="shop-wishlist.php"
-                                >Saved Items</a>
-                                <hr>
-                                <a
-                                    class="dropdown-item fs-6"
-                                    href="php/logout.php"
-                                >Logout</a>
+                                        class="dropdown-item fs-6"
+                                        href="account-settings.php"
+                                    >My Account</a>
+                                    <a
+                                        class="dropdown-item fs-6"
+                                        href="account-orders.php"
+                                    >Orders</a>
+                                    <a
+                                        class="dropdown-item fs-6"
+                                        href="#"
+                                    >Inbox</a>
+                                    <a
+                                        class="dropdown-item fs-6"
+                                        href="shop-wishlist.php"
+                                    >Saved Items</a>
+                                    <hr>
+                                    <a
+                                        class="dropdown-item fs-6"
+                                        href="php/logout.php"
+                                    >Logout</a>
 
                                 <?php } else { ?>
-                                <a
-                                    class="dropdown-item rounded fs-6  text-white "
-                                    style="background-color: #1877f2 !important;"
-                                    href="signin.php"
-                                >LOGIN TO CONTINUE</a>
+                                    <a
+                                        class="dropdown-item rounded fs-6  text-white "
+                                        style="background-color: #1877f2 !important;"
+                                        href="signin.php"
+                                    >LOGIN TO CONTINUE</a>
                                 <?php } ?>
                             </div>
                         </div>
@@ -349,7 +349,7 @@
                                     <?php
                                     $totalCartItems = 0;
                                     foreach ($cartItems as $cartItemV) {
-                                        if (isset($cartItemV['quantity'])) {
+                                        if (isset ($cartItemV['quantity'])) {
                                             if (is_numeric($cartItemV['quantity'])) {
                                                 $totalCartItems += $cartItemV['quantity'];
                                             }
@@ -541,13 +541,13 @@
 
                                             // Display the table row for each category
                                             ?>
-                                    <li><a
-                                            class="dropdown-item"
-                                            href="shop-grid.php?category=<?php echo $categoryName ?>"
-                                        ><?php echo $categoryName ?></a>
-                                    </li>
+                                            <li><a
+                                                    class="dropdown-item"
+                                                    href="shop-grid.php?category=<?php echo $categoryName ?>"
+                                                ><?php echo $categoryName ?></a>
+                                            </li>
 
-                                    <?php }
+                                        <?php }
                                     } ?>
                                 </ul>
                             </div>
@@ -638,12 +638,12 @@
 
                                     // Display the table row for each category
                                     ?>
-                            <li><a
-                                    class="dropdown-item"
-                                    href="shop-grid.php?category=<?php echo $categoryName ?>"
-                                ><?php echo $categoryName ?></a></li>
+                                    <li><a
+                                            class="dropdown-item"
+                                            href="shop-grid.php?category=<?php echo $categoryName ?>"
+                                        ><?php echo $categoryName ?></a></li>
 
-                            <?php }
+                                <?php }
                             } ?>
                         </ul>
                     </div>
@@ -688,29 +688,29 @@
 
 
                             <?php if (isAdmin() || isAdmin() != null) { ?>
-                            <li class="nav-item w-100 w-lg-auto">
-                                <a
-                                    class="nav-link  text-white fw-bold"
-                                    href="../dashboard/index.php"
-                                >Admin Dashboard</a>
-                            </li>
+                                <li class="nav-item w-100 w-lg-auto">
+                                    <a
+                                        class="nav-link  text-white fw-bold"
+                                        href="../dashboard/index.php"
+                                    >Admin Dashboard</a>
+                                </li>
 
                             <?php } ?>
                             <?php if (!if_Authenticated()) { ?>
-                            <li class="nav-item w-100 w-lg-auto">
-                                <a
-                                    class="nav-link  text-white fw-bold"
-                                    href="signin.php"
-                                >Login</a>
-                            </li>
+                                <li class="nav-item w-100 w-lg-auto">
+                                    <a
+                                        class="nav-link  text-white fw-bold"
+                                        href="signin.php"
+                                    >Login</a>
+                                </li>
 
                             <?php } else { ?>
-                            <li class="nav-item w-100 w-lg-auto">
-                                <a
-                                    class="nav-link  text-white fw-bold"
-                                    href="php/logout.php"
-                                >Logout</a>
-                            </li>
+                                <li class="nav-item w-100 w-lg-auto">
+                                    <a
+                                        class="nav-link  text-white fw-bold"
+                                        href="php/logout.php"
+                                    >Logout</a>
+                                </li>
 
                             <?php } ?>
 
@@ -736,8 +736,8 @@ $isloggedIn = if_Authenticated();
 ?>
 
 <?php
-  $isloggedIn = isset($isloggedIn) ? $isloggedIn : false;
-  ?>
+$isloggedIn = isset ($isloggedIn) ? $isloggedIn : false;
+?>
 
 const isloggedIn = <?php echo json_encode($isloggedIn); ?>;
 

@@ -51,24 +51,21 @@
 					<div id="navCategoriesOrders" class="collapse " data-bs-parent="#sideNavbar">
 						<ul class="nav flex-column">
 							<li class="nav-item">
-								<a class="nav-link text-dark" href="order-list.php">List</a>
+								<a class="nav-link text-dark" href="order-list.php"> All Orders</a>
 							</li>
-							<!-- Nav item -->
-							<li class="nav-item">
-								<a class="nav-link text-dark" href="order-single.php">Single</a>
-							</li>
+							
 						</ul>
 					</div>
 				</li>
 
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link text-dark" href="vendor-grid.php">
 						<div class="d-flex align-items-center">
 							<span class="nav-link-icon"><i class="bi bi-shop"></i></span>
 							<span class="nav-link-text">Sellers / Vendors</span>
 						</div>
 					</a>
-				</li>
+				</li> -->
 				<li class="nav-item">
 					<a class="nav-link text-dark" href="customers.php">
 						<div class="d-flex align-items-center">
@@ -77,6 +74,18 @@
 						</div>
 					</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link text-dark" href="payment-list.php">
+						<div class="d-flex align-items-center">
+							<span class="nav-link-icon"><i class="bi bi-people"></i></span>
+							<span class="nav-link-text">payments</span>
+						</div>
+					</a>
+				</li>
+
+				
+				
+
 				<li class="nav-item">
 					<a class="nav-link text-dark" href="reviews.php">
 						<div class="d-flex align-items-center">
@@ -95,85 +104,7 @@
 						</div>
 					</a>
 				</li>
-				<!-- Nav item -->
-				<li class="nav-item">
-					<a
-						class="nav-link text-dark collapsed "
-						href="#"
-						data-bs-toggle="collapse"
-						data-bs-target="#navMenuLevelFirst"
-						aria-expanded="false"
-						aria-controls="navMenuLevelFirst"
-					>
-						<span class="nav-link-icon"><i class="bi bi-arrow-90deg-down"></i></span>
-						<span class="nav-link-text">Menu Level</span>
-					</a>
-					<div id="navMenuLevelFirst" class="collapse " data-bs-parent="#sideNavbar">
-						<ul class="nav flex-column">
-							<li class="nav-item">
-								<a
-									class="nav-link text-dark"
-									href="#"
-									data-bs-toggle="collapse"
-									data-bs-target="#navMenuLevelSecond1"
-									aria-expanded="false"
-									aria-controls="navMenuLevelSecond1"
-								>
-									Two Level
-								</a>
-								<div id="navMenuLevelSecond1" class="collapse" data-bs-parent="#navMenuLevel">
-									<ul class="nav flex-column">
-										<li class="nav-item">
-											<a class="nav-link text-dark" href="#">NavItem 1</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link text-dark" href="#">NavItem 2</a>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li class="nav-item">
-								<a
-									class="nav-link text-dark collapsed "
-									href="#"
-									data-bs-toggle="collapse"
-									data-bs-target="#navMenuLevelThreeOne1"
-									aria-expanded="false"
-									aria-controls="navMenuLevelThreeOne1"
-								>
-									Three Level
-								</a>
-								<div id="navMenuLevelThreeOne1" class="collapse " data-bs-parent="#navMenuLevel">
-									<ul class="nav flex-column">
-										<li class="nav-item">
-											<a
-												class="nav-link text-dark collapsed "
-												href="#"
-												data-bs-toggle="collapse"
-												data-bs-target="#navMenuLevelThreeTwo"
-												aria-expanded="false"
-												aria-controls="navMenuLevelThreeTwo"
-											>
-												NavItem 1
-											</a>
-											<div id="navMenuLevelThreeTwo" class="collapse collapse " data-bs-parent="#navMenuLevelThree">
-												<ul class="nav flex-column">
-													<li class="nav-item">
-														<a class="nav-link text-dark" href="#">NavChild Item 1</a>
-													</li>
-												</ul>
-											</div>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link text-dark" href="#">Nav Item 2</a>
-										</li>
-									</ul>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</li>
-
+				
 				
 			</ul>
 		</div>
@@ -236,14 +167,14 @@
 						</ul>
 					</div>
 				</li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link text-dark" href="vendor-grid.php">
 						<div class="d-flex align-items-center">
 							<span class="nav-link-icon"><i class="bi bi-shop"></i></span>
 							<span class="nav-link-text">Sellers / Vendors</span>
 						</div>
 					</a>
-				</li>
+				</li> -->
 				<li class="nav-item">
 					<a class="nav-link text-dark" href="customers.php">
 						<div class="d-flex align-items-center">

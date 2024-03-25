@@ -2,19 +2,19 @@
 <html lang="en">
 
 
-    <?php include_once('header.php') ?>
+    <?php include_once ('header.php') ?>
     <!-- <script src="./js/products.js"></script> -->
 
     <body>
         <!-- main wrapper-->
 
         <!-- navbar -->
-        <?php include_once('navbar.php'); ?>
-        <?php include_once('php/products/fetchAll.php') ?>
+        <?php include_once ('navbar.php'); ?>
+        <?php include_once ('php/products/fetchAll.php') ?>
         <div class="main-wrapper">
             <!-- navbar vertical -->
             <!-- navbar -->
-            <?php include_once('sidebar.php') ?>
+            <?php include_once ('sidebar.php') ?>
 
             <!-- main -->
             <main class="main-content-wrapper">
@@ -66,22 +66,22 @@
                                                 id="status"
                                                 onchange="filter()"
                                             >
-                                                <?php if (isset($_GET['status'])) {
+                                                <?php if (isset ($_GET['status'])) {
                                                     $filterStatus = $_GET['status'];
                                                     echo $filterStatus;
                                                 }
                                                 ?>
-                                                <option <?php echo !isset($filterStatus) ? 'selected' : '' ?> value='none'>
+                                                <option <?php echo !isset ($filterStatus) ? 'selected' : '' ?> value='none'>
                                                     filter status
                                                 </option>
 
                                                 <option
                                                     value="active"
-                                                    <?php echo isset($filterStatus) && $filterStatus == 'active' ? 'selected' : '' ?>
+                                                    <?php echo isset ($filterStatus) && $filterStatus == 'active' ? 'selected' : '' ?>
                                                 >Active</option>
                                                 <option
                                                     value="inactive"
-                                                    <?php echo isset($filterStatus) && $filterStatus == 'inactive' ? 'selected' : '' ?>
+                                                    <?php echo isset ($filterStatus) && $filterStatus == 'inactive' ? 'selected' : '' ?>
                                                 >Inactive</option>
 
                                             </select>
@@ -114,171 +114,171 @@
                                                 <?php $i = 1;
                                                 foreach ($allProducts as $product) { ?>
 
-                                                    <?php
-                                                    $id = $product['id'];
-                                                    $productName = $product['product_name'];
-                                                    $category = $product['category'];
-                                                    $quantity = $product['quantity_in_stock'];
-                                                    $status = $product['status'];
-                                                    $price = $product['regular_price'];
-                                                    $image1 = $product['product_img1'];
-                                                    ?>
+                                                        <?php
+                                                        $id = $product['id'];
+                                                        $productName = $product['product_name'];
+                                                        $category = $product['category'];
+                                                        $quantity = $product['quantity_in_stock'];
+                                                        $status = $product['status'];
+                                                        $price = $product['regular_price'];
+                                                        $image1 = $product['product_img1'];
+                                                        ?>
 
-                                                    <!-- IF filter is enabled  -->
-                                                    <?php if (!isset($filterStatus) || empty($filterStatus)||$filterStatus=="none") {
-                                                      
+                                                        <!-- IF filter is enabled  -->
+                                                        <?php if (!isset ($filterStatus) || empty ($filterStatus) || $filterStatus == "none") {
+
                                                             ?>
 
-                                                            <tr>
-                                                                <td><?php echo $i++ ?></td>
-                                                                <td>
-                                                                    <a href="#!"><?php $image1 ?><img
-                                                                            src="<?php echo $image1 ?>"
-                                                                            alt=""
-                                                                            class="icon-shape icon-md"
-                                                                        /></a>
-                                                                </td>
-                                                                <td><a
-                                                                        onclick="openProduct('../pages/shop-single.php?id=<?php echo $id . '&productName=' . $productName ?>')"
-                                                                        class="text-reset cursor-pointer"
-                                                                    ><?php echo $productName ?></a></td>
-                                                                <td><?php echo $category ?></td>
-                                                                <td><?php echo $quantity ?></td>
+                                                                    <tr>
+                                                                        <td><?php echo $i++ ?></td>
+                                                                        <td>
+                                                                            <a href="#!"><?php $image1 ?><img
+                                                                                    src="<?php echo $image1 ?>"
+                                                                                    alt=""
+                                                                                    class="icon-shape icon-md"
+                                                                                /></a>
+                                                                        </td>
+                                                                        <td><a
+                                                                                onclick="openProduct('../pages/shop-single.php?id=<?php echo $id . '&productName=' . $productName ?>')"
+                                                                                class="text-reset cursor-pointer"
+                                                                            ><?php echo $productName ?></a></td>
+                                                                        <td><?php echo $category ?></td>
+                                                                        <td><?php echo $quantity ?></td>
 
-                                                                <td><?php echo "$".number_format($price) ?></td>
-                                                                <td>
-                                                                    <small
-                                                                        class="badge  <?php echo $status == 'active' ? 'bg-light-success text-dark-success' : 'bg-light-danger text-dark-danger'; ?> "
-                                                                    ><?php echo ucfirst($status); ?></small>
-                                                                </td>
-                                                                <td><?php $date = date("d/m/Y", strtotime($product['created_at']));
-                                                                echo $date ?></td>
-                                                                <td>
-                                                                    <div class="dropdown">
-                                                                        <a
-                                                                            href="#"
-                                                                            class="text-reset"
-                                                                            data-bs-toggle="dropdown"
-                                                                            aria-expanded="false"
-                                                                        >
-                                                                            <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-
-                                                                            <li>
+                                                                        <td><?php echo "$" . number_format($price) ?></td>
+                                                                        <td>
+                                                                            <small
+                                                                                class="badge  <?php echo $status == 'active' ? 'bg-light-success text-dark-success' : 'bg-light-danger text-dark-danger'; ?> "
+                                                                            ><?php echo ucfirst($status); ?></small>
+                                                                        </td>
+                                                                        <td><?php $date = date("d/m/Y", strtotime($product['created_at']));
+                                                                        echo $date ?></td>
+                                                                        <td>
+                                                                            <div class="dropdown">
                                                                                 <a
-                                                                                    class="dropdown-item"
-                                                                                    href="../pages/shop-single.php?id=<?php echo $id . "&productName=" . $productName ?>"
+                                                                                    href="#"
+                                                                                    class="text-reset"
+                                                                                    data-bs-toggle="dropdown"
+                                                                                    aria-expanded="false"
                                                                                 >
-                                                                                    <i class="bi bi-trash me-3"></i>
-                                                                                    View Product
+                                                                                    <i class="feather-icon icon-more-vertical fs-5"></i>
                                                                                 </a>
-                                                                            </li>
+                                                                                <ul class="dropdown-menu">
 
-                                                                            <li>
-                                                                                <a
-                                                                                    class="dropdown-item"
-                                                                                    href="add-product.php?id=<?php echo $id . '&productName=' . $productName ?>"
-                                                                                >
-                                                                                    <i class="bi bi-pencil-square me-3"></i>
-                                                                                    Edit
-                                                                                </a>
-                                                                            </li>
+                                                                                    <li>
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="../pages/shop-single.php?id=<?php echo $id . "&productName=" . $productName ?>"
+                                                                                        >
+                                                                                            <i class="bi bi-trash me-3"></i>
+                                                                                            View Product
+                                                                                        </a>
+                                                                                    </li>
 
-                                                                            <li>
-                                                                                <a
-                                                                                    class="dropdown-item"
-                                                                                    href="php/products/delete.php?id=<?php echo $id; ?>"
-                                                                                >
-                                                                                    <i class="bi bi-trash me-3"></i>
-                                                                                    Delete
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
+                                                                                    <li>
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="add-product.php?id=<?php echo $id . '&productName=' . $productName ?>"
+                                                                                        >
+                                                                                            <i class="bi bi-pencil-square me-3"></i>
+                                                                                            Edit
+                                                                                        </a>
+                                                                                    </li>
 
-                                                            <?php
-                                                      
-                                                    } else { ?>
-                                                        <?php if (isset($filterStatus)) {
-                                                            if (strtolower($product['status']) == $filterStatus) {
-                                                                ?>
+                                                                                    <li>
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="php/products/delete.php?id=<?php echo $id; ?>"
+                                                                                        >
+                                                                                            <i class="bi bi-trash me-3"></i>
+                                                                                            Delete
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
 
-                                                                <tr>
-                                                                    <td><?php echo $i++ ?></td>
-                                                                    <td>
-                                                                        <a href="#!"><?php $image1 ?><img
-                                                                                src="<?php echo $image1 ?>"
-                                                                                alt=""
-                                                                                class="icon-shape icon-md"
-                                                                            /></a>
-                                                                    </td>
-                                                                    <td><a
-                                                                            onclick="openProduct('../pages/shop-single.php?id=<?php echo $id . '&productName=' . $productName ?>')"
-                                                                            class="text-reset cursor-pointer"
-                                                                        ><?php echo $productName ?></a></td>
-                                                                    <td><?php echo $category ?></td>
-                                                                    <td><?php echo $quantity ?></td>
+                                                                    <?php
 
-                                                                    <td>
-                                                                        <small
-                                                                            class="badge  <?php echo $status == 'active' ? 'bg-light-success text-dark-success' : 'bg-light-danger text-dark-danger'; ?> "
-                                                                        ><?php echo ucfirst($status); ?></small>
-                                                                    </td>
-                                                                    <td><?php echo $price ?></td>
-                                                                    <td><?php $date = date("d/m/Y", strtotime($product['created_at']));
-                                                                    echo $date ?></td>
-                                                                    <td>
-                                                                        <div class="dropdown">
-                                                                            <a
-                                                                                href="#"
-                                                                                class="text-reset"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false"
-                                                                            >
-                                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                                            </a>
-                                                                            <ul class="dropdown-menu">
+                                                        } else { ?>
+                                                                <?php if (isset ($filterStatus)) {
+                                                                    if (strtolower($product['status']) == $filterStatus) {
+                                                                        ?>
 
-                                                                                <li>
-                                                                                    <a
-                                                                                        class="dropdown-item"
-                                                                                        href="../pages/shop-single.php?id=<?php echo $id . "&productName=" . $productName ?>"
-                                                                                    >
-                                                                                        <i class="bi bi-trash me-3"></i>
-                                                                                        View Product
-                                                                                    </a>
-                                                                                </li>
+                                                                                <tr>
+                                                                                    <td><?php echo $i++ ?></td>
+                                                                                    <td>
+                                                                                        <a href="#!"><?php $image1 ?><img
+                                                                                                src="<?php echo $image1 ?>"
+                                                                                                alt=""
+                                                                                                class="icon-shape icon-md"
+                                                                                            /></a>
+                                                                                    </td>
+                                                                                    <td><a
+                                                                                            onclick="openProduct('../pages/shop-single.php?id=<?php echo $id . '&productName=' . $productName ?>')"
+                                                                                            class="text-reset cursor-pointer"
+                                                                                        ><?php echo $productName ?></a></td>
+                                                                                    <td><?php echo $category ?></td>
+                                                                                    <td><?php echo $quantity ?></td>
 
-                                                                                <li>
-                                                                                    <a
-                                                                                        class="dropdown-item"
-                                                                                        href="add-product.php?id=<?php echo $id . '&productName=' . $productName ?>"
-                                                                                    >
-                                                                                        <i class="bi bi-pencil-square me-3"></i>
-                                                                                        Edit
-                                                                                    </a>
-                                                                                </li>
+                                                                                    <td>
+                                                                                        <small
+                                                                                            class="badge  <?php echo $status == 'active' ? 'bg-light-success text-dark-success' : 'bg-light-danger text-dark-danger'; ?> "
+                                                                                        ><?php echo ucfirst($status); ?></small>
+                                                                                    </td>
+                                                                                    <td><?php echo $price ?></td>
+                                                                                    <td><?php $date = date("d/m/Y", strtotime($product['created_at']));
+                                                                                    echo $date ?></td>
+                                                                                    <td>
+                                                                                        <div class="dropdown">
+                                                                                            <a
+                                                                                                href="#"
+                                                                                                class="text-reset"
+                                                                                                data-bs-toggle="dropdown"
+                                                                                                aria-expanded="false"
+                                                                                            >
+                                                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
+                                                                                            </a>
+                                                                                            <ul class="dropdown-menu">
 
-                                                                                <li>
-                                                                                    <a
-                                                                                        class="dropdown-item"
-                                                                                        href="php/products/delete.php?id=<?php echo $id; ?>"
-                                                                                    >
-                                                                                        <i class="bi bi-trash me-3"></i>
-                                                                                        Delete
-                                                                                    </a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <?php
-                                                            }
+                                                                                                <li>
+                                                                                                    <a
+                                                                                                        class="dropdown-item"
+                                                                                                        href="../pages/shop-single.php?id=<?php echo $id . "&productName=" . $productName ?>"
+                                                                                                    >
+                                                                                                        <i class="bi bi-trash me-3"></i>
+                                                                                                        View Product
+                                                                                                    </a>
+                                                                                                </li>
+
+                                                                                                <li>
+                                                                                                    <a
+                                                                                                        class="dropdown-item"
+                                                                                                        href="add-product.php?id=<?php echo $id . '&productName=' . $productName ?>"
+                                                                                                    >
+                                                                                                        <i class="bi bi-pencil-square me-3"></i>
+                                                                                                        Edit
+                                                                                                    </a>
+                                                                                                </li>
+
+                                                                                                <li>
+                                                                                                    <a
+                                                                                                        class="dropdown-item"
+                                                                                                        href="php/products/delete.php?id=<?php echo $id; ?>"
+                                                                                                    >
+                                                                                                        <i class="bi bi-trash me-3"></i>
+                                                                                                        Delete
+                                                                                                    </a>
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <?php
+                                                                    }
+                                                                }
                                                         }
-                                                    }
                                                 } ?>
                                             </tbody>
                                         </table>
@@ -325,7 +325,7 @@
 
         <!-- Theme JS -->
         <script src="../assets/js/theme.min.js"></script>
-        <?php include_once('footer.php') ?>
+        <?php include_once ('footer.php') ?>
 
         <script>
         function openProduct(productLink) {

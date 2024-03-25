@@ -3,17 +3,17 @@
 
 
     <?php
-$pageName = "Contact Us - Sosmart Online shopping and more";
-include_once('header.php')
-   ?>
+    $pageName = "Contact Us - Sosmart Online shopping and more";
+    include_once ('header.php')
+        ?>
 
     <body>
         <!-- navbar -->
-        <?php include_once('php/profile/fetchAll.php'); ?>
+        <?php include_once ('php/profile/fetchAll.php'); ?>
 
-        <?php include_once('php/category/fetchAll.php'); ?>
-        <?php include_once('php/cart/fetchAll.php') ?>
-        <?php include_once('navbar.php') ?>
+        <?php include_once ('php/category/fetchAll.php'); ?>
+        <?php include_once ('php/cart/fetchAll.php') ?>
+        <?php include_once ('navbar.php') ?>
         <!-- Modal -->
         <div
             class="modal fade"
@@ -107,7 +107,7 @@ include_once('header.php')
         </div>
 
         <!-- OffCart Canvas -->
-        <?php include_once('offcart.php') ?>
+        <?php include_once ('offcart.php') ?>
 
 
 

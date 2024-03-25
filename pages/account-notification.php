@@ -2,27 +2,27 @@
 <html lang="en">
    
    
-<?php 
-$pageName="Notification Settings - Sosmart Online shopping and more";
-include_once('header.php')
-?>
+<?php
+$pageName = "Notification Settings - Sosmart Online shopping and more";
+include_once ('header.php')
+   ?>
 
 <body>
     <!-- navbar -->
         <?php
-    
-    if (!if_Authenticated()) {
-        setcookie('userId', '', time() - 3600, '/');
-        setcookie('token', '', time() - 3600, '/');
-        setcookie('isAdmin', '', time() - 3600, '/');
-        header('Location: signin.php?error=user not logged in & redirect=' . __DIR__ . '/shop-cart.php');
-        exit();
-    }
-    ?>
-    <?php include_once('php/profile/fetchAll.php'); ?>
-        <?php include_once('php/category/fetchAll.php'); ?>
-        <?php include_once('php/cart/fetchAll.php') ?>
-        <?php include_once('navbar.php') ?>
+
+        if (!if_Authenticated()) {
+           setcookie('userId', '', time() - 3600, '/');
+           setcookie('token', '', time() - 3600, '/');
+           setcookie('isAdmin', '', time() - 3600, '/');
+           header('Location: signin.php?error=user not logged in & redirect=' . __DIR__ . '/shop-cart.php');
+           exit();
+        }
+        ?>
+    <?php include_once ('php/profile/fetchAll.php'); ?>
+        <?php include_once ('php/category/fetchAll.php'); ?>
+        <?php include_once ('php/cart/fetchAll.php') ?>
+        <?php include_once ('navbar.php') ?>
       <!-- Modal -->
       <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-dialog-centered">
@@ -325,7 +325,7 @@ include_once('header.php')
 
       <!-- Footer -->
       <!-- footer -->
-     <?php include_once('footer.php')?>
+     <?php include_once ('footer.php') ?>
       <!-- Javascript-->
       <!-- Libs JS -->
       <!-- <script src="../assets/libs/jquery/dist/jquery.min.js"></script> -->
