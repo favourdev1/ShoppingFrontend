@@ -81,6 +81,7 @@
                      </div> -->
                                     <!-- list icon -->
                                     <div class="d-lg-flex justify-content-between align-items-center">
+                                        <h3>Search result for <?=$searchQuery?></h3>
                                         <div class="mb-3 mb-lg-0">
                                             <p class="mb-0">
                                                 <span class="text-dark"><?php echo $searchTotalProducts; ?></span>
@@ -123,22 +124,22 @@
                                             <div class="d-flex mt-2 mt-lg-0">
                                                 <div class="me-2 flex-grow-1">
                                                     <!-- select option -->
-                                                    <select class="form-select">
+                                                    <!-- <select class="form-select">
                                                         <option selected>Show: 50</option>
                                                         <option value="10">10</option>
                                                         <option value="20">20</option>
                                                         <option value="30">30</option>
-                                                    </select>
+                                                    </select> -->
                                                 </div>
                                                 <div>
                                                     <!-- select option -->
-                                                    <select class="form-select">
+                                                    <!-- <select class="form-select">
                                                         <option selected>Sort by: Featured</option>
                                                         <option value="Low to High">Price: Low to High</option>
                                                         <option value="High to Low">Price: High to Low</option>
                                                         <option value="Release Date">Release Date</option>
                                                         <option value="Avg. Rating">Avg. Rating</option>
-                                                    </select>
+                                                    </select> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -177,10 +178,10 @@
 
 
                                     </div>
-                  
-                            <div class="row mt-8">
-                                <div class="col">
+                                    
                                     <!-- nav -->
+                            <!-- <div class="row mt-8">
+                                <div class="col">
                                     <nav>
                                         <ul class="pagination">
                                             <li class="page-item disabled">
@@ -221,7 +222,7 @@
                                         </ul>
                                     </nav>
                                 </div>
-                            </div>
+                            </div> -->
                     <?php } ?>
                     </section>
                 </div>

@@ -70,11 +70,11 @@
                                                 <th>Customer</th>
                                                 <th>Date & TIme</th>
                                                 <th>Payment</th>
-                                                <th>Shipping Fee</th>
                                                 <th>Payment Proof</th>
                                                 <th>Status</th>
+                                                <th>Approval Status</th>
                                                 <th>Amount</th>
-                                                <th>Action</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody id="myTable">
@@ -111,7 +111,8 @@
     function buildTable(data) {
         var tableBody = document.getElementById('myTable');
         tableBody.innerHTML = ''; // Clear table body
-
+        console.log(typeof data);
+console.log(data)
         data.forEach(item => {
             var row = `<tr class="text-center">
                     <td>${item.id}</td>
@@ -119,21 +120,11 @@
                     <td>${item.firstname} ${item.lastname}</td>
                     <td>${new Date(item.created_at).toLocaleString()}</td>
                     <td>${item.payment_method}</td>
-                    <td>${item.shipping_charge}</td>
                     <th><a href="#"><img src="../assets/svg/image.svg" height="20px" width="20px" ></a></th>
-                    <td><span class="badge bg-light-primary text-dark-primary">${item.order_status}</span></td>
-                    <td><?= CURRENCY ?>${formatCurrency(item.total_amount)}</td>
-                    <td>
-                        <div class="dropdown">
-                            <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="order-single.php?order_number=${item.order_number}"><i class="bi bi-pencil-square me-3"></i>View Order</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-3"></i>Delete</a></li>
-                            </ul>
-                        </div>
-                    </td>
+                    <td><span class="badge bg-light-primary text-dark-primary">${item.payment_status}</span></td>
+                    <td>${item.approval_status}</td>
+                    <td>${item.payment_amount}</td>
+                    
                 </tr>`;
             tableBody.innerHTML += row;
         });
@@ -183,7 +174,7 @@
     // Define the function to load data for a specific page
     function loadPage(pageNumber) {
         var url = endPoint + "/admin" + paymentRoute + '?page=' + pageNumber;
-        console.log(url)
+      
         axios.get(url, {
                 headers: payloadRequest
             })
@@ -191,14 +182,13 @@
                 const data = response.data;
 
                 if (data.status === 'success') {
-                    const dataPayload = data.data;
-                    const paginationPayload = data.data;
+                    const dataPayload = data.data.payments.data
+                    const paginationPayload = data.data.payments;
 
-                    buildTable(dataPayload.data);
+                    buildTable(dataPayload);
                     buildPagination(paginationPayload);
                 } else {
-                    console.log('Failed to get data');
-                    console.log(data.status);
+                   showAlert('Filed to fetch data, kindly try again ')
                 }
             })
             .catch(error => {

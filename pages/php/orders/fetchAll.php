@@ -25,6 +25,10 @@ if ($statusCode === 200) {
 
     // print_r($orderItems);
 
+    // foreach($orderItems as $order){
+    //     print_r($order['product_id ']);
+    // }
+
     
     // echo "</pre>";
 

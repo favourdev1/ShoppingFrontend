@@ -194,6 +194,7 @@ include_once 'header.php';
 
                                     <?php } else { ?>
                                         <?php foreach ($orderItems as $orderItem) {
+                                        
                                             $order_id = $orderItem['id'];
                                             $order_number = $orderItem['order_number'];
                                             $order_status = $orderItem['order_status'];
@@ -204,15 +205,15 @@ include_once 'header.php';
                                             $product_id = $orderItem['product_id'];
                                             $product_name = $orderItem['product_name'];
                                             $quantity = $orderItem['quantity'];
-                                            $price = $orderItem['price'];
+                                            $price = $orderItem['total_amount'];
                                             $product_img1 = $orderItem['product_img1'];
                                             $product_img2 = $orderItem['product_img2'];
                                             $product_img3 = $orderItem['product_img3'];
                                             $product_img4 = $orderItem['product_img4'];
-                                            $product_img5 = $orderItem['product_img5'];
+                                            
                                             $category_id = $orderItem['category_id'];
                                             $description = $orderItem['description'];
-                                            $regular_price = $orderItem['regular_price'];
+                                            $regular_price = $orderItem['total_amount'];
                                             $brand = $orderItem['brand'];
                                             $weight = $orderItem['weight'];
                                             $quantity_in_stock = $orderItem['quantity_in_stock'];

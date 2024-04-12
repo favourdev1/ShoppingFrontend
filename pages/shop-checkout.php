@@ -399,7 +399,7 @@ if (!if_Authenticated()) {
                                                     <div class="me-auto">
                                                         <div>Item Subtotal</div>
                                                     </div>
-                                                    <span><?php echo CURRENCY . '<span id = "itemSubtotal">' . number_format($subTotalPrice) . '</span>'; ?></span>
+                                                    <span><?php echo CURRENCY . '<span id ="itemSubtotal">' . number_format($subTotalPrice) . '</span>'; ?></span>
                                                 </li>
 
                                                 <!-- list group item -->
@@ -426,7 +426,7 @@ if (!if_Authenticated()) {
                                                     <div class="me-auto">
                                                         <div class="fw-bold">Subtotal</div>
                                                     </div>
-                                                    <span class="fw-bold"><?php echo CURRENCY . '<span id = "subTotalPrice">' . number_format($subTotalPrice + $totalShippingFee + $totalTax) . '</span>'; ?></span>
+                                                    <span class="fw-bold"><span id = "subTotalPrice">calculating....</span></span>
                                                 </li>
                                             </ul>
                                         </div>

@@ -66,16 +66,16 @@
 
                                         <!-- nav item -->
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="account-payment-method.php">
+                                            <a class="nav-link active " href="admin-setting.php">
                                                 <i class="feather-icon icon-credit-card me-2"></i>
                                                 Payment Information
                                             </a>
                                         </li>
                                         <!-- nav item -->
                                         <li class="nav-item">
-                                            <a class="nav-link" href="account-notification.php">
+                                            <a class="nav-link " href="system_information.php">
                                                 <i class="feather-icon icon-bell me-2"></i>
-                                                Notification
+                                                System Information
                                             </a>
                                         </li>
                                         <!-- nav item -->
@@ -90,8 +90,9 @@
                             <div class="col-lg-6 col-md-8 col-12">
                                 <div class="py-6 p-md-6 p-lg-10">
                                     <!-- heading -->
-<h2>Account Numbers</h2>
-<small>These represents the account number you would be using to recieve money when customers make payments </small>
+                                    <h2>Account Numbers</h2>
+                                    <small>These represents the account number you would be using to recieve money when
+                                        customers make payments </small>
                                     <ul class="list-group list-group-flush">
                                         <!-- List group item -->
                                         <li class="list-group-item px-0 py-5 border  rounded-3 px-3 mt-2">
@@ -102,13 +103,13 @@
                                                         $account_name_1 = $allAdminSettings['account_name_1'];
                                                         $bankName_1 = $allAdminSettings['bank_name_1'];
                                                         $account_number_1 = $allAdminSettings['account_number_1'];
-                                                        if (empty ($account_name)) {
+                                                        if (empty($account_name)) {
                                                             $account_name = 'Not set';
                                                         }
-                                                        if (empty ($bankName)) {
+                                                        if (empty($bankName)) {
                                                             $bankName = 'Not set';
                                                         }
-                                                        if (empty ($account_number_1)) {
+                                                        if (empty($account_number_1)) {
                                                             $account_number_1 = 'Not set';
                                                         }
                                                         ?>
@@ -133,40 +134,40 @@
                                         if ($allAdminSettings['account_name_2'] != null) {
                                             ?>
 
-                                            <li class="list-group-item px-0 py-5 border  rounded-3 px-3 mt-2">
-                                                <div class="d-md-flex justify-content-between">
-                                                    <div class="d-flex">
+                                        <li class="list-group-item px-0 py-5 border  rounded-3 px-3 mt-2">
+                                            <div class="d-md-flex justify-content-between">
+                                                <div class="d-flex">
 
-                                                        <div>
-                                                            <?php
-                                                            $account_name_2 = $allAdminSettings['account_name_2'];
-                                                            $bankName = $allAdminSettings['bank_name_2'];
-                                                            $account_number_2 = $allAdminSettings['account_number_2'];
-                                                            if (empty ($account_name)) {
-                                                                $account_name = 'Not set';
-                                                            }
-                                                            if (empty ($bankName)) {
-                                                                $bankName = 'Not set';
-                                                            }
-                                                            if (empty ($account_number_2)) {
-                                                                $account_number_2 = 'Not set';
-                                                            }
-                                                            ?>
-                                                            <h5 class="mb-">Account Name : <?php print_r($account_name_2); ?></h5>
-                                                            <p class="mb-0 small">Account Number : <?php echo $account_number_2; ?></p>
-
-                                                            <p class="mb-0 small text-muted">Bank Name :
-                                                                <?php echo $bankName; ?></p>
-                                                        </div>
-                                                    </div>
                                                     <div>
-                                                        <!-- button-->
-                                                        <a href="#"
-                                                            class="btn btn-outline-gray-400 mt-3 mt-md-0 text-muted btn-sm">Update
-                                                            Information</a>
+                                                        <?php
+                                                        $account_name_2 = $allAdminSettings['account_name_2'];
+                                                        $bankName = $allAdminSettings['bank_name_2'];
+                                                        $account_number_2 = $allAdminSettings['account_number_2'];
+                                                        if (empty($account_name)) {
+                                                            $account_name = 'Not set';
+                                                        }
+                                                        if (empty($bankName)) {
+                                                            $bankName = 'Not set';
+                                                        }
+                                                        if (empty($account_number_2)) {
+                                                            $account_number_2 = 'Not set';
+                                                        }
+                                                        ?>
+                                                        <h5 class="mb-">Account Name : <?php print_r($account_name_2); ?></h5>
+                                                        <p class="mb-0 small">Account Number : <?php echo $account_number_2; ?></p>
+
+                                                        <p class="mb-0 small text-muted">Bank Name :
+                                                            <?php echo $bankName; ?></p>
                                                     </div>
                                                 </div>
-                                            </li>
+                                                <div>
+                                                    <!-- button-->
+                                                    <a href="#"
+                                                        class="btn btn-outline-gray-400 mt-3 mt-md-0 text-muted btn-sm">Update
+                                                        Information</a>
+                                                </div>
+                                            </div>
+                                        </li>
 
                                         <?php } ?>
 
@@ -182,7 +183,7 @@
                 aria-labelledby="offcanvasAccountLabel">
                 <!-- offcanvas header -->
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasAccountLabel">Offcanvas</h5>
+                    <h5 class="offcanvas-title" id="offcanvasAccountLabel">Settings</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <!-- offcanvas body -->
@@ -190,39 +191,19 @@
                     <ul class="nav flex-column nav-pills nav-pills-dark">
                         <!-- nav item -->
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="account-orders.php">
-                                <i class="feather-icon icon-shopping-bag me-2"></i>
-                                Your Orders
-                            </a>
-                        </li>
-                        <!-- nav item -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="account-settings.php">
-                                <i class="feather-icon icon-settings me-2"></i>
-                                Settings
-                            </a>
-                        </li>
-                        <!-- nav item -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="account-address.php">
-                                <i class="feather-icon icon-map-pin me-2"></i>
-                                Address
-                            </a>
-                        </li>
-                        <!-- nav item -->
-                        <li class="nav-item">
-                            <a class="nav-link active" href="account-payment-method.php">
+                            <a class="nav-link active " href="admin-setting.php">
                                 <i class="feather-icon icon-credit-card me-2"></i>
-                                Payment Method
+                                Payment Information
                             </a>
                         </li>
                         <!-- nav item -->
                         <li class="nav-item">
-                            <a class="nav-link" href="account-notification.php">
+                            <a class="nav-link " href="system_information.php">
                                 <i class="feather-icon icon-bell me-2"></i>
-                                Notification
+                                System Information
                             </a>
                         </li>
+
                     </ul>
 
                 </div>

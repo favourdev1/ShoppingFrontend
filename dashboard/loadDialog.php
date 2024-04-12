@@ -33,11 +33,12 @@
     // })
     function hideDialog(hide) {
             if (hide) {
+                console.log('hiding')
                 modal.style.cssText = 'display: none !important;';
 
             } else {
                 modal.style.cssText = ' display: flex !important;';
-
+console.log('showing')
             }
 
         }

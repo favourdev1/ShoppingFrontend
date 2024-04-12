@@ -299,7 +299,7 @@
                                 >Inbox</a>
                                 <a
                                     class="dropdown-item fs-6"
-                                    href="page/shop-wishlist.php"
+                                    href="pages/shop-wishlist.php"
                                 >Saved Items</a>
                                 <hr>
                                 <a

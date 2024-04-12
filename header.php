@@ -151,6 +151,13 @@
     }
     ?>
 
+<link
+        rel="stylesheet"
+        href="node_modules/alerthub/dist/css/Alerthub.min.css"
+    >
+    <script src="node_modules/alerthub/dist/js/alerthub.min.js"></script>
+
+
 
 
     <?php include_once('pages/php/functions.php')?>
@@ -166,7 +173,7 @@
      * @param {string} status - The status of the alert ('success' or 'error').
      * @param {number} [time=5]
      */
-    function showAlert(message, status, time = 5) {
+    function showAlert(message, status, time = 8) {
         const alertHub = new AlertHub();
         alertHub.showAlert({
             title: "",

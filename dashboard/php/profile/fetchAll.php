@@ -22,12 +22,12 @@ $responseData = $response->body;
 
 if ($statusCode === 200) {
     // Decode the JSON response
-    $users = json_decode(json_encode($responseData),true)['data'];
-    // // Print or use the retrieved product data
+    $users = json_decode(json_encode($responseData),true)['data']['users'];
+    // Print or use the retrieved product data
     // echo "<pre>";
 
     // foreach ($users as $user){
-    //     print_r($user['firstname']);
+    //     print_r($user);
     // }
     // echo "</pre>";
 

@@ -1,7 +1,7 @@
 // Define variables for the API routes
 var endPoint = 'http://localhost:8000/api';
-
-// Authentication routes
+var websiteurl = 'http://localhost:8000/'
+    // Authentication routes
 const registerRoute = '/register';
 const loginRoute = '/login';
 const getUserRoute = '/get-user';
@@ -19,6 +19,7 @@ const newArrivalRoute = '/group/newArrivial';
 
 //order Route 
 const orderRoute = '/orders';
+const updateOrderStatus = '/updateOrderStatus'
 
 
 //review  route 
@@ -74,6 +75,11 @@ const adminProductUpdateRoute = '/admin/products/';
 const adminProductUploadImageRoute = '/admin/products/upload-image';
 const adminProductDeleteRoute = '/admin/products/delete/';
 
+//admin settings 
+const adminSettingsRoute = '/admin_settings';
+const updateofficeRoute = '/office/address';
+const updateShippingcostRoute = '/shipping/cost';
+
 
 //Email Route
 const Email = '/email';
@@ -81,6 +87,10 @@ const sendEmail = '/email/subscribe';
 
 
 
+
+const adminRoute = '/users';
+const makeAdmin = '/users/makeadmin';
+const removeAdmin = '/users/removeadmin';
 
 
 

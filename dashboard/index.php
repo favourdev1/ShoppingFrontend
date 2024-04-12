@@ -4,6 +4,7 @@
     <?php include_once ('header.php'); ?>
 
     <body>
+        <?php include_once('loadDialog.php') ?>
         <!-- main -->
         <div>
             <!-- navbar -->
@@ -18,7 +19,7 @@
 
                 <!-- main wrapper -->
                 <main class="main-content-wrapper">
-                    <section class="container">
+                    <section class="container px-0 px-md-5 mx-0">
                         <!-- row -->
                         <div class="row mb-8">
                  
@@ -231,7 +232,7 @@
                         <!-- row -->
                        
                         <!-- row -->
-                        <div class="row">
+                        <div class="row mx-0 px-1">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-12 mb-6">
                                 <div class="card h-100 card-lg shadow-0 border">
                                     <!-- heading -->
@@ -246,28 +247,17 @@
                                                 <thead class="bg-light">
                                                     <tr>
                                                     <th scope="col">S/N</th>
-                                                        <th scope="col">Order Number</th>
-                                                        <th scope="col">Product Name</th>
-                                                        <th scope="col">Order Date</th>
-                                                        <th scope="col">Price</th>
-                                                        <th scope="col">Status</th>
-                                                        <th scope="col">Action</th>
+                                                        <th class="small" scope="col">Order Number</th>
+                                                        <th class="small" scope="col">Product Name</th>
+                                                        <th class="small" scope="col">Order Date</th>
+                                                        <th class="small" scope="col">Price</th>
+                                                        <th class="small" scope="col">Status</th>
+                                                        <th class="small" scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="tableBody">
                                                     <tr>
-                                                    <td>#</td>
-
-                                                        <td>#FC0005</td>
-                                                        <td>Haldiram's Sev Bhujia</td>
-                                                        <td>28 March 2023</td>
-                                                        <td>$18.00</td>
-                                                        <td>
-                                                            <span
-                                                                class="badge bg-light-primary text-dark-primary">Shipped</span>
-                                                        </td>
-                                                    </tr>
-                                                
+                                                   
                                                 </tbody>
                                             </table>
                                         </div>
@@ -317,19 +307,19 @@ var headers = <?php echo json_encode($payloadRequest); ?>;
  function buildTable(data) {
             var tableBody = document.getElementById('myTable');
             tableBody.innerHTML = ''; // Clear table body
-
+var i=1
             data.forEach(item => {
                 var row = `   <tr class="text-center">
-                        <td>${item.id}</td>
-                        <td>${item.order_number}</td>
-                        <td>${item.firstname} ${item.lastname}</td>
-                        <td>${new Date(item.created_at).toLocaleString('en-us',options)}</td>
+                        <td class="small">${i++}</td>
+                        <td class="small">${item.order_number}</td>
+                        <td class="small">${item.firstname} ${item.lastname}</td>
+                        <td class="small">${new Date(item.created_at).toLocaleString('en-us',options)}</td>
                         
-                        <td>$${item.total_amount}</td>
+                        <td class="small">$${item.total_amount}</td>
                         
-                        <td><span class="badge bg-light-primary text-dark-primary">${item.order_status}</span></td>
-                        <td>
-                            <a href="order-details.php?id=${item.id}" class="btn btn-sm btn-primary">View</a>
+                        <td class="small"><span class="badge bg-light-primary text-dark-primary">${item.order_status}</span></td>
+                        <td class="small">
+                            <a href="order-single.php?id=${item.order_number}" class="btn btn-sm btn-primary">View</a>
                         </td>
                    
                  
@@ -378,8 +368,8 @@ var headers = <?php echo json_encode($payloadRequest); ?>;
 
         // Define the function to load data for a specific page
         function loadPage(pageNumber) {
-            var url = endPoint + orderRoute + '?page=' + pageNumber;
-
+            var url = endPoint +"/admin"+ orderRoute + '?page=' + pageNumber;
+console.log(payloadRequest)
             axios.get(url, {
                     headers: payloadRequest
                 })

@@ -11,8 +11,7 @@ $min_price  = "min_price=" . (isset($_GET['min_price']) ? urlencode($_GET['min_p
 $max_price  = "max_price=" . (isset($_GET['max_price']) ? urlencode($_GET['max_price']) : '');
 
 $group="group=".(isset($_GET['group']) ? urlencode($_GET['group']) :'');
-
-
+$searchQuery= ucfirst(str_replace('-',' ',$_GET['query']??''));
 
 $query = '';
 
@@ -24,7 +23,7 @@ if($brand !== 'brands='){
 }
 
 if($category !== 'category='){
-
+    
     $query .= ($query==''?'':"&").$category;
 }
 
@@ -37,6 +36,7 @@ if($max_price   !=='max_price='){
 }
 
 if($group !== 'group='){
+    $searchQuery= ucfirst(str_replace('-',' ',$_GET['group']));
     $query .=($query ==''?'':'&').$group;
 }
 
@@ -72,6 +72,8 @@ try {
     if ($response->code < 300) {
         // Decode the JSON response
         $searchProductData = json_decode(json_encode($response->body), true);
+        // echo "<pre>";
+        // print_r($searchProductData);
         $searchProduct = $searchProductData['data']['products'];
         // $searchBrands =  $searchProductData['data']['brands'];
         $searchPriceMin = $searchProductData['data']['price_min'];
@@ -79,16 +81,17 @@ try {
         $searchCategories = $searchProductData['data']['categories'];
         $searchTotalProducts = $searchProductData['data']['products_found'];
         $searchBrands = $searchProductData['data']['brands'];
-
+        
         // print_r($searchCategories);
         // die;
         // Output or process the products as needed
         // echo "<pre> <BR> BR>";
         // print_r($searchProduct);
         // foreach($searchProduct as $products) {
-        //     print_r($products);
-        // }
-        // echo"</pre>";
+            //     print_r($products);
+            // }
+            // echo"</pre>";
+            // die;
         // die;
     } else {
         // Decode the JSON error response

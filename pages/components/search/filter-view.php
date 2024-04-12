@@ -49,6 +49,10 @@
                             id="categoryCollapseMenu"
                         >
                             <?php foreach ($searchCategories as $index => $category) { ?>
+
+
+
+                               
                             <li class="nav-item  w-100">
                                 <a
                                     href="#"

@@ -23,18 +23,18 @@
                 </div>
                 <!-- action btn -->
                 <div class="card-product-action bottom-0 mb-3">
-                    <a href="#!" class="btn-action" data-product-details='<?php echo json_encode($product); ?>'
+                    <!-- <a href="#!" class="btn-action" data-product-details='<?//php echo json_encode($product); ?>'
                         onclick="showQuickView(this)">
                         <i class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i>
-                    </a>
-                    <a href="#!" class="btn-action wishlist-Btn" 
+                    </a> -->
+                    <!-- <a href="#!" class="btn-action wishlist-Btn" 
                     data-product-id="<?=$id?>"
                         id="wishlist_<?= $id ?>" data-bs-toggle="tooltip" data-bs-html="true" title="Wishlist">
                         <i class="bi bi-heart"></i>
                     </a>
 
                     <a href="#!" class="btn-action" data-bs-toggle="tooltip" data-bs-html="true" title="cart"><i
-                            class="bi bi-cart"></i></a>
+                            class="bi bi-cart"></i></a> -->
                 </div>
             </div>
 
@@ -42,8 +42,8 @@
                 <a href="<?php echo 'shop-single.php?id=' . $id; ?>" class="text-inherit text-decoration-none fw-100"
                     style="font-weight:light"><small><?php echo $productName; ?></small></a>
             </h2>
-            <div class="pt-0">
-                <!-- rating -->
+            <!-- rating -->
+            <!-- <div class="pt-0">
                 <small class="text-warning ">
                     <i class="bi bi-star-fill small"></i>
                     <i class="bi bi-star-fill small"></i>
@@ -52,7 +52,7 @@
                     <i class="bi bi-star-half small"></i>
                 </small>
                 <span class="text-muted small" style="font-size:12px">(149) sold</span>
-            </div>
+            </div> -->
             <!-- price -->
             <div class="d-flex justify-content-between align-items-center mt-0">
                 <div>

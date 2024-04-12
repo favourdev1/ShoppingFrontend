@@ -22,7 +22,7 @@
     id="loadingDialog"
     data-backdrop="static"
     data-keyboard="false"
-    style="background:#000000e5 !important"
+    style="background:#ffffff !important"
 >
     <div
         class="modal-dialog "
@@ -50,10 +50,10 @@
     // })
     function hideDialog(hide) {
             if (hide) {
-                modal.style.cssText = 'background:#000000a5 ;display: none !important;';
+                modal.style.cssText = 'display: none !important;';
 
             } else {
-                modal.style.cssText = 'background:#000000a5 ; display: flex !important;';
+                modal.style.cssText = ' display: flex !important;';
 
             }
 

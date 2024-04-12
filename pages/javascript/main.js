@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-function addToWishlist(productId, reload = false, event, showAlert = true) {
+function addToWishlist(productId, reload = false, event, showAlertMessage = true) {
 
     if (!isloggedIn) {
         window.location.href = loginPath
@@ -143,7 +143,7 @@ function addToWishlist(productId, reload = false, event, showAlert = true) {
 
             if (response.data.status === 'success') {
                 // Handle success scenario
-                if (showAlert) {
+                if (showAlertMessage) {
                     showAlert(responseMessage, responseStatus);
 
                 }
@@ -161,9 +161,9 @@ function addToWishlist(productId, reload = false, event, showAlert = true) {
         .catch(error => {
             // Handle the erro
             responseMessage = error.response
-            responseStatus = error.response.status
-            if (showAlert) {
-                showAlert(responseMessage, responseStatus);
+            responseStatus = error.status
+            if (showAlertMessage) {
+                showAlert(responseMessage, error);
 
             }
             if (error.response && error.response.status === 401) {
@@ -176,6 +176,8 @@ function addToWishlist(productId, reload = false, event, showAlert = true) {
     });
 
 }
+
+
 
 
 

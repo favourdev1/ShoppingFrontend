@@ -62,10 +62,7 @@
                                         class="table table-centered table-hover text-nowrap table-borderless mb-0 table-with-checkbox">
                                         <thead class="bg-light">
                                             <tr class="text-center">
-                                                <th>
-                                                   S/N
-                                                </th>
-
+                                             
                                                 <th>Order Number</th>
                                                 <th>Customer</th>
                                                 <th>Date & TIme</th>
@@ -115,7 +112,7 @@
 
             data.forEach(item => {
                 var row = `<tr class="text-center">
-                    <td>${item.id}</td>
+                   
                     <td>${item.order_number}</td>
                     <td>${item.firstname} ${item.lastname}</td>
                     <td>${new Date(item.created_at).toLocaleString()}</td>
@@ -179,7 +176,7 @@
 
         // Define the function to load data for a specific page
         function loadPage(pageNumber) {
-            var url = endPoint + orderRoute + '?page=' + pageNumber;
+            var url = endPoint +"/admin"+ orderRoute + '?page=' + pageNumber;
 
             axios.get(url, {
                     headers: payloadRequest
