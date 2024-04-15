@@ -1,5 +1,5 @@
 <!-- Modal for quick viewwing a product 
-<!-- <div
+ <div
     class="modal fade"
     id="quickViewModal"
     tabindex="-1"
@@ -414,9 +414,9 @@
 
 // function submitModalForm(productId) {
 
-//     var isloggedIn = <?php echo json_encode($isloggedIn); ?>;
+//     var isloggedIn = <?php //echo json_encode($isloggedIn); ?>;
 //     if (!isloggedIn) {
-//         window.location.href = "<?php echo $loginPath ?>"
+//         window.location.href = "<?php //echo $loginPath ?>"
 //     }
 //     // Construct the data as an object
 //     var formData = new FormData();
@@ -429,7 +429,7 @@
 
 //     console.log(formData);
 
-//     axios.post('<?php echo $cartPage ?>', formData)
+//     axios.post('<?php //echo $cartPage ?>', formData)
 //         .then(response => {
 //             // Handle the success response
 //             console.log(response);
@@ -437,7 +437,7 @@
 //         .catch(error => {
 //             // Handle the error
 //             if (error.response && error.response.status === 401) {
-//                 window.location = "<?php echo $loginPath ?>"
+//                 window.location = "<?php //echo $loginPath ?>"
 //             }
 //         });
 

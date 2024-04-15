@@ -102,25 +102,25 @@
     <script src="../assets/libs/om-rangeslider/src/om-javascript-range-slider.js"></script>
 
 
-
-    <!-- Routes shit -->
-    <script src="javascript/Route.js"></script>
-
-
+    
+    
     <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
     >
     <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
     >
     <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap"
-        rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap"
+    rel="stylesheet"
     />
     <script src="../node_modules/nouislider/dist/nouislider.js"></script>
+    
+        <!-- Routes shit -->
+        <script src="javascript/Route.js"></script>
 
 
     <link href="../node_modules/nouislider/dist/nouislider.css" />

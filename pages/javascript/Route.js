@@ -94,4 +94,6 @@ const removeAdmin = '/users/removeadmin';
 
 
 
-//
+//forgot password
+const forgotPassword = '/forgot-password';
+const resetPassword = '/reset-password';
