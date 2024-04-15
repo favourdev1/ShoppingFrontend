@@ -108,14 +108,14 @@ if(isset($_GET['token'])){
                               <div class="col-12">
                                  <!-- input -->
                                  <label for="formNewPassword" class="form-label visually-hidden">New Password</label>
-                                 <input type="password" class="form-control" id="formNewPassword" value="123456" placeholder="New Password" required />
+                                 <input type="password" class="form-control" id="formNewPassword"  placeholder="New Password" required />
                                  <div class="invalid-feedback">Please enter a new password.</div>
                               </div>
                               <!-- col -->
                               <div class="col-12">
                                  <!-- input -->
                                  <label for="formConfirmPassword" class="form-label visually-hidden">Confirm New Password</label>
-                                 <input type="password" class="form-control" id="formConfirmPassword" value="123456" placeholder="Confirm New Password" required />
+                                 <input type="password" class="form-control" id="formConfirmPassword"  placeholder="Confirm New Password" required />
                                  <div class="invalid-feedback">Please confirm your new password.</div>
                               </div>
 

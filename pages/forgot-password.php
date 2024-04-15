@@ -88,7 +88,7 @@ include_once 'header.php'; ?>
                                     <label for="formForgetEmail" class="form-label visually-hidden">Email
                                         address</label>
                                     <input type="email" class="form-control" id="formForgetEmail"
-                                        placeholder="Email"value="favourapps17@gmai.com" required />
+                                        placeholder="Email" required />
 
                                 </div>
 
