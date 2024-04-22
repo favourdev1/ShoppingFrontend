@@ -101,10 +101,10 @@
                                                     <span class="text-dark" id="order-id"></span>
                                                     <br />
                                                     Order Date:
-                                                    <span class="text-dark" id="order-date">October 22, 2023</span>
+                                                    <span class="text-dark" id="order-date"></span>
                                                     <br />
                                                     Order Total:
-                                                    <span class="text-dark" id="order-total">$734.28</span>
+                                                    <span class="text-dark" id="order-total"></span>
                                                 </p>
 
                                             </div>
@@ -242,8 +242,12 @@
                 .then(response => {
                     console.log('Success:', response.data);
                     // Reload the page after 5 seconds
-                    if (response.data.status)
+                    if (response.data.status=="error"){
+                        showAlert(response.data.message, 'error')
+                    }else{
+
                         showAlert(response.data.message, 'success')
+                    }
                 })
                 .catch(error => {
                     console.error('Error:', error);

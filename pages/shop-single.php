@@ -37,7 +37,7 @@ $pageName = $productName . ' | Sosmart Online shopping and more! ';
     <?php
     $isInWishlistItem = false;
     foreach ($wishlistItems as $wishlistitem) {
-        if ($wishlist['id'] == $_GET['id']) {
+        if ($wishlistitem['id'] == $_GET['id']) {
             $isInWishlistItem = true;
             break;
         }
@@ -175,11 +175,11 @@ $pageName = $productName . ' | Sosmart Online shopping and more! ';
                                             <td class="ps-0">Availability:</td>
                                             <td>In Stock</td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td class="ps-0">Type:</td>
                                             <td>Fruits</td>
-                                        </tr>
-                                        <tr>
+                                        </tr> -->
+                                        <!-- <tr>
                                             <td class="ps-0">Shipping:</td>
                                             <td>
                                                 <small>
@@ -187,7 +187,7 @@ $pageName = $productName . ' | Sosmart Online shopping and more! ';
                                                     <span class="text-muted">( Free pickup today)</span>
                                                 </small>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>

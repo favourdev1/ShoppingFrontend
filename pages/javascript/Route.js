@@ -24,6 +24,7 @@ const updateOrderStatus = '/updateOrderStatus'
 
 //review  route 
 const reviewRoute = '/reviews'
+const createReviewRoute = '/add';
 
 
 // User profile routes
@@ -52,7 +53,7 @@ const addressesRoute = '/addresses';
 const addAddressRoute = '/addresses/add/';
 const updateAddressRoute = '/addresses/update';
 const setDefaultAddressRoute = '/addresses/setDefault/';
-const deleteAddressRoute = '/addresses/delete/';
+const deleteAddressRoute = '/addresses/deleteorder/';
 
 // Admin routes
 const adminProfileRoute = '/admin/profile';

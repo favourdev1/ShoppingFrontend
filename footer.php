@@ -147,9 +147,7 @@
                         <h6 class="mb-4">For Consumers</h6>
                         <ul class="nav flex-column">
                             <!-- list -->
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Payments</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Shipping</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Product Returns</a></li>
+                           
                             <li class="nav-item mb-2"><a href="#!" class="nav-link">FAQ</a></li>
                             <li class="nav-item mb-2"><a href="pages/shop-checkout.html" class="nav-link">Shop
                                     Checkout</a></li>
@@ -159,46 +157,7 @@
                 </div>
             </div>
         </div>
-        <div class="border-top py-4">
-            <div class="row align-items-center">
-                <div class="col-lg-5 text-lg-start text-center mb-2 mb-lg-0">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item text-dark">Payment Partners</li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="pages/assets/images/payment/amazonpay.svg"
-                                    alt="" /></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="pages/assets/images/payment/american-express.svg"
-                                    alt="" /></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="pages/assets/images/payment/mastercard.svg"
-                                    alt="" /></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="pages/assets/images/payment/paypal.svg" alt="" /></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="pages/assets/images/payment/visa.svg" alt="" /></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-7 mt-4 mt-md-0">
-                    <ul class="list-inline mb-0 text-lg-end text-center">
-                        <li class="list-inline-item mb-2 mb-md-0 text-dark">Get deliveries with Sosmart</li>
-                        <li class="list-inline-item ms-4">
-                            <a href="#!"><img src="pages/assets/images/appbutton/appstore-btn.svg"
-                                    alt="" style="width: 140px" /></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="pages/assets/images/appbutton/googleplay-btn.svg"
-                                    alt="" style="width: 140px" /></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+      
         <div class="border-top py-4">
             <div class="row align-items-center">
                 <div class="col-md-6">

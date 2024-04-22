@@ -70,7 +70,7 @@ function if_Authenticated()
 function isAdmin()
 {
     $isAdmin = $_COOKIE['isAdmin'] ?? null;
-    if ($isAdmin == false || $isAdmin == null) {
+    if ($isAdmin == false || $isAdmin == null|| $isAdmin ='false') {
         return false;
     }
     return true;

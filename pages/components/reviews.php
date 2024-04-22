@@ -16,7 +16,7 @@
                                   <i class="bi bi-star-fill"></i>
                                   <i class="bi bi-star-half"></i>
                               </small>
-                              <span class="ms-3">4.1 out of 5</span>
+                              <!-- <span class="ms-3">4.1 out of 5</span> -->
                               <small class="ms-3" id="global_rating">11,130 global ratings</small>
                           </span>
                       </div>
@@ -276,16 +276,7 @@ function buildReview(reviews){
 
                 
 
-                <div class="d-flex justify-content-end mt-4">
-                    <a href="#" class="text-muted">
-                        <i class="feather-icon icon-thumbs-up me-1"></i>
-                        Helpful
-                    </a>
-                    <a href="#" class="text-muted ms-4">
-                        <i class="feather-icon icon-flag me-2"></i>
-                        Report abuse
-                    </a>    
-                </div>
+             
             </div>
 
             

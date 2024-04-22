@@ -15,7 +15,11 @@
             <div class="col-4 col-lg-4 d-none d-md-block">
 
                 <a href="index.html">
-                    <img src="../assets/images/logo/sosmart-logo.png" height="80" alt="" />
+                    <img
+                        src="../assets/images/logo/sosmart-logo.png"
+                        height="80"
+                        alt=""
+                    />
                 </a>
             </div>
             <div class="col col-lg-4">
@@ -27,9 +31,20 @@
                 </div>
                 <!-- put subscribe to our email -->
                 <div class="input-group">
-                    <input type="email" class="form-control" id="emailInput" name="email"
-                        placeholder="Enter your email" aria-label="Enter your email" aria-describedby="button-addon2">
-                    <button class="btn btn-primary" type="button" id="subscribe-button">Subscribe</button>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="emailInput"
+                        name="email"
+                        placeholder="Enter your email"
+                        aria-label="Enter your email"
+                        aria-describedby="button-addon2"
+                    >
+                    <button
+                        class="btn btn-primary"
+                        type="button"
+                        id="subscribe-button"
+                    >Subscribe</button>
                 </div>
 
             </div>
@@ -38,15 +53,32 @@
 
 
         <!-- make a modal that shows wwhen the request is successfulll -->
-        <div class="modal fade   " style="background-color:#00000060" id="subscribeModal" tabindex="-1"
-            aria-labelledby="subscribeModalLabel" aria-hidden="true">
+        <div
+            class="modal fade   "
+            style="background-color:#00000060"
+            id="subscribeModal"
+            tabindex="-1"
+            aria-labelledby="subscribeModalLabel"
+            aria-hidden="true"
+        >
             <div class="modal-dialog  modal-dialog-centered">
                 <div
                     class="modal-content shadow text-center d-flex align-items-center justify-content-center py-5 px-3">
-                    <img src="assets/images/svg-graphics/email-sub.svg" width="120" height="190" alt="email svg">
-                    <h3 class= "fw-bold text-center " id="subscribeModalLabel">THANK YOU</h3>
+                    <img
+                        src="assets/images/svg-graphics/email-sub.svg"
+                        width="120"
+                        height="190"
+                        alt="email svg"
+                    >
+                    <h3
+                        class="fw-bold text-center "
+                        id="subscribeModalLabel"
+                    >THANK YOU</h3>
                     <p>Thank you for subscribing to our newsletter. Stay tuned for updates!</p>
-                    <p id = "closeModalButton" class=" closeModal text-white bg-primary px-5 border-0 rounded-3 py-3">
+                    <p
+                        id="closeModalButton"
+                        class=" closeModal text-white bg-primary px-5 border-0 rounded-3 py-3"
+                    >
                         Continue Shopping
                     </p>
                 </div>
@@ -59,61 +91,61 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
 
 
 
-            const button = document.querySelector('#subscribe-button');
-            const subscribeModal = document.getElementById('subscribeModal');
+        const button = document.querySelector('#subscribe-button');
+        const subscribeModal = document.getElementById('subscribeModal');
 
 
 
-            button.addEventListener('click', function(event) {
-                const email = document.querySelector('#emailInput').value;
-                hideDialog(false)
-                axios({
-                        method: 'post',
-                        url: endPoint +
-                            sendEmail,
-                        data: {
-                            email: email
-                        },
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                    .then(function(response) {
-                        console.log(response);
-                        showModal(true)
-                        hideDialog(true)
-                        subscribeModal.classList.remove('fade')
-                    })
-                    .catch(function(error) {
-                        hideDialog(true)
-                        console.log(error);
-
-
-                    });
-
-            });
-
-            function showModal(show) {
-                if (show) {
-                    subscribeModal.style.display = 'block'
+        button.addEventListener('click', function(event) {
+            const email = document.querySelector('#emailInput').value;
+            hideDialog(false)
+            axios({
+                    method: 'post',
+                    url: endPoint +
+                        sendEmail,
+                    data: {
+                        email: email
+                    },
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(function(response) {
+                    console.log(response);
+                    showModal(true)
+                    hideDialog(true)
                     subscribeModal.classList.remove('fade')
-                } else {
-                    subscribeModal.style.display = 'none'
-                    subscribeModal.classList.add('fade')
-                }
-            }
+                })
+                .catch(function(error) {
+                    hideDialog(true)
+                    console.log(error);
 
 
-            const closeButton = document.getElementById('closeModalButton');
+                });
 
-            closeButton.addEventListener('click', function(event) {
-                showModal(false);
-            });
         });
+
+        function showModal(show) {
+            if (show) {
+                subscribeModal.style.display = 'block'
+                subscribeModal.classList.remove('fade')
+            } else {
+                subscribeModal.style.display = 'none'
+                subscribeModal.classList.add('fade')
+            }
+        }
+
+
+        const closeButton = document.getElementById('closeModalButton');
+
+        closeButton.addEventListener('click', function(event) {
+            showModal(false);
+        });
+    });
     </script>
     <div class="container">
         <div class="row g-4 py-4">
@@ -123,32 +155,19 @@
                     <div class="col-6">
                         <!-- list -->
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Vegetables & Fruits</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Breakfast & instant food</a>
-                            </li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Bakery & Biscuits</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Atta, rice & dal</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Sauces & spreads</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Organic & gourmet</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Baby care</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Cleaning essentials</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Personal care</a></li>
+                            <?php
+
+                            foreach ($Allcategories as $footer_categories) { ?>
+                                <li class="nav-item mb-2"><a
+                                        href="#!"
+                                        class="nav-link"
+                                    ><?php echo $footer_categories['category_name'] ?></a></li>
+
+
+                            <?php } ?>
                         </ul>
                     </div>
-                    <div class="col-6">
-                        <!-- list -->
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Dairy, bread & eggs</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Cold drinks & juices</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Tea, coffee & drinks</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Masala, oil & more</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Chicken, meat & fish</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Paan corner</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Pharma & wellness</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Home & office</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Pet care</a></li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-8">
@@ -168,79 +187,19 @@
                         <h6 class="mb-4">For Consumers</h6>
                         <ul class="nav flex-column">
                             <!-- list -->
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Payments</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Shipping</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Product Returns</a></li>
+                            <!-- <li class="nav-item mb-2"><a href="#!" class="nav-link">Payments</a></li>
+                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Shipping</a></li> -->
+                       
                             <li class="nav-item mb-2"><a href="#!" class="nav-link">FAQ</a></li>
-                            <li class="nav-item mb-2"><a href="pages/shop-checkout.html" class="nav-link">Shop
+                            <li class="nav-item mb-2"><a href="pages/shop-cart.php" class="nav-link">Shop
                                     Checkout</a></li>
                         </ul>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <h6 class="mb-4">Become a Shopper</h6>
-                        <ul class="nav flex-column">
-                            <!-- list -->
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Shopper Opportunities</a>
-                            </li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Become a Shopper</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Earnings</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Ideas & Guides</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">New Retailers</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <h6 class="mb-4">Sosmart programs</h6>
-                        <ul class="nav flex-column">
-                            <!-- list -->
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Sosmart programs</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Gift Cards</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Promos & Coupons</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Sosmart Ads</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Careers</a></li>
-                        </ul>
-                    </div>
+                   
                 </div>
             </div>
         </div>
-        <div class="border-top py-4">
-            <div class="row align-items-center">
-                <div class="col-lg-5 text-lg-start text-center mb-2 mb-lg-0">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item text-dark">Payment Partners</li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="../assets/images/payment/amazonpay.svg" alt="" /></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="../assets/images/payment/american-express.svg"
-                                    alt="" /></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="../assets/images/payment/mastercard.svg"
-                                    alt="" /></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="../assets/images/payment/paypal.svg" alt="" /></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="../assets/images/payment/visa.svg" alt="" /></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-7 mt-4 mt-md-0">
-                    <ul class="list-inline mb-0 text-lg-end text-center">
-                        <li class="list-inline-item mb-2 mb-md-0 text-dark">Get deliveries with Sosmart</li>
-                        <li class="list-inline-item ms-4">
-                            <a href="#!"><img src="../assets/images/appbutton/appstore-btn.svg" alt=""
-                                    style="width: 140px" /></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="../assets/images/appbutton/googleplay-btn.svg" alt=""
-                                    style="width: 140px" /></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+     
         <div class="border-top py-4">
             <div class="row align-items-center">
                 <div class="col-md-6">
@@ -249,10 +208,11 @@
                         <span id="copyright">
                             -
                             <script>
-                                document.getElementById("copyright");
+                                document.getElementById("copyright").appendChild(document.createTextNode(new Date()
+                                    .getFullYear()));
                             </script>
                         </span>
-                        <strong>Sosmart Online Shopping </strong>
+                        Sosmart eCommerce HTML Template. 
                     </span>
                 </div>
                 <div class="col-md-6">

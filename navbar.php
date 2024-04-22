@@ -678,7 +678,7 @@
                         <ul class="navbar-nav align-items-center justify-content-end text-white ">
 
 
-                            <?php if (isAdmin() || isAdmin() != null) { ?>
+                            <?php if (isAdmin() && isAdmin() != null) { ?>
                             <li class="nav-item w-100 w-lg-auto  ">
                                 <a
                                     class="nav-link text-white fw-bold"
