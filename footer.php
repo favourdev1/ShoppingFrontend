@@ -122,7 +122,10 @@
                         <?php 
 
                         foreach($Allcategories as $footer_categories){?>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link"><?php echo  $footer_categories['category_name']?></a></li>
+                             <li class="nav-item mb-2"><a
+                                href="pages/shop-grid.php?category=<?php echo $footer_categories['category_name'] ?>"
+                                        class="nav-link"
+                                    ><?php echo $footer_categories['category_name'] ?></a></li>
                          
 
                             <?php }?>
@@ -149,7 +152,7 @@
                             <!-- list -->
                            
                             <li class="nav-item mb-2"><a href="#!" class="nav-link">FAQ</a></li>
-                            <li class="nav-item mb-2"><a href="pages/shop-checkout.html" class="nav-link">Shop
+                            <li class="nav-item mb-2"><a href="pages/shop-checkout.php" class="nav-link">Shop
                                     Checkout</a></li>
                         </ul>
                     </div>
