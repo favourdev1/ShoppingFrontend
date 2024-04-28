@@ -1,4 +1,5 @@
-<!-- QUick view modal -->
+
+><!-- QUick view modal -->
 <?php include_once 'components/quickview.php'; ?>
 
 
@@ -159,7 +160,7 @@
 
                             foreach ($Allcategories as $footer_categories) { ?>
                                 <li class="nav-item mb-2"><a
-                                        href="#!"
+                                href="shop-grid.php?category=<?php echo $footer_categories['category_name'] ?>"
                                         class="nav-link"
                                     ><?php echo $footer_categories['category_name'] ?></a></li>
 
@@ -191,7 +192,7 @@
                             <li class="nav-item mb-2"><a href="#!" class="nav-link">Shipping</a></li> -->
                        
                             <li class="nav-item mb-2"><a href="#!" class="nav-link">FAQ</a></li>
-                            <li class="nav-item mb-2"><a href="pages/shop-cart.php" class="nav-link">Shop
+                            <li class="nav-item mb-2"><a href="shop-cart.php" class="nav-link">Shop
                                     Checkout</a></li>
                         </ul>
                     </div>

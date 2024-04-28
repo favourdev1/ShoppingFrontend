@@ -301,7 +301,8 @@
                             <div>
                                 <div
                                     class="py-10 px-8 rounded"
-                                    style="background: url(https://ae01.alicdn.com/kf/Sa24f41ac53234b6ea52a15062a3c2517J/Air-Conditioner-Mini-Fan-Cooler-Portable-Air-Cooler-AC-Air-Conditioning-3-Gear-Speed-Air-Cooling.jpg_350x350xz.jpg_.webp) no-repeat; background-size: cover; background-position: center"
+                                    style="background: url('assets/images/product-showcase.jpg'); background-repeat:no-repeat; background-size: cover; background-position: center"
+
                                 >
                                     <div>
                                         <h3 class="fw-bold mb-1">Discounts Everywhere!</h3>
@@ -311,7 +312,7 @@
                                             Off
                                         </p>
                                         <a
-                                            href="#!"
+                                            href="pages/shop-grid.php?group=top-deals"
                                             class="btn btn-dark"
                                         >Shop Now</a>
                                     </div>
@@ -332,7 +333,7 @@
                                             Off
                                         </p>
                                         <a
-                                            href="#!"
+                                            href="pages/shop-grid.php?group=top-deals"
                                             class="btn btn-dark"
                                         >Shop Now</a>
                                     </div>

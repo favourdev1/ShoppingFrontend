@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-12 text-center text-md-start"><span>Super Value Deals - Save more with
-                        coupons</span></div>
+                       Sosmart</span></div>
                 <div class="col-6 text-end d-none d-md-block">
                     <div class="dropdown selectBox">
                         <a
@@ -655,13 +655,7 @@
                             </li>
 
 
-                            <li class="nav-item w-100 w-lg-auto mx-5  ">
-                                <a
-                                    class="nav-link text-white fw-bold"
-                                    href="pages/shop-grid.php?group=featured-category"
-                                >Featured Category</a>
-                            </li>
-
+                         
 
                             <li class="nav-item w-100 w-lg-auto mx-5 ">
                                 <a

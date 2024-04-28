@@ -661,13 +661,7 @@
                             </li>
 
 
-                            <li class="nav-item w-100 w-lg-auto mx-5  ">
-                                <a
-                                    class="nav-link text-white fw-bold"
-                                    href="shop-grid.php?group=featured-category"
-                                >Featured Category</a>
-                            </li>
-
+                      
 
                             <li class="nav-item w-100 w-lg-auto mx-5 ">
                                 <a
