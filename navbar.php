@@ -57,6 +57,23 @@
                             English
                         </a>
 
+                        <div id="google_translate_element"></div>
+
+                        <style>
+                            .goog-te-gadget .goog-te-combo {
+   
+    color: #000;
+    background-color: transparent;
+    border: 1px solid #000;
+}
+
+.goog-te-gadget {
+    /* This targets the entire gadget */
+    font-size: 14px;
+    color: #000;
+    background-color: #fff;
+}
+                        </style>
                         <ul class="dropdown-menu">
                             <li>
                                 <a

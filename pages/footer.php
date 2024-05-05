@@ -66,7 +66,7 @@
                 <div
                     class="modal-content shadow text-center d-flex align-items-center justify-content-center py-5 px-3">
                     <img
-                        src="assets/images/svg-graphics/email-sub.svg"
+                        src="../assets/images/svg-graphics/email-sub.svg"
                         width="120"
                         height="190"
                         alt="email svg"
@@ -213,7 +213,7 @@
                                     .getFullYear()));
                             </script>
                         </span>
-                        Sosmart eCommerce HTML Template. 
+                        Sosmart . 
                     </span>
                 </div>
                 <div class="col-md-6">

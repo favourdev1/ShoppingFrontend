@@ -81,7 +81,7 @@
                     })
                     .catch(function(error) {
                         hideDialog(true)
-                      showAlert('An error occured, please try again later', 'error', 5)
+                      showAlert('An error occured, please try again later', 'error'+error, 5)
                        
 
 
@@ -173,7 +173,7 @@
                                     .getFullYear()));
                             </script>
                         </span>
-                        Sosmart eCommerce HTML Template. 
+                        Sosmart . 
                     </span>
                 </div>
                 <div class="col-md-6">
@@ -214,3 +214,19 @@
 </footer>
 
 <script src="../assets/js/theme.min.js"></script>
+
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/62f0a48c37898912e961c9f8/1g9u05hg4';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->

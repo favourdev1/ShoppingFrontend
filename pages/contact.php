@@ -664,7 +664,7 @@
                                         .getFullYear()));
                                     </script>
                                 </span>
-                                Sosmart eCommerce HTML Template. All rights reserved. Powered by
+                                Sosmart . All rights reserved. Powered by
                                 <a href="https://codescandy.com/">Codescandy</a>
                                 .
                             </span>

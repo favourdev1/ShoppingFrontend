@@ -1,6 +1,6 @@
 <head>
 
-
+<meta http-equiv="Content-Language" content="fr" />
 
 
 
@@ -191,4 +191,20 @@
     
   
     </script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+<script>
+        
+  
+function loadGoogleTranslate() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en', // replace 'en' with the language your page is currently in
+        includedLanguages: 'fr', // replace with the languages you want to include
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+
+window.onload = loadGoogleTranslate;
+
+</script>
 </head>

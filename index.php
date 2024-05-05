@@ -490,6 +490,7 @@
         <script src="../node_modules/axios/dist/axios.min.js"></script>
 
 
+      
         <!-- Theme JS -->
         <script src="assets/js/theme.min.js"></script>
 
@@ -503,7 +504,13 @@
         <script src="assets/js/vendors/zoom.js"></script>
         <script src="pages/javascript/checkAuth.js"> </script>
 
+
+        
         <script>
+
+
+
+
             hideDialog(false)
             document.addEventListener('DOMContentLoaded',function(){
                 hideDialog(true)
