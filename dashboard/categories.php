@@ -49,7 +49,7 @@
                                     <div class="row justify-content-between">
                                         <div class="col-lg-4 col-md-6 col-12 mb-2 mb-md-0">
                                             <!-- form -->
-                                            <form
+                                            <!-- <form
                                                 class="d-flex"
                                                 role="search"
                                             >
@@ -59,16 +59,16 @@
                                                     placeholder="Search Category"
                                                     aria-label="Search"
                                                 />
-                                            </form>
+                                            </form> -->
                                         </div>
                                         <!-- select option -->
-                                        <div class="col-xl-2 col-md-4 col-12">
+                                        <!-- <div class="col-xl-2 col-md-4 col-12">
                                             <select class="form-select">
                                                 <option selected>Status</option>
                                                 <option value="Published">Published</option>
                                                 <option value="Unpublished">Unpublished</option>
                                             </select>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <!-- card body -->
@@ -219,7 +219,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div
+                                <!-- <div
                                     class="border-top d-flex justify-content-between align-items-md-center px-6 py-6 flex-md-row flex-column gap-4">
                                     <span>Showing 1 to 8 of 12 entries</span>
                                     <nav>
@@ -246,7 +246,7 @@
                                                 >Next</a></li>
                                         </ul>
                                     </nav>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
