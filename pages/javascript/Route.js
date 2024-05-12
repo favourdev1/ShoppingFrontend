@@ -1,7 +1,7 @@
 // Define variables for the API routes
-var endPoint = 'http://localhost:8000/api';
-var websiteurl = 'http://localhost:8000/'
-    // Authentication routes
+var endPoint = 'https://api.sosmartshopping.com/api';
+var websiteurl = 'https://sosmartshopping.com';
+// Authentication routes
 const registerRoute = '/register';
 const loginRoute = '/login';
 const getUserRoute = '/get-user';
