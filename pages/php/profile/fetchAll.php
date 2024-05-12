@@ -2,7 +2,7 @@
 
 use Httpful\Request;
 
-
+$apiUrl = getenv('API_URL');
 
 // Make a GET request to your API endpoint for a specific product
 $response = Request::get($apiUrl . '/profile/'.$userId)
