@@ -1,6 +1,6 @@
 <head>
 
-    <?php $apiUrl = "http://localhost:8000/api" ?>
+    <?php $apiUrl = getenv('API_URL') ?>
     <?php
     include_once ('php/config.php');
 
@@ -81,7 +81,7 @@
 
 
     <script>
-    var apiUrl = 'http://localhost:8000/api/'
+    var apiUrl = getenv('API_URL')
     </script>
 
 

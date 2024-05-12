@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
 
-$apiUrl = "http://localhost:8000/api" ;
+$apiUrl = getenv('API_URL') ;
 $token = $_COOKIE['token']??null;
 // Initialize Guzzle client
 $client = new Client();

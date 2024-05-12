@@ -1,6 +1,6 @@
 
 <?php
-$apiUrl = 'http://localhost:8000/api/';
+$apiUrl = getenv('API_URL');
 $token;
 $userId;
 $isAdmin;

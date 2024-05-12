@@ -1,6 +1,6 @@
 
 <?php
-$apiUrl = 'http://localhost:8000/api/admin';
+$apiUrl = getenv('API_URL').'/admin';
 if (!isset($_COOKIE['token']) || $_COOKIE['token'] == null || !isset($_COOKIE['userId']) || $_COOKIE['userId'] == null) {
 
     header('Location: ../index.php');
