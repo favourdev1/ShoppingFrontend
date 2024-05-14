@@ -12,7 +12,7 @@ signupForm.addEventListener("submit", function(event) {
 
     const formData = new FormData(event.target);
 
-    axios.post(apiUrl + "register", formData, {
+    axios.post(apiUrl + "/register", formData, {
             headers: {
                 // 'Accept': 'application/json',
             }
