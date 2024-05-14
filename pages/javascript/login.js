@@ -8,9 +8,10 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     event.preventDefault(); // Prevent the default form submission
 
     const formData = new FormData(event.target);
+    snksnfks
 
     hideDialog(false)
-    axios.post(apiUrl + "login", formData, {
+    axios.post(apiUrl + "/login", formData, {
             headers: {
                 'Accept': 'application/json',
             }
