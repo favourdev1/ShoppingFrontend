@@ -29,9 +29,9 @@ if ($statusCode === 200) {
     // echo "<pre>";
 
     // print_r($userProfile);
-    // $userFirstname = ucfirst($userProfile['firstname']);
-    // $userLastname = ucfirst($userProfile['lastname']);
-    // $userEmail = ucfirst($userProfile['email']);
+    $userFirstname = ucfirst($userProfile['firstname']);
+    $userLastname = ucfirst($userProfile['lastname']);
+    $userEmail = ucfirst($userProfile['email']);
     // // echo "</pre>";
 
   
