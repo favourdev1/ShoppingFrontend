@@ -1,5 +1,5 @@
 // Define variables for the API routes
-var endPoint = 'https://api.sosmartshopping.com/api';
+var endPoint = 'https://api.sosmartshopping.com/public/api';
 var websiteurl = 'https://sosmartshopping.com';
 // Authentication routes
 const registerRoute = '/register';

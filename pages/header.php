@@ -1,8 +1,10 @@
 <head>
 
-    <?php $apiUrl = $API_URL; ?>
     <?php
-     include_once('../env.php'); 
+      include_once('../env.php'); 
+    $apiUrl = $API_URL; ?>
+    <?php
+   
     include_once ('php/config.php');
 
     ?>
