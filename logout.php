@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
 
-$apiUrl = getenv('API_URL') ;
+$apiUrl = $API_URL; ;
 $token = $_COOKIE['token']??null;
 // Initialize Guzzle client
 $client = new Client();

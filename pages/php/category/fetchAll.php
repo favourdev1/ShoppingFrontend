@@ -2,31 +2,38 @@
 
 
 use Httpful\Request;
-$Allcategories=[];
-try {
-    // Make a GET request to your API endpoint
-    $response = Request::get($apiUrl . '/category/')
-        ->addHeaders($payloadRequest)
-        ->send();
 
+$Allcategories = [];
+
+
+// Make a GET request to your API endpoint
+$response = Request::get($apiUrl . '/category')
+    ->addHeaders($payloadRequest)
+    ->send();
+
+$statusCode = $response->code;
+if ($statusCode === 200) {
     // Decode the JSON response
-    $Allcategories = json_decode(json_encode($response->body), true);
-    $Allcategories = $Allcategories['data']['categories'];
+    $Allcategoria = json_decode(json_encode($response->body), true);
+
+    $Allcategories = $Allcategoria['data']['categories'];
+
+    // print_r($Allcategories);
+    // die;
+    // Additional code after the try-catch block
 
 
-} catch (HttpException $e) {
-    // Httpful request exception
-    $statusCode = $e->getCode();
-    $errorBody = json_decode($e->getBody(), true);
+} else if ($response->code === 301) {
+    // The API endpoint has been moved. Print the new location.
+    $newLocation = $response->headers['location'];
+    echo "The API endpoint has been moved to: $newLocation\n";
 
-    // Handle specific error cases
-    echo "Error Status Code: $statusCode\n";
-    echo "Error Message: {$errorBody['message']}\n";
-
-} catch (Exception $e) {
-    // Handle general exceptions
-    echo "Exception: " . $e->getMessage() . "\n";
+} else {
+    $errorMessage = str_replace(',', '\n', $response->body->message);
+    // $_SESSION['message'] = $errorMessage;
+    // // $_SESSION['status'] = "error";
+    // echo "kfslflskfl0";
+    // echo $errorMessage;
+    // header("Location: ../../products.php");
+    // exit();
 }
-
-// Additional code after the try-catch block
-?>

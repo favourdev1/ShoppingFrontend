@@ -1,6 +1,6 @@
 
 <?php
-$apiUrl = getenv('API_URL');
+$apiUrl = $API_URL;;
 $token;
 $userId;
 $isAdmin;

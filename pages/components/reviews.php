@@ -191,7 +191,7 @@
 
   <script>
       // Get the product_id from the URL parameter
-      $apiUrl = getenv('API_URL');
+    //   $apiUrl = $API_URL;;
       const urlParams = new URLSearchParams(window.location.search);
       const product_id = urlParams.get('id');
 
@@ -203,7 +203,7 @@
              //fetch al reviews
 
       // find out why the review  is not working
-      axios.get('<?php echo $apiUrl; ?>reviews/show/' + product_id, {
+      axios.get('<?php echo $apiUrl; ?>/reviews/show/' + product_id, {
             headers: {
                   payloadRequest
               }

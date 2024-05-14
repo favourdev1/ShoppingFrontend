@@ -8,12 +8,12 @@
         <!-- navbar -->
         
         <?php 
-        include_once('pages/php/profile/fetchAll.php'); ?>
-        <?php include_once('pages/php/products/fetchAll.php'); ?>
-        <?php include_once('pages/php/category/fetchAll.php'); ?>
-        <?php include_once('pages/php/cart/fetchAll.php') ?>
-        <?php include_once('pages/php/products/discountProduct.php') ?>
-        <?php include_once('navbar.php') ?>
+        // include_once('pages/php/profile/fetchAll.php'); 
+        include_once('pages/php/products/fetchAll.php');
+        include_once('pages/php/category/fetchAll.php');
+        include_once('pages/php/cart/fetchAll.php');
+        include_once ('pages/php/products/discountProduct.php');
+        include_once('navbar.php') ?>
       <!-- LOading dialog -->
       <div
     class="modal d-flex align-items-center   justify-content-center"

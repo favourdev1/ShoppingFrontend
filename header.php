@@ -3,9 +3,9 @@
 <meta http-equiv="Content-Language" content="fr" />
 
 
+<?php include_once('env.php'); ?>
 
-
-    <?php $apiUrl = getenv('API_URL') ?>
+    <?php $apiUrl = $API_URL; ?>
     <?php include_once('pages/php/config.php') ?>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -61,7 +61,7 @@
 
 
     <script>
-    var apiUrl = getenv('API_URL')
+    var apiUrl = '<?php echo $API_URL?>';
     </script>
 
 

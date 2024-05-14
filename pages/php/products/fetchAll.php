@@ -6,7 +6,7 @@ use Httpful\Request;
 
 
 // Make a GET request to your API endpoint
-$response = Request::get($apiUrl . '/products/')
+$response = Request::get($apiUrl . '/products')
     ->addHeaders($payloadRequest)
     ->send();
 
@@ -24,6 +24,11 @@ if ($response->code < 300) {
     // }
     // echo"</pre>";
     // die;
+} else if ($response->code === 301) {
+    // The API endpoint has been moved. Print the new location.
+    $newLocation = $response->headers['location'];
+    echo "The API endpoint has been moved to: $newLocation\n";
+
 } else {
     // Decode the JSON error response
     $responseBody = $response->body;

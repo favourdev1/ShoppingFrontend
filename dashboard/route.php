@@ -1,6 +1,6 @@
 <?php
 
-$apiUrl = getenv('API_URL').'/admin';
+$apiUrl = $API_URL.'/admin';
 ?>
 <script>
 const apiRoute = '<?= $apiUrl ?>';

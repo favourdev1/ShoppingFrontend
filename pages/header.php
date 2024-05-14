@@ -1,7 +1,8 @@
 <head>
 
-    <?php $apiUrl = getenv('API_URL') ?>
+    <?php $apiUrl = $API_URL; ?>
     <?php
+     include_once('../env.php'); 
     include_once ('php/config.php');
 
     ?>
@@ -81,7 +82,7 @@
 
 
     <script>
-    var apiUrl = getenv('API_URL')
+    var apiUrl = '<?php echo $API_URL?>';
     </script>
 
 
