@@ -124,12 +124,12 @@ include_once ('header.php')
                               </a>
                            </li>
                            <!-- nav item -->
-                           <li class="nav-item">
+                           <!-- <li class="nav-item">
                               <a class="nav-link" href="account-payment-method.php">
                                  <i class="feather-icon icon-credit-card me-2"></i>
                                  Payment Method
                               </a>
-                           </li>
+                           </li> -->
                            <!-- nav item -->
                            <li class="nav-item">
                               <a class="nav-link active" href="account-notification.php">
@@ -167,7 +167,7 @@ include_once ('header.php')
                            <div class="d-flex justify-content-between align-items-center mb-6">
                               <div>
                                  <h6 class="mb-1">Weekly Notification</h6>
-                                 <p class="mb-0">Various versions have evolved over the years, sometimes by accident, sometimes on purpose .</p>
+                                 <p class="mb-0">Stay updated with our weekly notifications. Get the latest news, offers, and promotions delivered straight to your inbox.</p>
                               </div>
                               <!-- checkbox -->
                               <div class="form-check form-switch">
@@ -175,21 +175,7 @@ include_once ('header.php')
                                  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
                               </div>
                            </div>
-                           <div class="d-flex justify-content-between align-items-center">
-                              <!-- text -->
-                              <div>
-                                 <h6 class="mb-1">Account Summary</h6>
-                                 <p class="mb-0 pe-12">
-                                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis eguris eu sollicitudin massa. Nulla ipsum odio, aliquam in odio et, fermentum
-                                    blandit nulla.
-                                 </p>
-                              </div>
-                              <!-- form checkbox -->
-                              <div class="form-check form-switch">
-                                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
-                                 <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                              </div>
-                           </div>
+                         
                         </div>
                         <div class="mb-10">
                            <!-- heading -->
@@ -203,7 +189,7 @@ include_once ('header.php')
                               </div>
                               <!-- form checkbox -->
                               <div class="form-check form-switch">
-                                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault2" />
+                                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault2"  disabled/>
                                  <label class="form-check-label" for="flexSwitchCheckDefault2"></label>
                               </div>
                            </div>
@@ -211,48 +197,16 @@ include_once ('header.php')
                            <div class="d-flex justify-content-between align-items-center">
                               <div>
                                  <h6 class="mb-1">Call before checkout</h6>
-                                 <p class="mb-0">We'll only call if there are pending changes</p>
+                                
                               </div>
                               <!-- form checkbox -->
                               <div class="form-check form-switch">
-                                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked2" checked />
+                                 <input class="form-check-input" disabled type="checkbox" role="switch" id="flexSwitchCheckChecked2"  />
                                  <label class="form-check-label" for="flexSwitchCheckChecked2"></label>
                               </div>
                            </div>
                         </div>
-                        <div class="mb-6">
-                           <!-- text -->
-                           <div class="border-bottom pb-3 mb-5">
-                              <h5 class="mb-0">Website Notification</h5>
-                           </div>
-                           <div>
-                              <!-- form checkbox -->
-                              <div class="form-check">
-                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckFollower" checked />
-                                 <label class="form-check-label" for="flexCheckFollower">New Follower</label>
-                              </div>
-                              <!-- form checkbox -->
-                              <div class="form-check">
-                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckPost" />
-                                 <label class="form-check-label" for="flexCheckPost">Post Like</label>
-                              </div>
-                              <!-- form checkbox -->
-                              <div class="form-check">
-                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckPosted" />
-                                 <label class="form-check-label" for="flexCheckPosted">Someone you followed posted</label>
-                              </div>
-                              <!-- form checkbox -->
-                              <div class="form-check">
-                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckCollection" />
-                                 <label class="form-check-label" for="flexCheckCollection">Post added to collection</label>
-                              </div>
-                              <!-- form checkbox -->
-                              <div class="form-check">
-                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckOrder" />
-                                 <label class="form-check-label" for="flexCheckOrder">Order Delivery</label>
-                              </div>
-                           </div>
-                        </div>
+                     
                      </div>
                   </div>
                </div>

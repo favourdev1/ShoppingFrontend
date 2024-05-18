@@ -127,12 +127,12 @@ include_once ('header.php')
                               </a>
                            </li>
                            <!-- nav item -->
-                           <li class="nav-item">
+                           <!-- <li class="nav-item">
                               <a class="nav-link" href="account-payment-method.php">
                                  <i class="feather-icon icon-credit-card me-2"></i>
                                  Payment Method
                               </a>
-                           </li>
+                           </li> -->
                            <!-- nav item -->
                            <li class="nav-item">
                               <a class="nav-link" href="account-notification.php">
