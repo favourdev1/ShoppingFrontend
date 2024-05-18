@@ -8,7 +8,7 @@
         <!-- navbar -->
         
         <?php 
-        // include_once('pages/php/profile/fetchAll.php'); 
+        include_once('pages/php/profile/fetchAll.php'); 
         include_once('pages/php/products/fetchAll.php');
         include_once('pages/php/category/fetchAll.php');
         include_once('pages/php/cart/fetchAll.php');
