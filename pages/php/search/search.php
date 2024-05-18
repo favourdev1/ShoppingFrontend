@@ -64,7 +64,7 @@ $searchBrands = [];
 // echo $apiUrl . '/products/search/?' . $query;
 // die;
 try {
-    $response = Request::get($apiUrl . '/products/search/?' . $query)
+    $response = Request::get($apiUrl . '/products/search?' . $query)
         ->addHeaders($payloadRequest)
         ->send();
 
@@ -95,12 +95,15 @@ try {
         // die;
     } else {
         // Decode the JSON error response
-        $responseBody = $response->body;
-        // $errorBody = json_decode($response->body, true);
-
-        // Output the error details
-        // echo "Error Status Code: {$response->code}\n";
-        print_r($responseBody);
+        echo " Internal error ";
+        // $responseBody = $response->body;
+        // // $errorBody = json_decode($response->body, true);
+        // if ($response->code == 301) {
+        //     echo "Location: " . $response->headers['location'] . "\n";
+        // }
+        // // Output the error details
+        // // echo "Error Status Code: {$response->code}\n";
+        // print_r($responseBody);
         exit;
     }
 } catch (\Exception $e) {

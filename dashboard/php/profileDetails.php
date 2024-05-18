@@ -1,5 +1,7 @@
 <?php
 
+ob_start(); // Start output buffering
+
 require '../vendor/autoload.php'; // Include Composer's autoloader
 
 use GuzzleHttp\Client;
@@ -8,6 +10,7 @@ use GuzzleHttp\Exception\RequestException;
 $isauthenticated = false;
 if (!isset($userId) || !isset($token)) {
     header('Location: ../pages/signin.php');
+    exit();
 }
 
 try {
@@ -44,16 +47,29 @@ try {
         $address = $profileDetails['address'];
         $isauthenticated = true;
     } else {
+
+        echo " hslhfsfk";
     }
 } catch (RequestException $e) {
-    ob_start();
-
-    echo $e->getMessage();
-    setcookie('userId', '', time() - 3600, '/');
-    setcookie('token', '', time() - 3600, '/');
-    setcookie('isAdmin', '', time() - 3600, '/');
-    // Flush the output buffer
-    ob_end_flush();
-    header('Location: ../pages/signin.php');
-    exit();
+    
+    setcookie('userId', '', time() - 3600, '/', $_SERVER['HTTP_HOST']);
+    setcookie('token', '', time() - 3600, '/', $_SERVER['HTTP_HOST']);
+    setcookie('isAdmin', '', time() - 3600, '/', $_SERVER['HTTP_HOST']);
+    
+    
+    if ($e->getResponse()->getStatusCode() == 403 || $e->getResponse()->getStatusCode() == 401) {
+        header_remove(); // Remove all headers
+        ob_end_clean(); // Clean (erase) the output buffer and turn off output buffering
+        echo '<script type="text/javascript">';
+        echo 'document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";';
+        echo 'document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";';
+        echo 'document.cookie = "isAdmin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";';
+       
+        echo 'window.location.href="../pages/signin.php";';
+        echo '</script>';
+        exit();
+    }
+ 
 }
+
+ob_end_flush(); // Flush the output buffer and turn off output buffering

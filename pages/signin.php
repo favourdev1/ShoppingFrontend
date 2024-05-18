@@ -9,16 +9,22 @@
 
     <body class="d-flex align-items-center justify-content-center">
 
-        <?php
-
-   if (if_Authenticated()) {
-      header('Location: ../index.php');
-      exit;
-   }
-   ?>
 
    <?php include_once('components/loadingDialog.php')?>
 
+        <?php
+
+   if (if_Authenticated()) {
+            // header_remove();
+            // ob_end_clean();
+
+            echo '<script type="text/javascript">';
+            echo 'window.location.href="../index.php";';
+            echo '</script>';
+
+    //   exit;
+   }
+   ?>
         
         <div class="vh-100 d-flex align-items-center ">
             <!-- section -->

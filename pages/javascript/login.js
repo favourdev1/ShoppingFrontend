@@ -59,16 +59,14 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
             console.log(isAdmin)
             console.log("Cookies set:", document.cookie);
             setTimeout(() => {
-                if (isAdmin) {
-                    window.location.href = "../dashboard/index.php"
-                } else {
-                    window.location.href = "../index.php"
-                }
+
+                window.location.href = "../index.php"
+
             }, 1000);
 
         })
         .catch(error => {
-
+            console.log(error)
             if (error.response) {
                 console.error("Error Status:", error.response.status);
 

@@ -3,7 +3,7 @@
 use Httpful\Request;
 
 $apiUrl = $API_URL;;
-// echo $API_URL;
+
 
 if($userId == null){
     $userId = -1;

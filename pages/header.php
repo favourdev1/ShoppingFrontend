@@ -1,6 +1,7 @@
 <head>
 
     <?php
+    ob_start(); // Start output buffering
       include_once('../env.php'); 
     $apiUrl = $API_URL; ?>
     <?php
