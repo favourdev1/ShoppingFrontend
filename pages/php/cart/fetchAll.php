@@ -3,9 +3,9 @@
 use Httpful\Request;
 
 $cartItems=[];
-
+// echo $apiUrl . '/carts';
 // Make a GET request to your API endpoint for a specific product
-$response = Request::get($apiUrl . '/carts/')
+$response = Request::get($apiUrl . '/carts')
     ->addHeaders($payloadRequest)
 
     ->send();

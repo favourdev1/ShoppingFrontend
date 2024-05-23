@@ -5,7 +5,7 @@ use Httpful\Request;
 $allAddresses=[];
 
 // Make a GET request to your API endpoint for a specific product
-$response = Request::get($apiUrl . '/addresses/')
+$response = Request::get($apiUrl . '/addresses')
     ->addHeaders($payloadRequest)
 
     ->send();

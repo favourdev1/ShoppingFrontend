@@ -3,10 +3,8 @@
 
 use Httpful\Request;
 
-
-
 // Make a GET request to your API endpoint
-$response = Request::get($apiUrl . '/paymentmethods/')
+$response = Request::get($apiUrl . '/paymentmethods')
     ->addHeaders($payloadRequest)
     ->send();
 
