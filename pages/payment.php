@@ -181,8 +181,7 @@ include_once 'header.php'; ?>
                                                     <!-- file size -->
                                                     <p class="small my-0 py-0 text-secondary" id= "filesize">0kb</p>
                                                 </div>
-                                                <input type="file" accept="images" name="payment_proof"
-                                                    id="payment_proof_input">
+                                                <input type="file" accept="image/png, image/jpeg" name="payment_proof" id="payment_proof_input">
                                             </div>
 
 
@@ -340,7 +339,7 @@ include_once 'header.php'; ?>
                 })
                 .catch(error => {
                     // Handle error
-                    console.error(error);
+                    console.log(error);
                 })
                 .finally(function() {
                     hideDialog(true)
