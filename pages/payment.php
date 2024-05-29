@@ -323,10 +323,13 @@ include_once 'header.php'; ?>
 
             //     hideDialog(true)
             // }, 5000);
+
+            console.log(endPoint + sendPayment+"sfslf")
             axios.post(endPoint + sendPayment, formData, {
                     headers: payloadRequest
                 })
                 .then(response => {
+                    console.log(response);
                     // Handle success
                     if(response.data.status =='success'){
 
@@ -335,7 +338,6 @@ include_once 'header.php'; ?>
                         showAlert(response.data.data.message)
                     }
 
-                    console.log(response.data);
                 })
                 .catch(error => {
                     // Handle error
