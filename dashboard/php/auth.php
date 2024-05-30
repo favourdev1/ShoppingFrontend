@@ -1,5 +1,6 @@
 
 <?php
+include_once('../../env.php');
 $apiUrl = $API_URL.'/admin';
 if (!isset($_COOKIE['token']) || $_COOKIE['token'] == null || !isset($_COOKIE['userId']) || $_COOKIE['userId'] == null) {
 
