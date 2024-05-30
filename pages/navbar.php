@@ -304,7 +304,7 @@
                                     <hr>
                                     <a
                                         class="dropdown-item fs-6"
-                                        href="php/logout.php"
+                                        href="../logout.php"
                                     >Logout</a>
 
                                 <?php } else { ?>
@@ -702,7 +702,7 @@
                                 <li class="nav-item w-100 w-lg-auto">
                                     <a
                                         class="nav-link  text-white fw-bold"
-                                        href="php/logout.php"
+                                        href="../logout.php"
                                     >Logout</a>
                                 </li>
 
