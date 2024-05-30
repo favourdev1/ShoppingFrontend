@@ -1,7 +1,9 @@
 <?php session_start(); ?>
-
+<?php include_once('../env.php'); ?>
+    <?php include_once ('php/auth.php') ?>
 <head>
-    <?php include_once('../env.php'); ?>
+
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta
@@ -49,8 +51,7 @@
 
 
     <script src="../node_modules/axios/dist/axios.min.js"></script>
-    <?php include_once ('php/auth.php') ?>
-
+    
 
 
   <?php include_once ('route.php') ?>
