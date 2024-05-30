@@ -815,10 +815,12 @@
                         data: data
                     })
                     .then(function(response) {
-                      window.location.href='products.php'
+                        console.log(response);
+
+                    //   window.location.href='products.php'
                     })
                     .catch(function(error) {
-
+console.log(error)
                         alertHub.showAlert({
                             title: "",
                             description: error,
