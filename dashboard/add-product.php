@@ -810,7 +810,7 @@
                 hideDialog(false)
                 axios({
                         method: '<?php echo $isUpdating ? "put" : "post" ?>',
-                        url: '<?php echo $isUpdating ? $API_URL.'products/'.$_GET['id']  : $API_URL.'/products/add' ?>',
+                        url: '<?php echo $isUpdating ? $API_URL.'/products/'.$_GET['id']  : $API_URL.'/products/add' ?>',
                         data: data,
                         headers: headers
                     })
