@@ -60,12 +60,12 @@ if (isset($_GET['id'])) {
         
         }
     } else {
-        $errorMessage = str_replace(',', '\n', $responseData->message);
-        $_SESSION['message'] = $errorMessage;
-        $_SESSION['status']="error";
-        // echo $errorMessage;
-        header("Location: ../../products.php");
-        exit();
+        // $errorMessage = str_replace(',', '\n', $responseData->message);
+        // $_SESSION['message'] = $errorMessage;
+        // $_SESSION['status']="error";
+        // // echo $errorMessage;
+        // header("Location: ../../products.php");
+        // exit();
     }
 } else {
     $isUpdating = false;

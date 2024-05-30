@@ -3,6 +3,7 @@
 require_once '../vendor/autoload.php';
 use Httpful\Request;
 
+echo $apiUrl . '/products';
 // Make a GET request to your API endpoint
 $response = Request::get($apiUrl . '/products')
     ->addHeaders([
