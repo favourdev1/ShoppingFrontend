@@ -5,7 +5,7 @@
 
 
     <?php include_once ('header.php') ?>
-    
+
     <body class="position-relative">
         <!-- main -->
         <?php include_once 'loadDialog.php'; ?>
@@ -176,7 +176,7 @@
                                                         for ($i = 0; $i < 4; $i++) {
                                                             $uniqueAlt = "Image" . ($i + 1);
                                                             $uniqueId = "image" . ($i + 1);
-                                                            $categoryImg = isset ($imageUrls[$i]) && !empty ($imageUrls[$i]) ? $imageUrls[$i] : '../assets/images/icons/placeholder.webp';
+                                                            $categoryImg = isset($imageUrls[$i]) && !empty($imageUrls[$i]) ? $imageUrls[$i] : '../assets/images/icons/placeholder.webp';
                                                             $productImageName = "product_img" . $i + 1;
 
                                                             ?>
@@ -789,7 +789,7 @@
             });
 
 
-         
+
             form.addEventListener('submit', function(event) {
                 event.preventDefault();
 
@@ -809,17 +809,19 @@
                 var data = new FormData(form);
                 hideDialog(false)
                 axios({
-                        method: 'post',
-                        url: "<?php echo $endPoint ?>",
-                        data: data
+                        method: '<?php echo $isUpdating ? "put" : "post" ?>',
+                        url: '<?php echo $isUpdating ? $API_URL.'products/'.$_GET['id']  : $API_URL.'/products/add' ?>',
+                        data: data,
+                        headers: headers
                     })
                     .then(function(response) {
+
                         console.log(response);
 
-                    //   window.location.href='products.php'
+                        //   window.location.href='products.php'
                     })
                     .catch(function(error) {
-console.log(error)
+                        console.log(error)
                         alertHub.showAlert({
                             title: "",
                             description: error,
