@@ -1,5 +1,7 @@
 
 <?php
+$API_URL="https://api.sosmartshopping.com/public/api";
+$WEB_URL="https://www.sosmartshopping.com";
 
 $apiUrl = $API_URL.'/admin';
 if (!isset($_COOKIE['token']) || $_COOKIE['token'] == null || !isset($_COOKIE['userId']) || $_COOKIE['userId'] == null) {
