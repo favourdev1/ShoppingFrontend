@@ -6,8 +6,7 @@ use Httpful\Request;
 if (isset($_GET['id'])) {
     // Specify the product ID you want to retrieve
     $productID = $_GET['id'];
-    echo $productID;
-    die;
+
     // Make a GET request to your API endpoint for a specific product
     $response = Request::get($apiUrl . '/products' . $productID)
         ->addHeaders([
@@ -23,17 +22,17 @@ if (isset($_GET['id'])) {
 
 
     $responseData = $response->body;
-
+    
+    $isUpdating = true;
     if ($statusCode === 200) {
         // Decode the JSON response
         $product = json_decode(json_encode($responseData),true)['data'];
         // // Print or use the retrieved product data
-        // echo "<pre>";
+        echo "<pre>";
 
-        // var_dump($product);
-        // echo "</pre>";
-        $isUpdating = true;
-// die;
+        var_dump($product);
+        echo "</pre>";
+die;
         if (count($product) > 0) {
         
 
