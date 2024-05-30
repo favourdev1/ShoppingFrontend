@@ -681,6 +681,7 @@
                 Accept: "application/json",
                 Cookie: "access_token=" + token,
                 Authorization: "Bearer " + token,
+                'Content-Type': 'multipart/form-data'
             };
         const alertHub = new AlertHub();
 
