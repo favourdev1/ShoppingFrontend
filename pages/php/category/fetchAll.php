@@ -26,7 +26,7 @@ if ($statusCode === 200) {
 } else if ($response->code === 301) {
     // The API endpoint has been moved. Print the new location.
     $newLocation = $response->headers['location'];
-    echo "The API endpoint has been moved to: $newLocation\n";
+    // echo "The API endpoint has been moved to: $newLocation\n";
 
 } else {
     $errorMessage = str_replace(',', '\n', $response->body->message);
