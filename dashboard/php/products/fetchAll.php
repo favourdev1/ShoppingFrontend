@@ -4,7 +4,7 @@ require_once '../vendor/autoload.php';
 use Httpful\Request;
 
 // Make a GET request to your API endpoint
-$response = Request::get($apiUrl . '/products/')
+$response = Request::get($apiUrl . '/products')
     ->addHeaders([
         'Accept' => '*/*',
         'Cookie' => 'access_token=' . $token,
@@ -27,6 +27,9 @@ if ($response->code < 300) {
     // echo"</pre>";
     // die;
 } else {
+
+    $newLocation = $response->headers['location'];
+    echo "The API endpoint has been moved to: $newLocation\n"; 
     // Decode the JSON error response
     $errorBody = json_decode(json_encode($response->body), true);
 
