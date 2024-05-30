@@ -21,18 +21,18 @@ if ($statusCode === 200) {
     // Decode the JSON response
     $orderItems = json_decode(json_encode($responseData), true)['data'];
     // Print or use the retrieved product data
-    // echo "<pre>";
+    echo "<pre>";
 
-    // print_r($orderItems);
+    print_r($orderItems);
 
-    // foreach($orderItems as $order){
-    //     print_r($order['product_id ']);
-    // }
+    foreach($orderItems as $order){
+        print_r($order['product_id ']);
+    }
 
     
-    // echo "</pre>";
+    echo "</pre>";
 
-    // die;
+    die;
     
 } else {
     // $errorMessage = str_replace(',', '\n', $responseData->message);
