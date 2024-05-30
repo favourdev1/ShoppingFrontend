@@ -48,7 +48,7 @@ try {
         $isauthenticated = true;
     } else {
 
-        echo " hslhfsfk";
+      
     }
 } catch (RequestException $e) {
     
