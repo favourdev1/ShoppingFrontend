@@ -15,7 +15,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' ) {
 
    
         
-        $response = $client->post( $apiUrl . '/category/add/' , [
+        $response = $client->post( $apiUrl . '/category/add' , [
             'headers' => [
                 'Accept' => 'application/json',
                 'Cookie' => 'access_token=' . $token,
