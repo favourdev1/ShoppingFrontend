@@ -678,7 +678,7 @@
         const image3 = document.getElementById('image3')
         const image4 = document.getElementById('image4')
 
-      
+        const alertHub = new AlertHub();
 
         image1.addEventListener('change', function(event) {
             handleFileSelect('product_img1', event)
@@ -719,7 +719,7 @@
             // var errorImg = document.getElementById('errorImage')
 
 
-            axios.post('<?php echo $apiUrl ?>/products/upload-image/', formData, {
+            axios.post('<?php echo $apiUrl ?>/products/upload-image', formData, {
                     headers: headers,
                 })
                 .then(response => {
@@ -790,7 +790,7 @@
             });
 
 
-            const alertHub = new AlertHub();
+         
             form.addEventListener('submit', function(event) {
                 event.preventDefault();
 
