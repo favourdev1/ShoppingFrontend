@@ -19,7 +19,8 @@ if (isset($_GET['id'])) {
     // Check the HTTP status code
   
     $statusCode = $response->code;
-
+echo $statusCode;
+die;;
 
     $responseData = $response->body;
     
