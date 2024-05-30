@@ -6,7 +6,8 @@ use Httpful\Request;
 if (isset($_GET['id'])) {
     // Specify the product ID you want to retrieve
     $productID = $_GET['id'];
-
+    echo $apiUrl . '/products' . $productID;
+    die;
     // Make a GET request to your API endpoint for a specific product
     $response = Request::get($apiUrl . '/products' . $productID)
         ->addHeaders([
