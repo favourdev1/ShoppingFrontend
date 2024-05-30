@@ -35,10 +35,10 @@ if ($statusCode === 200) {
     die;
     
 } else {
-    $errorMessage = str_replace(',', '\n', $responseData->message);
+    // $errorMessage = str_replace(',', '\n', $responseData->message);
     // $_SESSION['message'] = $errorMessage;
     // $_SESSION['status'] = "error";
-    echo $errorMessage;
+    print_r($responseData);
     // header("Location: ../../products.php");
     exit();
 }
