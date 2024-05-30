@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
     $responseData = $response->body;
     
     $isUpdating = true;
-    if ($statusCode === 200) {
+    if ($statusCode == 200) {
         // Decode the JSON response
         $product = json_decode(json_encode($responseData),true)['data'];
         // // Print or use the retrieved product data
