@@ -2,7 +2,7 @@
 session_start();
 include_once __DIR__ . '/../../php/auth.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';
-include_once('../../../env.php');
+include_once ('../../../env.php');
 use Httpful\Request;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $productID = $_POST['id'];
 
-    $response = Request::put($API_URL . '/admin/products/'.$productID)
+    $response = Request::put($API_URL . '/admin/products/' . $productID)
         ->sendsJson()
         ->addHeaders($headers)
         ->body(json_encode($data))
@@ -39,13 +39,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['message'] = $message;
         $_SESSION['status'] = "success";
         // header("Location: ../../products.php");
-echo $message;
+        // echo $message;
+
+        print_r(
+            json_encode(
+                [
+                    'status' => 'success',
+                    'message' => $message
+                ]
+            )
+        );
         // exit();
     } else {
         $errorMessage = str_replace(',', '\n', $responseData->message);
         $_SESSION['message'] = $errorMessage;
         $_SESSION['status'] = "error";
+
+
         echo $errorMessage;
+
+        print_r(
+            json_encode(
+                [
+                    'status' => 'error',
+                    'message' => $errorMessage
+                ]
+            )
+        );
         // echo $errorMessage;
         // header("Location: ../../add-product.php?id=".$productID);
         // exit();
