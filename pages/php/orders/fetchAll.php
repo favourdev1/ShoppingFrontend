@@ -3,7 +3,7 @@
 use Httpful\Request;
 
 $orderItems=[];
-
+echo $apiUrl . '/orders/';
 // Make a GET request to your API endpoint for a specific product
 $response = Request::get($apiUrl . '/orders/')
     ->addHeaders($payloadRequest)
