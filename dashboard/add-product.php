@@ -676,7 +676,12 @@
         const image2 = document.getElementById('image2')
         const image3 = document.getElementById('image3')
         const image4 = document.getElementById('image4')
-
+        var token = "<?php echo $token ?>"
+            var headers = {
+                Accept: "application/json",
+                Cookie: "access_token=" + token,
+                Authorization: "Bearer " + token,
+            };
         const alertHub = new AlertHub();
 
         image1.addEventListener('change', function(event) {
@@ -707,12 +712,7 @@
             formData.append('image', file);
 
 
-            var token = "<?php echo $token ?>"
-            var headers = {
-                Accept: "application/json",
-                Cookie: "access_token=" + token,
-                Authorization: "Bearer " + token,
-            };
+          
             // console.log(elementName)
             var imgUrlelement = document.getElementById(elementName)
             // var errorImg = document.getElementById('errorImage')
