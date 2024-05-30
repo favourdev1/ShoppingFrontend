@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     $productID = $_GET['id'];
 
     // Make a GET request to your API endpoint for a specific product
-    $response = Request::get($apiUrl . '/products/' . $productID)
+    $response = Request::get($apiUrl . '/products' . $productID)
         ->addHeaders([
             'Accept' => '*application/json*',
             'Cookie' => 'access_token=' . $token,
