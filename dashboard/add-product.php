@@ -805,6 +805,7 @@
                     shipping_switch.value = 'false'
                 }
 
+                var form = document.getElementById('form');
                 // Log the FormData object directly for complete form data
                 var data = new FormData(form);
                 console.log(data);
