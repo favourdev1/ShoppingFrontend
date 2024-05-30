@@ -4,7 +4,7 @@ require_once '../vendor/autoload.php';
 use Httpful\Request;
 
 // Make a GET request to your API endpoint
-$response = Request::get($apiUrl . '/category/')
+$response = Request::get($apiUrl . '/category')
     ->addHeaders([
         'Accept' => '*/*',
         'Cookie' => 'access_token=' . $token,
@@ -25,12 +25,12 @@ if ($response->code < 300) {
     // }
 } else {
     // Decode the JSON error response
-    $errorBody = json_decode(json_encode($response->body), true);
+    // $errorBody = json_decode(json_encode($response->body), true);
 
-    // Output the error details
-    echo "Error Status Code: {$response->code}\n";
-    echo "Error Message: {$errorBody['message']}\n";
+    // // Output the error details
+    // echo "Error Status Code: {$response->code}\n";
+    // echo "Error Message: {$errorBody['message']}\n";
 }
 
 // Additional code after the if-else block
-?>
+
