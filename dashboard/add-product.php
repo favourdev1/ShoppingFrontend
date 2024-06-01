@@ -809,7 +809,7 @@
                 var form = document.getElementById('form');
                 // Log the FormData object directly for complete form data
                 var data = new FormData(form);
-                console.log(data);
+                console.log(data)
                 hideDialog(false)
                 axios({
                         method: '<?php echo $isUpdating ? "put" : "post" ?>',
