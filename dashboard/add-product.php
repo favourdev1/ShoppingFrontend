@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
+<!-- find out why form data is not being sent on the request for updating and pushing data  -->
 
 
     <?php include_once ('header.php') ?>
@@ -813,7 +813,7 @@
                 hideDialog(false)
                 axios({
                         method: '<?php echo $isUpdating ? "put" : "post" ?>',
-                        url: '<?php echo $isUpdating ? $API_URL.'/admin/products/'.$_GET['id']  : $API_URL.'/admin/products/add' ?>',
+                        url: '<?php echo $isUpdating ? $API_URL.'/admin/products/update/'.$_GET['id']  : $API_URL.'/admin/products/add' ?>',
                         data: data,
                         headers: headers
                     })
