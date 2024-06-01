@@ -812,7 +812,7 @@
                 console.log(data)
                 hideDialog(false)
                 axios({
-                        method: '<?php echo $isUpdating ? "put" : "post" ?>',
+                        method: '<?php echo $isUpdating ? "post" : "post" ?>',
                         url: '<?php echo $isUpdating ? $API_URL.'/admin/products/update/'.$_GET['id']  : $API_URL.'/admin/products/add' ?>',
                         data: data,
                         headers: headers
