@@ -245,17 +245,17 @@
                                             </div>
 
                                             <?php
-$tagsArray = array_map(function($tag) {
-    return $tag->name; // replace 'name' with the actual property of the tag object
-}, $tags);
-?>
+                                            $tagsArray = array_map(function ($tag) {
+                                                return trim($tag); // trim to remove any extra spaces
+                                            }, explode(',', $tags));
+                                            ?>
                                             <div class="mb-3 col-lg-12 mt-5">
                                                 <h4 class="mb-3 h5">Tags</h4>
                                                 <input
                                                     name='tags'
                                                     value="<?php echo $isUpdating ? implode(',', $tagsArray) : '' ?>"
                                                     required
-                                                    placeholder="Add tags seprated by comma"
+                                                    placeholder="Add tags separated by comma"
                                                     class="form-control py-1"
                                                 >
                                             </div>
