@@ -369,7 +369,7 @@ $pageName = $productName . ' | Sosmart Online shopping and more! ';
                             <div class="tab-pane fade show active" id="product-tab-pane" role="tabpanel"
                                 aria-labelledby="product-tab" tabindex="0">
                                 <div class="my-8">
-                                    <?= $description ?>
+                                    <?= $descriptionProduct ?>
                                     <div class=" alert alert-warning mt-4" style="">
                                         <h5
                                             class="

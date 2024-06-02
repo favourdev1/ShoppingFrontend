@@ -40,9 +40,8 @@ if (isset($_GET['id'])) {
             $id = $product['id'];
             $productName = $product['product_name'];
             $categoryId = $product['category_id'];
-            $description = $product['description'];
-            echo $description;
-            die;
+            $descriptionProduct = $product['description'];
+        
             $regularPrice = $product['regular_price'];
             $brand = $product['brand'];
             $productImg1 = $product['product_img1'];
