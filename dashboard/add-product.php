@@ -247,7 +247,7 @@
                                                 <h4 class="mb-3 h5">Tags</h4>
                                                 <input
                                                     name='tags'
-                                                    value="<?php echo $isUpdating ? $tags : '' ?>"
+                                                    value="<?php echo $isUpdating ? implode(',', $tagsArray) : '' ?>"
                                                     required
                                                     placeholder="Add tags seprated by comma"
                                                     class="form-control py-1"
@@ -350,7 +350,7 @@
                                                     role="switch"
                                                     name="free_shipping"
                                                     id="shipping_switch"
-                                                    checked
+                                                    <?php echo $isUpdating ? $freeShipping==true?'checked':'' : '' ?>
                                                 />
                                             </div>
                                             <!-- input -->
@@ -366,6 +366,7 @@
                                                     type="number"
                                                     class="form-control"
                                                     placeholder="0"
+                                                    <?php echo $isUpdating ? $shipping_cost : '' ?>
                                                 />
                                             </div>
 
@@ -409,7 +410,7 @@
                                             />
                                         </div>
                                         <!-- input -->
-                                        <div>
+                                        <!-- <div>
                                             <div
                                                 class="d-flex align-items-center justify-content-between form-check form-switch  mb-3 p-0">
                                                 <label class="form-check-label ms-0 p-0">Cash on delivery</label>
@@ -422,10 +423,10 @@
                                                     checked
                                                 />
                                             </div>
-                                            <!-- input -->
+                                            
 
 
-                                        </div>
+                                        </div> -->
 
 
 
@@ -468,7 +469,7 @@
 
                                         <!-- input -->
                                         <div>
-                                            <div class="mb-3">
+                                            <!-- <div class="mb-3">
                                                 <label class="form-label">Product Code</label>
                                                 <input
                                                     type="text"
@@ -477,7 +478,7 @@
                                                     placeholder="Enter Product Title"
                                                 />
                                             </div>
-                                            <!-- input -->
+                                         
                                             <div class="mb-3">
                                                 <label class="form-label">Product SKU</label>
                                                 <input
@@ -485,8 +486,9 @@
                                                     name="sku"
                                                     class="form-control"
                                                     placeholder="Enter Product Title"
+                                                    value=""
                                                 />
-                                            </div>
+                                            </div> -->
 
 
                                             <!-- input -->
@@ -600,6 +602,12 @@
                                                     role="switch"
                                                     name="tax"
                                                     id="tax_switch"
+                                                    <?php if($isUpdating){
+                                                        if($tax > 0){
+                                                            echo "checked";
+                                                        }
+                                                    } ?>
+                                                  >
                                                     checked
                                                 />
 
@@ -619,6 +627,7 @@
                                                     type="number"
                                                     class="form-control"
                                                     placeholder="0"
+                                                    value="<?php echo $isUpdating ? $tax : '' ?>"
                                                 />
                                             </div>
 
@@ -627,7 +636,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col col-md-8 mb-5">
+                        <div class="col col-md-8 pb-5">
                             <input
                                 type="submit"
                                 class=" w-100 btn btn-primary"
