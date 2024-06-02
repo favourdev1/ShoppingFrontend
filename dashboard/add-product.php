@@ -614,8 +614,7 @@
                                                         }
                                                     } ?>
                                                   >
-                                                    checked
-                                                />
+                                                  
 
                                             </div>
                                             <small class="text-muted">If you won't want to charge customers tax, keep it
