@@ -785,7 +785,7 @@
             var form = document.getElementById('form');
             const editor = document.getElementById('editor');
             const descriptionInput = document.getElementById('descriptionInput');
-            const cash_on_delivery_switch = document.getElementById('cash_on_delivery_switch')
+            // const cash_on_delivery_switch = document.getElementById('cash_on_delivery_switch')
             const shipping_cost = document.getElementById('shipping_cost')
             const shipping_switch = document.getElementById("shipping_switch")
             const shipping_cost_switch = document.getElementById('shipping_cost_switch')
@@ -808,7 +808,7 @@
          console.log('submit button clicked ')
                 // Manually update the hidden input with the content of the div
                 descriptionInput.value = editor.innerHTML;
-                cash_on_delivery_switch.value = cash_on_delivery_switch.checked ? 'true' : 'false'
+                // cash_on_delivery_switch.value = cash_on_delivery_switch.checked ? 'true' : 'false'
                 refundable.value = refundable.checked ? 'true' : 'false'
                 if (shipping_switch.checked) {
                     shipping_switch.value = 'true'
