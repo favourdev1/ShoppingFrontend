@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <!-- find out why form data is not being sent on the request for updating and pushing data  -->
+    <!-- find out why form data is not being sent on the request
+     after image is uploaded #  -->
 
 
     <?php include_once ('header.php') ?>
@@ -775,7 +776,7 @@
             const shipping_cost_switch = document.getElementById('shipping_cost_switch')
             const refundable = document.getElementById('refundable')
 
-            console.log('submit button clicked ')
+   
 
             shipping_switch.addEventListener("change", function() {
                 if (shipping_switch.checked) {
@@ -789,7 +790,7 @@
 
             form.addEventListener('submit', function(event) {
                 event.preventDefault();
-
+         console.log('submit button clicked ')
                 // Manually update the hidden input with the content of the div
                 descriptionInput.value = editor.innerHTML;
                 cash_on_delivery_switch.value = cash_on_delivery_switch.checked ? 'true' : 'false'
