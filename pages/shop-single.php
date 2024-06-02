@@ -86,30 +86,39 @@ $pageName = $productName . ' | Sosmart Online shopping and more! ';
                         <!-- product tools -->
                         <div class="product-tools">
                             <div class="thumbnails row g-3" id="productModalThumbnails">
+                                <?php if (!empty($productImg1)) { ?>
                                 <div class="col-3">
                                     <div class="thumbnails-img border rounded">
                                         <!-- img -->
                                         <img src="<?php echo $productImg1; ?>" alt="" />
                                     </div>
                                 </div>
+
+                                <?php } ?>
+                                <?php if (!empty($productImg2)) { ?>
                                 <div class="col-3">
                                     <div class="thumbnails-img border rounded">
                                         <!-- img -->
                                         <img src="<?php echo $productImg2; ?>" alt="" />
                                     </div>
                                 </div>
+                                <?php } ?>
+                                <?php if (!empty($productImg3)) { ?>
                                 <div class="col-3">
                                     <div class="thumbnails-img border rounded">
                                         <!-- img -->
                                         <img src="<?php echo $productImg3; ?>" alt="" />
                                     </div>
                                 </div>
+                                <?php } ?>
+                                <?php if (!empty($productImg4)) { ?>
                                 <div class="col-3">
                                     <div class="thumbnails-img border rounded">
                                         <!-- img -->
                                         <img src="<?php echo $productImg4; ?>" alt="" />
                                     </div>
                                 </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -361,7 +370,7 @@ $pageName = $productName . ' | Sosmart Online shopping and more! ';
                                 aria-labelledby="product-tab" tabindex="0">
                                 <div class="my-8">
                                     <?= $description ?>
-                                    <div class=" alert alert-warning" style="">
+                                    <div class=" alert alert-warning mt-4" style="">
                                         <h5
                                             class="
                                             mb-1

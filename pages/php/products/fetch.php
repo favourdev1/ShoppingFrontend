@@ -41,6 +41,8 @@ if (isset($_GET['id'])) {
             $productName = $product['product_name'];
             $categoryId = $product['category_id'];
             $description = $product['description'];
+            echo $description;
+            die;
             $regularPrice = $product['regular_price'];
             $brand = $product['brand'];
             $productImg1 = $product['product_img1'];
