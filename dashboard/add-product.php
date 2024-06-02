@@ -245,9 +245,9 @@
                                             </div>
 
                                             <?php
-                                            $tagsArray = array_map(function ($tag) {
-                                                return trim($tag); // trim to remove any extra spaces
-                                            }, explode(',', $tags));
+                                         $tagsArray = array_map(function ($tag) {
+                                            return trim($tag->value); // trim to remove any extra spaces
+                                        }, json_decode($tags));
                                             ?>
                                             <div class="mb-3 col-lg-12 mt-5">
                                                 <h4 class="mb-3 h5">Tags</h4>
