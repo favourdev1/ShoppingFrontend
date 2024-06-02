@@ -243,6 +243,12 @@
                                                     class="form-control "
                                                 >
                                             </div>
+
+                                            <?php
+$tagsArray = array_map(function($tag) {
+    return $tag->name; // replace 'name' with the actual property of the tag object
+}, $tags);
+?>
                                             <div class="mb-3 col-lg-12 mt-5">
                                                 <h4 class="mb-3 h5">Tags</h4>
                                                 <input

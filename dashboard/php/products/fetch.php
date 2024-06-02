@@ -55,8 +55,10 @@ if (isset($_GET['id'])) {
             $metaTitle = $product['meta_title'];
             $metaDescription = $product['meta_description'];
             $createdAt = $product['created_at'];
-            
-        
+            $freeShipping = $product['free_shipping'];
+            $shipping_cost = $product['shipping_cost'];
+            $tax = $product['tax'];
+     
         }
     } else {
         // $errorMessage = str_replace(',', '\n', $responseData->message);
