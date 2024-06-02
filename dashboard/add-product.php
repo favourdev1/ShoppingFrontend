@@ -829,9 +829,9 @@
                     })
                     .then(function(response) {
 
-                        console.log(response);
+                        // console.log(response);
 
-                        //   window.location.href='products.php'
+                          window.location.href='products.php'
                     })
                     .catch(function(error) {
                         console.log(error)
