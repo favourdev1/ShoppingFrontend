@@ -298,7 +298,7 @@
             };
             var imgUrlelement = document.getElementById('categoryImagetext')
             var errorImg = document.getElementById('errorImage')
-            axios.post('<?php echo $apiUrl ?>/category/upload-image/', formData, {
+            axios.post('<?php echo $apiUrl ?>/category/upload-image', formData, {
                     headers: headers,
                 })
                 .then(response => {
