@@ -54,7 +54,6 @@
     
 
 
-  <?php include_once ('route.php') ?>
 
     <!-- <script src="../pages/javascript/cookie.js"></script> -->
     <!-- <script src="../pages/javascript/checkAuth.js"></script> -->

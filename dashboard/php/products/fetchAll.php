@@ -3,7 +3,7 @@
 require_once '../vendor/autoload.php';
 use Httpful\Request;
 
-echo $apiUrl . '/products';
+
 // Make a GET request to your API endpoint
 $response = Request::get($apiUrl . '/products')
     ->addHeaders([
@@ -17,8 +17,8 @@ $response = Request::get($apiUrl . '/products')
 if ($response->code < 300) {
     // Decode the JSON response
     $allProducts = json_decode(json_encode($response->body), true);
-    $allProducts = $allProducts['data']['products']['data'];
-    $pagination = $allProducts['data']['products']['links'];
+    $allProducts = $allProducts['data']['products'];
+
     // Output or process the products as needed
     // echo "<pre> <BR> BR>";
     // print_r($allProducts);
