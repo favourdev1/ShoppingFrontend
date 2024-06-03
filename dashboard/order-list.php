@@ -177,7 +177,7 @@
         // Define the function to load data for a specific page
         function loadPage(pageNumber) {
             var url = endPoint +"/admin"+ orderRoute + '?page=' + pageNumber;
-console.log(loadPage)
+console.log(url)
             axios.get(url, {
                     headers: payloadRequest
                 })
