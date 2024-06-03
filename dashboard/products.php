@@ -284,34 +284,30 @@
                                         </table>
                                     </div>
                                 </div>
-                                <!-- <div class="border-top d-md-flex justify-content-between align-items-center px-6 py-6">
-                                    <span>Showing 1 to 8 of 12 entries</span>
-                                    <nav class="mt-2 mt-md-0">
-                                        <ul class="pagination mb-0">
-                                            <li class="page-item disabled"><a
-                                                    class="page-link"
-                                                    href="#!"
-                                                >Previous</a></li>
-                                            <li class="page-item"><a
-                                                    class="page-link active"
-                                                    href="#!"
-                                                >1</a></li>
-                                            <li class="page-item"><a
-                                                    class="page-link"
-                                                    href="#!"
-                                                >2</a></li>
-                                            <li class="page-item"><a
-                                                    class="page-link"
-                                                    href="#!"
-                                                >3</a></li>
-                                            <li class="page-item"><a
-                                                    class="page-link"
-                                                    href="#!"
-                                                >Next</a></li>
-                                        </ul>
-                                    </nav>
-                                </div> -->
-                            </div>
+                          
+<!-- Display the pagination links -->
+<div class="border-top d-md-flex justify-content-between align-items-center px-6 py-6">
+    <span>Showing <?= $pagination->from ?> to <?= $pagination->to ?> of <?= $pagination->total ?> entries</span>
+    <nav class="mt-2 mt-md-0">
+        <ul class="pagination mb-0">
+            <?php if ($pagination->prev_page_url): ?>
+                <li class="page-item"><a class="page-link" href="<?= $pagination->prev_page_url ?>">Previous</a></li>
+            <?php else: ?>
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+            <?php endif; ?>
+
+            <!-- Display the page numbers -->
+            <?php for ($i = 1; $i <= $pagination->last_page; $i++): ?>
+                <li class="page-item <?= $i == $pagination->current_page ? 'active' : '' ?>"><a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a></li>
+            <?php endfor; ?>
+
+            <?php if ($pagination->next_page_url): ?>
+                <li class="page-item"><a class="page-link" href="<?= $pagination->next_page_url ?>">Next</a></li>
+            <?php else: ?>
+                <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav> </div>
                         </div>
                     </div>
                 </div>

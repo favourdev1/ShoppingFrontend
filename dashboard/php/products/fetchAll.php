@@ -17,8 +17,8 @@ $response = Request::get($apiUrl . '/products')
 if ($response->code < 300) {
     // Decode the JSON response
     $allProducts = json_decode(json_encode($response->body), true);
-    $allProducts = $allProducts['data']['products'];
-
+    $allProducts = $allProducts['data']['products']['data'];
+    $pagination = $allProducts['data']['products']['links'];
     // Output or process the products as needed
     // echo "<pre> <BR> BR>";
     // print_r($allProducts);
