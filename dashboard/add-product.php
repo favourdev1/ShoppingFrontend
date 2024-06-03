@@ -90,12 +90,12 @@
                                             <?php
 
                                             if ($isUpdating) { ?>
-                                            <input
-                                                hidden
-                                                name="id"
-                                                value='<?php echo $_GET['id'] ?>'
-                                            >
-                                            <?php
+                                                <input
+                                                    hidden
+                                                    name="id"
+                                                    value='<?php echo $_GET['id'] ?>'
+                                                >
+                                                <?php
                                             }
                                             ?>
                                             <!-- input -->
@@ -111,15 +111,15 @@
                                                     <?php
                                                     foreach ($Allcategories as $category) { ?>
 
-                                                    <option
-                                                        value="<?php echo $category['id'] ?>"
-                                                        <?php if ($isUpdating) {
-                                                                    if ($categoryId == $category['id']) {
-                                                                        echo "selected";
-                                                                    }
-                                                                } ?>
-                                                    >
-                                                        <?php echo $category['category_name'] ?></option>
+                                                        <option
+                                                            value="<?php echo $category['id'] ?>"
+                                                            <?php if ($isUpdating) {
+                                                                if ($categoryId == $category['id']) {
+                                                                    echo "selected";
+                                                                }
+                                                            } ?>
+                                                        >
+                                                            <?php echo $category['category_name'] ?></option>
                                                     <?php }
                                                     ?>
 
@@ -181,49 +181,49 @@
 
                                                             ?>
 
-                                                        <div
-                                                            class="position-relative mx-2"
-                                                            style="width:max-content"
-                                                        >
-                                                            <img
-                                                                class="image icon-shape icon-xxxl bg-light rounded-4 border"
-                                                                src="<?php echo $categoryImg ?: "../assets/images/icons/placeholder.webp"; ?>"
-                                                                alt="<?php echo $uniqueAlt; ?>"
-                                                            />
                                                             <div
-                                                                class="file-upload position-absolute end-0 top-0 mt-n2 me-n1">
-                                                                <input
-                                                                    id="<?php echo $uniqueId; ?>"
-                                                                    accept=".jpg, .jpeg, .png, .webpg"
-                                                                    type="file"
-                                                                    name="<?php echo $uniqueId; ?>"
-                                                                    class="file-input"
+                                                                class="position-relative mx-2"
+                                                                style="width:max-content"
+                                                            >
+                                                                <img
+                                                                    class="image icon-shape icon-xxxl bg-light rounded-4 border"
+                                                                    src="<?php echo $categoryImg ?: "../assets/images/icons/placeholder.webp"; ?>"
+                                                                    alt="<?php echo $uniqueAlt; ?>"
                                                                 />
-                                                                <input
-                                                                    hidden
-                                                                    id="<?php echo $productImageName; ?>"
-                                                                    type="text"
-                                                                    value="<?php echo $categoryImg ?>"
-                                                                    name="<?php echo $productImageName; ?>"
-                                                                    class=""
-                                                                />
-                                                                <span
-                                                                    class="icon-shape icon-sm rounded-circle bg-white">
-                                                                    <svg
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        width="12"
-                                                                        height="12"
-                                                                        fill="currentColor"
-                                                                        class="bi bi-pencil-fill text-muted"
-                                                                        viewBox="0 0 16 16"
-                                                                    >
-                                                                        <path
-                                                                            d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-                                                                        />
-                                                                    </svg>
-                                                                </span>
+                                                                <div
+                                                                    class="file-upload position-absolute end-0 top-0 mt-n2 me-n1">
+                                                                    <input
+                                                                        id="<?php echo $uniqueId; ?>"
+                                                                        accept=".jpg, .jpeg, .png, .webpg"
+                                                                        type="file"
+                                                                        name="<?php echo $uniqueId; ?>"
+                                                                        class="file-input"
+                                                                    />
+                                                                    <input
+                                                                        hidden
+                                                                        id="<?php echo $productImageName; ?>"
+                                                                        type="text"
+                                                                        value="<?php echo $categoryImg ?>"
+                                                                        name="<?php echo $productImageName; ?>"
+                                                                        class=""
+                                                                    />
+                                                                    <span
+                                                                        class="icon-shape icon-sm rounded-circle bg-white">
+                                                                        <svg
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            width="12"
+                                                                            height="12"
+                                                                            fill="currentColor"
+                                                                            class="bi bi-pencil-fill text-muted"
+                                                                            viewBox="0 0 16 16"
+                                                                        >
+                                                                            <path
+                                                                                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
+                                                                            />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
                                                             </div>
-                                                        </div>
 
                                                         <?php } ?>
 
@@ -245,9 +245,9 @@
                                             </div>
 
                                             <?php
-                                         $tagsArray = array_map(function ($tag) {
-                                            return trim($tag->value); // trim to remove any extra spaces
-                                        }, json_decode($tags));
+                                            $tagsArray = array_map(function ($tag) {
+                                                return trim($tag->value); // trim to remove any extra spaces
+                                            }, json_decode($tags));
                                             ?>
                                             <div class="mb-3 col-lg-12 mt-5">
                                                 <h4 class="mb-3 h5">Tags</h4>
@@ -356,7 +356,7 @@
                                                     role="switch"
                                                     name="free_shipping"
                                                     id="shipping_switch"
-                                                    <?php echo $isUpdating ? $freeShipping==true?'checked':'' : '' ?>
+                                                    <?php echo $isUpdating ? $freeShipping == true ? 'checked' : '' : '' ?>
                                                 />
                                             </div>
                                             <!-- input -->
@@ -608,13 +608,13 @@
                                                     role="switch"
                                                     name="tax"
                                                     id="tax_switch"
-                                                    <?php if($isUpdating){
-                                                        if($tax > 0){
+                                                    <?php if ($isUpdating) {
+                                                        if ($tax > 0) {
                                                             echo "checked";
                                                         }
                                                     } ?>
-                                                  >
-                                                  
+                                                >
+
 
                                             </div>
                                             <small class="text-muted">If you won't want to charge customers tax, keep it
@@ -780,9 +780,9 @@
 
 
         document.addEventListener("DOMContentLoaded", function() {
-
+            var quill = new Quill('#editor');
             var form = document.getElementById('form');
-            const editor = document.getElementById('editor');
+            // const editor = document.getElementById('editor');
             const descriptionInput = document.getElementById('descriptionInput');
             // const cash_on_delivery_switch = document.getElementById('cash_on_delivery_switch')
             const shipping_cost = document.getElementById('shipping_cost')
@@ -790,7 +790,7 @@
             const shipping_cost_switch = document.getElementById('shipping_cost_switch')
             const refundable = document.getElementById('refundable')
 
-   
+
 
             shipping_switch.addEventListener("change", function() {
                 if (shipping_switch.checked) {
@@ -801,12 +801,26 @@
             });
 
 
+            function quillToHtml(delta) {
+                var tempQuill = new Quill(document.createElement('div'));
+                tempQuill.setContents(delta);
+                return tempQuill.root.innerHTML;
+            }
 
             form.addEventListener('submit', function(event) {
                 event.preventDefault();
-         console.log('submit button clicked ')
+
+                // Get the contents of the editor
+                var delta = quill.getContents();
+
+                // Convert the delta to HTML
+                var html = quillToHtml(delta);
+
+                // Now use this HTML as the value
+                descriptionInput.value = html;
+                console.log('submit button clicked ')
                 // Manually update the hidden input with the content of the div
-                descriptionInput.value = editor.innerHTML;
+                // descriptionInput.value = editor.innerHTML;
                 // cash_on_delivery_switch.value = cash_on_delivery_switch.checked ? 'true' : 'false'
                 refundable.value = refundable.checked ? 'true' : 'false'
                 if (shipping_switch.checked) {
@@ -831,7 +845,7 @@
 
                         // console.log(response);
 
-                          window.location.href='products.php'
+                        window.location.href = 'products.php'
                     })
                     .catch(function(error) {
                         console.log(error)
