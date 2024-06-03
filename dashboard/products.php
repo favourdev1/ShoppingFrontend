@@ -47,7 +47,7 @@
                                     <div class="row justify-content-between">
                                         <!-- form -->
                                         <div class="col-lg-4 col-md-6 col-12 mb-2 mb-lg-0">
-                                            <form
+                                            <!-- <form
                                                 class="d-flex"
                                                 role="search"
                                             >
@@ -57,7 +57,7 @@
                                                     placeholder="Search Products"
                                                     aria-label="Search"
                                                 />
-                                            </form>
+                                            </form> -->
                                         </div>
                                         <!-- select option -->
                                         <div class="col-lg-2 col-md-4 col-12">

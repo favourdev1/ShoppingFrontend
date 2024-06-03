@@ -6,6 +6,7 @@
 
 <?php include_once 'header.php'; ?>
 <?php include_once 'loadDialog.php'; ?>
+<?php include_once 'route.php'; ?>
 
 <body class="position-relative">
     <!-- main -->

@@ -5,7 +5,7 @@
 
 
     <?php include_once 'header.php'; ?>
-
+<?php include_once 'route.php'; ?>
     <body class="position-relative">
         <!-- main -->
         <!-- navbar -->
@@ -422,6 +422,8 @@
                     headers: headers,
 
                 })
+
+                // find out why show alert is not working and add loading dialog to this request 
                 .then(function(response) {
                     // Handle the response
                     console.log(response.data);
