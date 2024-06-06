@@ -76,8 +76,8 @@
                     style="font-weight:light"
                 ><small><?php echo $productName ?></small></a>
             </h2>
-            <div class="pt-0">
-                <!-- rating -->
+            <!-- <div class="pt-0">
+           
                 <small class="text-warning ">
                     <i class="bi bi-star-fill small"></i>
                     <i class="bi bi-star-fill small"></i>
@@ -89,7 +89,7 @@
                     class="text-muted small"
                     style="font-size:12px"
                 >(149) sold</span>
-            </div>
+            </div> -->
             <!-- price -->
             <div class="d-flex justify-content-between align-items-center mt-0">
                 <div>
@@ -128,3 +128,6 @@
         </div>
     </div>
 </div>
+
+
+

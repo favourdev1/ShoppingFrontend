@@ -29,7 +29,7 @@
                     </span>
                 </a>
 
-                <div class="card-product-action bottom-0 mb-3">
+                <!-- <div class="card-product-action bottom-0 mb-3">
                     <a
                         href="#!"
                         class="btn-action"
@@ -59,7 +59,7 @@
                         data-bs-html="true"
                         title="cart"
                     ><i class="bi bi-cart"></i></a>
-                </div>
+                </div> -->
             </div>
             
             <h2 class="fs-5 mb-0">
@@ -71,17 +71,17 @@
             </h2>
             <div class="pt-0">
                 <!-- rating -->
-                <small class="text-warning ">
+                <!-- <small class="text-warning ">
                     <i class="bi bi-star-fill small"></i>
                     <i class="bi bi-star-fill small"></i>
                     <i class="bi bi-star-fill small"></i>
                     <i class="bi bi-star-fill small"></i>
                     <i class="bi bi-star-half small"></i>
-                </small>
-                <span
+                </small> -->
+                <!-- <span
                     class="text-muted small"
                     style="font-size:12px"
-                >(149) sold</span>
+                >(149) sold</span> -->
             </div>
             <!-- price -->
             <div class="d-flex justify-content-between align-items-center mt-0 ">

@@ -40,7 +40,7 @@ const deleteCartItemRoute = '/carts/delete/';
 
 // wishlist routes
 const wishlistsRoute = '/wishlists';
-const addWishlistRoute = '/wishlists/add/';
+const addWishlistRoute = '/wishlists/add';
 const deleteWishlistRoute = '/wishlists/delete/';
 
 

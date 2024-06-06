@@ -1,54 +1,54 @@
+<?php include_once ('./script.php') ?>
 <!DOCTYPE html>
 <html lang="en">
     <?php $pageName = 'Sosmart - Online shopping and more' ?>
 
-    <?php include_once('header.php') ?>
+    <?php include_once ('header.php') ?>
 
     <body>
         <!-- navbar -->
-        
-        <?php 
-        include_once('pages/php/profile/fetchAll.php'); 
-        include_once('pages/php/products/fetchAll.php');
-        include_once('pages/php/category/fetchAll.php');
-        include_once('pages/php/cart/fetchAll.php');
+
+        <?php
+        include_once ('pages/php/profile/fetchAll.php');
+        include_once ('pages/php/products/fetchAll.php');
+        include_once ('pages/php/category/fetchAll.php');
+        include_once ('pages/php/cart/fetchAll.php');
         include_once ('pages/php/products/discountProduct.php');
-        include_once('navbar.php') ?>
-      <!-- LOading dialog -->
-      <div
-    class="modal d-flex align-items-center   justify-content-center"
-    tabindex="-1"
-    role="dialog"
-    id="loadingDialog"
-    data-backdrop="static"
-    data-keyboard="false"
-    style="background:#ffffff !important"
->
-    <div
-        class="modal-dialog "
-        role="document"
-    >
-        <div class="modal-content border">
-            <img
-                src="assets/images/loader.svg"
-                height="100"
-                width="100"
-                class="img-fluid m-5 "
-                alt=""
+        include_once ('navbar.php') ?>
+        <!-- LOading dialog -->
+        <div
+            class="modal d-flex align-items-center   justify-content-center"
+            tabindex="-1"
+            role="dialog"
+            id="loadingDialog"
+            data-backdrop="static"
+            data-keyboard="false"
+            style="background:#ffffff !important"
+        >
+            <div
+                class="modal-dialog "
+                role="document"
             >
+                <div class="modal-content border">
+                    <img
+                        src="assets/images/loader.svg"
+                        height="100"
+                        width="100"
+                        class="img-fluid m-5 "
+                        alt=""
+                    >
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<script>
-
-    // document.addEventListener("DOMContentLoaded", function() {
+        <script>
+        // document.addEventListener("DOMContentLoaded", function() {
         const modal = document.getElementById('loadingDialog');
         // hideDialog(true)
 
-       
-    // })
-    function hideDialog(hide) {
+
+        // })
+        function hideDialog(hide) {
             if (hide) {
                 modal.style.cssText = 'display: none !important;';
 
@@ -60,19 +60,18 @@
         }
 
 
-    document.addEventListener("DOMContentLoaded", function() {
-        // const modal = document.getElementById('loadingDialog');
-        hideDialog(true)
+        document.addEventListener("DOMContentLoaded", function() {
+            // const modal = document.getElementById('loadingDialog');
+            hideDialog(true)
 
-       
-    })
 
-</script>
-
+        })
+        </script>
 
 
 
-      <!-- end of loading dialog -->
+
+        <!-- end of loading dialog -->
 
         <!-- Modal -->
         <div
@@ -223,7 +222,9 @@
 
             <!-- Category Section Start-->
             <section class="mb-lg-10 mt-lg-14 my-8">
-                <div class="container">
+                <div class="container" style="
+    height: max-content;
+">
                     <div class="row">
                         <div class="col-12 mb-6">
                             <h3 class="mb-0">Shop By Categories</h3>
@@ -252,32 +253,35 @@
                                 if ($status == 'active') {
                                     // Display the table row for each category
                                     ?> <div class="item">
-                            <a
-                                href="pages/shop-grid.php"
-                                class="text-decoration-none text-inherit"
-                            >
-                                <div class="card border-0 shadow-none card-product mb-lg-4">
-                                    <div class="card-body text-center py-8 px-0">
-                                        <div class="rounded-circle overflow-hidden border-2 mx-auto border  card-product mb-4 "
-                                        style="background-color: rgba(0, 0, 0, 0.5);height: 100px!important ;width:100px !important;" id="categoryContainer">
+                                        <a
+                                            href="pages/shop-grid.php"
+                                            class="text-decoration-none text-inherit"
+                                        >
+                                            <div class="card border-0 shadow-none card-product mb-lg-4">
+                                                <div class="card-body text-center py-8 px-0">
+                                                    <div
+                                                        class="rounded-circle overflow-hidden border-2 mx-auto border  card-product mb-4 "
+                                                        style="background-color: rgba(0, 0, 0, 0.5);height: 100px!important ;width:100px !important;"
+                                                        id="categoryContainer"
+                                                    >
 
-                                        <img
-                                            src="<?php echo $categoryImg ?>"
-                                            alt="<?=$categoryName?>"
-                                            class="mb-3  img-fluid  p-0 card" style=" object-fit:cover!important  ; "
-                                            loading="lazy"
-                                          
-                                        />
+                                                        <img
+                                                            src="<?php echo $categoryImg ?>"
+                                                            alt="<?= $categoryName ?>"
+                                                            class="mb-3  img-fluid  p-0 card"
+                                                            style=" object-fit:cover!important  ; "
+                                                            loading="lazy"
+                                                        />
 
 
-                                        </div>
-                                        <small class="text-center  text-truncate"><?php echo $categoryName ?> </small>
+                                                    </div>
+                                                    <small class="text-center  text-truncate"><?php echo $categoryName ?> </small>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
 
-                        <?php
+                                    <?php
                                 }
                             }
                         }
@@ -302,7 +306,6 @@
                                 <div
                                     class="py-10 px-8 rounded"
                                     style="background: url('assets/images/product-showcase.jpg'); background-repeat:no-repeat; background-size: cover; background-position: center"
-
                                 >
                                     <div>
                                         <h3 class="fw-bold mb-1">Discounts Everywhere!</h3>
@@ -356,11 +359,11 @@
                     </div>
                     <div class="top-deals-slider">
                         <?php
-                       
+
                         if (count($discountProducts) > 0) {
                             // Loop through the categories array
                             foreach ($discountProducts as $product) {
-                          
+
                                 $id = $product['id'];
                                 $productName = $product['product_name'];
                                 $productCategory = $product['category'];
@@ -376,18 +379,18 @@
                                 $freeShipping = $product['free_shipping'];
                                 // Format the created_at date as dd/mm/yyyy
                                 $date = date("d/m/Y", strtotime($created_at));
-                                $percentageDiscount = number_format(calculatePercentageDiscount($regularPrice,$salesPrice),0);
+                                $percentageDiscount = number_format(calculatePercentageDiscount($regularPrice, $salesPrice), 0);
                                 if ($status == 'active') {
                                     ?> <div class="item">
-                            <a
-                                href="pages/shop-grid.php"
-                                class="text-decoration-none text-inherit"
-                            >
-                                <?php include('pages/components/discount-card.php') ?>
-                            </a>
-                        </div>
+                                        <a
+                                            href="pages/shop-grid.php"
+                                            class="text-decoration-none text-inherit"
+                                        >
+                                            <?php include ('pages/components/discount-card.php') ?>
+                                        </a>
+                                    </div>
 
-                        <?php
+                                    <?php
                                 }
                             }
                         }
@@ -401,7 +404,7 @@
 
             <!-- divider Container -->
             <section class="my-lg-14 my-8">
-           <?php //include_once('pages/components/bannerview.php')?>
+                <?php //include_once('pages/components/bannerview.php') ?>
             </section>
 
             <!-- Popular Products Start-->
@@ -436,20 +439,20 @@
                                 // Use the category name as the image file name
                                 $productImg = empty($product['product_img1']) ? 'assets/images/products/product-img-1.jpg' : $product['product_img1'];
                                 $freeShipping = $product['free_shipping'];
-                                $percentageDiscount = number_format(calculatePercentageDiscount($regularPrice,$salesPrice),0);
+                                $percentageDiscount = number_format(calculatePercentageDiscount($regularPrice, $salesPrice), 0);
                                 // Format the created_at date as dd/mm/yyyy
                                 $date = date("d/m/Y", strtotime($created_at));
                                 if ($status == 'active') {
 
                                     ?>
 
-                        <?php include('pages/components/product-card.php') ?>
+                                    <?php include ('pages/components/product-card.php') ?>
 
 
 
 
 
-                        <?php }
+                                <?php }
                             }
                         } ?>
                     </div>
@@ -457,8 +460,10 @@
             </section>
 
         </main>
-        <script src='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.min.js'>
-</script>
+        <!-- <script src='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.min.js'>
+        </script> -->
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"></script>
 
 
         <script>
@@ -474,11 +479,11 @@
         // 
         </script>
 
-        <?php include_once('pages/components/quickview.php') ?>
+        <?php include_once ('pages/components/quickview.php') ?>
 
 
         <!-- footer -->
-        <?php include_once('footer.php') ?>
+        <?php include_once ('footer.php') ?>
 
         <!-- Javascript-->
 
@@ -487,10 +492,9 @@
         <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="assets/libs/simplebar/dist/simplebar.min.js"></script>
 
-        <script src="../node_modules/axios/dist/axios.min.js"></script>
 
 
-      
+
         <!-- Theme JS -->
         <script src="assets/js/theme.min.js"></script>
 
@@ -505,16 +509,12 @@
         <script src="pages/javascript/checkAuth.js"> </script>
 
 
-        
+
         <script>
-
-
-
-
-            hideDialog(false)
-            document.addEventListener('DOMContentLoaded',function(){
-                hideDialog(true)
-            })
+        hideDialog(false)
+        document.addEventListener('DOMContentLoaded', function() {
+            hideDialog(true)
+        })
         </script>
     </body>
 

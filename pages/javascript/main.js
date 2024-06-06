@@ -17,7 +17,6 @@ function addToCart(productId, quantity = 1, reload = false) {
 
     hideDialog(false)
 
-    console.log(endPoint + addOrUpdateCartItemRoute + userId)
     axios.post(endPoint + addOrUpdateCartItemRoute + userId, formData, {
         headers: payloadRequest // Pass the headers as options
     })
@@ -131,6 +130,9 @@ function addToWishlist(productId, reload = false, event, showAlertMessage = true
     let responseStatus = ""
 
     hideDialog(false)
+
+
+
 
     axios.post(endPoint + addWishlistRoute, formData, {
             headers: payloadRequest // Pass the headers as options

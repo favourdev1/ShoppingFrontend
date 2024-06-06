@@ -22,20 +22,7 @@
                     <?php }?>
                 </div>
                 <!-- action btn -->
-                <div class="card-product-action bottom-0 mb-3">
-                    <!-- <a href="#!" class="btn-action" data-product-details='<?//php echo json_encode($product); ?>'
-                        onclick="showQuickView(this)">
-                        <i class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i>
-                    </a> -->
-                    <!-- <a href="#!" class="btn-action wishlist-Btn" 
-                    data-product-id="<?=$id?>"
-                        id="wishlist_<?= $id ?>" data-bs-toggle="tooltip" data-bs-html="true" title="Wishlist">
-                        <i class="bi bi-heart"></i>
-                    </a>
-
-                    <a href="#!" class="btn-action" data-bs-toggle="tooltip" data-bs-html="true" title="cart"><i
-                            class="bi bi-cart"></i></a> -->
-                </div>
+               
             </div>
 
             <h2 class="fs-5 mb-0">
