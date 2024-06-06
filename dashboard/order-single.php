@@ -11,7 +11,7 @@
 
     <?php include_once 'components/loadingDialog.php'; ?>
 
-
+    <?php include_once 'route.php'; ?>
     <!-- main wrapper -->
     <div class="main-wrapper">
         <!-- navbar vertical -->
@@ -225,10 +225,11 @@
     <script src="../pages/javascript/Route.js"></script>
 
 
+
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         var headers = <?php echo json_encode($payloadRequest); ?>;
-        const orderNumber = urlParams.get('order_number');
+        const orderNumber = urlParams.get('id');
         document.getElementById('delivery_status').addEventListener('change', function() {
             hideDialog(false)
             var status = this.value;
