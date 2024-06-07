@@ -245,7 +245,7 @@
                                             </div>
 
                                             <?php
-                                            if(count($tags)>0){
+                                            if($isUpdating){
                                             $tagsArray = array_map(function ($tag) {
                                                 return trim($tag->value); // trim to remove any extra spaces
                                             }, json_decode($tags));
