@@ -90,12 +90,12 @@
                                             <?php
 
                                             if ($isUpdating) { ?>
-                                                <input
-                                                    hidden
-                                                    name="id"
-                                                    value='<?php echo $_GET['id'] ?>'
-                                                >
-                                                <?php
+                                            <input
+                                                hidden
+                                                name="id"
+                                                value='<?php echo $_GET['id'] ?>'
+                                            >
+                                            <?php
                                             }
                                             ?>
                                             <!-- input -->
@@ -111,15 +111,15 @@
                                                     <?php
                                                     foreach ($Allcategories as $category) { ?>
 
-                                                        <option
-                                                            value="<?php echo $category['id'] ?>"
-                                                            <?php if ($isUpdating) {
-                                                                if ($categoryId == $category['id']) {
-                                                                    echo "selected";
-                                                                }
-                                                            } ?>
-                                                        >
-                                                            <?php echo $category['category_name'] ?></option>
+                                                    <option
+                                                        value="<?php echo $category['id'] ?>"
+                                                        <?php if ($isUpdating) {
+                                                                    if ($categoryId == $category['id']) {
+                                                                        echo "selected";
+                                                                    }
+                                                                } ?>
+                                                    >
+                                                        <?php echo $category['category_name'] ?></option>
                                                     <?php }
                                                     ?>
 
@@ -171,6 +171,7 @@
                                                             $isUpdating ? $productImg2 : '../assets/images/icons/placeholder.webp',
                                                             $isUpdating ? $productImg3 : '../assets/images/icons/placeholder.webp',
                                                             $isUpdating ? $productImg4 : '../assets/images/icons/placeholder.webp',
+
                                                         ];
 
                                                         for ($i = 0; $i < 4; $i++) {
@@ -178,52 +179,55 @@
                                                             $uniqueId = "image" . ($i + 1);
                                                             $categoryImg = isset($imageUrls[$i]) && !empty($imageUrls[$i]) ? $imageUrls[$i] : '../assets/images/icons/placeholder.webp';
                                                             $productImageName = "product_img" . $i + 1;
+                                                            $imageId = "srcImage" . $i + 1;
 
                                                             ?>
 
+                                                        <div
+                                                            class="position-relative mx-2"
+                                                            style="width:max-content"
+                                                        >
+                                                            <img
+                                                                id="<?php echo $imageId; ?>"
+                                                                class="image icon-shape icon-xxxl bg-light rounded-4 border"
+                                                                src="<?php echo $categoryImg ?: "../assets/images/icons/placeholder.webp"; ?>"
+                                                                style="object-fit:contain"
+                                                                alt="<?php echo $uniqueAlt; ?>"
+                                                            />
                                                             <div
-                                                                class="position-relative mx-2"
-                                                                style="width:max-content"
-                                                            >
-                                                                <img
-                                                                    class="image icon-shape icon-xxxl bg-light rounded-4 border"
-                                                                    src="<?php echo $categoryImg ?: "../assets/images/icons/placeholder.webp"; ?>"
-                                                                    alt="<?php echo $uniqueAlt; ?>"
+                                                                class="file-upload position-absolute end-0 top-0 mt-n2 me-n1">
+                                                                <input
+                                                                    id="<?php echo $uniqueId; ?>"
+                                                                    accept=".jpg, .jpeg, .png, .webpg"
+                                                                    type="file"
+                                                                    name="<?php echo $uniqueId; ?>"
+                                                                    class="file-input"
                                                                 />
-                                                                <div
-                                                                    class="file-upload position-absolute end-0 top-0 mt-n2 me-n1">
-                                                                    <input
-                                                                        id="<?php echo $uniqueId; ?>"
-                                                                        accept=".jpg, .jpeg, .png, .webpg"
-                                                                        type="file"
-                                                                        name="<?php echo $uniqueId; ?>"
-                                                                        class="file-input"
-                                                                    />
-                                                                    <input
-                                                                        hidden
-                                                                        id="<?php echo $productImageName; ?>"
-                                                                        type="text"
-                                                                        value="<?php echo $categoryImg ?>"
-                                                                        name="<?php echo $productImageName; ?>"
-                                                                        class=""
-                                                                    />
-                                                                    <span
-                                                                        class="icon-shape icon-sm rounded-circle bg-white">
-                                                                        <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="12"
-                                                                            height="12"
-                                                                            fill="currentColor"
-                                                                            class="bi bi-pencil-fill text-muted"
-                                                                            viewBox="0 0 16 16"
-                                                                        >
-                                                                            <path
-                                                                                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-                                                                            />
-                                                                        </svg>
-                                                                    </span>
-                                                                </div>
+                                                                <input
+                                                                    hidden
+                                                                    id="<?php echo $productImageName; ?>"
+                                                                    type="text"
+                                                                    value="<?php echo $categoryImg ?>"
+                                                                    name="<?php echo $productImageName; ?>"
+                                                                    class=""
+                                                                />
+                                                                <span
+                                                                    class="icon-shape icon-sm rounded-circle bg-white">
+                                                                    <svg
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        width="12"
+                                                                        height="12"
+                                                                        fill="currentColor"
+                                                                        class="bi bi-pencil-fill text-muted"
+                                                                        viewBox="0 0 16 16"
+                                                                    >
+                                                                        <path
+                                                                            d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
+                                                                        />
+                                                                    </svg>
+                                                                </span>
                                                             </div>
+                                                        </div>
 
                                                         <?php } ?>
 
@@ -245,14 +249,14 @@
                                             </div>
 
                                             <?php
-                                            if($isUpdating){
-                                            $tagsArray = array_map(function ($tag) {
-                                                return trim($tag->value); // trim to remove any extra spaces
-                                            }, json_decode($tags));
+                                            if ($isUpdating) {
+                                                $tagsArray = array_map(function ($tag) {
+                                                    return trim($tag->value); // trim to remove any extra spaces
+                                                }, json_decode($tags));
 
-                                        } else {
-                                            $tagsArray = [];
-                                        }
+                                            } else {
+                                                $tagsArray = [];
+                                            }
                                             ?>
                                             <div class="mb-3 col-lg-12 mt-5">
                                                 <h4 class="mb-3 h5">Tags</h4>
@@ -691,70 +695,143 @@
         </script>
 
         <script>
-        const image1 = document.getElementById('image1')
-        const image2 = document.getElementById('image2')
-        const image3 = document.getElementById('image3')
-        const image4 = document.getElementById('image4')
-        var token = "<?php echo $token ?>"
+        // const image1 = document.getElementById('image1')
+        // const image2 = document.getElementById('image2')
+        // const image3 = document.getElementById('image3')
+        // const image4 = document.getElementById('image4')
+        // var token = "<?php echo $token ?>"
+        // var headers = {
+        //     Accept: "application/json",
+        //     Cookie: "access_token=" + token,
+        //     Authorization: "Bearer " + token,
+        //     'Content-Type': 'multipart/form-data'
+        // };
+        const alertHub = new AlertHub();
+
+        // image1.addEventListener('change', function(event) {
+        //     handleFileSelect('product_img1', event)
+        // });
+        // image2.addEventListener('change', function(event) {
+        //     handleFileSelect('product_img2', event)
+        // });
+        // image3.addEventListener('change', function(event) {
+        //     handleFileSelect('product_img3', event)
+        // });
+        // image4.addEventListener('change', function(event) {
+        //     handleFileSelect('product_img4', event)
+        // });
+
+
+        // function handleFileSelect(elementName, event) {
+        //     console.log(elementName)
+        //     const selectedFile = event.target.files[0];
+        //     if (selectedFile) {
+        //         uploadFile(selectedFile, elementName);
+        //     }
+        // }
+
+        // function uploadFile(file, elementName) {
+
+        //     const formData = new FormData();
+        //     formData.append('image', file);
+
+
+
+        //     // console.log(elementName)
+        //     var imgUrlelement = document.getElementById(elementName)
+        //     // var errorImg = document.getElementById('errorImage')
+
+
+        //     axios.post('<?php echo $apiUrl ?>/products/upload-image', formData, {
+        //             headers: headers,
+        //         })
+        //         .then(response => {
+        //             // Handle the success response here
+        //             console.log('File uploaded successfully:', response);
+        //             // errorImg.hidden = true
+        //             const imageUrl = response.data.data.image_url;
+        //             console.log('Image URL:', imageUrl);
+        //             imgUrlelement.value = imageUrl
+
+
+        //         })
+        //         .catch(error => {
+        //             alertHub.showAlert({
+        //                 title: "",
+        //                 description: error + " ",
+        //                 position: "top-right",
+        //                 type: "danger",
+        //                 timeout: 7,
+        //                 closeButton: false,
+        //                 closeButtonSize: 20,
+        //                 animation: "fade-in",
+        //             });
+        //         });
+        // }
+
+
+
+
+
+
+        const image1 = document.getElementById('image1');
+        const image2 = document.getElementById('image2');
+        const image3 = document.getElementById('image3');
+        const image4 = document.getElementById('image4');
+        var token = "<?php echo $token ?>";
         var headers = {
             Accept: "application/json",
             Cookie: "access_token=" + token,
             Authorization: "Bearer " + token,
             'Content-Type': 'multipart/form-data'
         };
-        const alertHub = new AlertHub();
 
         image1.addEventListener('change', function(event) {
-            handleFileSelect('product_img1', event)
+            handleFileSelect('product_img1', event, 'image1');
         });
         image2.addEventListener('change', function(event) {
-            handleFileSelect('product_img2', event)
+            handleFileSelect('product_img2', event, 'image2');
         });
         image3.addEventListener('change', function(event) {
-            handleFileSelect('product_img3', event)
+            handleFileSelect('product_img3', event, 'image3');
         });
         image4.addEventListener('change', function(event) {
-            handleFileSelect('product_img4', event)
+            handleFileSelect('product_img4', event, 'image4');
         });
 
-
-        function handleFileSelect(elementName, event) {
-            console.log(elementName)
+        function handleFileSelect(elementName, event, imgElementId) {
+            // console.log(imgElementId);
             const selectedFile = event.target.files[0];
+
+            const imgElement = document.getElementById(imgElementId);
+            const originalSrc = imgElement.src;
+
+
             if (selectedFile) {
-                uploadFile(selectedFile, elementName);
+                uploadFile(selectedFile, elementName, imgElement, originalSrc);
             }
         }
 
-        function uploadFile(file, elementName) {
-
+        function uploadFile(file, elementName, imgElement, originalSrc) {
             const formData = new FormData();
             formData.append('image', file);
 
-
-
-            // console.log(elementName)
-            var imgUrlelement = document.getElementById(elementName)
-            // var errorImg = document.getElementById('errorImage')
-
+            var imgUrlelement = document.getElementById(elementName);
 
             axios.post('<?php echo $apiUrl ?>/products/upload-image', formData, {
                     headers: headers,
                 })
                 .then(response => {
-                    // Handle the success response here
                     console.log('File uploaded successfully:', response);
-                    // errorImg.hidden = true
                     const imageUrl = response.data.data.image_url;
                     console.log('Image URL:', imageUrl);
-                    imgUrlelement.value = imageUrl
-
-
+                    imgUrlelement.value = imageUrl;
+                    imgElement.src = imageUrl;
                 })
                 .catch(error => {
                     alertHub.showAlert({
                         title: "",
-                        description: error + " ",
+                        description: "Unable to upload image  ",
                         position: "top-right",
                         type: "danger",
                         timeout: 7,
@@ -762,8 +839,22 @@
                         closeButtonSize: 20,
                         animation: "fade-in",
                     });
+                    srcImgPath = imgElement.id
+                    srcImagepathvalue = srcImgPath.match(/\d+/g)
+                    srcImagepathvalue = srcImagepathvalue.join('');
+                    // console.log(typeof(srcImgPath))
+                    // console.log( srcImagepathvalue)
+
+                    imgElementsrc = document.getElementById('srcImage' + srcImagepathvalue)
+                    imgElementsrc.src = "../assets/images/icons/placeholder.webp";
                 });
         }
+
+
+
+
+
+
 
         // tax variables 
         const tax_cost_container = document.getElementById('tax_cost_container')
@@ -854,9 +945,15 @@
                     })
                     .catch(function(error) {
                         console.log(error)
+                        let myError = "Error saving product";
+                        if (error.response.data.status == "error") {
+                            myError = error.response.data.message
+                        console.log(myError)
+                        }
+           
                         alertHub.showAlert({
                             title: "",
-                            description: error,
+                            description: myError +"",
                             position: "top-right",
                             type: "danger",
                             timeout: 7,
