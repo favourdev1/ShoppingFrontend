@@ -198,7 +198,7 @@
                                                                 class="file-upload position-absolute end-0 top-0 mt-n2 me-n1">
                                                                 <input
                                                                     id="<?php echo $uniqueId; ?>"
-                                                                    accept=".jpg, .jpeg, .png, .webp, .gif"
+                                                                    accept=".jpg, .jpeg, .png, .webp, .gif, .bmp, .svg, .tiff, .ico"
                                                                     type="file"
                                                                     name="<?php echo $uniqueId; ?>"
                                                                     class="file-input"
