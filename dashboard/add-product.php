@@ -841,7 +841,7 @@ alertHub.showAlert({
                 .catch(error => {
                     alertHub.showAlert({
                         title: "",
-                        description: "Unable to upload image  ",
+                        description: "Unable to upload image  "+error.response.data.message,
                         position: "top-right",
                         type: "danger",
                         timeout: 7,
