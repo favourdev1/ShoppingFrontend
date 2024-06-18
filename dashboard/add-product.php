@@ -827,6 +827,16 @@
                     console.log('Image URL:', imageUrl);
                     imgUrlelement.value = imageUrl;
                     imgElement.src = imageUrl;
+alertHub.showAlert({
+                        title: "",
+                        description: "uploaded successfully  ",
+                        position: "top-right",
+                        type: "success",
+                        timeout: 7,
+                        closeButton: false,
+                        closeButtonSize: 20,
+                        animation: "fade-in",
+                    });
                 })
                 .catch(error => {
                     alertHub.showAlert({
