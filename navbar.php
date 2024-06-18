@@ -314,6 +314,16 @@
                                     class="dropdown-item fs-6"
                                     href="#"
                                 >Inbox</a>
+
+ <?php if (isAdmin() && isAdmin() != null) { ?>
+                            
+                                <a
+                                    class="dropdown-item fs-6"
+                                    href="dashboard/index.php"
+                                >Admin Dashboard</a>
+                            
+
+                            <?php } ?>
                                 <a
                                     class="dropdown-item fs-6"
                                     href="pages/shop-wishlist.php"
