@@ -13,7 +13,7 @@
                     <!-- img -->
                     <img
                         src="<?php echo $productImg ?>"
-                        alt="<?= $productName; ?>"
+                        alt="<?php echo $productName; ?>"
                         class="mb-3 img-fluid rounded-4 w-100  "
                         style="background-color: rgba(0, 0, 0, 0.04); height: 208px !important; width: 208px; "
                     />
@@ -35,7 +35,7 @@
                     <?php }?>
                 </div>
                 <!-- action btn -->
-                <div class="card-product-action bottom-0 mb-3">
+                <!-- <div class="card-product-action bottom-0 mb-3">
                     <a
                         href="#!"
                         class="btn-action"
@@ -51,7 +51,7 @@
                     </a>
                     <a
                         href="#!"
-                        onclick="addToWishlist(<?=$product_id?>,false,event)"
+                        onclick="addToWishlist(<?php echo$product_id?>,false,event)"
                         class="btn-action"
                         data-bs-toggle="tooltip"
                         data-bs-html="true"
@@ -66,7 +66,7 @@
                         data-bs-html="true"
                         title="cart"
                     ><i class="bi bi-cart"></i></a>
-                </div>
+                </div> -->
             </div>
       
             <h2 class="fs-5 mb-0">
@@ -100,7 +100,7 @@
                             class="small  fw-100 "
                             style="font-size:12px"
                         >
-                            <?= CURRENCY; ?>
+                            <?php echo CURRENCY; ?>
                         </span>
                         <span class="fs-5">
 
@@ -113,7 +113,7 @@
                             class="small   "
                             style="font-size:12px"
                         >
-                            <?= CURRENCY; ?>
+                            <?php echo CURRENCY; ?>
                         </span>
                         <?php echo number_format($regularPrice) ?>
                     </span>
