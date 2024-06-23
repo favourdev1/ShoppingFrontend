@@ -198,7 +198,7 @@
                                                                 class="file-upload position-absolute end-0 top-0 mt-n2 me-n1">
                                                                 <input
                                                                     id="<?php echo $uniqueId; ?>"
-                                                                    accept=".jpg, .jpeg, .png, .webpg"
+                                                                    accept=".jpg, .jpeg, .png, .webp, .gif, .bmp, .svg, .tiff, .ico"
                                                                     type="file"
                                                                     name="<?php echo $uniqueId; ?>"
                                                                     class="file-input"
@@ -827,11 +827,21 @@
                     console.log('Image URL:', imageUrl);
                     imgUrlelement.value = imageUrl;
                     imgElement.src = imageUrl;
+alertHub.showAlert({
+                        title: "",
+                        description: "uploaded successfully  ",
+                        position: "top-right",
+                        type: "success",
+                        timeout: 7,
+                        closeButton: false,
+                        closeButtonSize: 20,
+                        animation: "fade-in",
+                    });
                 })
                 .catch(error => {
                     alertHub.showAlert({
                         title: "",
-                        description: "Unable to upload image  ",
+                        description: "Unable to upload image  "+error.response.data.message,
                         position: "top-right",
                         type: "danger",
                         timeout: 7,
