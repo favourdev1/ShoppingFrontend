@@ -229,7 +229,7 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         var headers = <?php echo json_encode($payloadRequest); ?>;
-        const orderNumber = urlParams.get('id');
+        const orderNumber = urlParams.get('order_number');
         document.getElementById('delivery_status').addEventListener('change', function() {
             hideDialog(false)
             var status = this.value;
