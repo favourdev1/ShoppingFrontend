@@ -537,7 +537,7 @@
 
                 if (response.data.status == 'success') {
                     // Save the value in the variable
-                    allAdminSettingsGlobal = response.data.data                    setAccountInformation(0)
+                    allAdminSettingsGlobal = response.data.data ;                   setAccountInformation(0);
                     // Output or process the settings as needed
                     console.log(allAdminSettingsGlobal); // Example of outputting the data
                 } else {
