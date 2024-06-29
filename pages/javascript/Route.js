@@ -77,7 +77,7 @@ const adminProductUploadImageRoute = '/admin/products/upload-image';
 const adminProductDeleteRoute = '/admin/products/delete/';
 
 //admin settings 
-const adminSettingsRoute = '/admin_settings';
+const adminSettingsRoute = '/admin_settings/';
 const updateofficeRoute = '/office/address';
 const updateShippingcostRoute = '/shipping/cost';
 
