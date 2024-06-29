@@ -2,7 +2,7 @@
 var endPoint = 'https://api.sosmartshopping.com/public/api';
 var websiteurl = 'https://sosmartshopping.com';
 // Authentication routes
-const registerRoute = '/register';
+registerRoute = '/register';
 const loginRoute = '/login';
 const getUserRoute = '/get-user';
 
