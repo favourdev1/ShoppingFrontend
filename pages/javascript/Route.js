@@ -46,6 +46,7 @@ const deleteWishlistRoute = '/wishlists/delete/';
 
 // payment route
 const paymentRoute = '/payment';
+const paymentInformationRoute = '/settings/paymentInformation';
 const sendPayment = '/payments/add';
 
 // Address routes

@@ -230,20 +230,20 @@
 
                                         <div class="row row-cols align-items-center justify-content-center ">
                                             <div
-                                                class=" border rounded-3 m-4 p-4"
+                                                class="payment-option border rounded-3 m-4 p-4"
                                                 style="width:max-content"
                                             >
                                                 <img
                                                     src="../assets/images/orange.png"
                                                     class="img-fluid"
                                                     width="100"
-                                                    alt="mpesa logo"
+                                                    alt="orangemoney logo"
                                                 >
-                                                <p class="text-center pb-0 mb-0 fw-bold">Mpesa</p>
+                                                <p class="text-center pb-0 mb-0 fw-bold">Orange Money</p>
 
                                             </div>
                                             <div
-                                                class=" border rounded-3 m-4 p-4 "
+                                                class="payment-option border rounded-3 m-4 p-4 "
                                                 style="width:max-content"
                                             >
                                                 <img
@@ -255,6 +255,32 @@
                                                 <p class="text-center pb-0 mb-0 fw-bold">Mpesa</p>
                                             </div>
                                         </div>
+                                        <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const paymentOptions = document.querySelectorAll('.payment-option');
+                                            const optionsArray = Array.from(paymentOptions);
+                                            paymentOptions.forEach(option => {
+                                                option.addEventListener('click', function() {
+                                                    // Remove 'border-primary' class from all options
+                                                    paymentOptions.forEach(opt => {
+                                                        opt.classList.remove(
+                                                            'border-primary');
+                                                        opt.classList.remove('border-2')
+
+                                                        opt.classList.add('border');
+                                                    });
+
+                                                    // Find the index of the clicked item
+                                                    const clickedIndex = optionsArray.indexOf(
+                                                        this);
+                                                    setAccountInformation(clickedIndex)
+                                                    this.classList.add('border-2');
+                                                    this.classList.add('border-primary');
+                                                });
+                                            });
+                                        });
+                                        </script>
+
 
 
                                         <!-- <div class="card mb-2"> -->
@@ -273,14 +299,14 @@
                                                 <div class="me-auto">
                                                     <div>Account Number</div>
                                                 </div>
-                                                <span>0892128066 </span>
+                                                <span id="accountNumber"> </span>
                                             </li>
                                             <li
                                                 class="list-group-item px-0 py-3 d-flex justify-content-between align-items-start">
                                                 <div class="me-auto">
                                                     <div>Account Name</div>
                                                 </div>
-                                                <span>Jachike Onuigbo</span>
+                                                <span id="accountName">Jachike Onuigbo</span>
                                             </li>
 
 
@@ -498,24 +524,28 @@
 
 
 
-        axios.get(endPoint  + adminSettingsRoute, {
-                headers: payloadRequest
-            })
-            .then(response => {
-                // Check the HTTP status code
-                console.log(response);
-                // Handle success
-                if (response.data.status == 'success') {
-                    const allAdminSettings = response.data.data.admin_settings;
+        // Declare a variable at a higher scope
+        let allAdminSettingsGlobal;
 
+        async function fetchAdminSettings() {
+            try {
+                const response = await axios.get(endPoint + paymentInformationRoute, {
+                    headers: payloadRequest
+                });
+
+                console.log(response); // Log the full response
+
+                if (response.data.status == 'success') {
+                    // Save the value in the variable
+                    allAdminSettingsGlobal = response.data.data.admin_settings;
+                    setAccountInformation(0)
                     // Output or process the settings as needed
-                    console.log(allAdminSettings); // Example of outputting the data
+                    console.log(allAdminSettingsGlobal); // Example of outputting the data
                 } else {
                     // Handle non-successful responses
                     console.error(`Error Status Code: ${response.status}`);
                 }
-            })
-            .catch(error => {
+            } catch (error) {
                 // Handle errors in the request itself (e.g., network errors)
                 if (error.response) {
                     // The request was made and the server responded with a status code
@@ -529,7 +559,24 @@
                     // Something happened in setting up the request that triggered an Error
                     console.error("Error", error.message);
                 }
-            });
+            }
+        }
+
+        // Call the function to fetch admin settings
+        fetchAdminSettings();
+
+        function setAccountInformation(index = 0) {
+            const accountNumber = document.getElementById('accountNumber');
+            const accountName = document.getElementById('accountName');
+            if (index == 0) {
+                accountNumber.textContent = allAdminSettingsGlobal.account_number_1;
+                accountName.textContent = allAdminSettingsGlobal.account_name_1;
+
+            } else if (index == 1) {
+                accountNumber.textContent = allAdminSettingsGlobal.account_number_2;
+                accountName.textContent = allAdminSettingsGlobal.account_name_2;
+            }
+        }
         </script>
 
 
