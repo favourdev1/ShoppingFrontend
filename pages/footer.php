@@ -5,7 +5,7 @@
 
 
 
-
+<?php include_once ('php/category/fetchAll.php')?>
 
 <footer class="footer pt-3">
 
