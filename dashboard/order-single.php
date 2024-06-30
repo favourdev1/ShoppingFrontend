@@ -306,7 +306,7 @@ console.log(responseInfo.payment_info)
                 } else {
                     document.getElementById('paymentUploaded').textContent = "Uploaded"
                     document.getElementById('viewPaymentButton').addEventListener('click', function() {
-                        window.location.href = websiteurl + "images/" + payment.image
+                        window.location.href =  payment.image
                     })
                     document.getElementById('payment_status').value = capitalizeFirstLetter(payment_status)
                 }
