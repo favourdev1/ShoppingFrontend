@@ -99,7 +99,7 @@
                                                     <input
                                                         id="pickImage"
                                                         type="file"
-                                                        accept=".jepg,.png,.jpg"
+                                                        accept=".jpeg,.png,.jpg"
                                                         name="image"
                                                         class="file-input"
                                                     />
