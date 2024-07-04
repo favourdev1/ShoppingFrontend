@@ -170,6 +170,7 @@
         });
     }
 
+    <?php include_once('php/seo.php')?>
   
     
   

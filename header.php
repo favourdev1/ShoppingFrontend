@@ -1,9 +1,12 @@
 <head>
 
-<meta http-equiv="Content-Language" content="fr" />
+    <meta
+        http-equiv="Content-Language"
+        content="fr"
+    />
 
 
-<?php include_once('env.php'); ?>
+    <?php include_once('env.php'); ?>
 
     <?php $apiUrl = $API_URL; ?>
     <?php include_once('pages/php/config.php') ?>
@@ -17,6 +20,8 @@
         content="Sosmart"
         name="author"
     />
+
+
     <title><?php echo $pageName ?></title>
 
     <link
@@ -61,7 +66,7 @@
 
 
     <script>
-    var apiUrl = '<?php echo $API_URL?>';
+        var apiUrl = '<?php echo $API_URL?>';
     </script>
 
 
@@ -73,7 +78,7 @@
 
     </script>
     <script src="pages/javascript/config.js"></script>
-<script src="pages/javascript/Route.js"></script>
+    <script src="pages/javascript/Route.js"></script>
 
     <?php
     include_once('pages/php/checkAuth.php');
@@ -127,19 +132,19 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
     ></script>
     <style>
-    body {
-        font-family: 'Nunito', sans-serif !important;
-    }
+        body {
+            font-family: 'Nunito', sans-serif !important;
+        }
 
-    .title-container {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-height: 5em;
-        /* Adjust the height as needed */
-    }
+        .title-container {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 5em;
+            /* Adjust the height as needed */
+        }
     </style>
     <?php
     if (!if_Authenticated()) {
@@ -151,7 +156,7 @@
     }
     ?>
 
-<link
+    <link
         rel="stylesheet"
         href="node_modules/alerthub/dist/css/Alerthub.min.css"
     >
@@ -167,44 +172,44 @@
 
 
     <script>
-    /**
-     * Displays an alert message.
-     * @param {string} message - The message to be displayed in the alert.
-     * @param {string} status - The status of the alert ('success' or 'error').
-     * @param {number} [time=5]
-     */
-    function showAlert(message, status, time = 8) {
-        const alertHub = new AlertHub();
-        alertHub.showAlert({
-            title: "",
-            description: message + "    ",
-            position: "top-right",
-            type: status === 'success' ? 'success' : 'danger',
-            timeout: time,
-            closeButton: false,
-            closeButtonSize: 20,
-            animation: "fade-in",
-        });
-    }
-
-  
-    
-  
+        /**
+         * Displays an alert message.
+         * @param {string} message - The message to be displayed in the alert.
+         * @param {string} status - The status of the alert ('success' or 'error').
+         * @param {number} [time=5]
+         */
+        function showAlert(message, status, time = 8) {
+            const alertHub = new AlertHub();
+            alertHub.showAlert({
+                title: "",
+                description: message + "    ",
+                position: "top-right",
+                type: status === 'success' ? 'success' : 'danger',
+                timeout: time,
+                closeButton: false,
+                closeButtonSize: 20,
+                animation: "fade-in",
+            });
+        }
     </script>
 
-<script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-<script>
-        
-  
-function loadGoogleTranslate() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'en', // replace 'en' with the language your page is currently in
-        includedLanguages: 'fr', // replace with the languages you want to include
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-}
+    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', // replace 'en' with the language your page is currently in
+                includedLanguages: 'fr', // replace with the languages you want to include
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
 
-window.onload = loadGoogleTranslate;
+        window.onload = loadGoogleTranslate;
+    </script>
 
-</script>
+
+
+
+
+    <?php include_once('pages/php/seo.php')?>
+
 </head>
