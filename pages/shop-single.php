@@ -59,27 +59,27 @@ $pageName = $productName . ' | Sosmart Online shopping and more! ';
                                 style="background-image: url(<?php echo $productImg1; ?>); background-repeat:no-repeat">
                                 <!-- img -->
 
-                                <img src="<?php echo $productImg1; ?>" alt="" />
+                                <img src="<?php echo $productImg1; ?>" style="max-height:370px; min-height:370px;object-fit:cover; border-radius:10px" alt="" />
                             </div>
                             <div>
                                 <div class="zoom" onmousemove="zoom(event)"
                                     style="background-image: url(<?php echo $productImg2; ?>); background-repeat:no-repeat">
                                     <!-- img -->
-                                    <img src="<?php echo $productImg2; ?>" alt="" />
+                                    <img src="<?php echo $productImg2; ?>" style="max-height:370px; min-height:370px;object-fit:cover; border-radius:10px" alt="" />
                                 </div>
                             </div>
                             <div>
                                 <div class="zoom" onmousemove="zoom(event)"
                                     style="background-image: url(<?php echo $productImg3; ?>); background-repeat:no-repeat">
                                     <!-- img -->
-                                    <img src="<?php echo $productImg3; ?>" alt="" />
+                                    <img src="<?php echo $productImg3; ?>" style="max-height:370px; min-height:370px;object-fit:cover; border-radius:10px" alt="" />
                                 </div>
                             </div>
                             <div>
                                 <div class="zoom" onmousemove="zoom(event)"
                                     style="background-image: url(<?php echo $productImg4; ?>); background-repeat:no-repeat">
                                     <!-- img -->
-                                    <img src="<?php echo $productImg4; ?>" alt="" />
+                                    <img src="<?php echo $productImg4; ?>" style="max-height:370px; min-height:370px;object-fit:cover; border-radius:10px" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@ $pageName = $productName . ' | Sosmart Online shopping and more! ';
                                 <div class="col-3">
                                     <div class="thumbnails-img border rounded">
                                         <!-- img -->
-                                        <img src="<?php echo $productImg1; ?>" alt="" />
+                                        <img src="<?php echo $productImg1; ?>" style="max-height:70px; min-height:70px; object-fit:cover" alt="" />
                                     </div>
                                 </div>
 
@@ -99,7 +99,7 @@ $pageName = $productName . ' | Sosmart Online shopping and more! ';
                                 <div class="col-3">
                                     <div class="thumbnails-img border rounded">
                                         <!-- img -->
-                                        <img src="<?php echo $productImg2; ?>" alt="" />
+                                        <img src="<?php echo $productImg2; ?>" style="max-height:70px; min-height:70px; object-fit:cover" alt="" />
                                     </div>
                                 </div>
                                 <?php } ?>
@@ -107,7 +107,7 @@ $pageName = $productName . ' | Sosmart Online shopping and more! ';
                                 <div class="col-3">
                                     <div class="thumbnails-img border rounded">
                                         <!-- img -->
-                                        <img src="<?php echo $productImg3; ?>" alt="" />
+                                        <img src="<?php echo $productImg3; ?>" style="max-height:70px; min-height:70px; object-fit:cover" alt="" />
                                     </div>
                                 </div>
                                 <?php } ?>
@@ -115,7 +115,7 @@ $pageName = $productName . ' | Sosmart Online shopping and more! ';
                                 <div class="col-3">
                                     <div class="thumbnails-img border rounded">
                                         <!-- img -->
-                                        <img src="<?php echo $productImg4; ?>" alt="" />
+                                        <img src="<?php echo $productImg4; ?>" style="max-height:70px; min-height:70px; object-fit:cover" alt="" />
                                     </div>
                                 </div>
                                 <?php } ?>
